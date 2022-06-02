@@ -6,10 +6,30 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
+ 
+    
 @main
 struct sayarApp: App {
+    
+    //Firbase  initialization code
+    init(){ FirebaseApp.configure()}
+    
+    
     var body: some Scene {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         WindowGroup {
             ContentView()
         }
