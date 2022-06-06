@@ -11,6 +11,7 @@
 		020A13F3283D3671007C9ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A13F2283D3671007C9ECE /* ContentView.swift */; };
 		020A13F5283D3674007C9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F4283D3674007C9ECE /* Assets.xcassets */; };
 		020A13F8283D3674007C9ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F7283D3674007C9ECE /* Preview Assets.xcassets */; };
+		D82EA9F6284DFF2F000F7DF5 /* AddFuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82EA9F5284DFF2F000F7DF5 /* AddFuelViewController.swift */; };
 		E817C9BC2844DDC4000E2105 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */; };
 		E817C9BF2844E009000E2105 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9BE2844E009000E2105 /* FirebaseAuth */; };
 		E817C9C12844E009000E2105 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C02844E009000E2105 /* FirebaseDatabase */; };
@@ -28,6 +29,7 @@
 		020A13F2283D3671007C9ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		020A13F4283D3674007C9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		020A13F7283D3674007C9ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D82EA9F5284DFF2F000F7DF5 /* AddFuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelViewController.swift; sourceTree = "<group>"; };
 		E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8D1EC3128476F240035C5B3 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		020A13EF283D3671007C9ECE /* sayar */ = {
 			isa = PBXGroup;
 			children = (
+				D82EA9F4284DFC2F000F7DF5 /* DashBoard */,
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				E8D1EC3128476F240035C5B3 /* TabView.swift */,
 				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
@@ -88,6 +91,14 @@
 				020A13F7283D3674007C9ECE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D82EA9F4284DFC2F000F7DF5 /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D82EA9F5284DFF2F000F7DF5 /* AddFuelViewController.swift */,
+			);
+			path = DashBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
 				E8D1EC3228476F240035C5B3 /* TabView.swift in Sources */,
 				E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */,
+				D82EA9F6284DFF2F000F7DF5 /* AddFuelViewController.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
 			);
