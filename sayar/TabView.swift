@@ -8,18 +8,66 @@
 import SwiftUI
 
 struct TabView: View {
-    var body: some View {
-        
+    
+    @State var selection = 0
 
-
-        
-        
-        
-        
-        
-        
-        
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+     
+         
+   
+     var body: some View {
+       
+         NavigationView{
+             
+             TabView(selection: $selection)
+             {
+                 HomeCarViewModel()
+                     .tabItem {
+                       Text("home")
+                        Image("Icon")
+                             .renderingMode(.template)
+                             .resizable()
+                             .frame(width: 25, height: 24)
+                    
+                         
+                     }
+                     .tag(0)
+                   
+                 HomeCarViewModel()
+                     .tabItem {
+                      Text("reports")
+                   
+                          Image("Icon")
+                               .resizable()
+                               .frame(width: 25, height: 24)
+                         
+                               .tint(.green)
+                     }
+                     .tag(1)
+                     
+                 
+                 
+             }
+             
+             
+             
+         
+             .accentColor(.red)
+          
+             
+             
+             
+             
+             
+             
+             
+         }//nav
+    
+     
+          
+    
+     
+     
+     
     }
 }
 
