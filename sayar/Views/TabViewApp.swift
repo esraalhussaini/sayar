@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct TabViewApp: View {
+   
+    //Line Shadow tab bar
+    func setupTabBar() {
+            let appearance = UITabBarAppearance()
+            appearance.shadowColor = .gray
+            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+            appearance.backgroundColor = UIColor.white
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+
+        init() {
+            setupTabBar()
+        }
+    
+    
+    
+    
+    
+    
     
     
     
     @State var selection = 0
-   
-   
+ 
 
      var body: some View {
        
