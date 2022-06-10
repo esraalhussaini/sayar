@@ -12,10 +12,9 @@ struct TabViewApp: View {
     
     
     @State var selection = 0
-
-     
-         
    
+   
+
      var body: some View {
        
          NavigationView{
@@ -37,7 +36,7 @@ struct TabViewApp: View {
                      .tabItem {
                       Text("Reports")
                      
-                          Image("TPie")
+                          Image("Pie")
                              .renderingMode(.template)
                                 .resizable()
                                .frame(width: 25, height: 24)
@@ -52,7 +51,7 @@ struct TabViewApp: View {
                      .tabItem {
                       Text("Account")
                    
-                          Image("Pie")
+                          Image("TabIconAccount")
                              .renderingMode(.template)
                                .resizable()
                                .frame(width: 25, height: 24)
@@ -114,3 +113,6 @@ struct TabViewApp_Previews: PreviewProvider {
         TabViewApp()
     }
 }
+
+
+

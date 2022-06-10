@@ -71,11 +71,10 @@
 		020A13EF283D3671007C9ECE /* sayar */ = {
 			isa = PBXGroup;
 			children = (
-				D82EA9F7284F2F95000F7DF5 /* Views */,
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
-				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
-				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
-				E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */,
+				020A13F2283D3671007C9ECE /* ContentView.swift */,
+				D82EA9F7284F2F95000F7DF5 /* Views */,
+				E8F3C85B285380DA008E131E /* Model */,
 				020A13F4283D3674007C9ECE /* Assets.xcassets */,
 				E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */,
 				020A13F6283D3674007C9ECE /* Preview Content */,
@@ -94,6 +93,7 @@
 		D82EA9F4284DFC2F000F7DF5 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */,
 				D82EA9F8284F32E9000F7DF5 /* AddFuel View.swift */,
 			);
 			path = DashBoard;
@@ -102,11 +102,19 @@
 		D82EA9F7284F2F95000F7DF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D82EA9F4284DFC2F000F7DF5 /* DashBoard */,
-				020A13F2283D3671007C9ECE /* ContentView.swift */,
+				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
+				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
 				E80E90F72851534A00FE624F /* TabViewApp.swift */,
+				D82EA9F4284DFC2F000F7DF5 /* DashBoard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E8F3C85B285380DA008E131E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

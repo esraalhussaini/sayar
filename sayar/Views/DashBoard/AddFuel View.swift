@@ -10,10 +10,12 @@ import SwiftUI
 struct AddFuel_View: View {
     
     var body: some View {
+       
+      
         
         VStack{
            
-
+            Text("لازم نص لان طالع ايرور مافيه كود حطيته بشكل مؤقت")
             
             
             
