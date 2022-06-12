@@ -36,27 +36,31 @@ struct AddFuel_View: View {
             
         }
         .toolbar{
-            ToolbarItemGroup(placement: .navigationBarLeading){
-                
-                
-                Button("Cancel"){
-                    
-                    print("Cancelled")
-                    
-                }
-                Button("Done"){
-                    
-                    print("Has been saved")
-                }
-               
-                
-            }
+            
+            
+            ToolbarItem(placement: .primaryAction) {
+                            Button("Done") {}
+                        }
+            ToolbarItem(placement: .principal) { // <3>
+                           VStack {
+                               Text("Fuel").font(.headline)
+                              
+                           }
+                       }
+
+            ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {}
+                        }
+//
+            
            
            
             
         }
             
         }.accentColor(.red)
+            
+        
        
       
 //
