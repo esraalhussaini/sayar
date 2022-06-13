@@ -65,7 +65,8 @@ struct TabViewApp: View {
                  
                  
                  
-                 AccountViewModel()
+            
+    AccountViewModel()
                      .tabItem {
                       Text("Account")
                    
