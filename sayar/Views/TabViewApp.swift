@@ -35,7 +35,7 @@ struct TabViewApp: View {
 
      var body: some View {
        
-         NavigationView{
+//         NavigationView{
              
              TabView(selection: $selection) {
             HomeCarViewModel()
@@ -95,33 +95,10 @@ struct TabViewApp: View {
              
              
              
-         }//nav
+//         }//nav
     
      
-          
-    
-     
-     
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
 
 
     }
