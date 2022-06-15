@@ -1,20 +1,29 @@
 //
-//  AddFuel View.swift
+//  AddBatteryView.swift
 //  sayar
 //
-//  Created by Razan Altamimi on 08/11/1443 AH.
+//  Created by Razan Altamimi on 16/11/1443 AH.
 //
 
 import SwiftUI
 
-struct AddOilView: View {
+struct AddBatteryView: View {
+    func setupTabBar() {
+    let appearance = UINavigationBarAppearance()
+    appearance.shadowColor = .gray
+    appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+    appearance.backgroundColor = UIColor.white
+    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+}
+init() {
+    setupTabBar()
+}
     
     @State private var SAR = ""
     @State private var KM = ""
     @State private var DATE = ""
     
     var body: some View {
-        
         NavigationView{
         Form
         {
@@ -75,7 +84,7 @@ struct AddOilView: View {
                         }
             ToolbarItem(placement: .principal) { // <3>
                            VStack {
-                               Text("Oil").font(.headline)
+                               Text("Add Battery").font(.headline)
                               
                            }
                        }
@@ -103,13 +112,12 @@ struct AddOilView: View {
 //
 //
 //        }
-        .background(Color("Grey"))
+            .background(Color.white)
     }
 }
 
-struct AddOilView_Previews: PreviewProvider {
+struct AddBatteryView_Previews: PreviewProvider {
     static var previews: some View {
-        AddOilView()
-            .preferredColorScheme(.light)
+        AddBatteryView()
     }
 }

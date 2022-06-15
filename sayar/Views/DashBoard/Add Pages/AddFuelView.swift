@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddFuelView: View {
+   
+      
     
     @State private var SAR = ""
     @State private var PickKM = ""
@@ -19,6 +21,9 @@ struct AddFuelView: View {
         NavigationView{
         Form
         {
+         
+           
+
             
             Section{
                 
@@ -45,7 +50,7 @@ struct AddFuelView: View {
                         }
             ToolbarItem(placement: .principal) { // <3>
                            VStack {
-                               Text("Fuel").font(.headline)
+                               Text("Add Fuel").font(.headline)
                               
                            }
                        }
@@ -71,7 +76,7 @@ struct AddFuelView: View {
 //
 //
 //        }
-        .background(Color("Grey"))
+            .background(Color.white)
     }
         
     }

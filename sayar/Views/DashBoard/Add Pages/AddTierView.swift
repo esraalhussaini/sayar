@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct AddTierView: View {
+    func setupTabBar() {
+            let appearance = UINavigationBarAppearance()
+            appearance.shadowColor = .gray
+            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+            appearance.backgroundColor = UIColor.white
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+        init() {
+            setupTabBar()
+        }
     
     @State private var SAR = ""
     @State private var KM = ""
@@ -76,7 +86,7 @@ struct AddTierView: View {
                         }
             ToolbarItem(placement: .principal) { // <3>
                            VStack {
-                               Text("Oil").font(.headline)
+                               Text("Add Tiers").font(.headline)
                               
                            }
                        }
@@ -104,7 +114,7 @@ struct AddTierView: View {
 //
 //
 //        }
-        .background(Color("Grey"))
+            .background(Color.white)
     }
 }
 
