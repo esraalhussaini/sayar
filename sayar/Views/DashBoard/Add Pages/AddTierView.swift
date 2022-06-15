@@ -10,12 +10,13 @@ import SwiftUI
 struct AddTierView: View {
     func setupTabBar() {
             let appearance = UINavigationBarAppearance()
-            appearance.shadowColor = .gray
+          
             appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
             appearance.backgroundColor = UIColor.white
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
         init() {
+            UITableView.appearance().backgroundColor = .clear
             setupTabBar()
         }
     
@@ -38,17 +39,21 @@ struct AddTierView: View {
                
                 
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
+            
             Section(header: Text("Cost")){
                 TextField("SAR",text: $SAR)
            
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
             Section(header: Text("odemeter")){
                 
-                TextField("KM",text: $KM)
                 
-            }
+                TextField("KM",text: $KM)
+                 
+            }.listRowBackground(Color("Grey"))
 //            HStack{
 //
 //                Section(header: Text("5 KM")){
@@ -70,7 +75,7 @@ struct AddTierView: View {
             Section(header: Text("Reminder")){
                 
                
-                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} )
+                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} ).listRowBackground(Color("Grey"))
                 
             }
         
