@@ -16,6 +16,7 @@ struct AddBatteryView: View {
     UINavigationBar.appearance().scrollEdgeAppearance = appearance
 }
 init() {
+    UITableView.appearance().backgroundColor = .clear
     setupTabBar()
 }
     
