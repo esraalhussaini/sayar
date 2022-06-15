@@ -1,19 +1,20 @@
 //
-//  AddFuel View.swift
+//  AddOilView.swift
 //  sayar
 //
-//  Created by Razan Altamimi on 08/11/1443 AH.
+//  Created by Razan Altamimi on 13/11/1443 AH.
 //
 
 import SwiftUI
 
-struct AddFuel_View: View {
+struct AddFuelView: View {
     
     @State private var SAR = ""
-    @State private var KM = ""
+    @State private var PickKM = ""
     @State private var DATE = ""
     
     var body: some View {
+   
         
         NavigationView{
         Form
@@ -30,11 +31,12 @@ struct AddFuel_View: View {
             }
             Section{
                 TextField("SAR",text: $SAR)
-                TextField("KM",text: $KM)
+                TextField("KM",text: $PickKM)
                 
             }
             
         }
+            
         .toolbar{
             
             
@@ -59,8 +61,6 @@ struct AddFuel_View: View {
         }
             
         }.accentColor(.red)
-            
-        
        
       
 //
@@ -73,11 +73,12 @@ struct AddFuel_View: View {
 //        }
         .background(Color("Grey"))
     }
-}
+        
+    }
 
-struct AddFuel_View_Previews: PreviewProvider {
+
+struct AddFuelView_Previews: PreviewProvider {
     static var previews: some View {
-        AddFuel_View()
-            .preferredColorScheme(.light)
+        AddFuelView()
     }
 }

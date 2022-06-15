@@ -1,19 +1,20 @@
 //
-//  AddFuel View.swift
+//  AddTierView.swift
 //  sayar
 //
-//  Created by Razan Altamimi on 08/11/1443 AH.
+//  Created by Razan Altamimi on 16/11/1443 AH.
 //
 
 import SwiftUI
 
-struct AddOilView: View {
+struct AddTierView: View {
     
     @State private var SAR = ""
     @State private var KM = ""
     @State private var DATE = ""
     
     var body: some View {
+        
         
         NavigationView{
         Form
@@ -107,9 +108,8 @@ struct AddOilView: View {
     }
 }
 
-struct AddOilView_Previews: PreviewProvider {
+struct AddTierView_Previews: PreviewProvider {
     static var previews: some View {
-        AddOilView()
-            .preferredColorScheme(.light)
+        AddTierView()
     }
 }
