@@ -22,6 +22,7 @@
 		E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */; };
 		E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */; };
 		E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */; };
+		F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7B0332857448200D5E018 /* MyGarageH.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
 		E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
 		E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		F0B7B0332857448200D5E018 /* MyGarageH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageH.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */,
+				F0B7B0332857448200D5E018 /* MyGarageH.swift */,
 				D82EA9F8284F32E9000F7DF5 /* AddFuel View.swift */,
 				D8F6D1CE2855FE670007B9CB /* AddOilView.swift */,
 			);
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */,
+				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
 				E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */,
 				D8F6D1CF2855FE670007B9CB /* AddOilView.swift in Sources */,

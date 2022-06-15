@@ -31,7 +31,7 @@ struct HomeCarViewModel: View {
                         .offset(x: -90, y: -270)
                 // .font(.bold)
                     
-                           .navigationBarItems(trailing:
+           .navigationBarItems(trailing:
    
                                        HStack {
                                            Button(action: {}) {
