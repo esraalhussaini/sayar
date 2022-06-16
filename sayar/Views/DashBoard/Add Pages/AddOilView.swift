@@ -16,6 +16,8 @@ struct AddOilView: View {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
         init() {
+            UITableView.appearance().backgroundColor = .clear
+            
             setupTabBar()
         }
     
@@ -33,45 +35,29 @@ struct AddOilView: View {
                 
                 TextField("13/4/2022",text: $DATE)
                   
-                
-               
-                
-                
-            }
+            }.listRowBackground(Color("Grey"))
+            
+            
             Section(header: Text("Cost")){
                 TextField("SAR",text: $SAR)
            
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
+            
             Section(header: Text("odemeter")){
                 
                 TextField("KM",text: $KM)
                 
-            }
-//            HStack{
+            }.listRowBackground(Color("Grey"))
+            
 //
-//                Section(header: Text("5 KM")){
-//
-//
-//                    TextField("Oil Type",text: $KM)
-//
-//                }
-//
-//                VStack{
-//                Section(header: Text("Expected Time")){
-//                    Spacer()
-//
-//                    TextField("5 Months",text: $KM)
-//                }
-//                }
-                
-            //}
             Section(header: Text("Reminder")){
                 
                
                 Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} )
                 
-            }
+            }.listRowBackground(Color("Grey"))
         
             
         }

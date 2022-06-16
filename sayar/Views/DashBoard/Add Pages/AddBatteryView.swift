@@ -37,41 +37,27 @@ init() {
                
                 
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
             Section(header: Text("Cost")){
                 TextField("SAR",text: $SAR)
            
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
             Section(header: Text("odemeter")){
                 
                 TextField("KM",text: $KM)
                 
-            }
-//            HStack{
-//
-//                Section(header: Text("5 KM")){
-//
-//
-//                    TextField("Oil Type",text: $KM)
-//
-//                }
-//
-//                VStack{
-//                Section(header: Text("Expected Time")){
-//                    Spacer()
-//
-//                    TextField("5 Months",text: $KM)
-//                }
-//                }
+            }.listRowBackground(Color("Grey"))
                 
-            //}
+           
             Section(header: Text("Reminder")){
                 
                
                 Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} )
                 
-            }
+            }.listRowBackground(Color("Grey"))
         
             
         }
@@ -105,20 +91,14 @@ init() {
         
        
       
-//
-//        VStack{
-//
-//            Text("لازم نص لان طالع ايرور مافيه كود حطيته بشكل مؤقت")
-//
-//
-//
-//        }
-            .background(Color.white)
+      
+          
     }
-}
+    }
 
 struct AddBatteryView_Previews: PreviewProvider {
     static var previews: some View {
         AddBatteryView()
     }
 }
+

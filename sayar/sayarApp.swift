@@ -19,6 +19,8 @@ struct sayarApp: App {
     
     var body: some Scene {
         
+       
+        
         
         
         
@@ -31,7 +33,7 @@ struct sayarApp: App {
         
         
         WindowGroup {
-            ContentView()
+            TiersView()
         }
     }
 }

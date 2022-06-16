@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct AddFuelView: View {
+    func setupTabBar() {
+    let appearance = UINavigationBarAppearance()
+    appearance.shadowColor = .gray
+    appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
+    appearance.backgroundColor = UIColor.white
+    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+}
+init() {
+    UITableView.appearance().backgroundColor = .clear
+    setupTabBar()
+}
+    
    
       
     
@@ -33,12 +45,14 @@ struct AddFuelView: View {
                
                 
                 
-            }
+            }.listRowBackground(Color("Grey"))
+            
+            
             Section{
                 TextField("SAR",text: $SAR)
                 TextField("KM",text: $PickKM)
                 
-            }
+            }.listRowBackground(Color("Grey"))
             
         }
             

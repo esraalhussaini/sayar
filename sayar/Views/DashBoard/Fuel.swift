@@ -21,14 +21,16 @@ struct Fuel : Identifiable{
     init(data:[String:Any]){
         
         self.id = data[Fuel.id] as! String
-        self.carID = data["carID"] as? String ?? "N/A"
-        self.cost = data["cost"] as? Double ?? 0.0
-        self.km = data["km"] as? Int ?? 0
+        self.carID = data[Fuel.carID] as? String ?? "N/A"
+        self.cost = data[Fuel.cost] as? Double ?? 0.0
+        self.km = data[Fuel.km] as? Int ?? 0
   
     }
     
     static let id = "id"
-    
+    static let carID = "carID"
+    static let cost = "cost"
+    static let km = "km"
     
     
 }
