@@ -227,18 +227,16 @@ VStack(alignment: .center){
                 }
                 .padding(.horizontal,40)
 
-         
+              
 
                 }//ZSTACK
          
-
             }//Vstack
-
+                    
+             
                 }//nav linke Fuel
              
-                    
-            
-              .accentColor(.black)
+             .accentColor(.black)
     
 //-----------------------
             
@@ -386,7 +384,6 @@ VStack(alignment: .center){
                 
             
 //-----------------------
-                
                 
                 
                 

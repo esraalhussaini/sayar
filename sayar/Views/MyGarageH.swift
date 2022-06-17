@@ -11,51 +11,82 @@ import SwiftUI
 struct MyGarageH: View {
     
 //    @State var name: String = ""
-    func setupTabBar() {
-            let appearance = UINavigationBarAppearance()
-            appearance.shadowColor = .gray
-            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
-            appearance.backgroundColor = UIColor.white
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-        init() {
-            setupTabBar()
-        }
-    
+
     
     var body: some View {
-        
-        NavigationView {
-//            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            HStack {
-//              Text("NJN")
-                  
-        }//Hstack
-//
-          
-            // .navigationTitle("My Garage")
-            // .navigationBarTitleDisplayMode(.large)
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button(action: {}) { Image(systemName: "plus")
-                                .resizable()
-                            .foregroundColor(Color("ColorApp")) }
-                    }
+        NavigationLink(destination: Demo()) {
+            VStack(alignment: .center){
+                    
 
-    ToolbarItem(placement: .navigation) {
-        Button(action: {}) { Image(systemName: "chevron.left")
-                        .foregroundColor(Color("ColorApp")) }
-                    }
-        }
-                .navigationTitle("My Garage")
-                .navigationBarTitleDisplayMode(.inline)
-                
-            
-    }//nav
+                                  
+                        ZStack{
+                        Rectangle()
+                            .fill(Color("TabMyCar"))
+                     
+                            .frame( width: 345,   height:69)
+                            .shadow(radius: 8)
+                            .cornerRadius(16)
+                     
+
+                        HStack{
+
+                            ZStack{
+                                Image("trangle")
+                                Image("IconFuel")
+                                    .font(.body)
+                            }
+                            VStack(alignment: .leading, spacing: 10){
+                            Text("Fuel")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                               
+                           
+                            }
+
+
+                          Spacer()
+                   
+                            Image("chevron")
+                           
+                        }
+                        .padding(.horizontal,40)
+                       }//ZSTACK
+                        .padding(.top,60)
+                Spacer()
+
+
+                    }//Vstack
         
-        .background(Color.orange)
-        .ignoresSafeArea()
-      
+
+        }//NAV
+                       .accentColor(.black)
+            
+        
+    
+    
+    
+    
+     
+        
+        
+        
+        
+        
+        
+        
+   //navgation bar
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                Image(systemName: "plus")
+                .resizable()
+                .foregroundColor(Color("ColorApp")) }
+                }
+    }
+            .navigationTitle("My Garage")
+            .navigationBarTitleDisplayMode(.inline)
+        
+
         
     }
 }
