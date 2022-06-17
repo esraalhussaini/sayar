@@ -8,104 +8,143 @@
 import SwiftUI
 
 struct AddOilView: View {
-    func setupTabBar() {
-            let appearance = UINavigationBarAppearance()
-            appearance.shadowColor = .gray
-            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
-            appearance.backgroundColor = UIColor.white
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-        init() {
-            UITableView.appearance().backgroundColor = .clear
-            
-            setupTabBar()
-        }
-    
-    @State private var SAR = ""
-    @State private var KM = ""
-    @State private var DATE = ""
-    
-    var body: some View {
+
+        @State private var isShowingDialog = false
         
-        NavigationView{
-        Form
-        {
-            
-            Section(header: Text("date")){
+        
+        
+        
+        
+        @Binding var isPresented: Bool
+        @Binding var titel: String
+        @Binding var post: String
+        
+        @Binding var kmCar: String
+        //Km Double or int?
+        
+        
+        var body: some View {
+
+            NavigationView{
+                ZStack{
+                    
+                    Color.gray.opacity(0.1)
+                 
+                    VStack(alignment: .center , spacing: 10){
+                       Spacer()
+                        Image("DefualtCar")
+                //button
+                        Text("Add Photo")
                 
-                TextField("13/4/2022",text: $DATE)
-                  
-            }.listRowBackground(Color("Grey"))
-            
-            
-            Section(header: Text("Cost")){
-                TextField("SAR",text: $SAR)
-           
+                        
+                        
+                        Form{
+                 
+                    
+                        Section{
+                            TextField("Make", text:$titel)
+                            TextField("Model", text: $post )
+                            
+                        }
+                            
+                                Section{
+                                    TextField("Km", text:$kmCar)
+                                        .keyboardType(.numberPad)
+                               
+                                    
+                                }
+              }//form
+                        
+                        //-------delete
+                        Button("Delete", role: .destructive) {
+                                  isShowingDialog = true
+                              }
+         
+                              .controlSize(.large)
+                              .confirmationDialog("Are you sure to delete the data?", isPresented: $isShowingDialog, titleVisibility: .visible) {
+                       
+                                  Button("Confirm", role: .destructive) {
+                                      // Handle the delete action.
+                                  }
+                                  Button("Cancel", role: .cancel) {
+                       
+                                  }
+                              }
+                        
+                        //-------delete
+                    
+                        
+     Spacer()
+                            .padding(.bottom)
+                                
+                         
+                    
+                 
+                    }//VSTACK IMAGE
+                 
+
+                }//zstack importent
+
                 
-            }.listRowBackground(Color("Grey"))
-            
-            
-            Section(header: Text("odemeter")){
                 
-                TextField("KM",text: $KM)
                 
-            }.listRowBackground(Color("Grey"))
-            
-//
-            Section(header: Text("Reminder")){
                 
+   
+
+                .navigationBarTitle("Add car", displayMode: .inline)
+          .navigationBarItems(leading:leading   ,trailing: trailing)
                
-                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} )
-                
-            }.listRowBackground(Color("Grey"))
-        
-            
-        }
-        .toolbar{
-            
-            
-            
-            
-            ToolbarItem(placement: .primaryAction) {
-                            Button("Done") {}
-                        }
-            ToolbarItem(placement: .principal) { // <3>
-                           VStack {
-                               Text("Add Oil").font(.headline)
-                              
-                           }
-                       }
+                    
+          .ignoresSafeArea(.all, edges: .bottom)
+                    
+                    
+            }//NavgationView
+        }//varBody1
 
-            ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {}
-                        }
-//
-            
-           
-           
-            
-        }
-            
-        }.accentColor(.red)
-            
         
-       
-      
-//
-//        VStack{
-//
-//            Text("لازم نص لان طالع ايرور مافيه كود حطيته بشكل مؤقت")
-//
-//
-//
-//        }
-            .background(Color.white)
-    }
-}
+        
+        
+       //Cancel
+        var leading: some View {
 
-struct AddOilView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddOilView()
-            .preferredColorScheme(.light)
-    }
-}
+            Button(action : {
+                isPresented.toggle()
+            }, label: {
+                Text("Cancel")
+                    .accentColor(.red)
+            })
+
+
+
+        }//VarBody2
+
+
+    //Done
+        var trailing: some View {
+
+            Button(action : {
+               isPresented.toggle()
+            }, label: {
+                Text("Done")
+                    .accentColor(.red)
+             
+            })
+
+
+
+        }//VarBody3
+}//StructView
+
+ 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

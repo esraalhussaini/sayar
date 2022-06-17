@@ -33,7 +33,7 @@ struct sayarApp: App {
         
         
         WindowGroup {
-            TiersView()
+            TabViewApp()
         }
     }
 }

@@ -237,7 +237,7 @@ VStack(alignment: .center){
                 }//nav linke Fuel
              
              .accentColor(.black)
-    
+   
 //-----------------------
             
         
