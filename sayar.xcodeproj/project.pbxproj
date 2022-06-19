@@ -29,6 +29,9 @@
 		E817C9C12844E009000E2105 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C02844E009000E2105 /* FirebaseDatabase */; };
 		E817C9C32844E009000E2105 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C22844E009000E2105 /* FirebaseDatabaseSwift */; };
 		E817C9C52844E009000E2105 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C42844E009000E2105 /* FirebaseStorage */; };
+		E836B576285F7FEE00C5700B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B575285F7FEE00C5700B /* AuthView.swift */; };
+		E836B578285F810E00C5700B /* SecondOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B577285F810E00C5700B /* SecondOTP.swift */; };
+		E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B579285F837A00C5700B /* AuthViewModel.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
@@ -58,6 +61,9 @@
 		D8F6D1E4285AFF6F0007B9CB /* Tiers .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tiers .swift"; sourceTree = "<group>"; };
 		E80E90F72851534A00FE624F /* TabViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewApp.swift; sourceTree = "<group>"; };
 		E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E836B575285F7FEE00C5700B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		E836B577285F810E00C5700B /* SecondOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOTP.swift; sourceTree = "<group>"; };
+		E836B579285F837A00C5700B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -105,10 +111,10 @@
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
-				E874950E285A90AA0049BB4B /* ViewModel */,
 				E8F3C85B285380DA008E131E /* Model */,
-				020A13F4283D3674007C9ECE /* Assets.xcassets */,
+				E874950E285A90AA0049BB4B /* ViewModel */,
 				E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */,
+				020A13F4283D3674007C9ECE /* Assets.xcassets */,
 				020A13F6283D3674007C9ECE /* Preview Content */,
 			);
 			path = sayar;
@@ -134,6 +140,7 @@
 		D82EA9F7284F2F95000F7DF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E836B574285F7FD300C5700B /* Authentication */,
 				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
 				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
 				E80E90F72851534A00FE624F /* TabViewApp.swift */,
@@ -167,9 +174,19 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		E836B574285F7FD300C5700B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E836B575285F7FEE00C5700B /* AuthView.swift */,
+				E836B577285F810E00C5700B /* SecondOTP.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		E874950E285A90AA0049BB4B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E836B579285F837A00C5700B /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,6 +289,7 @@
 				E874950A285A8BAF0049BB4B /* Demo.swift in Sources */,
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiersView.swift in Sources */,
+				E836B576285F7FEE00C5700B /* AuthView.swift in Sources */,
 				E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */,
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
@@ -282,8 +300,10 @@
 				D8F6D1D32859C80F0007B9CB /* AddBatteryView.swift in Sources */,
 				D8F6D1CF2855FE670007B9CB /* AddFuelView.swift in Sources */,
 				D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */,
+				E836B578285F810E00C5700B /* SecondOTP.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
+				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
 				E8749508285A89E10049BB4B /* AddCar.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,
 				D8F6D1D12859C7FE0007B9CB /* AddTierView.swift in Sources */,
