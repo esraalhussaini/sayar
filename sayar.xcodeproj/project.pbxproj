@@ -117,8 +117,8 @@
 				D82EA9F7284F2F95000F7DF5 /* Views */,
 				E8F3C85B285380DA008E131E /* Model */,
 				E874950E285A90AA0049BB4B /* ViewModel */,
-				E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */,
 				020A13F4283D3674007C9ECE /* Assets.xcassets */,
+				E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */,
 				020A13F6283D3674007C9ECE /* Preview Content */,
 			);
 			path = sayar;
