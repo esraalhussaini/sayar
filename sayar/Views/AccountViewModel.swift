@@ -98,6 +98,15 @@ struct AccountViewModel: View {
                             
                             }
                 
+                        
+                            
+                        
+            NavigationLink(destination: MyGarageH()) {
+                       //
+                 
+                               
+                            
+                            
                 
                             Button{
                                 print("Go to Garage")
@@ -107,14 +116,24 @@ struct AccountViewModel: View {
                                     
                                     
                                     Text("My Garage")
-                                    
+                                    .padding(.horizontal,9)
+                                      
                                     Spacer()
-                                    Image("chevron.down")}
+                                    Image("chevron.down")
+                                       .padding(.horizontal,-1)
+                                }
+                                
                                 .padding()
+                                .padding(.horizontal,-12)
                             }
-                        }.listRowBackground(Color.gray
-                            .opacity(0.1))
+           
+            }//nav
+              
+                            
+                        }//section one
                         
+             .listRowBackground(Color.gray
+                             .opacity(0.1))
                         Section(header: Text("Support")){
                          
                             
