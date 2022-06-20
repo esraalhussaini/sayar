@@ -14,7 +14,7 @@ struct Fuel : Identifiable{
     let id : String
     let carID : String
     let cost : Double
- //   let date : Timetamp
+   let date : Double
     let km : Int
     
     
@@ -24,6 +24,7 @@ struct Fuel : Identifiable{
         self.carID = data[Fuel.carID] as? String ?? "N/A"
         self.cost = data[Fuel.cost] as? Double ?? 0.0
         self.km = data[Fuel.km] as? Int ?? 0
+        self.date = data[Fuel.date] as! Double
   
     }
     
@@ -31,6 +32,7 @@ struct Fuel : Identifiable{
     static let carID = "carID"
     static let cost = "cost"
     static let km = "km"
+    static let date = "date"
     
     
 }
