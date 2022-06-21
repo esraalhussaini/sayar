@@ -8,10 +8,10 @@
 import SwiftUI
 import FirebaseCore
 
-//import FirebaseAuth
-//import FirebaseMessaging
-//import UserNotificationsUI
-//
+import FirebaseAuth
+import FirebaseMessaging
+import UserNotificationsUI
+
 //class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 //    var fcmRegTokenMessage: String = ""
 //    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -83,22 +83,13 @@ import FirebaseCore
 //
 //
 //
-//@main
-//struct PhoneAuthApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
 
  
     
 @main
 struct sayarApp: App {
     //Athn
-   // @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     //Firbase  initialization code
     init(){ FirebaseApp.configure()}
     
