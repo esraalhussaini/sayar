@@ -34,6 +34,12 @@
 		E836B576285F7FEE00C5700B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B575285F7FEE00C5700B /* AuthView.swift */; };
 		E836B578285F810E00C5700B /* SecondOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B577285F810E00C5700B /* SecondOTP.swift */; };
 		E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B579285F837A00C5700B /* AuthViewModel.swift */; };
+		E83C77E92862539300B55D64 /* Demo1Anwar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77E82862539300B55D64 /* Demo1Anwar.swift */; };
+		E83C77EB2862555A00B55D64 /* Demo2Anwar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77EA2862555A00B55D64 /* Demo2Anwar.swift */; };
+		E83C77ED28626A4900B55D64 /* Demo3Anwar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77EC28626A4900B55D64 /* Demo3Anwar.swift */; };
+		E83C77EF28626BDD00B55D64 /* DemoEditView..swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77EE28626BDD00B55D64 /* DemoEditView..swift */; };
+		E83C77F128626CCC00B55D64 /* CarViewModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F028626CCC00B55D64 /* CarViewModelDemo.swift */; };
+		E83C77F328626E3700B55D64 /* CarsDemoAnwar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F228626E3700B55D64 /* CarsDemoAnwar.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
@@ -69,6 +75,12 @@
 		E836B575285F7FEE00C5700B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		E836B577285F810E00C5700B /* SecondOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOTP.swift; sourceTree = "<group>"; };
 		E836B579285F837A00C5700B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E83C77E82862539300B55D64 /* Demo1Anwar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1Anwar.swift; sourceTree = "<group>"; };
+		E83C77EA2862555A00B55D64 /* Demo2Anwar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo2Anwar.swift; sourceTree = "<group>"; };
+		E83C77EC28626A4900B55D64 /* Demo3Anwar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo3Anwar.swift; sourceTree = "<group>"; };
+		E83C77EE28626BDD00B55D64 /* DemoEditView..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoEditView..swift; sourceTree = "<group>"; };
+		E83C77F028626CCC00B55D64 /* CarViewModelDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModelDemo.swift; sourceTree = "<group>"; };
+		E83C77F228626E3700B55D64 /* CarsDemoAnwar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDemoAnwar.swift; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -123,6 +135,12 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
+				E83C77E82862539300B55D64 /* Demo1Anwar.swift */,
+				E83C77EA2862555A00B55D64 /* Demo2Anwar.swift */,
+				E83C77EC28626A4900B55D64 /* Demo3Anwar.swift */,
+				E83C77EE28626BDD00B55D64 /* DemoEditView..swift */,
+				E83C77F028626CCC00B55D64 /* CarViewModelDemo.swift */,
+				E83C77F228626E3700B55D64 /* CarsDemoAnwar.swift */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
 				E8F3C85B285380DA008E131E /* Model */,
 				E874950E285A90AA0049BB4B /* ViewModel */,
@@ -310,9 +328,14 @@
 				D8F6D1E3285AFF5E0007B9CB /* Battery.swift in Sources */,
 				D8F6D1D92859CC5E0007B9CB /* BatteryView.swift in Sources */,
 				D8F6D1DF2859F4AC0007B9CB /* Fuel.swift in Sources */,
+				E83C77ED28626A4900B55D64 /* Demo3Anwar.swift in Sources */,
 				E874950A285A8BAF0049BB4B /* Demo.swift in Sources */,
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
+				E83C77EF28626BDD00B55D64 /* DemoEditView..swift in Sources */,
+				E83C77E92862539300B55D64 /* Demo1Anwar.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiersView.swift in Sources */,
+				E83C77F128626CCC00B55D64 /* CarViewModelDemo.swift in Sources */,
+				E83C77EB2862555A00B55D64 /* Demo2Anwar.swift in Sources */,
 				E836B576285F7FEE00C5700B /* AuthView.swift in Sources */,
 				E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */,
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
@@ -323,6 +346,7 @@
 				D8F6D1E5285AFF6F0007B9CB /* Tiers .swift in Sources */,
 				D8F6D1D32859C80F0007B9CB /* AddBatteryView.swift in Sources */,
 				D8F6D1CF2855FE670007B9CB /* AddFuelView.swift in Sources */,
+				E83C77F328626E3700B55D64 /* CarsDemoAnwar.swift in Sources */,
 				D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */,
 				E836B578285F810E00C5700B /* SecondOTP.swift in Sources */,
 				D8E4154428607193006FDC58 /* FuelViewModel.swift in Sources */,

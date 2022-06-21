@@ -7,12 +7,12 @@
 
 import SwiftUI
 import FirebaseCore
-
+import Firebase
 import FirebaseAuth
 import FirebaseMessaging
 import UserNotificationsUI
 
-//class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 //    var fcmRegTokenMessage: String = ""
 //    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 //        FirebaseApp.configure()
@@ -79,8 +79,23 @@ import UserNotificationsUI
 //        }
 //        return false
 //    }
-//}
+    
+ 
+    
+    
+    
+ 
 //
+    
+
+   
+    
+    
+    
+    
+}//class
+
+
 //
 //
 
@@ -88,8 +103,8 @@ import UserNotificationsUI
     
 @main
 struct sayarApp: App {
-    //Athn
-//@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    //Athn and Firebase CRUD
+@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     //Firbase  initialization code
     init(){ FirebaseApp.configure()}
     
