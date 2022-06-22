@@ -16,8 +16,8 @@ struct Battery : Identifiable{
     let cost : Double
  //   let date : Timetamp
     let km : Int
-    let date : Double
-    let expiredDate : Double
+    let date : Date
+    let expiredDate : Date
     
     
     init(data:[String:Any]){
@@ -26,8 +26,8 @@ struct Battery : Identifiable{
         self.carID = data[Battery.carID] as? String ?? "N/A"
         self.cost = data[Battery.cost] as? Double ?? 0.0
         self.km = data[Battery.km] as? Int ?? 0
-        self.date = data[Battery.km] as! Double
-        self.expiredDate = data[Battery.expiredDate] as! Double
+        self.date = data[Battery.km] as? Date ?? Date()
+        self.expiredDate = data[Battery.expiredDate] as? Date ?? Date()
         
     }
     

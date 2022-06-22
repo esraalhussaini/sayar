@@ -9,25 +9,25 @@ import Foundation
 import Firebase
 
 
-struct Tiers : Identifiable{
+struct Tires : Identifiable{
     
     let id : String
     let carID : String
     let cost : Double
  //   let date : Timetamp
     let km : Int
-    let date : String
-    let expiredDate : String
+    let date : Date
+    let expiredDate : Date
     
     
     init(data:[String:Any]){
         
-        self.id = data[Tiers.id] as! String
-        self.carID = data[Tiers.carID] as? String ?? "N/A"
-        self.cost = data[Tiers.cost] as? Double ?? 0.0
-        self.km = data[Tiers.km] as? Int ?? 0
-        self.date = data[Tiers.km] as! String
-        self.expiredDate = data[Tiers.expiredDate] as! String
+        self.id = data[Tires.id] as! String
+        self.carID = data[Tires.carID] as? String ?? "N/A"
+        self.cost = data[Tires.cost] as? Double ?? 0.0
+        self.km = data[Tires.km] as? Int ?? 0
+        self.date = data[Tires.km] as? Date ?? Date()
+        self.expiredDate = data[Tires.expiredDate] as? Date ?? Date()
     }
     
     static let id = "id"

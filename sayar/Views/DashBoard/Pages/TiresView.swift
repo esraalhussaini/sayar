@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct TiersView: View {
+struct TiresView: View {
+    @StateObject var vm = TiresViewModel()
 
     
    // @State private var searchText = ""
@@ -16,7 +17,16 @@ struct TiersView: View {
       
             
             
-            Text("NKKK")
+        
+        List(vm.tires){f in
+            VStack{
+                Text("\(f.cost)")
+                Text("\(f.km)")
+                Text("\(f.date)")
+            }
+          
+            
+        }
             
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -70,6 +80,6 @@ struct TiersView: View {
 
 struct TiersView_Previews: PreviewProvider {
     static var previews: some View {
-        TiersView()
+        TiresView()
     }
 }

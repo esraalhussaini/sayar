@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OilView: View {
+    @StateObject var vm = OilViewModel()
     
     
     //Pluse button
@@ -37,7 +38,16 @@ struct OilView: View {
         
         VStack{
         
-        Text("الباك اند وحفظ ملاحظاته")
+            
+            List(vm.oil){f in
+                VStack{
+                    Text("\(f.cost)")
+                    Text("\(f.km)")
+                    Text("\(f.date)")
+                }
+              
+                
+            }
             
             
                 .toolbar{
