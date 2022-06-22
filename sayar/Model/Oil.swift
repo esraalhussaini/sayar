@@ -14,9 +14,9 @@ struct Oil : Identifiable{
     let id : String
     let carID : String
     let cost : Double
-    let date : Double
+    let date : Date
     let km : Int
-    let expiredDate : Double
+    let expiredDate : Date
     
     
     init(data:[String:Any]){
@@ -26,8 +26,8 @@ struct Oil : Identifiable{
         self.cost = data[Oil.cost] as? Double ?? 0.0
         self.km = data[Oil.km] as? Int ?? 0
         
-        self.expiredDate = data[Oil.expiredDate] as! Double
-        self.date = data[Oil.date] as! Double
+        self.expiredDate = data[Oil.expiredDate] as? Date ?? Date()
+        self.date = data[Oil.date] as? Date ?? Date()
         
         
     }

@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct BatteryView: View {
+    @StateObject var vm = BatteryViewModel()
  
    // @State private var searchText = ""
 
     var body: some View {
         
-        Text("NKKK")
+        
+        List(vm.battery){f in
+            VStack{
+                Text("\(f.cost)")
+                Text("\(f.km)")
+                Text("\(f.date)")
+            }
+          
+            
+        }
         
         .toolbar {
             ToolbarItem(placement: .primaryAction) {

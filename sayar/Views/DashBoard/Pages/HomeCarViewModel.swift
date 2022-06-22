@@ -245,7 +245,7 @@ VStack(alignment: .center){
           
                    //tiers
         
-                NavigationLink(destination: TiersView()) {
+                NavigationLink(destination: TiresView()) {
                     
 VStack(alignment: .center){
             
