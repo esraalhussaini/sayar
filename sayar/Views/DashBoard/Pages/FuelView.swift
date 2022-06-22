@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct FuelView: View {
-   
+   @StateObject var vm = FuelViewModel()
    // @State private var searchText = ""
 
     var body: some View {
         
         
-        Text("NKKK")
         
+        List(vm.fuel){f in
+            VStack{
+                Text("\(f.cost)")
+                Text("\(f.km)")
+                Text("\(f.date)")
+            }
+          
+            
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
             Button(action: {}) {
