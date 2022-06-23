@@ -11,17 +11,18 @@ struct OilView: View {
     @StateObject var vm = OilViewModel()
     
     
+
+    
     //Pluse button
-    
-    
     @State var isPresentedNewPost = false
-    @State var titel = ""
-    @State var post = ""
-     @State  var kmCar  = ""
-    
+    @State  var DATE = Date()
+    @State var cost = ""
+    @State var km = ""
+    @State  var ExpectedTime  = ""
+   
     
    //Razan Search
-    @State private var searchText = ""
+  //  @State private var searchText = ""
 
     var body: some View {
         
@@ -83,7 +84,7 @@ struct OilView: View {
     
     .sheet(isPresented: $isPresentedNewPost, content: {
         
-        AddOilView(isPresented: $isPresentedNewPost, titel: $titel, post: $post,kmCar: $kmCar)
+        AddOilView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost,km: $km, ExpectedTime: $ExpectedTime )
         
     })
     

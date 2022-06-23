@@ -12,14 +12,18 @@ struct AddOilView: View {
         @State private var isShowingDialog = false
         
         
-        
+    //Pluse button
+
         
         
         @Binding var isPresented: Bool
-        @Binding var titel: String
-        @Binding var post: String
-        
-        @Binding var kmCar: String
+    
+    @Binding var  DATE: Date
+     // @Binding var  DATE = Date()
+    @Binding var cost : String
+    @Binding var km  : String
+    @Binding var ExpectedTime : String
+    //@Binding var cost : String
         //Km Double or int?
         
         
@@ -31,10 +35,10 @@ struct AddOilView: View {
                     Color.gray.opacity(0.1)
                  
                     VStack(alignment: .center , spacing: 10){
-                       Spacer()
-                        Image("DefualtCar")
-                //button
-                        Text("Add Photo")
+//                       Spacer()
+//                        Image("DefualtCar")
+//                //button
+//                        Text("Add Photo")
                 
                         
                         
@@ -42,18 +46,39 @@ struct AddOilView: View {
                  
                     
                         Section{
-                            TextField("Make", text:$titel)
-                            TextField("Model", text: $post )
+                            
+                            DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                           // TextField("Make", text:$titel)
+                           // TextField("Model", text: $post )
                             
                         }
                             
                                 Section{
-                                    TextField("Km", text:$kmCar)
+                                    TextField("SAR", text:$cost)
                                         .keyboardType(.numberPad)
                                
                                     
                                 }
+                            
+                            Section{
+                                TextField("ExpectedTime", text:$ExpectedTime)
+                                    .keyboardType(.numberPad)
+                           
+                                
+                            }
+                            
+                            
               }//form
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         //-------delete
                         Button("Delete", role: .destructive) {
@@ -91,7 +116,7 @@ struct AddOilView: View {
                 
    
 
-                .navigationBarTitle("Add car", displayMode: .inline)
+                .navigationBarTitle("Add Oil", displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
