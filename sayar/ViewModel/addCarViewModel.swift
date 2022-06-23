@@ -60,19 +60,19 @@ class addCarViewModel: ObservableObject{
     //    var fueldata : [String:String] = [:]
     //    fueldata[Fuel.carID] = self.
     
-        func uploadFuel(completion:@escaping ()->()){
-    //        guard let user =  AuthViewModel.shared.user else {return}
-//            guard cost != 0.0 else {
-//                print("Please, type something")
-//                return}
-    
-            let docRef = db.collection("Fuel").document()
+    func uploadCar(completion:@escaping ()->()){
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let docRef = Firestore.firestore().collection("Car").document(uid)
+        
             let data : [String:Any] = [
-                Fuel.cost : cost,
-                Fuel.km : km,
-                Fuel.date : Date(),
-                Fuel.carID:"123",
-                Fuel.id:docRef.documentID
+                Car.carID : docRef.documentID,
+                Car.id : "111",
+                Car.carMake : "",
+                Car.carModel :"",
+                Car.carManufactureYear: 2009,
+                Car.carKm : 9.8,
+                Car.carImageUrl :"",
             ]
             docRef.setData(data){ _ in
                 print("Uploading Successfully")

@@ -12,6 +12,7 @@ struct HomeCarViewModel: View {
 //    @StateObject var vm = TiresViewModel()
     @EnvironmentObject var authvm : AuthViewModel
     @State var showLoginPage = false
+   
     
     
     

@@ -13,8 +13,8 @@ struct AddCar: View {
     
     //button Delete
         @State private var isShowingDialog = false
-        
-        
+    @StateObject var vm = addCarViewModel()
+//    @Binding var showdashboard : Bool
         
         
         
@@ -186,6 +186,8 @@ struct AddCar: View {
 
             Button(action : {
                isPresented.toggle()
+                vm.uploadCar{}
+//             showdashboard = true
             }, label: {
                 Text("Done")
                     .accentColor(.red)
