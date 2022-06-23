@@ -10,35 +10,38 @@ import Foundation
 import Firebase
 //سويت كومنت لاني احتاج اجرب مودل الكار، انوار
 
-//struct Car : Identifiable{
-//
-//    let id : String
-//    let carID : String
-//    let cost : Double
-// //   let date : Timetamp
-//    let km : Int
-//
-//
-//
-//
-//    init(data:[String:Any]){
-//
-//        self.id = data[Car.id] as! String
-//        self.carID = data[Car.carID] as? String ?? "N/A"
-//        self.cost = data[Car.cost] as? Double ?? 0.0
-//        self.km = data[Car.km] as? Int ?? 0
-//
-//    }
-//
-//    static let id = "id"
-//    static let carID = "carID"
-//    static let cost = "cost"
-//    static let km = "km"
-//}
+struct Car {
+
+    let id : String
+    let carID : String
+    let carMake : String
+    let carModel : String
+    let carManufactureYear : Int
+    let carKm : Int
+    let carImageUrl : String
 
 
-//image
-//model
-//CarmanueFacture;int
-//id
-//carKm
+
+    init(dictionary:[String:Any]){
+
+        self.id = dictionary[Car.id] as! String
+        self.carID = dictionary[Car.carID] as? String ?? "N/A"
+        self.carMake = dictionary[Car.carMake] as! String
+        self.carModel = dictionary[Car.carModel] as! String
+        self.carManufactureYear = dictionary[Car.carManufactureYear] as? Int ?? 0
+        self.carKm = dictionary[Car.carKm] as? Int ?? 0
+        self.carImageUrl = dictionary[Car.carImageUrl]  as? String ?? "N/A"
+
+    }
+
+    static let id = "id"
+    static let carID = "carID"
+    static let carMake = "carMake"
+    static let carModel = "carModel"
+    static let carManufactureYear = "carManufactureYear"
+    static let carKm = "km"
+    static let carImageUrl = "carImageUrl"
+    
+    
+}
+

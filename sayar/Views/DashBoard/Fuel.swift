@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import SwiftUI
 
 
 struct Fuel : Identifiable{
@@ -16,7 +17,8 @@ struct Fuel : Identifiable{
     let cost : Double
    let date : Date
     let km : Int
-    
+        // let d : Firebase.Timestamp
+   // var d : Timestamp = Timestamp(date: Date())
     
     init(data:[String:Any]){
         
