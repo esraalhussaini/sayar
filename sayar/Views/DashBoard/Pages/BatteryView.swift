@@ -16,14 +16,43 @@ struct BatteryView: View {
         
         
         List(vm.battery){f in
-            VStack{
-                Text("\(f.cost)")
-                Text("\(f.km)")
-                Text("\(f.date)")
-            }
           
-            
+                HStack{
+                    
+                    
+                    VStack(alignment: .leading, spacing: 10){
+                        
+                        
+                        Text("\(f.cost)").fontWeight(.heavy)
+                            .foregroundColor(.black)
+                        Text("\(f.km)")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            
+                    }
+                    Spacer(minLength: 5)
+                    Text("\(f.date)")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.horizontal)
+                        .padding(.top)
+                    
+                    
+                    
+                    
+                    
+                }.padding().background(Color("Grey"))
+                .cornerRadius(10)
+                
+                
+          
+         
+                
+                
+                
+                
         }
+
         
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
