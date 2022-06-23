@@ -25,8 +25,8 @@ init() {
     
     @State private var SAR = ""
     @State private var PickKM = ""
-    @State private var DATE = ""
-    
+    @State private var DATE = Date()
+
     var body: some View {
    
         
@@ -39,8 +39,15 @@ init() {
             
             Section{
                 
-                TextField("13/4/2022",text: $DATE)
-                  
+                HStack(alignment: .center){
+                    Image("Calender-1")
+                    DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                        . datePickerStyle(CompactDatePickerStyle())
+                        .accentColor(.red)
+                         }
+                    .font(Font.system(size: 17, design: .default))
+                     .padding(5)
+                     .font(Font.system(size: 15, weight: .medium, design: .serif))
                 
                
                 
@@ -49,9 +56,15 @@ init() {
             
             
             Section{
-                TextField("SAR",text: $SAR)
-                TextField("KM",text: $PickKM)
-                
+                HStack{
+                TextField("amount",text: $SAR)
+                Text("SR")
+                }
+                HStack{
+                TextField("Kilometers",text: $PickKM)
+                Text("KM")
+
+                }
             }.listRowBackground(Color("Grey"))
             
         }

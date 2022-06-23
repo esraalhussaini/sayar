@@ -22,9 +22,7 @@ struct AddTierView: View {
     
     @State private var SAR = ""
     @State private var KM = ""
-    @State private var DATE = Date.now
-    @State private var tarihGorun = false
-//    @State var savedDate: Date? = nil
+    @State private var DATE = Date()
 
     var body: some View {
         
@@ -38,27 +36,21 @@ struct AddTierView: View {
                     Image("Calender-1")
                     DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
                         . datePickerStyle(CompactDatePickerStyle())
-//                        .labelsHidden()
                         .accentColor(.red)
-//                        .onTapGesture {
-//                            self.tarihGorun = true
-//                                   }
-         
                          }
-//                .frame(width: 150, height: 10, alignment: .center)
                     .font(Font.system(size: 17, design: .default))
                      .padding(5)
                      .font(Font.system(size: 15, weight: .medium, design: .serif))
-//                     .overlay(
-//                         RoundedRectangle(cornerRadius: 30)
-//                             .background(Color(red: 5 / 5, green: 0 / 25, blue: 112 / 255))
+            
                 
             }.listRowBackground(Color(red: 0.976, green: 0.976, blue: 0.976))
             
             
             Section(header: Text("Cost")){
-                TextField("SAR",text: $SAR)
-           
+                HStack{
+                TextField("amount",text: $SAR)
+                    Text("SR")
+                }
                 
             }.listRowBackground(Color("Grey"))
             

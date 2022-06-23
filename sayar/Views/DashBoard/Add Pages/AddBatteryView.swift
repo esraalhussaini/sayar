@@ -22,8 +22,8 @@ init() {
     
     @State private var SAR = ""
     @State private var KM = ""
-    @State private var DATE = ""
-    
+    @State private var DATE = Date()
+
     var body: some View {
         NavigationView{
         Form
@@ -31,8 +31,15 @@ init() {
             
             Section(header: Text("date")){
                 
-                TextField("13/4/2022",text: $DATE)
-                  
+                HStack(alignment: .center){
+                    Image("Calender-1")
+                    DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                        . datePickerStyle(CompactDatePickerStyle())
+                        .accentColor(.red)
+                         }
+                    .font(Font.system(size: 17, design: .default))
+                     .padding(5)
+                     .font(Font.system(size: 15, weight: .medium, design: .serif))
                 
                
                 
@@ -40,14 +47,18 @@ init() {
             }.listRowBackground(Color("Grey"))
             
             Section(header: Text("Cost")){
-                TextField("SAR",text: $SAR)
-           
+                HStack{
+                TextField("amount",text: $SAR)
+                Text("SR")
+                }
                 
             }.listRowBackground(Color("Grey"))
             
             Section(header: Text("odemeter")){
-                
-                TextField("KM",text: $KM)
+                HStack{
+                TextField("Kilometers",text: $KM)
+                    Text("KM")
+                }
                 
             }.listRowBackground(Color("Grey"))
                 
