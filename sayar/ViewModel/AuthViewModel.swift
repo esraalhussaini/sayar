@@ -8,6 +8,8 @@ import Firebase
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
+import FirebaseStorage
 
 final class AuthViewModel: ObservableObject {
     
