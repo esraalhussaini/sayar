@@ -14,52 +14,52 @@ struct MyGarageH: View {
 
     
     var body: some View {
-        NavigationLink(destination: Demo()) {
-            VStack(alignment: .center){
+
+//            VStack(alignment: .center){
                     
 
                                   
-                        ZStack{
-                        Rectangle()
-                            .fill(Color("TabMyCar"))
-                     
-                            .frame( width: 345,   height:69)
-                            .shadow(radius: 8)
-                            .cornerRadius(16)
-                     
-
-                        HStack{
-
-                            ZStack{
-                                Image("trangle")
-                                Image("IconFuel")
-                                    .font(.body)
-                            }
-                            VStack(alignment: .leading, spacing: 10){
-                            Text("Fuel")
-                                .font(.title3)
-                                .fontWeight(.medium)
-                               
-                           
-                            }
-
-
-                          Spacer()
-                   
-                            Image("chevron")
-                           
-                        }
-                        .padding(.horizontal,40)
-                       }//ZSTACK
-                        .padding(.top,60)
-                Spacer()
-
-
-                    }//Vstack
+//                        ZStack{
+//                        Rectangle()
+//                            .fill(Color("TabMyCar"))
+//
+//                            .frame( width: 345,   height:69)
+//                            .shadow(radius: 8)
+//                            .cornerRadius(16)
+//
+//
+//                        HStack{
+//
+//                            ZStack{
+//                                Image("trangle")
+//                                Image("IconFuel")
+//                                    .font(.body)
+//                            }
+//                            VStack(alignment: .leading, spacing: 10){
+//                            Text("Fuel")
+//                                .font(.title3)
+//                                .fontWeight(.medium)
+//
+//
+//                            }
+//
+//
+//                          Spacer()
+//
+//                            Image("chevron")
+//
+//                        }
+//                        .padding(.horizontal,40)
+//                       }//ZSTACK
+//                        .padding(.top,60)
+//                Spacer()
+//
+//
+//                    }//Vstack
         
 
-        }//NAV
-                       .accentColor(.black)
+//        }//NAV
+                       //.accentColor(.black)
             
         
     
@@ -70,7 +70,7 @@ struct MyGarageH: View {
         
         
         
-        
+        Text("")
         
         
         

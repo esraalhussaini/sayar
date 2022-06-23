@@ -60,13 +60,24 @@ struct AddOilView: View {
                                     
                                 }
                             
+                            
                             Section{
-                                TextField("ExpectedTime", text:$ExpectedTime)
+                                TextField("km", text:$km)
                                     .keyboardType(.numberPad)
                            
                                 
                             }
                             
+                            
+                            Section{
+                                TextField("ExpectedTime", text:$ExpectedTime)
+                                    .keyboardType(.numberPad)
+                           
+                          
+                                
+                            }
+                            
+                          
                             
               }//form
                         
@@ -79,24 +90,7 @@ struct AddOilView: View {
                         
                         
                         
-                        
-                        //-------delete
-                        Button("Delete", role: .destructive) {
-                                  isShowingDialog = true
-                              }
-         
-                              .controlSize(.large)
-                              .confirmationDialog("Are you sure to delete the data?", isPresented: $isShowingDialog, titleVisibility: .visible) {
-                       
-                                  Button("Confirm", role: .destructive) {
-                                      // Handle the delete action.
-                                  }
-                                  Button("Cancel", role: .cancel) {
-                       
-                                  }
-                              }
-                        
-                        //-------delete
+                     
                     
                         
      Spacer()

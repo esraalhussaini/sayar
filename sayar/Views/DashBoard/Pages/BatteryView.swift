@@ -10,8 +10,13 @@ import SwiftUI
 struct BatteryView: View {
     @StateObject var vm = BatteryViewModel()
  
-   // @State private var searchText = ""
-
+ 
+    //Pluse button
+    @State var isPresentedNewPost = false
+    @State  var DATE = Date()
+    @State var cost = ""
+    @State var BatteryYearRelease = ""
+    @State  var ExpectedTime  = ""
     var body: some View {
         
         
@@ -51,23 +56,83 @@ struct BatteryView: View {
                 
                 
                 
-        }
+        }//LIST
 
         
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-            Button(action: {}) {
-            Image(systemName: "plus")
-            .resizable()
-            .foregroundColor(Color("ColorApp")) }
-            }
+        
+        .toolbar{
+Button {
+    isPresentedNewPost = true
+} label: {
+plusBottonOil
+
 }
-        .navigationTitle("Oil")
-        .navigationBarTitleDisplayMode(.inline)
+        }//TOOLBAR
+
+.font(.title2)//button  plus
+.accentColor(.red)//button   plus
+
+
+
+
+
+
+
+//Navgation Titel
+.navigationTitle("Battery")
+.navigationBarTitleDisplayMode(.inline)
+.font(.title2)
+
+
+
+
+
+
+
+//---------Sheet
+
+.sheet(isPresented: $isPresentedNewPost, content: {
+
+    AddBatteryView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost, BatteryYearRelease: $BatteryYearRelease, ExpectedTime: $ExpectedTime)
+
+})
+
+
+            
+            
+          
+    
+    
+    
+    }//body1
+
+
+
+
+
+//Button Pluse
+var plusBottonOil: some View {
+    
+    
+    
+    Button(action: {
+        isPresentedNewPost.toggle()
+    }, label:  {
         
-        
-        
-        
+        Image(systemName: "plus")
+            .font(.title3)
+   
+    })
+    
+    
+    
+    
+}//VarBody2
+
+
+
+
+}//strct
   //Code RazN
 //
 ////
@@ -100,8 +165,6 @@ struct BatteryView: View {
 //
 //        .background(Color.orange)
 //        .ignoresSafeArea()
-    }
-}
 
 struct BatteryView_Previews: PreviewProvider {
     static var previews: some View {

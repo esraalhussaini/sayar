@@ -103,14 +103,14 @@ struct HomeCarViewModel: View {
             
             Spacer()
             
-          
-                
-                Text("-- km")
-                
-                    .fontWeight(.light)
-                    .foregroundColor(Color.gray)
-                
-                Image("penKM")
+//          
+//                
+//                Text("-- km")
+//                
+//                    .fontWeight(.light)
+//                    .foregroundColor(Color.gray)
+//                
+//                Image("penKM")
    
             }//hstack
             .padding(.horizontal,30)

@@ -10,9 +10,13 @@ import SwiftUI
 struct TiresView: View {
     @StateObject var vm = TiresViewModel()
 
-    
-   // @State private var searchText = ""
-    
+
+    //Pluse button
+    @State var isPresentedNewPost = false
+    @State  var DATE = Date()
+    @State var cost = ""
+    @State var TiersYearRelease = ""
+    @State  var ExpectedTime  = ""
     var body: some View {
       
             
@@ -53,58 +57,82 @@ struct TiresView: View {
                 
                 
                 
-        }
+        }//list
+        
+        
+        .toolbar{
+Button {
+    isPresentedNewPost = true
+} label: {
+plusBottonOil
+
+}
+        }//TOOLBAR
+
+.font(.title2)//button  plus
+.accentColor(.red)//button   plus
+
+
+
+
+
+
+
+//Navgation Titel
+.navigationTitle("Tires")
+.navigationBarTitleDisplayMode(.inline)
+.font(.title2)
+
+
+
+
+
+
+
+//---------Sheet
+
+.sheet(isPresented: $isPresentedNewPost, content: {
+
+AddTierView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost,  TiersYearRelease: $TiersYearRelease, ExpectedTime: $ExpectedTime)
+
+})
+
 
             
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                Button(action: {}) {
-                Image(systemName: "plus")
-                .resizable()
-                .foregroundColor(Color("ColorApp")) }
-                }
-    }
-            .navigationTitle("Oil")
-            .navigationBarTitleDisplayMode(.inline)
             
-            
-            
-            
-  //Code Razan
-//
-//            HStack {
-////              Text("NJN")
-//
-//        }//Hstack
-////
-//
-//            // .navigationTitle("My Garage")
-//            // .navigationBarTitleDisplayMode(.large)
-//                .toolbar {
-//                    ToolbarItem(placement: .primaryAction) {
-//                        Button(action: {}) { Image(systemName: "plus")
-//                                .resizable()
-//                            .foregroundColor(Color("ColorApp")) }
-//                    }
-//
-//    ToolbarItem(placement: .navigation) {
-//        Button(action: {}) { Image(systemName: "chevron.left")
-//                        .foregroundColor(Color("ColorApp")) }
-//                    }
-//        }
-//                .navigationTitle("Tiers")
-//                .navigationBarTitleDisplayMode(.inline)
-//
-//
-//
-//                .searchable(text: $searchText)
-//
-//    }//nav
-//
-//        .background(Color.orange)
-//        .ignoresSafeArea()
-    }
-}
+          
+    
+    
+    
+    }//body1
+
+
+
+
+
+//Button Pluse
+var plusBottonOil: some View {
+    
+    
+    
+    Button(action: {
+        isPresentedNewPost.toggle()
+    }, label:  {
+        
+        Image(systemName: "plus")
+            .font(.title3)
+   
+    })
+    
+    
+    
+    
+}//VarBody2
+
+
+
+
+}//strct
 
 struct TiersView_Previews: PreviewProvider {
     static var previews: some View {

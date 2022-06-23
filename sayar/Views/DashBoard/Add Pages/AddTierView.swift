@@ -8,130 +8,148 @@
 import SwiftUI
 
 struct AddTierView: View {
-    func setupTabBar() {
-            let appearance = UINavigationBarAppearance()
-          
-            appearance.shadowImage = UIImage(named: "tab-shadow")?.withRenderingMode(.alwaysTemplate)
-            appearance.backgroundColor = UIColor.white
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-        init() {
-            UITableView.appearance().backgroundColor = .clear
-            setupTabBar()
-        }
+ 
+    @State private var isShowingDialog = false
     
-    @State private var SAR = ""
-    @State private var KM = ""
-    @State private var DATE = Date()
+    
+//Pluse button
+
+    
+    
+    @Binding var isPresented: Bool
+
+@Binding var  DATE: Date
+ // @Binding var  DATE = Date()
+@Binding var cost : String
+@Binding var TiersYearRelease  : String
+@Binding var ExpectedTime : String
 
     var body: some View {
         
         
         NavigationView{
-        Form
-        {
-            
-            Section(header: Text("date")){
-                HStack(alignment: .center){
-                    Image("Calender-1")
-                    DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
-                        . datePickerStyle(CompactDatePickerStyle())
-                        .accentColor(.red)
-                         }
-                    .font(Font.system(size: 17, design: .default))
-                     .padding(5)
-                     .font(Font.system(size: 15, weight: .medium, design: .serif))
-            
+            ZStack{
                 
-            }.listRowBackground(Color(red: 0.976, green: 0.976, blue: 0.976))
+                Color.gray.opacity(0.1)
+             
+                VStack(alignment: .center , spacing: 10){
+//                       Spacer()
+//                        Image("DefualtCar")
+//                //button
+//                        Text("Add Photo")
             
-            
-            Section(header: Text("Cost")){
-                HStack{
-                TextField("amount",text: $SAR)
-                    Text("SR")
-                }
+                    
+                    
+                    Form{
+             
                 
-            }.listRowBackground(Color("Grey"))
-            
-            Section(header: Text("odemeter")){
-                HStack{
+                    Section{
+                        
+                        DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                       // TextField("Make", text:$titel)
+                       // TextField("Model", text: $post )
+                        
+                    }
+                        
+                            Section{
+                                TextField("SAR", text:$cost)
+                                    .keyboardType(.numberPad)
+                           
+                                
+                            }
                 
-                TextField("Kilometers",text: $KM)
-                    Text("KM")
-                }
-            }.listRowBackground(Color("Grey"))
-//            HStack{
-//
-//                Section(header: Text("5 KM")){
-//
-//
-//                    TextField("Oil Type",text: $KM)
-//
-//                }
-//
-//                VStack{
-//                Section(header: Text("Expected Time")){
-//                    Spacer()
-//
-//                    TextField("5 Months",text: $KM)
-//                }
-//                }
-                
-            //}
-//            Section(header: Text("Reminder")){
-//
-//
-//                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} ).listRowBackground(Color("Grey"))
-//
-//            }
-        
-            
-        }
-        .toolbar{
-            
-            
-            
-            
-            ToolbarItem(placement: .primaryAction) {
-                            Button("Done") {}
+                        Section{
+                            TextField("TiersYearRelease", text:$TiersYearRelease)
+                                .keyboardType(.numberPad)
+                       
+                            
                         }
-            ToolbarItem(placement: .principal) { // <3>
-                           VStack {
-                               Text("Add Tiers").font(.headline)
-                              
-                           }
-                       }
-
-            ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {}
+                        
+                        
+                        Section{
+                            TextField("ExpectedTime", text:$ExpectedTime)
+                                .keyboardType(.numberPad)
+                       
+                          
                         }
-//
-            
-           
-           
-            
-        }
-            
-        }.accentColor(.red)
-            
-        
-       
-      
-//
-//        VStack{
-//
-//            Text("لازم نص لان طالع ايرور مافيه كود حطيته بشكل مؤقت")
-//
-//
-//
-//        }
-            .background(Color.white)
-    }
-}
+                        
+                        
+          }//form
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+                    
+ Spacer()
+                        .padding(.bottom)
+                            
+                     
+                
+             
+                }//VSTACK IMAGE
+             
 
-struct AddTierView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTierView()
-    }
-}
+            }//zstack importent
+
+            
+            
+            
+            
+
+
+            .navigationBarTitle("Add Tiers", displayMode: .inline)
+      .navigationBarItems(leading:leading   ,trailing: trailing)
+           
+                
+      .ignoresSafeArea(.all, edges: .bottom)
+                
+                
+        }//NavgationView
+    }//varBody1
+
+    
+    
+    
+   //Cancel
+    var leading: some View {
+
+        Button(action : {
+            isPresented.toggle()
+        }, label: {
+            Text("Cancel")
+                .accentColor(.red)
+        })
+
+
+
+    }//VarBody2
+
+
+//Done
+    var trailing: some View {
+
+        Button(action : {
+           isPresented.toggle()
+        }, label: {
+            Text("Done")
+                .accentColor(.red)
+         
+        })
+
+
+
+    }//VarBody3
+}//StructView
+
+
+    
+    
+    
+    

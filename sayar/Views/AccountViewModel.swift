@@ -86,9 +86,10 @@ struct AccountViewModel: View {
                                         .resizable()
                                         .frame(width: 35, height: 35);                                    VStack(alignment: .leading){
                                         Text("Personal information")
+                                                .padding(.horizontal,10)
                                         Text("+966000000000")
                                             .foregroundColor(.gray)
-
+                                            .padding(.horizontal,10)
                                     }
                                     
                                     Spacer()
@@ -101,7 +102,7 @@ struct AccountViewModel: View {
                         
                             
                         
-            NavigationLink(destination: MyGarageH()) {
+//            NavigationLink(destination: MyGarageH()) {
                        //
                  
                                
@@ -113,10 +114,10 @@ struct AccountViewModel: View {
                             } label: {
                                 HStack{
                                     Image("sports-car 1")
-                                    
+                                        .padding(.horizontal,-10)
                                     
                                     Text("My Garage")
-                                    .padding(.horizontal,9)
+                                 .padding(.horizontal,25)
                                       
                                     Spacer()
                                     Image("chevron.down")
@@ -124,10 +125,10 @@ struct AccountViewModel: View {
                                 }
                                 
                                 .padding()
-                                .padding(.horizontal,-12)
+                                .padding(.horizontal,2)
                             }
            
-            }//nav
+//            }//nav
               
                             
                         }//section one
@@ -142,7 +143,9 @@ struct AccountViewModel: View {
                             } label:{
                                 HStack{
                                     Image("help 2")
+                                        .padding(.horizontal,11)
                                     Text("Help")
+                                        .padding(.horizontal,1)
                                     Spacer()
                                     Image("chevron.down")
                                         .padding()
@@ -184,6 +187,9 @@ struct AccountViewModel: View {
                     
                 }
             }
+            
+            
+            .accentColor(.black)
             }
            
           //  .ignoresSafeArea(.all)

@@ -11,6 +11,13 @@ struct FuelView: View {
    @StateObject var vm = FuelViewModel()
    // @State private var searchText = ""
 
+    
+       //Pluse button
+       @State var isPresentedNewPost = false
+       @State  var DATE = Date()
+       @State var cost = ""
+
+       @State  var km  = ""
     var body: some View {
         
         
@@ -51,25 +58,85 @@ struct FuelView: View {
                 
                 
                 
-        }
+        }//list
 
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-            Button(action: {}) {
-            Image(systemName: "plus")
-            .resizable()
-            .foregroundColor(Color("ColorApp")) }
-            }
+        
+        .toolbar{
+Button {
+    isPresentedNewPost = true
+} label: {
+plusBottonOil
+
 }
-        .navigationTitle("Oil")
-        .navigationBarTitleDisplayMode(.inline)
+        }//TOOLBAR
+
+.font(.title2)//button  plus
+.accentColor(.red)//button   plus
+
+
+
+
+
+
+
+//Navgation Titel
+.navigationTitle("Fuel")
+.navigationBarTitleDisplayMode(.inline)
+.font(.title2)
+
+
+
+
+
+
+
+//---------Sheet
+
+.sheet(isPresented: $isPresentedNewPost, content: {
+
+    AddFuelView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost, km: $km)
+
+})
+
+
+            
+            
+          
+    
+    
+    
+    }//body1
+
+
+
+
+
+//Button Pluse
+var plusBottonOil: some View {
+    
+    
+    
+    Button(action: {
+        isPresentedNewPost.toggle()
+    }, label:  {
         
-        
-        
-        
-      //CODE Razan
-//        NavigationView {
+        Image(systemName: "plus")
+            .font(.title3)
+   
+    })
+    
+    
+    
+    
+}//VarBody2
+
+
+
+
+}//strct
+  //Code RazN
 //
+////
 //            HStack {
 ////              Text("NJN")
 //
@@ -90,17 +157,16 @@ struct FuelView: View {
 //                        .foregroundColor(Color("ColorApp")) }
 //                    }
 //        }
-//                .navigationTitle("Fuel")
+//                .navigationTitle("Battery")
 //                .navigationBarTitleDisplayMode(.inline)
 //                .searchable(text: $searchText)
 //
 //
-//    }//nav
+//
 //
 //        .background(Color.orange)
 //        .ignoresSafeArea()
-    }
-}
+
 
 struct FuelView_Previews: PreviewProvider {
     static var previews: some View {

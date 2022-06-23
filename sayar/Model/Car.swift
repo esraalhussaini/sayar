@@ -25,8 +25,12 @@ struct Car {
 
 
     init(dictionary:[String:Any]){
+        
+       // self.id = dictionary[Car.id] as! String Nouf
+        //    self.id = dictionary[Car.id] as? String ?? "N/A" Anwar AfterEdite
+        
 
-        self.id = dictionary[Car.id] as! String
+        self.id = dictionary[Car.id] as? String ?? "N/A"
         self.carID = dictionary[Car.carID] as? String ?? "N/A"
         self.carMake = dictionary[Car.carMake] as! String
         self.carModel = dictionary[Car.carModel] as! String
