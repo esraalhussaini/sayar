@@ -16,6 +16,9 @@ import FirebaseFirestore
 class FuelViewModel: ObservableObject{
     
     @Published var fuel = [Fuel]()
+    @Published var cost : Double = 0.0
+    @Published var km : Double = 0.0
+    
     init(){
         fetchData()
     }
@@ -98,4 +101,28 @@ class FuelViewModel: ObservableObject{
 //
 //    }
 
+//    ********************* NOUF fule ***********************
+    //    var fueldata : [String:String] = [:]
+    //    fueldata[Fuel.carID] = self.
+    
+        func uploadFuel(completion:@escaping ()->()){
+    //        guard let user =  AuthViewModel.shared.user else {return}
+//            guard cost != 0.0 else {
+//                print("Please, type something")
+//                return}
+    
+            let docRef = db.collection("Fuel").document()
+            let data : [String:Any] = [
+                Fuel.cost : cost,
+                Fuel.km : km,
+                Fuel.date : Date(),
+                Fuel.carID:"123",
+                Fuel.id:docRef.documentID
+            ]
+            docRef.setData(data){ _ in
+                print("Uploading Successfully")
+                completion()
+            }
+        }
+    
 }

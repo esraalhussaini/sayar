@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeCarViewModel: View {
-  
-    
+  // For testing
+//    @StateObject var vm = TiresViewModel()
     
     
     
@@ -401,7 +401,16 @@ VStack(alignment: .center){
             
         })
         
-        
+        .onAppear{
+//            calculateExpiredDate()
+//           (completion:@escaping ()->()){
+//            vm.uploadTires {
+//                print("Successfully!")
+//            }
+            
+        }
+            
+       
         
         
         
@@ -454,7 +463,13 @@ VStack(alignment: .center){
 
 
 
-
+func calculateExpiredDate()->(Date){
+    let today = Date()
+    print(today,"📍")
+    let modifiedDate = Calendar.current.date(byAdding: .day, value: 60, to: today)!
+    print(modifiedDate,"📍")
+     return modifiedDate
+}
 
 
 
