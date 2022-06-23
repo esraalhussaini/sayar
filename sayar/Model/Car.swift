@@ -8,6 +8,8 @@
 import Foundation
 
 import Firebase
+import FirebaseAuth
+import FirebaseStorage
 //سويت كومنت لاني احتاج اجرب مودل الكار، انوار
 
 struct Car {
