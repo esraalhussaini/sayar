@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeCarViewModel: View {
   // For testing
 //    @StateObject var vm = TiresViewModel()
-    
+    @EnvironmentObject var authvm : AuthViewModel
+    @State var showLoginPage = false
     
     
     
@@ -400,8 +401,12 @@ VStack(alignment: .center){
             AddCar(isPresented: $isPresentedNewPost, titel: $titel, post: $post,kmCar: $kmCar)
             
         })
+        .fullScreenCover(isPresented: $showLoginPage, content: {
+            AuthView(showLoginPage: $showLoginPage, isPresentedNewPost: $isPresentedNewPost)
+        })
         
         .onAppear{
+            authvm.fetchCar()
 //            calculateExpiredDate()
 //           (completion:@escaping ()->()){
 //            vm.uploadTires {
@@ -436,7 +441,13 @@ VStack(alignment: .center){
         
         
         Button(action: {
-            isPresentedNewPost.toggle()
+            if authvm.isAouthenticatting{
+                isPresentedNewPost.toggle()
+            }
+            else{
+                showLoginPage.toggle()
+            }
+            
         }, label:  {
             
             Image(systemName: "plus")

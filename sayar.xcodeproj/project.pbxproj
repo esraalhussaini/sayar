@@ -44,6 +44,7 @@
 		E83C77F128626CCC00B55D64 /* CarViewModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F028626CCC00B55D64 /* CarViewModelDemo.swift */; };
 		E83C77F328626E3700B55D64 /* CarsDemoAnwar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F228626E3700B55D64 /* CarsDemoAnwar.swift */; };
 		E83C77F52862ECC600B55D64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F42862ECC600B55D64 /* User.swift */; };
+		E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8410C3A2864697500C3F80D /* addCarViewModel.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
@@ -89,6 +90,7 @@
 		E83C77F028626CCC00B55D64 /* CarViewModelDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModelDemo.swift; sourceTree = "<group>"; };
 		E83C77F228626E3700B55D64 /* CarsDemoAnwar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDemoAnwar.swift; sourceTree = "<group>"; };
 		E83C77F42862ECC600B55D64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E8410C3A2864697500C3F80D /* addCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCarViewModel.swift; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E836B579285F837A00C5700B /* AuthViewModel.swift */,
+				E8410C3A2864697500C3F80D /* addCarViewModel.swift */,
 				D8E4154328607193006FDC58 /* FuelViewModel.swift */,
 				D8E4154828632723006FDC58 /* OilViewModel.swift */,
 				D8E4154A28632737006FDC58 /* BatteryViewModel.swift */,
@@ -363,6 +366,7 @@
 				D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */,
 				E836B578285F810E00C5700B /* SecondOTP.swift in Sources */,
 				D8E4154428607193006FDC58 /* FuelViewModel.swift in Sources */,
+				E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
@@ -502,6 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sayar/Preview Content\"";
+				DEVELOPMENT_TEAM = A3FH5U4VWR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sayar/Info.plist;
@@ -532,6 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sayar/Preview Content\"";
+				DEVELOPMENT_TEAM = A3FH5U4VWR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sayar/Info.plist;
