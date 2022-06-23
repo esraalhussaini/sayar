@@ -22,8 +22,10 @@ struct AddTierView: View {
     
     @State private var SAR = ""
     @State private var KM = ""
-    @State private var DATE = ""
-    
+    @State private var DATE = Date.now
+    @State private var tarihGorun = false
+//    @State var savedDate: Date? = nil
+
     var body: some View {
         
         
@@ -32,14 +34,26 @@ struct AddTierView: View {
         {
             
             Section(header: Text("date")){
+                HStack(alignment: .center){
+                    Image("Calender-1")
+                    DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                        . datePickerStyle(CompactDatePickerStyle())
+//                        .labelsHidden()
+                        .accentColor(.red)
+//                        .onTapGesture {
+//                            self.tarihGorun = true
+//                                   }
+         
+                         }
+//                .frame(width: 150, height: 10, alignment: .center)
+                    .font(Font.system(size: 17, design: .default))
+                     .padding(5)
+                     .font(Font.system(size: 15, weight: .medium, design: .serif))
+//                     .overlay(
+//                         RoundedRectangle(cornerRadius: 30)
+//                             .background(Color(red: 5 / 5, green: 0 / 25, blue: 112 / 255))
                 
-                TextField("13/4/2022",text: $DATE)
-                  
-                
-               
-                
-                
-            }.listRowBackground(Color("Grey"))
+            }.listRowBackground(Color(red: 0.976, green: 0.976, blue: 0.976))
             
             
             Section(header: Text("Cost")){
@@ -49,10 +63,11 @@ struct AddTierView: View {
             }.listRowBackground(Color("Grey"))
             
             Section(header: Text("odemeter")){
+                HStack{
                 
-                
-                TextField("KM",text: $KM)
-                 
+                TextField("Kilometers",text: $KM)
+                    Text("KM")
+                }
             }.listRowBackground(Color("Grey"))
 //            HStack{
 //
@@ -72,12 +87,12 @@ struct AddTierView: View {
 //                }
                 
             //}
-            Section(header: Text("Reminder")){
-                
-               
-                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} ).listRowBackground(Color("Grey"))
-                
-            }
+//            Section(header: Text("Reminder")){
+//
+//
+//                Toggle(isOn: .constant(true), label:{Image("Calender-1");Text("Date")} ).listRowBackground(Color("Grey"))
+//
+//            }
         
             
         }
