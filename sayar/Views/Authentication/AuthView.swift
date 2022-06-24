@@ -49,6 +49,7 @@ struct AuthView: View {
 
                   } label: {
                       Text("Create Account")
+                          .keyboardType(.numberPad)
                   }
 
                   Divider()
@@ -58,6 +59,7 @@ struct AuthView: View {
                       .overlay(
                           RoundedRectangle(cornerRadius: 5)
                               .stroke(Color.white, lineWidth: 0.5)
+                              .keyboardType(.numberPad)
                       )
                       .padding()
 

@@ -32,7 +32,8 @@ struct CarPrefrence: ChartDataProvidable {
     let color: Color
 }
 
-    // keep track of how much percentage of these assets
+
+//     keep track of how much percentage of these assets
 struct AssetAllocation: ChartDataProvidable {
     //track the type of asset
     let asset: Asset

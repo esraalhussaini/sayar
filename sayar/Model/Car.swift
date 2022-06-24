@@ -20,25 +20,27 @@ struct Car {
     let carModel : String
     let carManufactureYear : Int
     let carKm : Int
-    let carImageUrl : String
+    //let carImageUrl : String
 
 
 
     init(dictionary:[String:Any]){
         
        // self.id = dictionary[Car.id] as! String Nouf
-        //    self.id = dictionary[Car.id] as? String ?? "N/A" Anwar AfterEdite
+        //    self.id = dictionary[Car.id] as? String ?? "N/A"Anwar AfterEdite
+        //  self.carID = dictionary[Car.carID] as! String
         
-
-        self.id = dictionary[Car.id] as? String ?? "N/A"
-        self.carID = dictionary[Car.carID] as? String ?? "N/A"
+        self.id = dictionary[Car.id] as? String ?? ""
+        //self.id = dictionary[Car.id] as? String ?? "N/A"
+        self.carID = dictionary[Car.carID]  as? String ?? ""
         self.carMake = dictionary[Car.carMake] as! String
         self.carModel = dictionary[Car.carModel] as! String
         self.carManufactureYear = dictionary[Car.carManufactureYear] as? Int ?? 0
         self.carKm = dictionary[Car.carKm] as? Int ?? 0
-        self.carImageUrl = dictionary[Car.carImageUrl]  as? String ?? "N/A"
-
     }
+       // self.carImageUrl = dictionary[Car.carImageUrl]  as? String ?? "N/A"
+
+    
 
     static let id = "id"
     static let carID = "carID"

@@ -46,10 +46,12 @@ struct AddCar: View {
                     
                         Section{
                             TextField("Make", text:$titel)
+                             
                             TextField("Model", text: $post )
                             
-                        }
                             
+                        }
+                  
                                 Section{
                                     TextField("Km", text:$kmCar)
                                         .keyboardType(.numberPad)
