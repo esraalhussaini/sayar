@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFuelView: View {
     @State private var isShowingDialog = false
-    
+   @StateObject var vm = FuelViewModel()
     
 //Pluse button
 
@@ -127,6 +127,9 @@ struct AddFuelView: View {
     var trailing: some View {
 
         Button(action : {
+            vm.uploadFuel {
+                print("SAVED ")
+            }
            isPresented.toggle()
         }, label: {
             Text("Done")
