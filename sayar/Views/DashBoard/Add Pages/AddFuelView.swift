@@ -128,7 +128,7 @@ struct AddFuelView: View {
 
         Button(action : {
             vm.uploadFuel {
-                print("SAVED ")
+                print("SAVED !!!!!!!!!!!!!!!! ")
             }
            isPresented.toggle()
         }, label: {

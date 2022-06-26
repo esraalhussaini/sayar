@@ -10,7 +10,7 @@ import SwiftUI
 struct AddOilView: View {
 
         @State private var isShowingDialog = false
-        
+    @StateObject var vm = OilViewModel()
         
     //Pluse button
 
@@ -142,6 +142,7 @@ struct AddOilView: View {
         var trailing: some View {
 
             Button(action : {
+                vm.uploadOil{}
                isPresented.toggle()
             }, label: {
                 Text("Done")

@@ -10,7 +10,7 @@ import SwiftUI
 struct AddTierView: View {
  
     @State private var isShowingDialog = false
-    
+    @StateObject var vm = TiresViewModel()
     
 //Pluse button
 
@@ -121,6 +121,8 @@ struct AddTierView: View {
     var leading: some View {
 
         Button(action : {
+            vm.uploadTires {
+            }
             isPresented.toggle()
         }, label: {
             Text("Cancel")

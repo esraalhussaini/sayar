@@ -10,7 +10,7 @@ import SwiftUI
 struct AddBatteryView: View {
     
     @State private var isShowingDialog = false
-    
+    @StateObject var vm = BatteryViewModel()
     
 //Pluse button
     
@@ -142,6 +142,8 @@ struct AddBatteryView: View {
         var trailing: some View {
 
             Button(action : {
+                vm.uploadBattery {
+                }
                isPresented.toggle()
             }, label: {
                 Text("Done")
