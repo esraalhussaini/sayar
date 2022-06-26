@@ -114,6 +114,7 @@ struct sayarApp: App {
   WindowGroup {
             TabViewApp()
           .environmentObject(AuthViewModel.shared)
+          .preferredColorScheme(.light)
         }
     }
 }
