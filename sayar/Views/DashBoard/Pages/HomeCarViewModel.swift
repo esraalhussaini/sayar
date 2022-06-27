@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomeCarViewModel: View {
+    
+   
+    
+    
   // For testing
 //    @StateObject var vm = TiresViewModel()
     
@@ -96,6 +100,7 @@ struct HomeCarViewModel: View {
             HStack{
              
                 Text("My car")
+              
                     .font(.title2)
                     .fontWeight(.semibold)
                

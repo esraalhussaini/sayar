@@ -12,68 +12,102 @@ import FirebaseCore
 
 struct VehicleView: View {
     @StateObject var viewModel = VehiclesViewModel()
-    
+    @State var presentAddCarSheet = false
     private var addButton: some View {
-          Button(action: {
-              //self.presentAddBookSheet.toggle()
+         Button(action: { self.presentAddCarSheet.toggle() }) {
+           Image(systemName: "plus")
+         }
+       }
+        
+       private func carRowView(v: Vehicle) -> some View {
+        // NavigationLink(destination: VehicleDetailsView(v: v)) {
+           VStack(alignment: .leading) {
+               HStack {
               
-          }) {
-            Image(systemName: "plus")
-          }
-        }//praivet add button
-    
+                    
+                   VStack(alignment: .leading) {
+                       Text(v.VehicleMake)
+                   
+                   }
+               }
+           }
+         }
+      // }nav
+      
+        
+//       private func carRowView(v: Vehicle) -> some View {
+//         NavigationLink(destination: VehicleDetailsView()) {
+//
+//
+//
+//                   VStack(alignment: .leading) {
+//                       Text(v.VehicleMake)
+//                           .fontWeight(.bold)
+//                      // Text(v.VehicleModel)
+//                   }//vstack
+//
+      
   
-    
     
     
     var body: some View {
         
         NavigationView{
             
-            
-            List(viewModel.vehicle){f in
-              
-                    HStack{
-                        
-                        
-                        VStack(alignment: .leading, spacing: 10){
-                            
-                            
-                            Text("\(f.VehicleMake)").fontWeight(.heavy)
-                                .foregroundColor(.black)
-                            Text("\(f.VehicleModel)")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                
-                        }
-                        Spacer(minLength: 5)
-                        Text("\(f.VManufactureYear)")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding(.horizontal)
-                            .padding(.top)
-                        
-                        
-                        
-                        
-                        
-                    }.padding().background(Color("Grey"))
-                    .cornerRadius(10)
-                    
-                    
-              
-             
-                    
-                    
-                    
-                    
-            }//list
+            List {
+                     ForEach (viewModel.vehicle) { v in
+                       carRowView(v: v)
+                     }
+//                     .onDelete() { indexSet in
+//                       viewModel.removeBooks(atOffsets: indexSet)
+//                     }
+                   }
+//            List(viewModel.vehicle){f in
+//
+//                    HStack{
+//
+//
+//                        VStack(alignment: .leading, spacing: 10){
+//
+//
+//                            Text("\(f.VehicleMake)").fontWeight(.heavy)
+//                                .foregroundColor(.black)
+//                            Text("\(f.VehicleModel)")
+//                                .font(.caption)
+//                                .foregroundColor(.gray)
+//
+//                        }
+//                        Spacer(minLength: 5)
+//                        Text("\(f.VManufactureYear)")
+//                            .font(.caption)
+//                            .foregroundColor(.gray)
+//                            .padding(.horizontal)
+//                            .padding(.top)
+//
+//
+//
+//
+//
+//                    }.padding().background(Color("Grey"))
+//                    .cornerRadius(10)
+//
+//
+//
+//
+//
+//
+//
+//
+//            }//list
             
             .navigationTitle("My Garage")
             .navigationBarItems(trailing: addButton)
             .onAppear() {
                       print("BooksListView appears. Subscribing to data updates.")
-                     //self.viewModel.fetchData()
+                     self.viewModel.fetchData()
+                    }
+            .sheet(isPresented: self.$presentAddCarSheet) {
+                VehicleEditView()
                     }
                 
         }//nav

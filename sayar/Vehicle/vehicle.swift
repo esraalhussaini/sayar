@@ -54,7 +54,7 @@ struct Vehicle  : Identifiable{
     let  VehicleModel: String
     let  VManufactureYear: Int
     let VehicleKM: Int
-    let  VehicleImageUrl: String
+    //let  VehicleImageUrl: String
 
 
         // let d : Firebase.Timestamp
@@ -75,7 +75,7 @@ struct Vehicle  : Identifiable{
 
         self.VManufactureYear = data[Vehicle.VManufactureYear] as? Int ?? 0
         self.VehicleKM  = Int(data[Vehicle.VehicleKM ] as? Double ?? 0.0)
-        self.VehicleImageUrl = data[Vehicle.VehicleImageUrl] as? String ?? "N/A"
+       // self.VehicleImageUrl = data[Vehicle.VehicleImageUrl] as? String ?? "N/A"
 
     }
 
@@ -85,7 +85,7 @@ struct Vehicle  : Identifiable{
     static let VehicleModel = "VehicleModel"
     static let VManufactureYear = "VManufactureYear"
     static let VehicleKM = "VehicleKM"
-    static let VehicleImageUrl = "VehicleImageUrl"
+   // static let VehicleImageUrl = "VehicleImageUrl"
 
 
 }

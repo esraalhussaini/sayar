@@ -67,6 +67,21 @@ class VehiclesViewModel: ObservableObject{
     
     @Published var appError: Errors? = nil
     
+    private var listenerRegistration: ListenerRegistration?
+      
+    deinit {
+      unsubscribe()
+    }
+     
+    func unsubscribe() {
+      if listenerRegistration != nil {
+        listenerRegistration?.remove()
+        listenerRegistration = nil
+      }
+    }
+    
+    
+    
     init(){
         fetchData()
     }
@@ -102,79 +117,30 @@ class VehiclesViewModel: ObservableObject{
             
         }
     }//FUN
-        
-//        db.collection("Fuel").addSnapshotListener { querySnapshot, error in
-//
-//            guard let documents = querySnapshot?.documents else {
-//
-//
-//                print("no documents")
-//                return
-//            }
-//
-//            self.fuel = documents.map(){ (queryDocumentSnapshot) -> Fuel in
-//                let data = queryDocumentSnapshot.data()
-//
-//              //  let id = data["id"] as! String
-//                let carID = data["carID"] as? String ?? "N/A"
-//                let cost = data["cost"] as? Double ?? 0.0
-//                let km = data["km"] as? Int ?? 0
-//                let date = data["date"] as! Double
-//
-//
-//                //let fuel = Fuel(carID: carID,cost: cost, date: date , id: id , km: km )
-//                return Fuel(id: .init(), carID: carID,cost: cost, km: km, date: date )
-//
-//
-//
-//            }
-//        }
-        
-   
-//
-//        // read the documents at a specific path
-//        db.collection("Fuel").getDocuments { snapshot , error in
-//             //check for error
-//            if error == nil{
-//                //no errors
-//            }
-//
-//            if let snapshot = snapshot {
-//
-//                //get all the document and create instance of fuel
-//                snapshot.documents.map { d in
-//                  return Fuel(data: <#T##[String : Any]#>)                }
-//
-//
-//
-//            }else{}
-//        }
-//
-//
-//    }
+    
+    
+    
+    
+    
+    
+//    
+//   func removeCars(atOffsets indexSet: IndexSet) {
+//     let Vehicle = indexSet.lazy.map { self.vehicle[$0] }
+////       Vehicle.forEach { v in
+////       if let documentId = v.id {
+////         db.collection("Vehicle").document(documentId).delete { error in
+////           if let error = error {
+////             print("Unable to remove document: \(error.localizedDescription)")
+////           }
+////         }
+////       }
+//     }
+//   }
+    
+    
+    
+    
+    
+    
+}//class
 
-//    ********************* NOUF fule ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
-    
-//        func uploadVehicle(completion:@escaping ()->()){
-//
-//            
-//            guard let uid = Auth.auth().currentUser?.uid else {return}
-//            let docRef = Firestore.firestore().collection("Vehicle").document(uid)
-//           
-//            let data : [String:Any] = [
-//                Vehicle.VehicleMake : VehicleMake,
-//                Vehicle.VehicleModel : VehicleModel,
-//                Vehicle.VManufactureYear : VManufactureYear,
-//                Vehicle.VehicleKM : VehicleKM,
-//                Vehicle.VehicleImageUrl: VehicleImageUrl,
-//                Vehicle.id:docRef.documentID
-//            ]
-//             docRef.setData(data){ _ in
-//                print("Uploading Successfully")
-//                completion()
-//            }
-//        }
-    
-}
