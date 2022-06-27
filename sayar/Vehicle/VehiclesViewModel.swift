@@ -18,128 +18,167 @@ import Combine
 //Vehicles //firstore
 //vehicles  // class
 //vehicless // varibels
+//
+//class VehiclesViewModel: ObservableObject {
+//
+//
+//
+//private var db = Firestore.firestore()
+//
+//    @Published var vehicle =  [Vehicle]()
+//
+//    private var listenerRegistration: ListenerRegistration?
+//
+//      deinit {
+//        unsubscribe()
+//      }
+//
+//      func unsubscribe() {
+//        if listenerRegistration != nil {
+//          listenerRegistration?.remove()
+//          listenerRegistration = nil
+//        }
+//      }
+//
+//
+//}//CLASS
+    
 
-class VehiclesViewModel: ObservableObject {
 
-    @Published var Vehicle =  [vehicle]()
-
-private var db = Firestore.firestore()
-
-    private var listenerRegistration: ListenerRegistration?
-
-      deinit {
-        unsubscribe()
-      }
-
-      func unsubscribe() {
-        if listenerRegistration != nil {
-          listenerRegistration?.remove()
-          listenerRegistration = nil
-        }
-      }
-
-
-
-
-
-
-
-
-
-    func subscribe() {
-      if listenerRegistration == nil {
-        listenerRegistration = db.collection("Vehicle").addSnapshotListener { (querySnapshot, error) in
-          guard let documents = querySnapshot?.documents else {
-            print("No documents")
-            return
-          }
-
-//          self.Vehicle = documents.compactMap { queryDocumentSnapshot in
-//              try? queryDocumentSnapshot.data(as: Vehicle.self)
-//          }
-        }
-      }
+class VehiclesViewModel: ObservableObject{
+    
+//
+//    let  VehicleMake: String
+//    let  VehicleModel: String
+//    let  VManufactureYear: Int
+//    let VehicleKM: Int
+//    let  VehicleImageUrl: String
+//
+    
+    @Published var vehicle = [Vehicle]()
+  @Published var VehicleMake : String = ""
+    @Published var VehicleModel : String = ""
+    @Published var VManufactureYear: Double = 0.0
+    @Published var VehicleKM: Double = 0.0
+    @Published var VehicleImageUrl: String = ""
+    @Published var costString : String = ""
+    
+    
+    
+    @Published var appError: Errors? = nil
+    
+    init(){
+        fetchData()
     }
-
-      func removeBooks(atOffsets indexSet: IndexSet) {
-        let Vehicle = indexSet.lazy.map { self.Vehicle[$0] }
-          Vehicle.forEach { vehicles in
-          if let documentId = vehicles.id {
-            db.collection("Vehicle").document(documentId).delete { error in
-              if let error = error {
-                print("Unable to remove document: \(error.localizedDescription)")
-              }
+//
+//    @Published var list = [Fuel]()
+//
+//    func getData(){
+//
+//        //get a refrence to the database
+        private var db = Firestore.firestore()
+    
+    
+    
+    
+    func fetchData(){
+        
+        db.collection("Vehicle").getDocuments {snapdhot, error in
+            guard error == nil else {
+                print("Error \(error)")
+                return
             }
-          }
+            
+            if let docs = snapdhot?.documents{
+                docs.forEach { doc in
+                      let vehicle = Vehicle(data: doc.data())
+                    print(vehicle.VehicleKM,"🤚🏻")
+                    self.vehicle.append(vehicle)
+                }
+                
+            }
+            
+            
+            
         }
-      }
-
-
-}
-
-//---------------
-
-
-
-//class VehiclesViewModel: ObservableObject{
+    }//FUN
+        
+//        db.collection("Fuel").addSnapshotListener { querySnapshot, error in
 //
-//    @Published var vehicle = [Vehicle]()
-////    @Published var cost : Double = 0.0
-////    @Published var km : Double = 0.0
+//            guard let documents = querySnapshot?.documents else {
 //
-//    init(){
-//        fetchData()
-//    }
-////
-////    @Published var list = [Fuel]()
-////
-////    func getData(){
-////
-////        //get a refrence to the database
-//        private var db = Firestore.firestore()
 //
-//    func fetchData(){
-//
-//        db.collection("Vehicle").getDocuments {snapdhot, error in
-//            guard error == nil else {
-//                print("Error \(error)")
+//                print("no documents")
 //                return
 //            }
 //
-//            if let docs = snapdhot?.documents{
-//                docs.forEach { doc in
-//                      let vehicle = Vehicle(data: doc.data())
-//                    print(vehicle.VehicleMake,"🤚🏻")
-//                    self.vehicle.append(vehicle)
-//                }
+//            self.fuel = documents.map(){ (queryDocumentSnapshot) -> Fuel in
+//                let data = queryDocumentSnapshot.data()
+//
+//              //  let id = data["id"] as! String
+//                let carID = data["carID"] as? String ?? "N/A"
+//                let cost = data["cost"] as? Double ?? 0.0
+//                let km = data["km"] as? Int ?? 0
+//                let date = data["date"] as! Double
+//
+//
+//                //let fuel = Fuel(carID: carID,cost: cost, date: date , id: id , km: km )
+//                return Fuel(id: .init(), carID: carID,cost: cost, km: km, date: date )
+//
+//
 //
 //            }
+//        }
+        
+   
+//
+//        // read the documents at a specific path
+//        db.collection("Fuel").getDocuments { snapshot , error in
+//             //check for error
+//            if error == nil{
+//                //no errors
+//            }
+//
+//            if let snapshot = snapshot {
+//
+//                //get all the document and create instance of fuel
+//                snapshot.documents.map { d in
+//                  return Fuel(data: <#T##[String : Any]#>)                }
 //
 //
 //
-//        }}
+//            }else{}
+//        }
 //
 //
-//
-////        func uploadFuel(completion:@escaping ()->()){
-////    //        guard let user =  AuthViewModel.shared.user else {return}
-//////            guard cost != 0.0 else {
-//////                print("Please, type something")
-//////                return}
-////
-////            let docRef = db.collection("Fuel").document()
-////            let data : [String:Any] = [
-////                Fuel.cost : cost,
-////                Fuel.km : km,
-////                Fuel.date : Date(),
-////                Fuel.carID:"123",
-////                Fuel.id:docRef.documentID
-////            ]
-////            docRef.setData(data){ _ in
-////                print("Uploading Successfully")
-////                completion()
-////            }
-////        }
-////
-////}
-//
+//    }
+
+//    ********************* NOUF fule ***********************
+    //    var fueldata : [String:String] = [:]
+    //    fueldata[Fuel.carID] = self.
+    
+        func uploadVehicle(completion:@escaping ()->()){
+    //        guard let user =  AuthViewModel.shared.user else {return}
+//            guard cost != 0.0 else {
+//                print("Please, type something")
+//                return}
+     
+            
+            guard let uid = Auth.auth().currentUser?.uid else {return}
+            let docRef = Firestore.firestore().collection("Vehicle").document(uid)
+           
+            let data : [String:Any] = [
+                Vehicle.VehicleMake : VehicleMake,
+                Vehicle.VehicleModel : VehicleModel,
+                Vehicle.VManufactureYear : VManufactureYear,
+                Vehicle.VehicleKM : VehicleKM,
+                Vehicle.VehicleImageUrl: VehicleImageUrl,
+                Vehicle.id:docRef.documentID
+            ]
+             docRef.setData(data){ _ in
+                print("Uploading Successfully")
+                completion()
+            }
+        }
+    
+}

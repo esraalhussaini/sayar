@@ -22,38 +22,64 @@ struct VehicleView: View {
           }
         }//praivet add button
     
-    
+  
     
     
     
     var body: some View {
         
         NavigationView{
-            List{
             
-                          ForEach (viewModel.Vehicle) { vehicles in
-                              HStack{
-                              VStack(alignment: .leading) {
-                                  Text(vehicles.VehicleMake)
-                                      .fontWeight(.bold)
-                                  Text(vehicles.VehicleModel)
-                              }
-                          }
-                          }//HSTACK
+            
+            List(viewModel.vehicle){f in
+              
+                    HStack{
+                        
+                        
+                        VStack(alignment: .leading, spacing: 10){
+                            
+                            
+                            Text("\(f.VehicleMake)").fontWeight(.heavy)
+                                .foregroundColor(.black)
+                            Text("\(f.VehicleModel)")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                                
+                        }
+                        Spacer(minLength: 5)
+                        Text("\(f.VManufactureYear)")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal)
+                            .padding(.top)
+                        
+                        
+                        
+                        
+                        
+                    }.padding().background(Color("Grey"))
+                    .cornerRadius(10)
+                    
+                    
+              
+             
+                    
+                    
+                    
+                    
             }//list
-            
             
             .navigationTitle("My Garage")
             .navigationBarItems(trailing: addButton)
             .onAppear() {
                       print("BooksListView appears. Subscribing to data updates.")
-                     // self.viewModel.subscribe()
+                     //self.viewModel.fetchData()
                     }
                 
         }//nav
         
-        
-        
+     
+
         
     }//body1
 }//structView
