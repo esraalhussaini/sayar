@@ -157,28 +157,24 @@ class VehiclesViewModel: ObservableObject{
     //    var fueldata : [String:String] = [:]
     //    fueldata[Fuel.carID] = self.
     
-        func uploadVehicle(completion:@escaping ()->()){
-    //        guard let user =  AuthViewModel.shared.user else {return}
-//            guard cost != 0.0 else {
-//                print("Please, type something")
-//                return}
-     
-            
-            guard let uid = Auth.auth().currentUser?.uid else {return}
-            let docRef = Firestore.firestore().collection("Vehicle").document(uid)
-           
-            let data : [String:Any] = [
-                Vehicle.VehicleMake : VehicleMake,
-                Vehicle.VehicleModel : VehicleModel,
-                Vehicle.VManufactureYear : VManufactureYear,
-                Vehicle.VehicleKM : VehicleKM,
-                Vehicle.VehicleImageUrl: VehicleImageUrl,
-                Vehicle.id:docRef.documentID
-            ]
-             docRef.setData(data){ _ in
-                print("Uploading Successfully")
-                completion()
-            }
-        }
+//        func uploadVehicle(completion:@escaping ()->()){
+//
+//            
+//            guard let uid = Auth.auth().currentUser?.uid else {return}
+//            let docRef = Firestore.firestore().collection("Vehicle").document(uid)
+//           
+//            let data : [String:Any] = [
+//                Vehicle.VehicleMake : VehicleMake,
+//                Vehicle.VehicleModel : VehicleModel,
+//                Vehicle.VManufactureYear : VManufactureYear,
+//                Vehicle.VehicleKM : VehicleKM,
+//                Vehicle.VehicleImageUrl: VehicleImageUrl,
+//                Vehicle.id:docRef.documentID
+//            ]
+//             docRef.setData(data){ _ in
+//                print("Uploading Successfully")
+//                completion()
+//            }
+//        }
     
 }

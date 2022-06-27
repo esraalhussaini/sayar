@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeCarViewModel: View {
   // For testing
 //    @StateObject var vm = TiresViewModel()
+    
     @EnvironmentObject var authvm : AuthViewModel
     @State var showLoginPage = false
    
@@ -408,12 +409,12 @@ VStack(alignment: .center){
         
         .onAppear{
             authvm.fetchCar()
+            
 //            calculateExpiredDate()
 //           (completion:@escaping ()->()){
 //            vm.uploadTires {
 //                print("Successfully!")
 //            }
-            
         }
             
        
