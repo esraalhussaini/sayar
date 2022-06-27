@@ -13,6 +13,9 @@ class OilViewModel: ObservableObject{
     @Published var oil = [Oil]()
     @Published var cost : Double = 0.0
     @Published var km : Double = 0.0
+    @Published var appError: Errors? = nil
+    @Published var costString : String = ""
+    
      var d : Timestamp = Timestamp(date: Date())
     init(){
         fetchData()
@@ -54,7 +57,10 @@ class OilViewModel: ObservableObject{
 //          guard caption != "" else {
 //              print("Please, type something")
 //              return}
-    
+        guard !costString.isEmpty else {
+            self.appError = .emptyCost
+            return
+        }
           let expDate = calculateExpiredDate()
           let docRef = db.collection("Oil").document()
           let data : [String:Any] = [

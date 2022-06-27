@@ -19,6 +19,9 @@ class FuelViewModel: ObservableObject{
     @Published var cost : Double = 0.0
     @Published var km : Double = 0.0
     
+    @Published var appError: Errors? = nil
+    @Published var costString : String = ""
+    
     init(){
         fetchData()
     }
@@ -111,6 +114,10 @@ class FuelViewModel: ObservableObject{
 //                print("Please, type something")
 //                return}
     
+            guard !costString.isEmpty else {
+                self.appError = .emptyCost
+                return
+            }
             let docRef = db.collection("Fuel").document()
             let data : [String:Any] = [
                 Fuel.cost : cost,
@@ -119,7 +126,7 @@ class FuelViewModel: ObservableObject{
                 Fuel.carID:"123",
                 Fuel.id:docRef.documentID
             ]
-            docRef.setData(data){ _ in
+             docRef.setData(data){ _ in
                 print("Uploading Successfully")
                 completion()
             }

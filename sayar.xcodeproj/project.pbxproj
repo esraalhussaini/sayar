@@ -11,6 +11,7 @@
 		020A13F3283D3671007C9ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A13F2283D3671007C9ECE /* ContentView.swift */; };
 		020A13F5283D3674007C9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F4283D3674007C9ECE /* Assets.xcassets */; };
 		020A13F8283D3674007C9ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F7283D3674007C9ECE /* Preview Assets.xcassets */; };
+		22DDB2AC286989D200C36FDF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDB2AB286989D200C36FDF /* Errors.swift */; };
 		D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */; };
 		D8E4154428607193006FDC58 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E4154328607193006FDC58 /* FuelViewModel.swift */; };
 		D8E4154728607352006FDC58 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D8E4154628607352006FDC58 /* FirebaseFirestore */; };
@@ -62,6 +63,7 @@
 		020A13F2283D3671007C9ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		020A13F4283D3674007C9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		020A13F7283D3674007C9ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22DDB2AB286989D200C36FDF /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOilView.swift; sourceTree = "<group>"; };
 		D8E4154328607193006FDC58 /* FuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelViewModel.swift; sourceTree = "<group>"; };
 		D8E4154828632723006FDC58 /* OilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilViewModel.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				D8F6D1E0285AFF500007B9CB /* Oil.swift */,
 				D8F6D1E2285AFF5E0007B9CB /* Battery.swift */,
 				D8F6D1E4285AFF6F0007B9CB /* Tires.swift */,
+				22DDB2AB286989D200C36FDF /* Errors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */,
 				E836B578285F810E00C5700B /* SecondOTP.swift in Sources */,
 				D8E4154428607193006FDC58 /* FuelViewModel.swift in Sources */,
+				22DDB2AC286989D200C36FDF /* Errors.swift in Sources */,
 				E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,

@@ -109,7 +109,9 @@ struct AddTierView: View {
            
                 
       .ignoresSafeArea(.all, edges: .bottom)
-                
+      .alert(item: $vm.appError) { alert in
+          Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
+      }
                 
         }//NavgationView
     }//varBody1

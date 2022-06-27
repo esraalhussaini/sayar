@@ -15,7 +15,7 @@ struct FuelView: View {
        //Pluse button
        @State var isPresentedNewPost = false
        @State  var DATE = Date()
-       @State var cost = ""
+     //  @State var cost = ""
 
        @State  var km  = ""
     var body: some View {
@@ -94,10 +94,12 @@ plusBottonOil
 
 .sheet(isPresented: $isPresentedNewPost, content: {
 
-    AddFuelView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost, km: $km)
+    AddFuelView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $vm.costString, km: $km)
 
 })
-
+.alert(item: $vm.appError) { alert in
+    Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
+}
 
             
             

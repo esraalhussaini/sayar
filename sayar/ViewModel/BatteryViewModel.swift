@@ -12,6 +12,10 @@ class BatteryViewModel: ObservableObject{
     @Published var battery = [Battery]()
     @Published var cost : Double = 0.0
     @Published var km : Double = 0.0
+    
+    @Published var appError: Errors? = nil
+    @Published var costString : String = ""
+    
     init(){
         fetchData()
     }
@@ -51,6 +55,10 @@ class BatteryViewModel: ObservableObject{
 //          guard caption != "" else {
 //              print("Please, type something")
 //              return}
+        guard !costString.isEmpty else {
+            self.appError = .emptyCost
+            return
+        }
           let expDate = calculateExpiredDate()
           let docRef = db.collection("Battery").document()
           let data : [String:Any] = [

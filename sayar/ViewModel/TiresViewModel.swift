@@ -12,6 +12,10 @@ class TiresViewModel: ObservableObject{
     @Published var tires = [Tires]()
     @Published var cost : Double = 0.0
     @Published var km : Double = 0.0
+    
+    @Published var appError: Errors? = nil
+    @Published var costString : String = ""
+    
     init(){
         fetchData()
     
@@ -52,6 +56,10 @@ class TiresViewModel: ObservableObject{
 //          guard caption != "" else {
 //              print("Please, type something")
 //              return}
+        guard !costString.isEmpty else {
+            self.appError = .emptyCost
+            return
+        }
           let expDate = calculateExpiredDate()
           let docRef = db.collection("Tires").document()
           let data : [String:Any] = [
