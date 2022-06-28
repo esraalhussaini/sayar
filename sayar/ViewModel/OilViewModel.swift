@@ -31,16 +31,13 @@ class OilViewModel: ObservableObject{
     }
 
         private var db = Firestore.firestore()
-    
     func fetchData(){
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+                db.collection("Oil").document(carId).collection("CarOil").getDocuments { snapshot, error in
+                    
         
-        db.collection("Oil").getDocuments {snapdhot, error in
-            guard error == nil else {
-                print("Error \(error)")
-                return
-            }
             
-            if let docs = snapdhot?.documents{
+            if let docs = snapshot?.documents{
                 docs.forEach { doc in
                       let oil = Oil(data: doc.data())
                     print(oil.cost,"🤚🏻")
@@ -54,6 +51,28 @@ class OilViewModel: ObservableObject{
         }
 
     }
+//    func fetchData(){
+//
+//        db.collection("Oil").getDocuments {snapdhot, error in
+//            guard error == nil else {
+//                print("Error \(error)")
+//                return
+//            }
+//
+//            if let docs = snapdhot?.documents{
+//                docs.forEach { doc in
+//                      let oil = Oil(data: doc.data())
+//                    print(oil.cost,"🤚🏻")
+//                    self.oil.append(oil)
+//                }
+//
+//            }
+//
+//
+//
+//        }
+//
+//    }
 
 
     
@@ -71,11 +90,13 @@ class OilViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-          let docRef = db.collection("Oil").document()
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+        let docRef = db.collection("Car").document(carId).collection("CarOil").document()
+//          let docRef = db.collection("Oil").document()
           let data : [String:Any] = [
                 Oil.cost : cost ,
                 Oil.id:docRef.documentID,
-                Oil.carID: "car1",
+                Oil.carID: carId,
                 Oil.date: date,
                 Oil.km: km,
                 Oil.expiredDate: expDate

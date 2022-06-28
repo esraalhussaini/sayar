@@ -31,14 +31,11 @@ class BatteryViewModel: ObservableObject{
         private var db = Firestore.firestore()
     
     func fetchData(){
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+                db.collection("Battery").document(carId).collection("CarBattery").getDocuments { snapshot, error in
         
-        db.collection("Battery").getDocuments {snapdhot, error in
-            guard error == nil else {
-                print("Error \(error)")
-                return
-            }
             
-            if let docs = snapdhot?.documents{
+            if let docs = snapshot?.documents{
                 docs.forEach { doc in
                       let battery = Battery(data: doc.data())
                     print(battery.cost,"🤚🏻")
@@ -47,11 +44,31 @@ class BatteryViewModel: ObservableObject{
                 
             }
             
-            
-            
         }
 
     }
+//    func fetchData(){
+//
+//        db.collection("Battery").getDocuments {snapdhot, error in
+//            guard error == nil else {
+//                print("Error \(error)")
+//                return
+//            }
+//
+//            if let docs = snapdhot?.documents{
+//                docs.forEach { doc in
+//                      let battery = Battery(data: doc.data())
+//                    print(battery.cost,"🤚🏻")
+//                    self.battery.append(battery)
+//                }
+//
+//            }
+//
+//
+//
+//        }
+//
+//    }
 
 
     //    ********************* NOUF battery ***********************
@@ -68,11 +85,13 @@ class BatteryViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-          let docRef = db.collection("Battery").document()
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+        let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
+//          let docRef = db.collection("Battery").document()
           let data : [String:Any] = [
                 Battery.cost : cost ,
                 Battery.id:docRef.documentID,
-                Battery.carID : "car3",
+                Battery.carID : carId,
                 Battery.date:date ,
                 Battery.km: km,
                 Battery.expiredDate:expDate

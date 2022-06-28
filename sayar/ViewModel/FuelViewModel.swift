@@ -59,6 +59,7 @@ class FuelViewModel: ObservableObject{
                     
                     
                 }
+    }
 //        db.collection("Fuel").getDocuments {snapdhot, error in
 //            guard error == nil else {
 //                print("Error \(error)")
@@ -105,7 +106,6 @@ class FuelViewModel: ObservableObject{
 //            }
 //        }
         
-    }
 //
 //        // read the documents at a specific path
 //        db.collection("Fuel").getDocuments { snapshot , error in
@@ -142,12 +142,13 @@ class FuelViewModel: ObservableObject{
                 self.appError = .emptyCost
                 return
             }
-            let docRef = db.collection("Fuel").document()
+            guard let carId = AuthViewModel.shared.car?.id else {return}
+            let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
             let data : [String:Any] = [
                 Fuel.cost : cost,
                 Fuel.km : km,
                 Fuel.date : date,
-                Fuel.carID:"123",
+                Fuel.carID: carId,
                 Fuel.id:docRef.documentID
             ]
              docRef.setData(data){ _ in

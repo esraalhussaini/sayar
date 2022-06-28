@@ -35,16 +35,12 @@ class TiresViewModel: ObservableObject{
     }
 
         private var db = Firestore.firestore()
-    
     func fetchData(){
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+                db.collection("Tires").document(carId).collection("CarTires").getDocuments { snapshot, error in
         
-        db.collection("Tires").getDocuments {snapdhot, error in
-            guard error == nil else {
-                print("Error \(error)")
-                return
-            }
             
-            if let docs = snapdhot?.documents{
+            if let docs = snapshot?.documents{
                 docs.forEach { doc in
                       let  tires = Tires(data: doc.data())
                     print(tires.cost,"🤚🏻")
@@ -58,6 +54,28 @@ class TiresViewModel: ObservableObject{
         }
 
     }
+//    func fetchData(){
+//
+//        db.collection("Tires").getDocuments {snapdhot, error in
+//            guard error == nil else {
+//                print("Error \(error)")
+//                return
+//            }
+//
+//            if let docs = snapdhot?.documents{
+//                docs.forEach { doc in
+//                      let  tires = Tires(data: doc.data())
+//                    print(tires.cost,"🤚🏻")
+//                    self.tires.append(tires)
+//                }
+//
+//            }
+//
+//
+//
+//        }
+//
+//    }
 
 
     //    ********************* NOUF tires ***********************
@@ -74,11 +92,13 @@ class TiresViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-          let docRef = db.collection("Tires").document()
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+        let docRef = db.collection("Car").document(carId).collection("CarTires").document()
+//          let docRef = db.collection("Tires").document()
           let data : [String:Any] = [
             Tires.cost : cost ,
             Tires.id:docRef.documentID,
-            Tires.carID : "car 4",
+            Tires.carID : carId,
             Tires.date:date,
             Tires.km: km,
             Tires.expiredDate:expDate
