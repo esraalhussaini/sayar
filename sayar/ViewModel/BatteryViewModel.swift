@@ -10,12 +10,20 @@ import FirebaseFirestore
 class BatteryViewModel: ObservableObject{
     
     @Published var battery = [Battery]()
-    @Published var cost : Double = 0.0
-    @Published var km : Double = 0.0
-    
+//    @Published var cost : Double = 0.0
+//    @Published var km : Double = 0.0
+    @Published  var  date  = Date()
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
+    @Published var kmString : String = ""
+
+    var cost : Double{
+        Double(costString) ?? 0.0
+    }
     
+    var km : Double{
+        Double(kmString) ?? 0.0
+    }
     init(){
         fetchData()
     }
@@ -65,7 +73,7 @@ class BatteryViewModel: ObservableObject{
                 Battery.cost : cost ,
                 Battery.id:docRef.documentID,
                 Battery.carID : "car3",
-                Battery.date:Timestamp(date: Date()),
+                Battery.date:date ,
                 Battery.km: km,
                 Battery.expiredDate:expDate
           ]

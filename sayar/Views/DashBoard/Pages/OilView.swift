@@ -15,10 +15,10 @@ struct OilView: View {
     
     //Pluse button
     @State var isPresentedNewPost = false
-    @State  var DATE = Date()
-    @State var cost = ""
+//    @State  var DATE = Date()
+//    @State var cost = ""
     @State var km = ""
-    @State  var ExpectedTime  = ""
+//    @State  var ExpectedTime  = ""
    
     
    //Razan Search
@@ -103,7 +103,7 @@ struct OilView: View {
     
     .sheet(isPresented: $isPresentedNewPost, content: {
         
-        AddOilView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost,km: $km, ExpectedTime: $ExpectedTime )
+        AddOilView(isPresented: $isPresentedNewPost)
         
     })
     

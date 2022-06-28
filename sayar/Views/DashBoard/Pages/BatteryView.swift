@@ -13,10 +13,10 @@ struct BatteryView: View {
  
     //Pluse button
     @State var isPresentedNewPost = false
-    @State  var DATE = Date()
-    @State var cost = ""
-    @State var BatteryYearRelease = ""
-    @State  var ExpectedTime  = ""
+//    @State  var DATE = Date()
+//    @State var cost = ""
+//    @State var BatteryYearRelease = ""
+//    @State  var ExpectedTime  = ""
     var body: some View {
         
         
@@ -93,7 +93,7 @@ plusBottonOil
 
 .sheet(isPresented: $isPresentedNewPost, content: {
 
-    AddBatteryView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost, BatteryYearRelease: $BatteryYearRelease, ExpectedTime: $ExpectedTime)
+    AddBatteryView(isPresented: $isPresentedNewPost)
 
 })
 

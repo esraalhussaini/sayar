@@ -19,12 +19,15 @@ final class AuthViewModel: ObservableObject {
     
     static let shared = AuthViewModel()
     init(){
-        fetchCar()
+        if let _ = Auth.auth().currentUser {
+            isAouthenticatting = true
+            fetchCar()
+        }
+       // fetchCar()
     }
     
     func fetchCar(){
         guard let uid = Auth.auth().currentUser?.uid  else {
-            
             print("No user")
             return}
         Firestore.firestore().collection("Car").document(uid).getDocument { snapshot, _ in
@@ -33,7 +36,7 @@ final class AuthViewModel: ObservableObject {
                 return
             }
             self.car = Car(dictionary: data)
-            self.isAouthenticatting = true
+            //self.isAouthenticatting = true
             print(self.car?.carMake,"❤️")
         }
         

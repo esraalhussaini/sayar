@@ -18,11 +18,11 @@ struct AddOilView: View {
         
         @Binding var isPresented: Bool
     
-    @Binding var  DATE: Date
+//    @Binding var  DATE: Date
      // @Binding var  DATE = Date()
-    @Binding var cost : String
-    @Binding var km  : String
-    @Binding var ExpectedTime : String
+//    @Binding var cost : String
+//    @Binding var km  : String
+//    @Binding var ExpectedTime : String
     //@Binding var cost : String
         //Km Double or int?
         
@@ -47,14 +47,14 @@ struct AddOilView: View {
                     
                         Section{
                             
-                            DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                            DatePicker("Pick a date", selection: $vm.date, displayedComponents: .date)
                            // TextField("Make", text:$titel)
                            // TextField("Model", text: $post )
                             
                         }
                             
                                 Section{
-                                    TextField("SAR", text:$cost)
+                                    TextField("SAR", text:$vm.costString)
                                         .keyboardType(.numberPad)
                                
                                     
@@ -62,20 +62,20 @@ struct AddOilView: View {
                             
                             
                             Section{
-                                TextField("km", text:$km)
+                                TextField("km", text:$vm.kmString)
                                     .keyboardType(.numberPad)
                            
                                 
                             }
                             
                             
-                            Section{
-                                TextField("ExpectedTime", text:$ExpectedTime)
-                                    .keyboardType(.numberPad)
-                           
-                          
-                                
-                            }
+//                            Section{
+//                                TextField("ExpectedTime", text:$ExpectedTime)
+//                                    .keyboardType(.numberPad)
+//                           
+//                          
+//                                
+//                            }
                             
                           
                             

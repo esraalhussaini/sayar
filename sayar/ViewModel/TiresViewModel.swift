@@ -10,12 +10,25 @@ import FirebaseFirestore
 class TiresViewModel: ObservableObject{
     
     @Published var tires = [Tires]()
-    @Published var cost : Double = 0.0
-    @Published var km : Double = 0.0
-    
+//    @Published var cost : Double = 0.0
+//    @Published var km : Double = 0.0
+    @Published  var  date  = Date()
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
+    @Published var kmString : String = ""
+//    @Published var tireReleaseString : String = ""
+
+    var tireRelease : Int{
+        Int(costString) ?? 0
+    }
     
+    var cost : Double{
+        Double(costString) ?? 0.0
+    }
+    
+    var km : Double{
+        Double(kmString) ?? 0.0
+    }
     init(){
         fetchData()
     
@@ -66,7 +79,7 @@ class TiresViewModel: ObservableObject{
             Tires.cost : cost ,
             Tires.id:docRef.documentID,
             Tires.carID : "car 4",
-            Tires.date:Timestamp(date: Date()),
+            Tires.date:date,
             Tires.km: km,
             Tires.expiredDate:expDate
           ]

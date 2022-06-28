@@ -14,7 +14,6 @@ struct Battery : Identifiable{
     let id : String
     let carID : String
     let cost : Double
- //   let date : Timetamp
     let km : Int
     let date : Date
     let expiredDate : Date

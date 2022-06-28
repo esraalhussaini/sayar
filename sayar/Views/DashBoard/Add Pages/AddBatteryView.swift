@@ -19,12 +19,12 @@ struct AddBatteryView: View {
         
         @Binding var isPresented: Bool
 
-    @Binding var  DATE: Date
+//    @Binding var  DATE: Date
      // @Binding var  DATE = Date()
-    @Binding var cost : String
-    @Binding var BatteryYearRelease  : String
-
-    @Binding var ExpectedTime: String
+//    @Binding var cost : String
+//    @Binding var BatteryYearRelease  : String
+////
+//    @Binding var ExpectedTime: String
  
         var body: some View {
             
@@ -47,14 +47,14 @@ struct AddBatteryView: View {
                     
                         Section{
                             
-                            DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                            DatePicker("Pick a date", selection: $vm.date, displayedComponents: .date)
                            // TextField("Make", text:$titel)
                            // TextField("Model", text: $post )
                             
                         }
                             
                                 Section{
-                                    TextField("SAR", text:$cost)
+                                    TextField("SAR", text:$vm.costString)
                                         .keyboardType(.numberPad)
                                     
                               
@@ -62,20 +62,20 @@ struct AddBatteryView: View {
                                 }
                     
                             
-                                    Section{
-                                        TextField("BatteryYearRelease", text:$BatteryYearRelease )
-                                            .keyboardType(.numberPad)
-                                   
-                                        
-                                    }
+//                                    Section{
+//                                        TextField("BatteryYearRelease", text:$BatteryYearRelease )
+//                                            .keyboardType(.numberPad)
+//
+//
+//                                    }
                                     
                                     
-                                    Section{
-                                        TextField("ExpectedTime", text:$ExpectedTime)
-                                            .keyboardType(.numberPad)
-                                   
-                                  
-                                    }
+//                                    Section{
+//                                        TextField("ExpectedTime", text:$ExpectedTime)
+//                                            .keyboardType(.numberPad)
+//
+//
+//                                    }
                             
                            
                             

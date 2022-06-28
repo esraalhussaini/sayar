@@ -18,11 +18,11 @@ struct AddTierView: View {
     
     @Binding var isPresented: Bool
 
-@Binding var  DATE: Date
+//@Binding var  DATE: Date
  // @Binding var  DATE = Date()
-@Binding var cost : String
-@Binding var TiersYearRelease  : String
-@Binding var ExpectedTime : String
+//@Binding var cost : String
+//@Binding var TiersYearRelease  : String
+//@Binding var ExpectedTime : String
 
     var body: some View {
         
@@ -45,33 +45,33 @@ struct AddTierView: View {
                 
                     Section{
                         
-                        DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                        DatePicker("Pick a date", selection: $vm.date, displayedComponents: .date)
                        // TextField("Make", text:$titel)
                        // TextField("Model", text: $post )
                         
                     }
                         
                             Section{
-                                TextField("SAR", text:$cost)
+                                TextField("SAR", text:$vm.costString)
                                     .keyboardType(.numberPad)
                            
                                 
                             }
                 
-                        Section{
-                            TextField("TiersYearRelease", text:$TiersYearRelease)
-                                .keyboardType(.numberPad)
-                       
-                            
-                        }
+//                        Section{
+//                            TextField("TiersYearRelease", text:$TiersYearRelease)
+//                                .keyboardType(.numberPad)
+//
+//
+//                        }
                         
                         
-                        Section{
-                            TextField("ExpectedTime", text:$ExpectedTime)
-                                .keyboardType(.numberPad)
-                       
-                          
-                        }
+//                        Section{
+//                            TextField("ExpectedTime", text:$ExpectedTime)
+//                                .keyboardType(.numberPad)
+//                       
+//                          
+//                        }
                         
                         
           }//form

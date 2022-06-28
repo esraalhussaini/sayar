@@ -11,12 +11,21 @@ import SwiftUI
 class OilViewModel: ObservableObject{
     
     @Published var oil = [Oil]()
-    @Published var cost : Double = 0.0
-    @Published var km : Double = 0.0
+//    @Published var cost : Double = 0.0
+//    @Published var km : Double = 0.0
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
+    @Published var kmString : String = ""
+    @Published  var  date  = Date()
     
-     var d : Timestamp = Timestamp(date: Date())
+    var cost : Double{
+        Double(costString) ?? 0.0
+    }
+    
+    var km : Double{
+        Double(kmString) ?? 0.0
+    }
+//     var d : Timestamp = Timestamp(date: Date())
     init(){
         fetchData()
     }
@@ -67,8 +76,8 @@ class OilViewModel: ObservableObject{
                 Oil.cost : cost ,
                 Oil.id:docRef.documentID,
                 Oil.carID: "car1",
-                Oil.date:Timestamp(date: Date()),
-                Oil.km:km,
+                Oil.date: date,
+                Oil.km: km,
                 Oil.expiredDate: expDate
           ]
           docRef.setData(data){ _ in

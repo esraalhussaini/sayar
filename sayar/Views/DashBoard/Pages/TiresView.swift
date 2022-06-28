@@ -13,10 +13,10 @@ struct TiresView: View {
 
     //Pluse button
     @State var isPresentedNewPost = false
-    @State  var DATE = Date()
-    @State var cost = ""
-    @State var TiersYearRelease = ""
-    @State  var ExpectedTime  = ""
+//    @State  var DATE = Date()
+//    @State var cost = ""
+//    @State var TiersYearRelease = ""
+//    @State  var ExpectedTime  = ""
     var body: some View {
       
             
@@ -93,7 +93,7 @@ plusBottonOil
 
 .sheet(isPresented: $isPresentedNewPost, content: {
 
-AddTierView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $cost,  TiersYearRelease: $TiersYearRelease, ExpectedTime: $ExpectedTime)
+AddTierView(isPresented: $isPresentedNewPost)
 
 })
 

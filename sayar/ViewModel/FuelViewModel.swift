@@ -16,11 +16,21 @@ import FirebaseFirestore
 class FuelViewModel: ObservableObject{
     
     @Published var fuel = [Fuel]()
-    @Published var cost : Double = 0.0
-    @Published var km : Double = 0.0
-    
+//    @Published var cost : Double = 0.0
+//    @Published var km : Double = 0.0
+    @Published  var  date  = Date()
+
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
+    @Published var kmString : String = ""
+
+    var cost : Double{
+        Double(costString) ?? 0.0
+    }
+    
+    var km : Double{
+        Double(kmString) ?? 0.0
+    }
     
     init(){
         fetchData()
@@ -34,25 +44,39 @@ class FuelViewModel: ObservableObject{
         private var db = Firestore.firestore()
     
     func fetchData(){
-        
-        db.collection("Fuel").getDocuments {snapdhot, error in
-            guard error == nil else {
-                print("Error \(error)")
-                return
-            }
-            
-            if let docs = snapdhot?.documents{
-                docs.forEach { doc in
-                      let fuel = Fuel(data: doc.data())
-                    print(fuel.cost,"🤚🏻")
-                    self.fuel.append(fuel)
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+                db.collection("Car").document(carId).collection("CarFuel").getDocuments { snapshot, error in
+                    
+                    if let docs = snapshot?.documents{
+                        docs.forEach { doc in
+                              let fuel = Fuel(data: doc.data())
+                            print(fuel.cost,"🤚🏻")
+                            self.fuel.append(fuel)
+                        }
+                        
+                    }
+                    
+                    
+                    
                 }
-                
-            }
-            
-            
-            
-        }
+//        db.collection("Fuel").getDocuments {snapdhot, error in
+//            guard error == nil else {
+//                print("Error \(error)")
+//                return
+//            }
+//            
+//            if let docs = snapdhot?.documents{
+//                docs.forEach { doc in
+//                      let fuel = Fuel(data: doc.data())
+//                    print(fuel.cost,"🤚🏻")
+//                    self.fuel.append(fuel)
+//                }
+//                
+//            }
+//            
+//            
+//            
+//        }
         
 //        db.collection("Fuel").addSnapshotListener { querySnapshot, error in
 //
@@ -122,7 +146,7 @@ class FuelViewModel: ObservableObject{
             let data : [String:Any] = [
                 Fuel.cost : cost,
                 Fuel.km : km,
-                Fuel.date : Date(),
+                Fuel.date : date,
                 Fuel.carID:"123",
                 Fuel.id:docRef.documentID
             ]

@@ -14,7 +14,7 @@ struct FuelView: View {
     
        //Pluse button
        @State var isPresentedNewPost = false
-       @State  var DATE = Date()
+      // @State  var DATE = Date()
      //  @State var cost = ""
 
        @State  var km  = ""
@@ -94,7 +94,7 @@ plusBottonOil
 
 .sheet(isPresented: $isPresentedNewPost, content: {
 
-    AddFuelView(isPresented: $isPresentedNewPost, DATE: $DATE, cost: $vm.costString, km: $km)
+    AddFuelView(isPresented: $isPresentedNewPost)
 
 })
 .alert(item: $vm.appError) { alert in

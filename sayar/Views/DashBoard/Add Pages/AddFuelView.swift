@@ -17,10 +17,10 @@ struct AddFuelView: View {
     
     @Binding var isPresented: Bool
 
-@Binding var  DATE: Date
+//@State  var  date  = Date()
  // @Binding var  DATE = Date()
-@Binding var cost : String
-@Binding var km  : String
+//@Binding var cost : String
+//@Binding var km  : String
 
 
     
@@ -44,17 +44,17 @@ struct AddFuelView: View {
                 
                     Section{
                         
-                        DatePicker("Pick a date", selection: $DATE, displayedComponents: .date)
+                        DatePicker("Pick a date", selection: $vm.date, displayedComponents: .date)
                        // TextField("Make", text:$titel)
                        // TextField("Model", text: $post )
                         
                     }
                         
                             Section{
-                                TextField("SAR", text:$cost)
+                                TextField("SAR", text:$vm.costString)
                                     .keyboardType(.numberPad)
                                 
-                                    TextField("km ", text:$km)
+                                TextField("km ", text:$vm.kmString)
                                         .keyboardType(.numberPad)
                           
                    }//section
