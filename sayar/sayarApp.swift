@@ -110,12 +110,22 @@ struct sayarApp: App {
   //  init(){ FirebaseApp.configure()}
     
     
+    //image
+    //@StateObject var vm = ViewModel()
+    
     var body: some Scene {
   WindowGroup {
   //VehicleView()
       TabViewApp()
           .environmentObject(AuthViewModel.shared)
           .preferredColorScheme(.light)
+      
+      //image
+//          .environmentObject(vm)
+//          .onAppear {
+//              UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+//          }
+      
        }
     }
 }

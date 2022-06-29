@@ -36,6 +36,11 @@
 		E817C9C12844E009000E2105 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C02844E009000E2105 /* FirebaseDatabase */; };
 		E817C9C32844E009000E2105 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C22844E009000E2105 /* FirebaseDatabaseSwift */; };
 		E817C9C52844E009000E2105 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E817C9C42844E009000E2105 /* FirebaseStorage */; };
+		E8305CB5286C6BA6006505CF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CB4286C6BA6006505CF /* ImagePicker.swift */; };
+		E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */; };
+		E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CBB286C6D39006505CF /* ContentImage.swift */; };
+		E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CBD286C6D60006505CF /* ViewModel.swift */; };
+		E8305CC1286C6DD0006505CF /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CC0286C6DD0006505CF /* Picker.swift */; };
 		E836B576285F7FEE00C5700B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B575285F7FEE00C5700B /* AuthView.swift */; };
 		E836B578285F810E00C5700B /* SecondOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B577285F810E00C5700B /* SecondOTP.swift */; };
 		E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B579285F837A00C5700B /* AuthViewModel.swift */; };
@@ -83,6 +88,11 @@
 		D8F6D1E4285AFF6F0007B9CB /* Tires.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tires.swift; sourceTree = "<group>"; };
 		E80E90F72851534A00FE624F /* TabViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewApp.swift; sourceTree = "<group>"; };
 		E817C9BB2844DDC4000E2105 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E8305CB4286C6BA6006505CF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
+		E8305CBB286C6D39006505CF /* ContentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentImage.swift; sourceTree = "<group>"; };
+		E8305CBD286C6D60006505CF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E8305CC0286C6DD0006505CF /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		E836B575285F7FEE00C5700B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		E836B577285F810E00C5700B /* SecondOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOTP.swift; sourceTree = "<group>"; };
 		E836B579285F837A00C5700B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +157,7 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
+				E8305CB3286C6B84006505CF /* Image */,
 				E863D6A02869C6B600DD4E37 /* Vehicle */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
 				E8F3C85B285380DA008E131E /* Model */,
@@ -218,6 +229,50 @@
 				D8F6D1D42859CC440007B9CB /* FuelView.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		E8305CB3286C6B84006505CF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E8305CC5286C6E48006505CF /* view */,
+				E8305CC3286C6E0B006505CF /* Model */,
+				E8305CBF286C6D87006505CF /* ViewModel */,
+				E8305CB8286C6C37006505CF /* UiviewRepresentable */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		E8305CB8286C6C37006505CF /* UiviewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				E8305CB4286C6BA6006505CF /* ImagePicker.swift */,
+				E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */,
+			);
+			path = UiviewRepresentable;
+			sourceTree = "<group>";
+		};
+		E8305CBF286C6D87006505CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E8305CBD286C6D60006505CF /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E8305CC3286C6E0B006505CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8305CC0286C6DD0006505CF /* Picker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8305CC5286C6E48006505CF /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E8305CBB286C6D39006505CF /* ContentImage.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		E836B574285F7FD300C5700B /* Authentication */ = {
@@ -351,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8305CB5286C6BA6006505CF /* ImagePicker.swift in Sources */,
 				D8F6D1E3285AFF5E0007B9CB /* Battery.swift in Sources */,
 				D8F6D1D92859CC5E0007B9CB /* BatteryView.swift in Sources */,
 				D8F6D1DF2859F4AC0007B9CB /* Fuel.swift in Sources */,
@@ -363,11 +419,13 @@
 				D8E4154D2863279F006FDC58 /* TiresViewModel.swift in Sources */,
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
 				6F185A2D286B194A003E2088 /* HelpView.swift in Sources */,
+				E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */,
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
 				D8F6D1E1285AFF500007B9CB /* Oil.swift in Sources */,
 				E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */,
 				D8F6D1D52859CC440007B9CB /* FuelView.swift in Sources */,
 				D8F6D1E5285AFF6F0007B9CB /* Tires.swift in Sources */,
+				E8305CC1286C6DD0006505CF /* Picker.swift in Sources */,
 				E8D16DE3286A576000F2832B /* VehicleEditView.swift in Sources */,
 				D8F6D1D32859C80F0007B9CB /* AddBatteryView.swift in Sources */,
 				D8F6D1CF2855FE670007B9CB /* AddFuelView.swift in Sources */,
@@ -380,8 +438,10 @@
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
 				E863D6A42869C6F900DD4E37 /* vehicle.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
+				E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */,
 				E863D69F2869C6AA00DD4E37 /* VehicleView.swift in Sources */,
 				E8749508285A89E10049BB4B /* AddCar.swift in Sources */,
+				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
 				E863D6A22869C6E300DD4E37 /* VehiclesViewModel.swift in Sources */,
 				D8E4154928632723006FDC58 /* OilViewModel.swift in Sources */,
 				D8E4154B28632737006FDC58 /* BatteryViewModel.swift in Sources */,
