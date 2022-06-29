@@ -33,20 +33,23 @@ class OilViewModel: ObservableObject{
         private var db = Firestore.firestore()
     func fetchData(){
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Oil").document(carId).collection("CarOil").getDocuments { snapshot, error in
+                db.collection("Car").document(carId).collection("CarOil").getDocuments { snapshot, error in
                     
         
             
             if let docs = snapshot?.documents{
                 docs.forEach { doc in
-                      let oil = Oil(data: doc.data())
+                    let docId = doc.documentID
+                    self.db.collection("Battery").document(docId).getDocument { snapshot, error in
+                        guard let docData = snapshot?.data() else {return}
+                      let oil = Oil(data: docData)
                     print(oil.cost,"🤚🏻")
                     self.oil.append(oil)
                 }
                 
             }
             
-            
+            }
             
         }
 
@@ -93,6 +96,7 @@ class OilViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {return}
         let docRef = db.collection("Car").document(carId).collection("CarOil").document()
 //          let docRef = db.collection("Oil").document()
+        docRef.setData(["id": docRef.documentID])
           let data : [String:Any] = [
                 Oil.cost : cost ,
                 Oil.id:docRef.documentID,
@@ -101,9 +105,10 @@ class OilViewModel: ObservableObject{
                 Oil.km: km,
                 Oil.expiredDate: expDate
           ]
-          docRef.setData(data){ _ in
+        db.collection("Battery").document(docRef.documentID).setData(data){ _ in
               print("Uploading Successfully")
               completion()
+            self.fetchData()
           }
       }
     func calculateExpiredDate()->Date{
@@ -127,3 +132,4 @@ class OilViewModel: ObservableObject{
     //
     //
 }
+

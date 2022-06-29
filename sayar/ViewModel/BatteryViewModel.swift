@@ -97,6 +97,7 @@ class BatteryViewModel: ObservableObject{
             print("Here 📍")
             return}
         let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
+        docRef.setData(["id": docRef.documentID])
 //          let docRef = db.collection("Battery").document()
           let data : [String:Any] = [
                 Battery.cost : cost ,
@@ -109,6 +110,7 @@ class BatteryViewModel: ObservableObject{
         db.collection("Battery").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")
             completion()
+            self.fetchData()
         }
 //          docRef.setData(data){ _ in
 //              print("Uploading Successfully")

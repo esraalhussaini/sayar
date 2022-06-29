@@ -37,19 +37,22 @@ class TiresViewModel: ObservableObject{
         private var db = Firestore.firestore()
     func fetchData(){
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Tires").document(carId).collection("CarTires").getDocuments { snapshot, error in
+                db.collection("Car").document(carId).collection("CarTires").getDocuments { snapshot, error in
         
             
             if let docs = snapshot?.documents{
                 docs.forEach { doc in
-                      let  tires = Tires(data: doc.data())
-                    print(tires.cost,"🤚🏻")
+                    let docId = doc.documentID
+                    self.db.collection("Tires").document(docId).getDocument { snapshot, error in
+                        guard let docData = snapshot?.data() else {return}
+                      let  tires = Tires(data: docData)
+//                    print(tires.cost,"🤚🏻")
                     self.tires.append(tires)
                 }
                 
             }
             
-            
+            }
             
         }
 
@@ -94,6 +97,7 @@ class TiresViewModel: ObservableObject{
           let expDate = calculateExpiredDate()
         guard let carId = AuthViewModel.shared.car?.id else {return}
         let docRef = db.collection("Car").document(carId).collection("CarTires").document()
+        docRef.setData(["id": docRef.documentID])
 //          let docRef = db.collection("Tires").document()
           let data : [String:Any] = [
             Tires.cost : cost ,
@@ -106,6 +110,7 @@ class TiresViewModel: ObservableObject{
           docRef.setData(data){ _ in
               print("Uploading Successfully")
               completion()
+              self.fetchData()
           }
       }
     func calculateExpiredDate()->(Date){
@@ -118,3 +123,4 @@ class TiresViewModel: ObservableObject{
     }
 
 }
+

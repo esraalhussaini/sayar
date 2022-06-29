@@ -49,9 +49,15 @@ class FuelViewModel: ObservableObject{
                     
                     if let docs = snapshot?.documents{
                         docs.forEach { doc in
-                              let fuel = Fuel(data: doc.data())
-                            print(fuel.cost,"🤚🏻")
-                            self.fuel.append(fuel)
+                            let docId = doc.documentID
+                            self.db.collection("Battery").document(docId).getDocument { snapshot, error in
+                                guard let docData = snapshot?.data() else {return}
+                                let fuel = Fuel(data: docData)
+                              print(fuel.cost,"🤚🏻")
+                              self.fuel.append(fuel)
+                                
+                            }
+                              
                         }
                         
                     }
@@ -144,6 +150,7 @@ class FuelViewModel: ObservableObject{
             }
             guard let carId = AuthViewModel.shared.car?.id else {return}
             let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
+            docRef.setData(["id": docRef.documentID])
             let data : [String:Any] = [
                 Fuel.cost : cost,
                 Fuel.km : km,
@@ -154,6 +161,7 @@ class FuelViewModel: ObservableObject{
              docRef.setData(data){ _ in
                 print("Uploading Successfully")
                 completion()
+                self.fetchData()
             }
         }
     
