@@ -7,23 +7,36 @@
 
 import SwiftUI
 
-enum ActiveSheet: Identifiable {
-    case first, second
-    
-    var id: Int {
-        hashValue
-    }
-}
-
+//enum ActiveSheet: Identifiable {
+//    case first, second
+//
+//    var id: Int {
+//        hashValue
+//    }
+//}
+//
+//
+//@Published var makeString : String = ""
+//     @Published var modelString : String = ""
+//
+//  @Published  var carManufactureYearIntString : Int = 0
+//  @Published var carKmString : Int = 0
+//  @Published var  carImageUrlString : String = ""
+//
 
 struct AddCar: View {
+
+
+    @StateObject var viewModelVar = addCarViewModel()
+    
   //for image
     //For image picker
+  
     @EnvironmentObject var vImage: ViewModel
     
     @EnvironmentObject var authvm : AuthViewModel
   // @State private var showSheet = false
-       @State private var activeSheet: ActiveSheet? = .first
+      // @State private var activeSheet: ActiveSheet? = .first
     
     //button Delete
         @State private var isShowingDialog = false
@@ -121,7 +134,7 @@ struct AddCar: View {
                    // VStack(alignment: .leading) {
                     
                         Section{
-                            TextField("Make", text:$titel)
+                         //   TextField("Make", text:$viewModelVar.makeString)
                              
                             TextField("Model", text: $post )
                             
@@ -304,6 +317,10 @@ struct AddCar: View {
             Button(action : {
          
             isPresented.toggle()
+                
+                
+                viewModelVar.uploadCar{}
+               isPresented.toggle()
                // vm.uploadCar{}
 //             showdashboard = true
             }, label: {

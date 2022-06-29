@@ -11,20 +11,22 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
+
 final class AuthViewModel: ObservableObject {
     
     @Published var isAouthenticatting = false
     @Published var car : Car?
-  
-    
+    //@Published var :UIImage?
+    @Published var image: UIImage?
     static let shared = AuthViewModel()
     init(){
         if let _ = Auth.auth().currentUser {
             isAouthenticatting = true
             fetchCar()
-        }
+           
+        }//if
        // fetchCar()
-    }
+    }//intit
     
     func fetchCar(){
         guard let uid = Auth.auth().currentUser?.uid  else {
@@ -40,7 +42,26 @@ final class AuthViewModel: ObservableObject {
             print(self.car?.carMake,"❤️")
         }
         
-    }
+      
+        //anwar Image
+        guard let uid =  Auth.auth().currentUser?.uid
+        else    {return}
+        let refe =  Storage.storage().reference(withPath: uid)
+        guard let imageData = self.image?.jpegData(compressionQuality: 0.5)
+        else {return}
+        refe.putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+             print("error\(error)")
+                return
+            }
+            //or
+            print("Successfull Upload")
+        }
+      //------end Anwar
+        
+        
+        
+    }//fetchCar
 //    func uploadCar(completion:@escaping ()->()){
 ////        guard let user =  AuthViewModel.shared.user else {return}
 ////            guard cost != 0.0 else {
