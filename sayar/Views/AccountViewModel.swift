@@ -1,3 +1,6 @@
+//Account
+
+
 ////
 ////  AccountViewModel.swift
 ////  sayar
@@ -93,16 +96,16 @@ struct AccountViewModel: View {
                                     }
                                     
                                     Spacer()
-                                    Image("chevron.down")
-                                        .padding()
-                                }
+//                                    Image("chevron.down")
+//                                        .padding()
+                                }.padding(3)
                             
                             }
                 
                         
                             
                         
-//            NavigationLink(destination: MyGarageH()) {
+            NavigationLink(destination: MyGarageH()) {
                        //
                  
                                
@@ -119,16 +122,16 @@ struct AccountViewModel: View {
                                     Text("My Garage")
                                  .padding(.horizontal,25)
                                       
-                                    Spacer()
-                                    Image("chevron.down")
-                                       .padding(.horizontal,-1)
+//                                    Spacer()
+//                                    Image("chevron.down")
+//                                       .padding(.horizontal,-1)
                                 }
                                 
                                 .padding()
                                 .padding(.horizontal,2)
                             }
            
-//            }//nav
+            }//nav
               
                             
                         }//section one
@@ -137,23 +140,24 @@ struct AccountViewModel: View {
                              .opacity(0.1))
                         Section(header: Text("Support")){
                          
-                            
+                            NavigationLink(destination: HelpView().navigationTitle("Help")){
                             Button{
                                 print("Help")
                             } label:{
                                 HStack{
                                     Image("help 2")
-                                        .padding(.horizontal,11)
+                                        .padding(.horizontal,-7)
                                     Text("Help")
-                                        .padding(.horizontal,1)
-                                    Spacer()
-                                    Image("chevron.down")
-                                        .padding()
-                                }
+                                        .padding(.horizontal,22)
+//                                    Spacer()
+//                                    Image("chevron.down")
+//                                        .padding()
+                                }.padding()
                             }
-                        }.listRowBackground(Color.gray
+
+                            }.listRowBackground(Color.gray
                             .opacity(0.1))
-                      
+                        }
                         Section{
                             
                             Text("")
@@ -184,6 +188,7 @@ struct AccountViewModel: View {
                     //   .listRowBackground(Color.blue)
                     
                     .navigationTitle("Account")
+                    .navigationBarBackButtonHidden(true)
                     
                 }
             }

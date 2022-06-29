@@ -14,10 +14,8 @@ struct HelpView: View {
     }
     var body: some View {
 
-        NavigationView{
-
+//        NavigationView{
         VStack{
-//            Text("")
 
             List{
                 Section(header: Text(" Abou Us").listRowBackground(Color.clear)){
@@ -156,26 +154,20 @@ Spacer()
                 
               
             }.listStyle(.sidebar)
-        }.navigationTitle("Help")
-           
         }
+//        .navigationTitle("Help")
+//                .toolbar {
+//                    ToolbarItem(placement:.navigationBarLeading){
+//                        Button(){
+//                            print("Back Pressed")
+//                        } label: {
+//                            Image(systemName: "chevron.left")
+//                        }
+//                    }
+//                }
+//      }  .ignoresSafeArea()
     }
-//        .toolbar{
-//Button {
-//print("button back")}
-//        label: {
-//            Text("Back")
-////    Image("chevron.down")
-////plusBottonOil
-//
-//}
-//        }
-//        //TOOLBAR
-//
-//.font(.title2)//button  plus
-//.accentColor(.red)//button   plus
-//        .ignoresSafeArea()
-            
+
             
     }
 
