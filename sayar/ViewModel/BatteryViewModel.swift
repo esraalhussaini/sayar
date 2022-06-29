@@ -32,14 +32,21 @@ class BatteryViewModel: ObservableObject{
     
     func fetchData(){
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Battery").document(carId).collection("CarBattery").getDocuments { snapshot, error in
+                db.collection("Car").document(carId).collection("CarBattery").getDocuments { snapshot, error in
         
             
             if let docs = snapshot?.documents{
                 docs.forEach { doc in
-                      let battery = Battery(data: doc.data())
-                    print(battery.cost,"🤚🏻")
-                    self.battery.append(battery)
+                    let docId = doc.documentID
+                    self.db.collection("Battery").document(docId).getDocument { snapshot, error in
+                        guard let docData = snapshot?.data() else {return}
+                        let battery = Battery(data: docData)
+                        self.battery.append(battery)
+                        
+                    }
+//                      let battery = Battery(data: doc.data())
+//                    print(battery.cost,"🤚🏻")
+//                    self.battery.append(battery)
                 }
                 
             }
@@ -76,6 +83,7 @@ class BatteryViewModel: ObservableObject{
     //    fueldata[Fuel.carID] = self.
     
     func uploadBattery(completion:@escaping ()->()){
+  
     //        guard let user =  AuthViewModel.shared.user else {return}
 //          guard caption != "" else {
 //              print("Please, type something")
@@ -85,7 +93,9 @@ class BatteryViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-        guard let carId = AuthViewModel.shared.car?.id else {return}
+        guard let carId = AuthViewModel.shared.car?.id else {
+            print("Here 📍")
+            return}
         let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
 //          let docRef = db.collection("Battery").document()
           let data : [String:Any] = [
@@ -96,10 +106,14 @@ class BatteryViewModel: ObservableObject{
                 Battery.km: km,
                 Battery.expiredDate:expDate
           ]
-          docRef.setData(data){ _ in
-              print("Uploading Successfully")
-              completion()
-          }
+        db.collection("Battery").document(docRef.documentID).setData(data){ _ in
+            print("Uploading Successfully")
+            completion()
+        }
+//          docRef.setData(data){ _ in
+//              print("Uploading Successfully")
+//              completion()
+//          }
       }
     func calculateExpiredDate()->(Date){
         let today = date

@@ -17,6 +17,7 @@ struct Tires : Identifiable{
     let km : Int
     let date : Date
     let expiredDate : Date
+    let manufactureYear : Date
     
     
     init(data:[String:Any]){
@@ -27,6 +28,7 @@ struct Tires : Identifiable{
         self.km = data[Tires.km] as? Int ?? 0
         self.date = data[Tires.km] as? Date ?? Date()
         self.expiredDate = data[Tires.expiredDate] as? Date ?? Date()
+        self.manufactureYear = data[Tires.manufactureYear] as? Date ?? Date()
     }
     
     static let id = "id"
@@ -35,6 +37,6 @@ struct Tires : Identifiable{
     static let km = "km"
     static let date = "date"
     static let expiredDate = "expiredDate"
-    
+    static let manufactureYear = "manufactureYear"
     
 }
