@@ -15,7 +15,7 @@ import FirebaseStorage
 struct Car {
 
     let id : String
-    let carID : String
+//    let carID : String
     let carMake : String
     let carModel : String
     let carManufactureYear : Int
@@ -32,7 +32,7 @@ struct Car {
         
         self.id = dictionary[Car.id] as? String ?? ""
         //self.id = dictionary[Car.id] as? String ?? "N/A"
-        self.carID = dictionary[Car.carID]  as? String ?? ""
+//        self.carID = dictionary[Car.carID]  as? String ?? ""
         self.carMake = dictionary[Car.carMake] as! String
         self.carModel = dictionary[Car.carModel] as! String
         self.carManufactureYear = dictionary[Car.carManufactureYear] as? Int ?? 0
@@ -43,7 +43,7 @@ struct Car {
     
 
     static let id = "id"
-    static let carID = "carID"
+   // static let carID = "carID"
     static let carMake = "carMake"
     static let carModel = "carModel"
     static let carManufactureYear = "carManufactureYear"

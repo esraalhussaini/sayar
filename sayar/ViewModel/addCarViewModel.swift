@@ -66,8 +66,8 @@ class addCarViewModel: ObservableObject{
         let docRef = Firestore.firestore().collection("Car").document(uid)
         
             let data : [String:Any] = [
-                Car.carID : docRef.documentID,
-                Car.id : "111",
+               
+                Car.id : docRef.documentID,
                 Car.carMake : "",
                 Car.carModel :"",
                 Car.carManufactureYear: 2009,
