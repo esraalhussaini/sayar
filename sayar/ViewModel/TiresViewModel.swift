@@ -16,10 +16,10 @@ class TiresViewModel: ObservableObject{
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
     @Published var kmString : String = ""
-//    @Published var tireReleaseString : String = ""
+    @Published var tireReleaseString : String = ""
 
     var tireRelease : Int{
-        Int(costString) ?? 0
+        Int(tireReleaseString) ?? 0
     }
     
     var cost : Double{
@@ -109,9 +109,10 @@ class TiresViewModel: ObservableObject{
           }
       }
     func calculateExpiredDate()->(Date){
-        let today = Date()
+        let today = date
         print(today)
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 365, to: today)!
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 548, to: today)!
+//        for the tires, it is year and a half approximately to the next chanage
         print(modifiedDate)
          return modifiedDate
     }

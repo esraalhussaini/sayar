@@ -107,14 +107,17 @@ class OilViewModel: ObservableObject{
           }
       }
     func calculateExpiredDate()->Date{
-        let today = Date()
+        let today = date
         print(today)
          var value = 0
 //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 0, to: today)!
-        if km == 0{
-        value = 30
-        } else if km == 1 {
-            value = 100
+        if km == 3 || km == 5 || km == 8 {
+        value = 183
+// for the oil of 3,5,8 months, it is six months approximately to the next chanage
+        }
+        else if km == 10 || km == 15 {
+            value = 240
+// for the oil of 10,15 months, it is eight months approximately to the next chanage
         }
         let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: today)!
             print(modifiedDate)

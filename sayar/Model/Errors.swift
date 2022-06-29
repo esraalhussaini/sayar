@@ -41,8 +41,8 @@ enum Errors: Error, LocalizedError,Identifiable {
             return NSLocalizedString("This field should contains text, please enter it again.", comment: "")
         case .imageExtension:
             return NSLocalizedString("This in not an image, please enter a valid image.", comment: "")
-//        default
-//            return NSLocalizedString("there is an error", comment: "")
+        default :
+            return NSLocalizedString("there is an error", comment: "")
         }
     }
 }

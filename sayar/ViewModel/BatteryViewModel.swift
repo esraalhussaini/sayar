@@ -102,9 +102,10 @@ class BatteryViewModel: ObservableObject{
           }
       }
     func calculateExpiredDate()->(Date){
-        let today = Date()
+        let today = date
         print(today)
         let modifiedDate = Calendar.current.date(byAdding: .day, value: 365, to: today)!
+        //        for the battery, it is year approximately to the next chanage
         print(modifiedDate)
          return modifiedDate
     }
