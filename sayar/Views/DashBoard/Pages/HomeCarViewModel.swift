@@ -9,13 +9,21 @@ import SwiftUI
 
 struct HomeCarViewModel: View {
     
-   
     
+    //For image picker
+    @EnvironmentObject var vImage: ViewModel
+   
+  
     
   // For testing
 //    @StateObject var vm = TiresViewModel()
-    
+    //For image picker
     @EnvironmentObject var authvm : AuthViewModel
+    //--------
+    
+    
+    
+    
     @State var showLoginPage = false
    
     
@@ -402,6 +410,13 @@ VStack(alignment: .center){
         
         
 //---------Sheet
+                .fullScreenCover(isPresented: $vImage.showPicker) {
+                    ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image)
+                        .ignoresSafeArea()
+                }
+               
+                
+                
         
         .sheet(isPresented: $isPresentedNewPost, content: {
             

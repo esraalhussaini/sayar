@@ -7,18 +7,33 @@
 
 import SwiftUI
 
-struct AddCar: View {
-  
+enum ActiveSheet: Identifiable {
+    case first, second
     
+    var id: Int {
+        hashValue
+    }
+}
+
+
+struct AddCar: View {
+  //for image
+    //For image picker
+    @EnvironmentObject var vImage: ViewModel
+    
+    @EnvironmentObject var authvm : AuthViewModel
+  // @State private var showSheet = false
+       @State private var activeSheet: ActiveSheet? = .first
     
     //button Delete
         @State private var isShowingDialog = false
     @StateObject var vm = addCarViewModel()
 //    @Binding var showdashboard : Bool
         
-        
-        
-        @Binding var isPresented: Bool
+   // @State private var showSheet = false
+    
+@Binding var isPresented: Bool
+  
         @Binding var titel: String
         @Binding var post: String
         
@@ -33,14 +48,75 @@ struct AddCar: View {
                     
                     Color.gray.opacity(0.1)
                  
+                
+//                        Image("DefualtCar")
+//                //button
+//                        Text("Add Photo")
+//
+                        
                     VStack(alignment: .center , spacing: 10){
-                       Spacer()
-                        Image("DefualtCar")
-                //button
-                        Text("Add Photo")
+
+                        VStack{
+                            if let image = vImage.image {
+                    
+                                ZoomableScrollView {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFit()
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                   
+                                }
+                            } else {
+                                Image(systemName: "photo.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(0.6)
+                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .padding(.horizontal)
+                            }
+                            HStack {
+                                Button {
+                                
+//                                                        self.isPresented.toggle()
+//                                    self.activeSheet = .first
+                                           
+                                    vImage.source = .camera
+                                    vImage.showPhotoPicker()
+                                } label: {
+                                    Text("Camera")
+                                }
+                                Button {
+                                    
+//                                    self.isPresented.toggle()
+//                self.activeSheet = .first
+                               
+                                    vImage.source = .library
+                                    vImage.showPhotoPicker()
+                                } label: {
+                                    Text("Photos")
+                                }
+                            }
+                            Spacer()
+                        }//vstack image
+                        
+                        
+                  
                 
                         
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                     
                         Form{
                    // VStack(alignment: .leading) {
                     
@@ -113,7 +189,7 @@ struct AddCar: View {
                                   }
                               }
                         
-                        //-------delet
+                        //-------delete
                     
                         
      Spacer()
@@ -154,7 +230,45 @@ struct AddCar: View {
     //                .padding()
     //
     //            }//Zstack
+            
+            
+            
+            
+            
+            
 
+//            .sheet(isPresented: vImage.showPicker) {
+//                ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image)
+//                    .ignoresSafeArea()
+//            }
+//            .sheet(isPresented: $showSheet) {
+//                            if self.activeSheet == .first {
+//                                ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image
+//
+//                                Text("First modal view")
+//                            }
+//                            else {
+//                                Text("Only the second modal view works!")
+//                            }
+//                        }
+            
+            
+            
+            
+            
+//            .sheet(isPresented: self.$showOne) {
+//                                    OneView().environment(\.managedObjectContext, self.managedObjectContext)
+//                                }
+////
+          
+            
+            
+            
+            
+            
+       
+    
+            
                 .navigationBarTitle("Add car", displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
@@ -172,6 +286,7 @@ struct AddCar: View {
         var leading: some View {
 
             Button(action : {
+   
                 isPresented.toggle()
             }, label: {
                 Text("Cancel")
@@ -187,8 +302,9 @@ struct AddCar: View {
         var trailing: some View {
 
             Button(action : {
-               isPresented.toggle()
-                vm.uploadCar{}
+         
+            isPresented.toggle()
+               // vm.uploadCar{}
 //             showdashboard = true
             }, label: {
                 Text("Done")
@@ -212,9 +328,10 @@ struct AddCar: View {
         
     }//StructView
 
-    //struct Page_Add_Car_Previews: PreviewProvider {
-    //    static var previews: some View {
-    //        Page_Add_Car()
-    //    }
-    //}
+   
+
+
+
+
+
 

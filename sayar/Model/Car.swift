@@ -20,7 +20,7 @@ struct Car {
     let carModel : String
     let carManufactureYear : Int
     let carKm : Int
-    //let carImageUrl : String
+    let carImageUrl : String
 
 
 
@@ -37,6 +37,7 @@ struct Car {
         self.carModel = dictionary[Car.carModel] as! String
         self.carManufactureYear = dictionary[Car.carManufactureYear] as? Int ?? 0
         self.carKm = dictionary[Car.carKm] as? Int ?? 0
+     self.carImageUrl = dictionary[Car.carImageUrl]  as? String ?? "N/A"
     }
        // self.carImageUrl = dictionary[Car.carImageUrl]  as? String ?? "N/A"
 
@@ -44,11 +45,11 @@ struct Car {
 
     static let id = "id"
    // static let carID = "carID"
-    static let carMake = "carMake"
-    static let carModel = "carModel"
-    static let carManufactureYear = "carManufactureYear"
+    static let carMake = "CarMake"
+    static let carModel = "CarModel"
+    static let carManufactureYear = "CarManufactureYear"
     static let carKm = "km"
-    static let carImageUrl = "carImageUrl"
+    static let carImageUrl = "CarImage"
     
     
 }
