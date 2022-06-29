@@ -111,7 +111,7 @@ struct sayarApp: App {
     
     
     //image
-    //@StateObject var vm = ViewModel()
+   @StateObject var vm = ViewModel()
     
     var body: some Scene {
   WindowGroup {
@@ -120,11 +120,11 @@ struct sayarApp: App {
           .environmentObject(AuthViewModel.shared)
           .preferredColorScheme(.light)
       
-      //image
-//          .environmentObject(vm)
-//          .onAppear {
-//              UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-//          }
+     // imagePicker
+          .environmentObject(vm)
+          .onAppear {
+              UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+          }
       
        }
     }
