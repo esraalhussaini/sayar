@@ -13,13 +13,14 @@ import FirebaseStorage
 
 
 final class AuthViewModel: ObservableObject {
-    
+   // @Published var userSession : Firebase.User?
     @Published var isAouthenticatting = false
     @Published var car : Car?
     //@Published var :UIImage?
     @Published var image: UIImage?
     static let shared = AuthViewModel()
     init(){
+        
         if let _ = Auth.auth().currentUser {
             isAouthenticatting = true
             fetchCar()

@@ -11,6 +11,7 @@ struct OilView: View {
     @StateObject var vm = OilViewModel()
     
     
+    
 
     
     //Pluse button
@@ -127,6 +128,7 @@ var plusBottonOil: some View {
     
     Button(action: {
         isPresentedNewPost.toggle()
+        
     }, label:  {
         
         Image(systemName: "plus")

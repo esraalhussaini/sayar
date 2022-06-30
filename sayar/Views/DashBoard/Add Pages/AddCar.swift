@@ -196,6 +196,10 @@ struct AddCar: View {
                        
                                   Button("Confirm", role: .destructive) {
                                       // Handle the delete action.
+                                      
+                                      viewModelVar.uploadCar {
+                                          print("Successfully uploaded")
+                                      }
                                   }
                                   Button("Cancel", role: .cancel) {
                        

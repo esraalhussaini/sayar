@@ -22,145 +22,146 @@ import FirebaseFirestoreSwift
 
 
 struct AuthView: View {
-     @EnvironmentObject var authViewModel : AuthViewModel
-     @State var isShowingHomeView: Bool = false
-      @State var phoneNumber: String = ""
-   @State var smsCode: String = ""
-      @StateObject var authManager = AuthManager()
-    @Binding var showLoginPage : Bool
-   
-    @Binding var isPresentedNewPost : Bool
-      var body: some View {
-  
-          NavigationView{
-              
-              VStack(spacing: 20){
-                
-                  Image("TabIconCar")
-                  
-                  Text("Enter Phone Number")
-                      .font(.largeTitle).fontWeight(.heavy)
-              
-         
-                  
-                  HStack{
-
-                      // .padding(.top, 15)
-                      TextField("Enter Phone Number", text: $phoneNumber)
-                          .keyboardType(.numberPad)
-                          .padding()
-                          .overlay(
-                              RoundedRectangle(cornerRadius: 5)
-                                  .stroke(Color.black, lineWidth: 0.5)
-                                 
-                          )
-                          .padding()
-
-                
-                     
-                       
-                             
-                  }//HSTACK
-                  
-                  
-                
-//
-//                  Button(action: {
-//                      authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
-//                        print("DEBUG: phone \(isSuccess)")}
-//                 self.showLoginPage.toggle()
-//
-//
-//                     // phonePad
-//                  }) {
-//                      Text("Send").frame(width: UIScreen.main.bounds.width - 30, height: 50)
-//                  }//label button
-//                  .foregroundColor(.white)
-//                  .background(Color.orange)
-//                      .cornerRadius(10)
     
-                  Button {
-
-                      authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
-                          print("DEBUG: phone \(isSuccess)")
-                          
-                      }
-
-                  } label: {
-                      Text("Create Account")
-                          .accentColor(.red)
-                         // .keyboardType(.numberPad)
-                  }
-
-
-         
-                                Divider()
-
-                                TextField("Enter OPT Code", text: $smsCode)
-                      .keyboardType(.numberPad)
-                      .padding()
-                      .overlay(
-                          RoundedRectangle(cornerRadius: 5)
-                              .stroke(Color.black, lineWidth: 0.5)
-
-                      )
-                      .padding()
-
-
-
-                                Button {
-                                    DispatchQueue.main.async {
-                                        authManager.verifySMSCode(verificationCode: smsCode, phoneNumber: phoneNumber) { isSuccess in
-                                            print("DEBUG: in code \(isSuccess)")
-                                            self.showLoginPage = false
-                                            self.isPresentedNewPost = true
-                                         //   isShowingHomeView.toggle()
-                                            authViewModel.isAouthenticatting = true
-                                        }
-                                    }
-                                } label: {
-                                    Text("Verify Code")
-
-                                        .accentColor(.red)
-                                }
-
-                                
-                   .padding(.top, 15)
-                  .navigationBarTitle("")
-                      .navigationBarHidden(false)
-                      .navigationBarBackButtonHidden(true)
-      
-                      .toolbar {
-                          ToolbarItem(placement: .navigationBarLeading) {
-                              Button(action : {
-                                  showLoginPage.toggle()
-                              }, label: {
-                                  Text("Cancel")
-                                      .accentColor(.red)
-                              })
-
-                          }//TOOL
-                      }//toolbar
-                 
-//                Spacer()
-              }//VSATCK
-              .padding()
-              
-              
-              
-              Spacer()
-              
-              
-              
-              
-              
-              
-              
-
-//
-          }//NAV
-          }
-      }
+    @EnvironmentObject var authViewModel : AuthViewModel
+    @State var isShowingHomeView: Bool = false
+    @State var phoneNumber: String = ""
+    @State var smsCode: String = ""
+    @StateObject var authManager = AuthManager()
+    @Binding var showLoginPage : Bool
+    
+    @Binding var isPresentedNewPost : Bool
+    var body: some View {
+        
+        NavigationView{
+            
+            VStack(spacing: 20){
+                
+                Image("TabIconCar")
+                
+                Text("Enter Phone Number")
+                    .font(.largeTitle).fontWeight(.heavy)
+                
+                
+                
+                HStack{
+                    
+                    // .padding(.top, 15)
+                    TextField("Enter Phone Number", text: $phoneNumber)
+                        .keyboardType(.numberPad)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.black, lineWidth: 0.5)
+                            
+                        )
+                        .padding()
+                    
+                    
+                    
+                    
+                    
+                }//HSTACK
+                
+                
+                
+                //
+                //                  Button(action: {
+                //                      authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
+                //                        print("DEBUG: phone \(isSuccess)")}
+                //                 self.showLoginPage.toggle()
+                //
+                //
+                //                     // phonePad
+                //                  }) {
+                //                      Text("Send").frame(width: UIScreen.main.bounds.width - 30, height: 50)
+                //                  }//label button
+                //                  .foregroundColor(.white)
+                //                  .background(Color.orange)
+                //                      .cornerRadius(10)
+                
+                Button {
+                    
+                    authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
+                        print("DEBUG: phone \(isSuccess)")
+                        
+                    }
+                    
+                } label: {
+                    Text("Create Account")
+                        .accentColor(.red)
+                    // .keyboardType(.numberPad)
+                }
+                
+                
+                
+                Divider()
+                
+                TextField("Enter OPT Code", text: $smsCode)
+                    .keyboardType(.numberPad)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.black, lineWidth: 0.5)
+                        
+                    )
+                    .padding()
+                
+                
+                
+                Button {
+                    DispatchQueue.main.async {
+                        authManager.verifySMSCode(verificationCode: smsCode, phoneNumber: phoneNumber) { isSuccess in
+                            print("DEBUG: in code \(isSuccess)")
+                            self.showLoginPage = false
+                            self.isPresentedNewPost = true
+                            //   isShowingHomeView.toggle()
+                            authViewModel.isAouthenticatting = true
+                        }
+                    }
+                } label: {
+                    Text("Verify Code")
+                    
+                        .accentColor(.red)
+                }
+                
+                
+                .padding(.top, 15)
+                .navigationBarTitle("")
+                .navigationBarHidden(false)
+                .navigationBarBackButtonHidden(true)
+                
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action : {
+                            showLoginPage.toggle()
+                        }, label: {
+                            Text("Cancel")
+                                .accentColor(.red)
+                        })
+                        
+                    }//TOOL
+                }//toolbar
+                
+                //                Spacer()
+            }//VSATCK
+            .padding()
+            
+            
+            
+            Spacer()
+            
+            
+            
+            
+            
+            
+            
+            
+            //
+        }//NAV
+    }
+}
 
 
 
@@ -183,7 +184,7 @@ struct AuthView: View {
 class AuthManager: ObservableObject {
     @Published var verificationId: String?
     private let auth = Auth.auth()
-
+    
     //تستقبل رقم الجوال
     func createUserWithPhoneNumber(phoneNumber: String, completion: @escaping ( (Bool) -> Void )) {
         print("DEBUG: 1 - preparing to request SMS Code")
@@ -201,9 +202,9 @@ class AuthManager: ObservableObject {
             completion(true)
         }
     }
-
-
-
+    
+    
+    
     //تتتآكد من رساله sms
     func verifySMSCode(verificationCode: String, phoneNumber: String , completion: @escaping ( (Bool) -> Void )) {
         print("DEBUG: 4 - Verifying SMS Code")
@@ -211,7 +212,7 @@ class AuthManager: ObservableObject {
             completion(false)
             return
         }
-
+        
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId,
                                                                  verificationCode: verificationCode)
         print("DEBUG: 5 - Create Credential")
@@ -226,7 +227,7 @@ class AuthManager: ObservableObject {
                 "id": userId,
                 "phoneNumber": phoneNumber
             ]
-
+            
             Firestore.firestore().collection("users").document(userId).setData(userData)
             completion(true)
         }
