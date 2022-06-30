@@ -43,12 +43,12 @@ struct Car {
 
     
 
-    static let id = "id"
+    static let id = "CarID"
    // static let carID = "carID"
     static let carMake = "CarMake"
     static let carModel = "CarModel"
     static let carManufactureYear = "CarManufactureYear"
-    static let carKm = "km"
+    static let carKm = "CarKM"
     static let carImageUrl = "CarImage"
     
     

@@ -17,7 +17,7 @@ struct Battery : Identifiable{
     let km : Int
     let date : Date
     let expiredDate : Date
-    
+    let batteryCompany : String
     
     init(data:[String:Any]){
         
@@ -27,6 +27,7 @@ struct Battery : Identifiable{
         self.km = data[Battery.km] as? Int ?? 0
         self.date = data[Battery.km] as? Date ?? Date()
         self.expiredDate = data[Battery.expiredDate] as? Date ?? Date()
+        self.batteryCompany = data[Battery.batteryCompany] as? String ?? "N/A"
         
     }
     
@@ -36,6 +37,6 @@ struct Battery : Identifiable{
     static let km = "km"
     static let date = "date"
     static let expiredDate = "expiredDate"
-    
+    static let batteryCompany = "batteryCompany"
     
 }
