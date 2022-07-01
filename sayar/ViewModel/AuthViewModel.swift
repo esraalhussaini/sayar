@@ -19,6 +19,7 @@ final class AuthViewModel: ObservableObject {
     //@Published var :UIImage?
     @Published var image: UIImage?
     static let shared = AuthViewModel()
+    private var db = Firestore.firestore()
     init(){
         
         if let _ = Auth.auth().currentUser {
@@ -59,8 +60,7 @@ final class AuthViewModel: ObservableObject {
             print("Successfull Upload")
         }
       //------end Anwar
-        
-        
+
         
     }//fetchCar
 //    func uploadCar(completion:@escaping ()->()){
@@ -86,6 +86,11 @@ final class AuthViewModel: ObservableObject {
 //    }
 //
 //
+    func updateKilometers(newKm: Double){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let x = db.collection("Car").document(uid).documentID
+        db.collection("Car").document(x).updateData(["CarKM":newKm])
+    }
     
 }
 

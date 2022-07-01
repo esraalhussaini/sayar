@@ -110,7 +110,11 @@ class BatteryViewModel: ObservableObject{
         db.collection("Battery").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")
             completion()
+            AuthViewModel.shared.updateKilometers(newKm:self.km)
+
             self.fetchData()
+            
+            
         }
 //          docRef.setData(data){ _ in
 //              print("Uploading Successfully")
