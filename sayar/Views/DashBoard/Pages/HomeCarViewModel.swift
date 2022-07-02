@@ -26,8 +26,9 @@ struct HomeCarViewModel: View {
     
     @State var showLoginPage = false
    
-    
-    
+    @StateObject var vmOil = OilViewModel()
+    @StateObject var vmBattery = BatteryViewModel()
+    @StateObject var vmTires = TiresViewModel()
     
     @State var isPresentedNewPost = false
     @State var titel = ""
@@ -227,7 +228,7 @@ VStack(alignment: .center){
                                 .frame( width: 75,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                                                  Text("N/A")
+                            Text(vmOil.formatedDate())
 
                                 .font(.caption)
                                 .fontWeight(.light)
@@ -294,7 +295,7 @@ VStack(alignment: .center){
                                 .frame( width: 75,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                                                  Text("N/A")
+                            Text(vmTires.formatedDate())
 
                                 .font(.caption)
                                 .fontWeight(.light)
@@ -364,7 +365,7 @@ VStack(alignment: .center){
                                 .frame( width: 75,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                                                  Text("N/A")
+                            Text(vmBattery.formatedDate())
 
                                 .font(.caption)
                                 .fontWeight(.light)

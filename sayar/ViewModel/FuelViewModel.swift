@@ -50,7 +50,7 @@ class FuelViewModel: ObservableObject{
                     if let docs = snapshot?.documents{
                         docs.forEach { doc in
                             let docId = doc.documentID
-                            self.db.collection("Battery").document(docId).getDocument { snapshot, error in
+                            self.db.collection("Fuel").document(docId).getDocument { snapshot, error in
                                 guard let docData = snapshot?.data() else {return}
                                 let fuel = Fuel(data: docData)
                               print(fuel.cost,"🤚🏻")
@@ -158,11 +158,25 @@ class FuelViewModel: ObservableObject{
                 Fuel.carID: carId,
                 Fuel.id:docRef.documentID
             ]
-             docRef.setData(data){ _ in
+            db.collection("Fuel").document(docRef.documentID).setData(data){ _ in
                 print("Uploading Successfully")
                 completion()
+                AuthViewModel.shared.updateKilometers(newKm:self.km)
+
                 self.fetchData()
             }
         }
+    
+    func deleteFuel(Fuel: Fuel) {
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+        db.collection("Car").document(carId).collection("CarFuel").document().delete() { err in
+        if let err = err {
+          print("Error removing document: \(err)")
+        }
+        else {
+          print("Document successfully removed!")
+        }
+      }
+    }
     
 }

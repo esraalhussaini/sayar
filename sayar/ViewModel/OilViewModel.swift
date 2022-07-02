@@ -105,7 +105,7 @@ class OilViewModel: ObservableObject{
                 Oil.km: km,
                 Oil.expiredDate: expDate
           ]
-        db.collection("Battery").document(docRef.documentID).setData(data){ _ in
+        db.collection("Oil").document(docRef.documentID).setData(data){ _ in
               print("Uploading Successfully")
               completion()
             self.fetchData()
@@ -125,9 +125,23 @@ class OilViewModel: ObservableObject{
 // for the oil of 10,15 months, it is eight months approximately to the next chanage
         }
         let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: today)!
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "E, d MMM y"
+//        let formattedDate = formatter.string(from: modifiedDate)
             print(modifiedDate)
              return modifiedDate
        
+    }
+    func formatedDate()->String{
+//        let s = "N/A"
+//        guard let carId = AuthViewModel.shared.car?.id else {return }
+        
+//        here I have to check if there is a real changing date otherwise it should return "N/A"
+        let expDate = calculateExpiredDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, d MMM y"
+        let formattedDate = formatter.string(from: expDate)
+        return formattedDate
     }
     //
     //
