@@ -225,13 +225,13 @@ VStack(alignment: .center){
                         ZStack{
                             Rectangle()
                                 .fill(Color("ColorOilOpa"))
-                                .frame( width: 75,   height:25)
+                                .frame( width: 125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
                             Text(vmOil.formatedDate())
 
                                 .font(.caption)
-                                .fontWeight(.light)
+                                .fontWeight(.bold)
                                 .foregroundColor(Color("ColorOil"))
                         }
                     }
@@ -292,13 +292,13 @@ VStack(alignment: .center){
                         ZStack{
                             Rectangle()
                                 .fill(Color("ColorTiersOpa"))
-                                .frame( width: 75,   height:25)
+                                .frame( width: 125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
                             Text(vmTires.formatedDate())
 
                                 .font(.caption)
-                                .fontWeight(.light)
+                                .fontWeight(.bold)
                                 .foregroundColor(Color("ColorTiers"))
                         }
                     }
@@ -362,13 +362,13 @@ VStack(alignment: .center){
                         ZStack{
                             Rectangle()
                                 .fill(Color("ColorBatteryOpa"))
-                                .frame( width: 75,   height:25)
+                                .frame( width:125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
                             Text(vmBattery.formatedDate())
 
                                 .font(.caption)
-                                .fontWeight(.light)
+                                .fontWeight(.bold)
                                 .foregroundColor(Color("ColorBattery"))
                         }
                     }

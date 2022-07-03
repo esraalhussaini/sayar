@@ -69,6 +69,7 @@ struct AddCar: View {
                         
                     VStack(alignment: .center , spacing: 10){
 
+                        //image
                         VStack{
                             if let image = vImage.image {
                     
@@ -322,7 +323,7 @@ struct AddCar: View {
          
             isPresented.toggle()
                 
-                
+         
                 viewModelVar.uploadCar{}
                isPresented.toggle()
                // vm.uploadCar{}
