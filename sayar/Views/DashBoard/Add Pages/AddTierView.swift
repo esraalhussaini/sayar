@@ -57,6 +57,16 @@ struct AddTierView: View {
                            
                                 
                             }
+                        Section{
+                            DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
+                            
+                            
+                            TextField(" Tire Comapany", text:$vm.tireComp)
+                                .keyboardType(.default)
+                            
+                       
+                            
+                        }
                 
 //                        Section{
 //                            TextField("TiersYearRelease", text:$TiersYearRelease)

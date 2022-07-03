@@ -16,6 +16,7 @@ class BatteryViewModel: ObservableObject{
     @Published var appError: Errors? = nil
     @Published var costString : String = ""
     @Published var kmString : String = ""
+    @Published var batteryComp : String = ""
 
     var cost : Double{
         Double(costString) ?? 0.0
@@ -105,7 +106,8 @@ class BatteryViewModel: ObservableObject{
                 Battery.carID : carId,
                 Battery.date:date ,
                 Battery.km: km,
-                Battery.expiredDate:expDate
+                Battery.expiredDate:expDate,
+                Battery.batteryCompany: batteryComp
           ]
         db.collection("Battery").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")

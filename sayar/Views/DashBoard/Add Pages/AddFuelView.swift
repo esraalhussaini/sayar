@@ -56,6 +56,8 @@ struct AddFuelView: View {
                                 
                                 TextField("km ", text:$vm.kmString)
                                         .keyboardType(.numberPad)
+                                
+                                
                           
                    }//section
                         

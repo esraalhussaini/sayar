@@ -15,6 +15,8 @@ import FirebaseFirestore
 
 class addCarViewModel: ObservableObject{
     
+    
+    
     @Published var car = [Car]()
 //    @Published var cost : Double = 0.0
 //    @Published var km : Double = 0.0

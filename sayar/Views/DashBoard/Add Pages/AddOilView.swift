@@ -68,6 +68,19 @@ struct AddOilView: View {
                                 
                             }
                             
+                            Section{
+                                TextField("oil Type", text:$vm.oilType)
+                                    .keyboardType(.twitter)
+                                
+                                TextField("oil Company", text:$vm.oilCompany)
+                                    .keyboardType(.twitter)
+                                
+                           
+                                
+                            }
+                            
+                            
+                         
                             
 //                            Section{
 //                                TextField("ExpectedTime", text:$ExpectedTime)

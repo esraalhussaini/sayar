@@ -17,6 +17,8 @@ class OilViewModel: ObservableObject{
     @Published var costString : String = ""
     @Published var kmString : String = ""
     @Published  var  date  = Date()
+    @Published var oilCompany : String = ""
+    @Published var oilType : String = ""
     
     var cost : Double{
         Double(costString) ?? 0.0
@@ -103,7 +105,10 @@ class OilViewModel: ObservableObject{
                 Oil.carID: carId,
                 Oil.date: date,
                 Oil.km: km,
-                Oil.expiredDate: expDate
+                Oil.expiredDate: expDate,
+                Oil.oilCompany: oilCompany,
+                Oil.oilType: oilType
+                
           ]
         db.collection("Oil").document(docRef.documentID).setData(data){ _ in
               print("Uploading Successfully")

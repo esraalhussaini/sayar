@@ -60,6 +60,14 @@ struct AddBatteryView: View {
                               
                                     
                                 }
+                            Section{
+                                TextField("Battery Comapany", text:$vm.batteryComp)
+                                    .keyboardType(.default)
+                                
+                          
+                                
+                            }
+                
                     
                             
 //                                    Section{

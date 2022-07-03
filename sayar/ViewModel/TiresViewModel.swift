@@ -17,6 +17,8 @@ class TiresViewModel: ObservableObject{
     @Published var costString : String = ""
     @Published var kmString : String = ""
     @Published var tireReleaseString : String = ""
+    @Published  var  manufactureYEAR  = Date()
+    @Published var tireComp : String = ""
 
     var tireRelease : Int{
         Int(tireReleaseString) ?? 0
@@ -105,7 +107,9 @@ class TiresViewModel: ObservableObject{
             Tires.carID : carId,
             Tires.date:date,
             Tires.km: km,
-            Tires.expiredDate:expDate
+            Tires.expiredDate:expDate,
+            Tires.manufactureYear:manufactureYEAR,
+            Tires.tireCompany: tireComp
           ]
         db.collection("Tires").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")
