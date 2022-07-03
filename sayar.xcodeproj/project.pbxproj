@@ -49,6 +49,7 @@
 		E863D69F2869C6AA00DD4E37 /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863D69E2869C6AA00DD4E37 /* VehicleView.swift */; };
 		E863D6A22869C6E300DD4E37 /* VehiclesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863D6A12869C6E300DD4E37 /* VehiclesViewModel.swift */; };
 		E863D6A42869C6F900DD4E37 /* vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863D6A32869C6F900DD4E37 /* vehicle.swift */; };
+		E865A5062871F68A00BD17F0 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
@@ -101,6 +102,7 @@
 		E863D69E2869C6AA00DD4E37 /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
 		E863D6A12869C6E300DD4E37 /* VehiclesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewModel.swift; sourceTree = "<group>"; };
 		E863D6A32869C6F900DD4E37 /* vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vehicle.swift; sourceTree = "<group>"; };
+		E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				E8305CB4286C6BA6006505CF /* ImagePicker.swift */,
 				E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */,
+				E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */,
 			);
 			path = UiviewRepresentable;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				E863D6A42869C6F900DD4E37 /* vehicle.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
 				E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */,
+				E865A5062871F68A00BD17F0 /* FileManager+Extension.swift in Sources */,
 				E863D69F2869C6AA00DD4E37 /* VehicleView.swift in Sources */,
 				E8749508285A89E10049BB4B /* AddCar.swift in Sources */,
 				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
@@ -584,6 +588,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sayar/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -617,6 +622,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sayar/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
