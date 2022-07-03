@@ -45,7 +45,7 @@ struct OilView: View {
                                 .font(.caption)
                                 .foregroundColor(.gray)
                                 
-                        }
+                        } .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
                         Spacer(minLength: 5)
                         Text("\(f.date)")
                             .font(.caption)
