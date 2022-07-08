@@ -47,12 +47,12 @@ struct AddCar: View {
     
 @Binding var isPresented: Bool
   
-        @Binding var titel: String
-        @Binding var post: String
+        @Binding var Make: String
+        @Binding var Model: String
         
         @Binding var kmCar: String
         //Km Double or int?
-        
+@Binding var carManufactureYear : String
         
         var body: some View {
 
@@ -66,11 +66,18 @@ struct AddCar: View {
 //                //button
 //                        Text("Add Photo")
 //
-                        
-                    VStack(alignment: .center , spacing: 10){
+                  
+                    
+                    
+                    
+                VStack(alignment: .center , spacing: 10){
+                    Form{
+                    
 
                         //image
-                        VStack{
+                      //  Color.gray.opacity(0.1)
+                    VStack{
+                       
                             if let image = vImage.image {
                     
                                 ZoomableScrollView {
@@ -81,7 +88,8 @@ struct AddCar: View {
                                    
                                 }
                             } else {
-                                Image(systemName: "photo.fill")
+                                Image("DefualtCar")
+                               // Image(systemName: "photo.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(0.6)
@@ -91,8 +99,7 @@ struct AddCar: View {
                             HStack {
                                 Button {
                                 
-//                                                        self.isPresented.toggle()
-//                                    self.activeSheet = .first
+
                                            
                                     vImage.source = .camera
                                     vImage.showPhotoPicker()
@@ -101,8 +108,7 @@ struct AddCar: View {
                                 }
                                 Button {
                                     
-//                                    self.isPresented.toggle()
-//                self.activeSheet = .first
+
                                
                                     vImage.source = .library
                                     vImage.showPhotoPicker()
@@ -111,7 +117,7 @@ struct AddCar: View {
                                 }
                             }
                             Spacer()
-                        }//vstack image
+                    }//vstack image
                         
                         
                   
@@ -123,100 +129,73 @@ struct AddCar: View {
                         
                         
                         
-                        
-                        
-                        
+                    
+          
                         
                         
                         
                         
                      
-                        Form{
+                  
                    // VStack(alignment: .leading) {
                     
                         Section{
-                         //   TextField("Make", text:$viewModelVar.makeString)
+                           TextField("Make", text:$Make)
                              
-                            TextField("Model", text: $post )
+                            TextField("Model", text: $Model )
                             
                             
                         }
                   
                                 Section{
+                                    
+                                    TextField("carManufactureYear", text:$carManufactureYear)
+                                        .keyboardType(.numberPad)
                                     TextField("Km", text:$kmCar)
                                         .keyboardType(.numberPad)
                                
-                                    
-                                }
-                            
-                      
-                     
-                                                //.padding()
-                                      
-                                               // .cornerRadius(6)
-                                             //.padding(.bottom)
-                                      
-                   
-                        
-                        
-                                           // TextField("Model", text: $post )
-                                               //.padding()
-                                           // .background(Color.red)
-                                               // .cornerRadius(6)
-                                             //   .padding(.bottom)
-    //                        .background(Color.white)
-    //
-                        //Spacer()
-                    
-                  //  }//VstackText
-                            
-                            
-                          
                                
                                     
-                            
-                            
-                           
-                                    
-                           
+                                }
+    
              
                     }//form
                         
-                        //-------delet
-                        Button("Delete", role: .destructive) {
-                                  isShowingDialog = true
-                              }
-                      //  .font(.headline)
-                 //   .frame(width: 280, height: 50)
-                        //    .background(.white)
-                        
-                              //  .cornerRadius(6)
-                      //  .buttonStyle(.bordered)
-                              .controlSize(.large)
-                              .confirmationDialog("Are you sure to delete the data?", isPresented: $isShowingDialog, titleVisibility: .visible) {
-                       
-                                  Button("Confirm", role: .destructive) {
-                                      // Handle the delete action.
-                                      
-                                      viewModelVar.uploadCar {
-                                          print("Successfully uploaded")
-                                      }
-                                  }
-                                  Button("Cancel", role: .cancel) {
-                       
-                                  }
-                              }
-                        
-                        //-------delete
-                    
+//                        //-------delet
+//                        Button("Delete", role: .destructive) {
+//                                  isShowingDialog = true
+//                              }
+//                      //  .font(.headline)
+//                 //   .frame(width: 280, height: 50)
+//                        //    .background(.white)
+//
+//                              //  .cornerRadius(6)
+//                      //  .buttonStyle(.bordered)
+//                              .controlSize(.large)
+//                              .confirmationDialog("Are you sure to delete the data?", isPresented: $isShowingDialog, titleVisibility: .visible) {
+//
+//                                  Button("Confirm", role: .destructive) {
+//                                      // Handle the delete action.
+//
+//                                      viewModelVar.uploadCar {
+//                                          print("Successfully uploaded")
+//                                      }
+//                                  }
+//                                  Button("Cancel", role: .cancel) {
+//
+//                                  }
+//                              }
+//
+//                        //-------delete
+//
                         
      Spacer()
-                            .padding(.bottom)
+                         //   .padding(.bottom)
                                 
                          
                     
                  
-                    }//VSTACK IMAGE
+                   }//VSTACK
                  
 
                 }//zstack importent
@@ -225,29 +204,7 @@ struct AddCar: View {
                 
                 
                 
-    //            ZStack {
-    //                Color.gray.opacity(0.1)
-    //                VStack(alignment: .leading) {
-    //
-    //     Text("Create New Post")
-    //                        .font(Font.system(size: 16, weight: .bold))
-    //                    TextField("titel", text:$titel )
-    //                        .padding()
-    //                        .background(Color.white)
-    //                        .cornerRadius(6)
-    //                        .padding(.bottom)
-    //
-    //                    TextField("write something..", text: $post )
-    //                        .padding()
-    //                        .background(Color.white)
-    //                        .cornerRadius(6)
-    //                        .padding(.bottom)
-    //
-    //                Spacer()
-    //                }//Vstack .
-    //                .padding()
-    //
-    //            }//Zstack
+    
             
             
             
@@ -255,38 +212,7 @@ struct AddCar: View {
             
             
 
-//            .sheet(isPresented: vImage.showPicker) {
-//                ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image)
-//                    .ignoresSafeArea()
-//            }
-//            .sheet(isPresented: $showSheet) {
-//                            if self.activeSheet == .first {
-//                                ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image
-//
-//                                Text("First modal view")
-//                            }
-//                            else {
-//                                Text("Only the second modal view works!")
-//                            }
-//                        }
-            
-            
-            
-            
-            
-//            .sheet(isPresented: self.$showOne) {
-//                                    OneView().environment(\.managedObjectContext, self.managedObjectContext)
-//                                }
-////
-          
-            
-            
-            
-            
-            
-       
-    
-            
+   
                 .navigationBarTitle("Add car", displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                

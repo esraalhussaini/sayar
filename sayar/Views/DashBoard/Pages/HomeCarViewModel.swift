@@ -31,11 +31,11 @@ struct HomeCarViewModel: View {
     @StateObject var vmTires = TiresViewModel()
     
     @State var isPresentedNewPost = false
-    @State var titel = ""
-    @State var post = ""
+    @State var Make = ""
+    @State var Model = ""
  
   @State  var kmCar  = ""
-  
+    @State  var carManufactureYear  = ""
 
     var body: some View {
   
@@ -421,7 +421,7 @@ VStack(alignment: .center){
         
         .sheet(isPresented: $isPresentedNewPost, content: {
             
-            AddCar(isPresented: $isPresentedNewPost, titel: $titel, post: $post,kmCar: $kmCar)
+            AddCar(isPresented: $isPresentedNewPost, Make: $Make, Model: $Model,kmCar: $kmCar, carManufactureYear: $carManufactureYear)
             
         })
         .fullScreenCover(isPresented: $showLoginPage, content: {
