@@ -10,9 +10,11 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
-//سويت كومنت لاني احتاج اجرب مودل الكار، انوار
 
-struct Car {
+
+
+
+struct Car : Identifiable{
 
     let id : String
 //    let carID : String
