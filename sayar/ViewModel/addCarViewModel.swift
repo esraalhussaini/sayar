@@ -15,7 +15,9 @@ import FirebaseFirestore
 
 class addCarViewModel: ObservableObject{
     
-    
+    //anwar
+// @Published var car: Car
+    //....
     
     @Published var car = [Car]()
 //    @Published var cost : Double = 0.0
@@ -91,6 +93,23 @@ class addCarViewModel: ObservableObject{
                 completion()
             }
         }
+ 
     
-}
+    
+    
+    
+    //Anwar
+    
+//    private func addCar(_ car: Car) {
+//      do {
+//          let _ = try db.collection("Car").addDocument(data: car)
+//      }
+//      catch {
+//        print(error)
+//      }
+//    }
+//
+//
+    
+}//class
 

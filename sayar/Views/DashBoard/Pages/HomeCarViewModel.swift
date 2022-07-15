@@ -417,13 +417,19 @@ VStack(alignment: .center){
                 }
                
                 
-                
-        
+       //DontRemove
+//
         .sheet(isPresented: $isPresentedNewPost, content: {
-            
+
             AddCar(isPresented: $isPresentedNewPost, Make: $Make, Model: $Model,kmCar: $kmCar, carManufactureYear: $carManufactureYear)
-            
+
         })
+                
+//
+//                .sheet(isPresented: self.$isPresentedNewPost){
+//                    EditCar()
+//                }
+                
         .fullScreenCover(isPresented: $showLoginPage, content: {
             AuthView(showLoginPage: $showLoginPage, isPresentedNewPost: $isPresentedNewPost)
         })

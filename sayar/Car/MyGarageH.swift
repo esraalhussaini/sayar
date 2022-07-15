@@ -15,7 +15,7 @@ struct MyGarageH: View {
     @StateObject var vm = addCarViewModel()
   
     private func CarRowView(car: Car) -> some View {
-          NavigationLink(destination: CarDetailsView()) {
+     //   NavigationLink(destination: CarDetailsView(car: <#Car#>)) {
             VStack(alignment: .leading) {
                 HStack {
                     Image("TabIconCar")
@@ -28,19 +28,19 @@ struct MyGarageH: View {
                     }
                 }
             }
-          }
+       // }
         }
     
     var body: some View {
         
         
         Text("BJHBJHBHJB")
-//        List {
-//            ForEach (vm.car) { Car in
-//                CarRowView(car: <#T##Car#>)
-//            }//for
-//        }//LIST
-//
+        List {
+            ForEach (vm.car) { Car in
+             //   CarRowView(car: <#T##Car#>)
+            }//for
+        }//LIST
+
 
 
      

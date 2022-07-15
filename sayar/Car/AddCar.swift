@@ -71,7 +71,7 @@ struct AddCar: View {
                     
                     
                 VStack(alignment: .center , spacing: 10){
-                    Form{
+               
                     
 
                         //image
@@ -88,8 +88,8 @@ struct AddCar: View {
                                    
                                 }
                             } else {
-                                Image("DefualtCar")
-                               // Image(systemName: "photo.fill")
+                               // Image("DefualtCar")
+                            Image(systemName: "photo.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(0.6)
@@ -133,7 +133,7 @@ struct AddCar: View {
           
                         
                         
-                        
+                    Form{
                         
                      
                   
