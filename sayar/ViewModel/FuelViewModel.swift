@@ -169,7 +169,10 @@ class FuelViewModel: ObservableObject{
     
     func deleteFuel(Fuel: Fuel) {
         guard let carId = AuthViewModel.shared.car?.id else {return}
-        db.collection("Car").document(carId).collection("CarFuel").document().delete() { err in
+        let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
+        let docId = docRef.documentID
+        db.collection("Car").document(carId).collection("CarFuel").document(docId).delete()
+        db.collection("Fuel").document(docId).delete()  { err in
         if let err = err {
           print("Error removing document: \(err)")
         }
@@ -177,6 +180,9 @@ class FuelViewModel: ObservableObject{
           print("Document successfully removed!")
         }
       }
+    
+    
     }
+
     
 }

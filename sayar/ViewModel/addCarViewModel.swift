@@ -20,11 +20,20 @@ class addCarViewModel: ObservableObject{
     //....
     
     @Published var car = [Car]()
-//    @Published var cost : Double = 0.0
-//    @Published var km : Double = 0.0
     @Published var kmString : String = ""
+    @Published var carManufactureYearString : String = ""
+    @Published var carModelString : String = ""
+    @Published var carMake : String = ""
+    
     var km : Double{
         Double(kmString) ?? 0.0
+    }
+    var carManufactureYear : Double{
+        Double(carManufactureYearString) ?? 0.0
+    }
+    
+    var carModel : Double{
+        Double(carModelString) ?? 0.0
     }
     init(){
         fetchData()
@@ -82,11 +91,12 @@ class addCarViewModel: ObservableObject{
             let data : [String:Any] = [
                
                 Car.id : docRef.documentID,
-                Car.carMake : "",
-                Car.carModel :"",
-                Car.carManufactureYear: 2009,
-                Car.carKm : 9.8,
+                Car.carMake : carMake,
+                Car.carModel :carModel,
+                Car.carManufactureYear: carManufactureYear,
+                Car.carKm : km,
                 Car.carImageUrl :"image",
+//                check the image from Anwar 
             ]
             docRef.setData(data){ _ in
                 print("Uploading Successfully")

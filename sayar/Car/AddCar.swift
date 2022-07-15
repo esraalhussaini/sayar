@@ -140,18 +140,18 @@ struct AddCar: View {
                    // VStack(alignment: .leading) {
                     
                         Section{
-                           TextField("Make", text:$Make)
+                            TextField("Make", text:$vm.carMake)
                              
-                            TextField("Model", text: $Model )
+                            TextField("Model", text: $vm.carModelString )
                             
                             
                         }
                   
                                 Section{
                                     
-                                    TextField("carManufactureYear", text:$carManufactureYear)
+                                    TextField("carManufactureYear", text:$vm.carManufactureYearString)
                                         .keyboardType(.numberPad)
-                                    TextField("Km", text:$kmCar)
+                                    TextField("Km", text:$vm.kmString)
                                         .keyboardType(.numberPad)
                                
                                
