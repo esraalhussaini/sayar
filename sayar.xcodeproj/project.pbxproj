@@ -11,6 +11,12 @@
 		020A13F3283D3671007C9ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A13F2283D3671007C9ECE /* ContentView.swift */; };
 		020A13F5283D3674007C9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F4283D3674007C9ECE /* Assets.xcassets */; };
 		020A13F8283D3674007C9ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F7283D3674007C9ECE /* Preview Assets.xcassets */; };
+		22DCABC428821D2300D26F3B /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC328821D2300D26F3B /* ScannerView.swift */; };
+		22DCABC628821D7200D26F3B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC528821D7200D26F3B /* Model.swift */; };
+		22DCABC828821DAF00D26F3B /* TextRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC728821DAF00D26F3B /* TextRecognition.swift */; };
+		22DCABCA28821DDC00D26F3B /* RecognizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC928821DDC00D26F3B /* RecognizedContent.swift */; };
+		22DCABCC28821E4000D26F3B /* TextPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABCB28821E4000D26F3B /* TextPreviewView.swift */; };
+		22DCABCE28821EA200D26F3B /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABCD28821EA200D26F3B /* TextContentView.swift */; };
 		22DDB2AC286989D200C36FDF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDB2AB286989D200C36FDF /* Errors.swift */; };
 		6F185A2D286B194A003E2088 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F185A2C286B194A003E2088 /* HelpView.swift */; };
 		D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */; };
@@ -66,6 +72,12 @@
 		020A13F2283D3671007C9ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		020A13F4283D3674007C9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		020A13F7283D3674007C9ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22DCABC328821D2300D26F3B /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		22DCABC528821D7200D26F3B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		22DCABC728821DAF00D26F3B /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
+		22DCABC928821DDC00D26F3B /* RecognizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedContent.swift; sourceTree = "<group>"; };
+		22DCABCB28821E4000D26F3B /* TextPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPreviewView.swift; sourceTree = "<group>"; };
+		22DCABCD28821EA200D26F3B /* TextContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
 		22DDB2AB286989D200C36FDF /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		6F185A2C286B194A003E2088 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOilView.swift; sourceTree = "<group>"; };
@@ -185,6 +197,8 @@
 		D82EA9F7284F2F95000F7DF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22DCABCB28821E4000D26F3B /* TextPreviewView.swift */,
+				22DCABCD28821EA200D26F3B /* TextContentView.swift */,
 				E836B574285F7FD300C5700B /* Authentication */,
 				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
 				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
@@ -288,6 +302,7 @@
 				D8E4154828632723006FDC58 /* OilViewModel.swift */,
 				D8E4154A28632737006FDC58 /* BatteryViewModel.swift */,
 				D8E4154C2863279F006FDC58 /* TiresViewModel.swift */,
+				22DCABC928821DDC00D26F3B /* RecognizedContent.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,6 +328,9 @@
 				D8F6D1E2285AFF5E0007B9CB /* Battery.swift */,
 				D8F6D1E4285AFF6F0007B9CB /* Tires.swift */,
 				22DDB2AB286989D200C36FDF /* Errors.swift */,
+				22DCABC328821D2300D26F3B /* ScannerView.swift */,
+				22DCABC528821D7200D26F3B /* Model.swift */,
+				22DCABC728821DAF00D26F3B /* TextRecognition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,14 +448,20 @@
 				E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
+				22DCABC828821DAF00D26F3B /* TextRecognition.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
+				22DCABCE28821EA200D26F3B /* TextContentView.swift in Sources */,
 				E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */,
 				E865A5062871F68A00BD17F0 /* FileManager+Extension.swift in Sources */,
+				22DCABC428821D2300D26F3B /* ScannerView.swift in Sources */,
 				E8749508285A89E10049BB4B /* AddCar.swift in Sources */,
+				22DCABCA28821DDC00D26F3B /* RecognizedContent.swift in Sources */,
 				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
 				D8E4154928632723006FDC58 /* OilViewModel.swift in Sources */,
 				D8E4154B28632737006FDC58 /* BatteryViewModel.swift in Sources */,
+				22DCABCC28821E4000D26F3B /* TextPreviewView.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,
+				22DCABC628821D7200D26F3B /* Model.swift in Sources */,
 				D8F6D1D12859C7FE0007B9CB /* AddTierView.swift in Sources */,
 				E80E90F82851534A00FE624F /* TabViewApp.swift in Sources */,
 				E83C77F52862ECC600B55D64 /* User.swift in Sources */,
