@@ -63,8 +63,14 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct AccountViewModel: View {
+    
+    @EnvironmentObject var authViewModel : AuthViewModel
+    
+    
    
         init() {
             UITableView.appearance().backgroundColor = .clear
@@ -165,12 +171,14 @@ struct AccountViewModel: View {
                             //                    .offset(x: 10, y: 0)
                             //
                             Button{
+                                authViewModel.handleSignout()
+                              //  try! Auth.auth().signOut()
                                 print("Sign Out")
                             } label: {
                                 HStack{
                                     
                                     Image("Group 1724")
-                                    Text("Sign Out")
+                                Text("Sign Out")
                                     //
                                         .foregroundColor(.red)
                                 }

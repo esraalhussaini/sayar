@@ -15,7 +15,7 @@ import FirebaseFirestoreSwift
 //struct AuthView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NavigationView{
-//        AuthView()
+//            AuthView(showLoginPage: $, isPresentedNewPost: <#Binding<Bool>#>)
 //        }
 //    }
 //}

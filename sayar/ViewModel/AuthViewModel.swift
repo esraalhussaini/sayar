@@ -92,7 +92,22 @@ final class AuthViewModel: ObservableObject {
         db.collection("Car").document(x).updateData(["CarKM":newKm])
     }
     
-}
+    
+    
+    
+    
+    
+    //singout
+    @Published var user : User?
+    
+    func handleSignout (){
+        try? Auth.auth().signOut()
+        self.isAouthenticatting.toggle()
+        self.user=nil
+    }
+    
+    
+}//class
 
 
 

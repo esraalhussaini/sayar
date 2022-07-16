@@ -115,8 +115,8 @@ struct sayarApp: App {
     
     var body: some Scene {
   WindowGroup {
-  //VehicleView()
-      TabViewApp()
+ 
+    TabViewApp()
           .environmentObject(AuthViewModel.shared)
           .preferredColorScheme(.light)
       
