@@ -37,7 +37,7 @@ struct AuthView: View {
             
             VStack(spacing: 20){
                 
-                Image("TabIconCar")
+              //  Image("TabIconCar")
                 
                 Text("Enter Phone Number")
                     .font(.largeTitle).fontWeight(.heavy)
@@ -46,7 +46,7 @@ struct AuthView: View {
                 
                 HStack{
                     
-                    // .padding(.top, 15)
+                  
                     TextField("Enter Phone Number", text: $phoneNumber)
                         .keyboardType(.numberPad)
                         .padding()
@@ -93,7 +93,7 @@ struct AuthView: View {
                     // .keyboardType(.numberPad)
                 }
                 
-                
+               // .padding(.horizontal ,50)
                 
                 Divider()
                 
@@ -143,7 +143,7 @@ struct AuthView: View {
                     }//TOOL
                 }//toolbar
                 
-                //                Spacer()
+                            Spacer()
             }//VSATCK
             .padding()
             

@@ -56,6 +56,10 @@
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
+		E89EB1B02883889100259137 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1AF2883889100259137 /* NotificationManager.swift */; };
+		E89EB1B228838A7600259137 /* NotificationLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B128838A7600259137 /* NotificationLView.swift */; };
+		E89EB1B428838B9200259137 /* InfoOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B328838B9200259137 /* InfoOverlayView.swift */; };
+		E89EB1B628838C0500259137 /* CreateNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B528838C0500259137 /* CreateNotificationView.swift */; };
 		E8A37CB0287F50CD00C11F8F /* EditCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CAF287F50CD00C11F8F /* EditCar.swift */; };
 		E8A37CB2287F526700C11F8F /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CB1287F526700C11F8F /* CarDetailsView.swift */; };
 		E8BC471A286204F20001395A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E8BC4719286204F20001395A /* FirebaseMessaging */; };
@@ -114,6 +118,10 @@
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		E89E4EE2285FD45900FD61C0 /* sayar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sayar.entitlements; sourceTree = "<group>"; };
 		E89E4EE3285FD46700FD61C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E89EB1AF2883889100259137 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E89EB1B128838A7600259137 /* NotificationLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLView.swift; sourceTree = "<group>"; };
+		E89EB1B328838B9200259137 /* InfoOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoOverlayView.swift; sourceTree = "<group>"; };
+		E89EB1B528838C0500259137 /* CreateNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationView.swift; sourceTree = "<group>"; };
 		E8A37CAF287F50CD00C11F8F /* EditCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCar.swift; sourceTree = "<group>"; };
 		E8A37CB1287F526700C11F8F /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
+				E89EB1AE2883887900259137 /* Notification */,
 				E8A37CB3287F575300C11F8F /* Car */,
 				E8305CB3286C6B84006505CF /* Image */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
@@ -307,6 +316,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E89EB1AE2883887900259137 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				E89EB1AF2883889100259137 /* NotificationManager.swift */,
+				E89EB1B128838A7600259137 /* NotificationLView.swift */,
+				E89EB1B328838B9200259137 /* InfoOverlayView.swift */,
+				E89EB1B528838C0500259137 /* CreateNotificationView.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		E8A37CB3287F575300C11F8F /* Car */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,8 +442,10 @@
 				E8305CB5286C6BA6006505CF /* ImagePicker.swift in Sources */,
 				D8F6D1E3285AFF5E0007B9CB /* Battery.swift in Sources */,
 				D8F6D1D92859CC5E0007B9CB /* BatteryView.swift in Sources */,
+				E89EB1B628838C0500259137 /* CreateNotificationView.swift in Sources */,
 				D8F6D1DF2859F4AC0007B9CB /* Fuel.swift in Sources */,
 				E874950A285A8BAF0049BB4B /* Demo.swift in Sources */,
+				E89EB1B02883889100259137 /* NotificationManager.swift in Sources */,
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiresView.swift in Sources */,
 				E836B576285F7FEE00C5700B /* AuthView.swift in Sources */,
@@ -458,6 +480,8 @@
 				22DCABCA28821DDC00D26F3B /* RecognizedContent.swift in Sources */,
 				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
 				D8E4154928632723006FDC58 /* OilViewModel.swift in Sources */,
+				E89EB1B428838B9200259137 /* InfoOverlayView.swift in Sources */,
+				E89EB1B228838A7600259137 /* NotificationLView.swift in Sources */,
 				D8E4154B28632737006FDC58 /* BatteryViewModel.swift in Sources */,
 				22DCABCC28821E4000D26F3B /* TextPreviewView.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,
