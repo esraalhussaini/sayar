@@ -116,6 +116,7 @@ class OilViewModel: ObservableObject{
         db.collection("Oil").document(docRef.documentID).setData(data){ _ in
               print("Uploading Successfully")
               completion()
+            AuthViewModel.shared.updateKilometers(newKm:self.km)
             self.fetchData()
           }
       }

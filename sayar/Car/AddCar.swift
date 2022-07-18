@@ -27,7 +27,7 @@ import SwiftUI
 struct AddCar: View {
 
 
-    @StateObject var viewModelVar = addCarViewModel()
+//    @StateObject var viewModelVar = addCarViewModel()
     
   //for image
     //For image picker
@@ -99,17 +99,13 @@ struct AddCar: View {
                             HStack {
                                 Button {
                                 
-
-                                           
                                     vImage.source = .camera
                                     vImage.showPhotoPicker()
                                 } label: {
                                     Text("Camera")
                                 }
                                 Button {
-                                    
-
-                               
+                                  
                                     vImage.source = .library
                                     vImage.showPhotoPicker()
                                 } label: {
@@ -118,20 +114,7 @@ struct AddCar: View {
                             }
                             Spacer()
                     }//vstack image
-                        
-                        
-                  
-                
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    
-          
-                        
+             
                         
                     Form{
                         
@@ -159,7 +142,8 @@ struct AddCar: View {
                                 }
     
              
-                    }//form
+                    }
+                    //form
                         
 //                        //-------delet
 //                        Button("Delete", role: .destructive) {
@@ -247,10 +231,8 @@ struct AddCar: View {
 
             Button(action : {
          
-            isPresented.toggle()
-                
-         
-                viewModelVar.uploadCar{}
+//            isPresented.toggle()
+                vm.uploadCar{}
                isPresented.toggle()
                // vm.uploadCar{}
 //             showdashboard = true

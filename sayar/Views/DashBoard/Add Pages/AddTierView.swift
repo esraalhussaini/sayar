@@ -55,9 +55,21 @@ struct AddTierView: View {
                                 TextField("SAR", text:$vm.costString)
                                     .keyboardType(.numberPad)
                            
-                                
+                                TextField("Km", text:$vm.kmString)
+                                    .keyboardType(.numberPad)
                             }
                         Section{
+//                            struct ContentView: View {
+//                                @State var selection = Date()
+//                                var body: some View {
+//                                    Picker("", selection: $selection) {
+//                                        ForEach(2000...2020, id: \.self) {
+//                                            Text(String($0))
+//                                        }
+//                                    }
+//                                    .pickerStyle(InlinePickerStyle())
+//                                }
+//                            }
                             DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
                             
                             
@@ -133,8 +145,7 @@ struct AddTierView: View {
     var leading: some View {
 
         Button(action : {
-            vm.uploadTires {
-            }
+            
             isPresented.toggle()
         }, label: {
             Text("Cancel")
@@ -150,6 +161,9 @@ struct AddTierView: View {
     var trailing: some View {
 
         Button(action : {
+            vm.uploadTires {
+            }
+            
            isPresented.toggle()
         }, label: {
             Text("Done")

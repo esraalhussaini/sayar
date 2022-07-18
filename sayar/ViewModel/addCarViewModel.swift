@@ -101,6 +101,7 @@ class addCarViewModel: ObservableObject{
             docRef.setData(data){ _ in
                 print("Uploading Successfully")
                 completion()
+                AuthViewModel.shared.updateKilometers(newKm:self.km)
             }
         }
  

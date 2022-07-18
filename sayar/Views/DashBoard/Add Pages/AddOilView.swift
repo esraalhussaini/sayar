@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AddOilView: View {
 
-        @State private var isShowingDialog = false
+    @State private var isShowingDialog = false
+    @State private var selected = 0
     @StateObject var vm = OilViewModel()
         
     //Pluse button
@@ -69,13 +70,22 @@ struct AddOilView: View {
                             }
                             
                             Section{
+//                                VStack {
+//                                Picker("Choose course", selection: $selected) {
+//                                           Text("SwiftUI")
+//                                               .tag(0)
+//                                           Text("UIKit")
+//                                               .tag(1)
+//                                       }
+//                                       .pickerStyle(.segmented)
+//                                       Text("")
                                 TextField("oil Type", text:$vm.oilType)
                                     .keyboardType(.twitter)
                                 
                                 TextField("oil Company", text:$vm.oilCompany)
                                     .keyboardType(.twitter)
                                 
-                           
+                              
                                 
                             }
                             

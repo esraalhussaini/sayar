@@ -57,7 +57,8 @@ struct AddBatteryView: View {
                                     TextField("SAR", text:$vm.costString)
                                         .keyboardType(.numberPad)
                                     
-                              
+                                    TextField("Km", text:$vm.kmString)
+                                        .keyboardType(.numberPad)
                                     
                                 }
                             Section{
