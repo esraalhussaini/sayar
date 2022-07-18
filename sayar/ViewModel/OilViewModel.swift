@@ -34,6 +34,7 @@ class OilViewModel: ObservableObject{
 
         private var db = Firestore.firestore()
     func fetchData(){
+        self.oil = []
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarOil").getDocuments { snapshot, error in
                     
@@ -95,7 +96,9 @@ class OilViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-        guard let carId = AuthViewModel.shared.car?.id else {return}
+        guard let carId = AuthViewModel.shared.car?.id else {
+            completion()
+            return}
         let docRef = db.collection("Car").document(carId).collection("CarOil").document()
 //          let docRef = db.collection("Oil").document()
         docRef.setData(["id": docRef.documentID])
@@ -116,7 +119,15 @@ class OilViewModel: ObservableObject{
             self.fetchData()
           }
       }
+    
+//    func calculateExpiredDate2(){
+//        guard let carId = AuthViewModel.shared.car?.id else {
+//            
+//            return}
+//    }
     func calculateExpiredDate()->Date{
+        
+        
         let today = date
         print(today)
          var value = 0
@@ -148,6 +159,24 @@ class OilViewModel: ObservableObject{
         let formattedDate = formatter.string(from: expDate)
         return formattedDate
     }
+    func deleteOil(oil: Oil) {
+        let oilId = oil.id
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
+      //  let docId = docRef.documentID
+        db.collection("Car").document(carId).collection("CarOil").document(oilId).delete()
+        db.collection("Oil").document(oilId).delete()  { err in
+        if let err = err {
+          print("Error removing document: \(err)")
+        }
+        else {
+          print("Document successfully removed!")
+        }
+      }
+    
+    
+    }
+
     //
     //
 }

@@ -32,6 +32,7 @@ class BatteryViewModel: ObservableObject{
         private var db = Firestore.firestore()
     
     func fetchData(){
+        self.battery = []
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarBattery").getDocuments { snapshot, error in
         
@@ -95,7 +96,7 @@ class BatteryViewModel: ObservableObject{
         }
           let expDate = calculateExpiredDate()
         guard let carId = AuthViewModel.shared.car?.id else {
-            print("Here 📍")
+            completion()
             return}
         let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
         docRef.setData(["id": docRef.documentID])
@@ -141,6 +142,23 @@ class BatteryViewModel: ObservableObject{
         formatter.dateFormat = "E, d MMM y"
         let formattedDate = formatter.string(from: expDate)
         return formattedDate
+    }
+    func deleteBattery(battery: Battery) {
+        let batteryId = battery.id
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
+      //  let docId = docRef.documentID
+        db.collection("Car").document(carId).collection("CarBattery").document(batteryId).delete()
+        db.collection("Battery").document(batteryId).delete()  { err in
+        if let err = err {
+          print("Error removing document: \(err)")
+        }
+        else {
+          print("Document successfully removed!")
+        }
+      }
+    
+    
     }
     
 }

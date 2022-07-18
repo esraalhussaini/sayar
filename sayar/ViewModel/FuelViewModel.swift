@@ -44,6 +44,8 @@ class FuelViewModel: ObservableObject{
         private var db = Firestore.firestore()
     
     func fetchData(){
+        self.fuel = []
+        print("Fetching")
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarFuel").getDocuments { snapshot, error in
                     
@@ -139,6 +141,7 @@ class FuelViewModel: ObservableObject{
     //    fueldata[Fuel.carID] = self.
     
         func uploadFuel(completion:@escaping ()->()){
+            
     //        guard let user =  AuthViewModel.shared.user else {return}
 //            guard cost != 0.0 else {
 //                print("Please, type something")
@@ -148,7 +151,9 @@ class FuelViewModel: ObservableObject{
                 self.appError = .emptyCost
                 return
             }
-            guard let carId = AuthViewModel.shared.car?.id else {return}
+            guard let carId = AuthViewModel.shared.car?.id else {
+                completion()
+                return}
             let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
             docRef.setData(["id": docRef.documentID])
             let data : [String:Any] = [
@@ -167,12 +172,13 @@ class FuelViewModel: ObservableObject{
             }
         }
     
-    func deleteFuel(Fuel: Fuel) {
+    func deleteFuel(fuel: Fuel) {
+        let fuelId = fuel.id
         guard let carId = AuthViewModel.shared.car?.id else {return}
-        let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
-        let docId = docRef.documentID
-        db.collection("Car").document(carId).collection("CarFuel").document(docId).delete()
-        db.collection("Fuel").document(docId).delete()  { err in
+       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
+      //  let docId = docRef.documentID
+        db.collection("Car").document(carId).collection("CarFuel").document(fuelId).delete()
+        db.collection("Fuel").document(fuelId).delete()  { err in
         if let err = err {
           print("Error removing document: \(err)")
         }

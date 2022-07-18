@@ -30,6 +30,16 @@ final class AuthViewModel: ObservableObject {
        // fetchCar()
     }//intit
     
+    
+    var thereIsACar : Bool{
+        guard  let id = car?.id else {
+            return false
+        }
+
+        return true
+
+    }
+    
     func fetchCar(){
         guard let uid = Auth.auth().currentUser?.uid  else {
             print("No user")

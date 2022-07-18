@@ -86,7 +86,7 @@ class addCarViewModel: ObservableObject{
     func uploadCar(completion:@escaping ()->()){
         
        // guard let uid = Auth.auth().currentUser?.uid else {return}
-        let docRef = Firestore.firestore().collection("Car").document("anI3jdMSPjVUT4a4e2KWxJ7whJw1")
+        let docRef = Firestore.firestore().collection("Car").document()
         
             let data : [String:Any] = [
                

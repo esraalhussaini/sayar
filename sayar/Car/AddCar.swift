@@ -149,7 +149,7 @@ struct AddCar: View {
                   
                                 Section{
                                     
-                                    TextField("carManufactureYear", text:$vm.carManufactureYearString)
+                                    TextField("Manufacture Year", text:$vm.carManufactureYearString)
                                         .keyboardType(.numberPad)
                                     TextField("Km", text:$vm.kmString)
                                         .keyboardType(.numberPad)

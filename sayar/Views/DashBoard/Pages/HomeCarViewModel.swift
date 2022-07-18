@@ -228,7 +228,7 @@ VStack(alignment: .center){
                                 .frame( width: 125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                            Text(vmOil.formatedDate())
+                            Text(authvm.thereIsACar ?  vmOil.formatedDate() :"N/A")
 
                                 .font(.caption)
                                 .fontWeight(.bold)
@@ -295,7 +295,7 @@ VStack(alignment: .center){
                                 .frame( width: 125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                            Text(vmTires.formatedDate())
+                            Text(authvm.thereIsACar ?  vmTires.formatedDate() :"N/A")
 
                                 .font(.caption)
                                 .fontWeight(.bold)
@@ -365,7 +365,7 @@ VStack(alignment: .center){
                                 .frame( width:125,   height:25)
                                 .shadow(radius: 10)
                                 .cornerRadius(8)
-                            Text(vmBattery.formatedDate())
+                            Text( authvm.thereIsACar ?  vmBattery.formatedDate() :"N/A")
 
                                 .font(.caption)
                                 .fontWeight(.bold)

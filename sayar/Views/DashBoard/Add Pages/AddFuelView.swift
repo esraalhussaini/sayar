@@ -145,8 +145,9 @@ struct AddFuelView: View {
         Button(action : {
             vm.uploadFuel {
                 print("SAVED !!!!!!!!!!!!!!!! ")
+                isPresented.toggle()
             }
-           isPresented.toggle()
+        
         }, label: {
             Text("Done")
                 .accentColor(.red)

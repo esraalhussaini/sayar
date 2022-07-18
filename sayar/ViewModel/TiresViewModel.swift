@@ -37,7 +37,9 @@ class TiresViewModel: ObservableObject{
     }
 
         private var db = Firestore.firestore()
+    
     func fetchData(){
+        self.tires = []
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarTires").getDocuments { snapshot, error in
         
@@ -97,7 +99,9 @@ class TiresViewModel: ObservableObject{
             return
         }
           let expDate = calculateExpiredDate()
-        guard let carId = AuthViewModel.shared.car?.id else {return}
+        guard let carId = AuthViewModel.shared.car?.id else {
+            completion()
+            return}
         let docRef = db.collection("Car").document(carId).collection("CarTires").document()
         docRef.setData(["id": docRef.documentID])
 //          let docRef = db.collection("Tires").document()
@@ -139,6 +143,23 @@ class TiresViewModel: ObservableObject{
         let formattedDate = formatter.string(from: expDate)
         return formattedDate
     }
-
+    
+    func deleteTires(tires: Tires) {
+        let tiresId = tires.id
+        guard let carId = AuthViewModel.shared.car?.id else {return}
+       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
+      //  let docId = docRef.documentID
+        db.collection("Car").document(carId).collection("CarTires").document(tiresId).delete()
+        db.collection("Tires").document(tiresId).delete()  { err in
+        if let err = err {
+          print("Error removing document: \(err)")
+        }
+        else {
+          print("Document successfully removed!")
+        }
+      }
+    
+    
+    }
 }
 
