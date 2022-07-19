@@ -110,9 +110,11 @@ struct sayarApp: App {
   //  init(){ FirebaseApp.configure()}
     
     
-    //image
-   @StateObject var vImage = ViewModel()
     
+    //image
+    @StateObject var oilViewModel = OilViewModel()
+   @StateObject var vImage = ViewModel()
+ 
     var body: some Scene {
   WindowGroup {
  
@@ -122,6 +124,7 @@ struct sayarApp: App {
       
      // imagePicker
           .environmentObject(vImage)
+          .environmentObject(oilViewModel)
           .onAppear {
               UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
           }

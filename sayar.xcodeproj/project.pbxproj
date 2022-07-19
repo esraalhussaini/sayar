@@ -86,7 +86,7 @@
 		02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSwiftView.swift; sourceTree = "<group>"; };
 		02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieSliceSwiftView.swift; sourceTree = "<group>"; };
 		02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
-		02DFCAAD28869861009DE7BE /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Loader.swift; path = DashBoard/Loader.swift; sourceTree = "<group>"; };
+		02DFCAAD28869861009DE7BE /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		22DCABC328821D2300D26F3B /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		22DCABC528821D7200D26F3B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		22DCABC728821DAF00D26F3B /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
@@ -182,10 +182,12 @@
 				E89E4EE2285FD45900FD61C0 /* sayar.entitlements */,
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
+				E82235A02886A3F100D4D8A3 /* Reports */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
 				E89EB1AE2883887900259137 /* Notification */,
 				E8A37CB3287F575300C11F8F /* Car */,
 				E8305CB3286C6B84006505CF /* Image */,
+				E8305CB8286C6C37006505CF /* UiviewRepresentable */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
 				E8F3C85B285380DA008E131E /* Model */,
 				E874950E285A90AA0049BB4B /* ViewModel */,
@@ -216,17 +218,12 @@
 		D82EA9F7284F2F95000F7DF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				02DFCAA32885AA30009DE7BE /* ReportsView.swift */,
 				22DCABCB28821E4000D26F3B /* TextPreviewView.swift */,
 				22DCABCD28821EA200D26F3B /* TextContentView.swift */,
 				E836B574285F7FD300C5700B /* Authentication */,
 				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
 				6F185A2C286B194A003E2088 /* HelpView.swift */,
 				E80E90F72851534A00FE624F /* TabViewApp.swift */,
-				02DFCAA52885AA59009DE7BE /* Chart.swift */,
-				02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */,
-				02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */,
-				02DFCAAD28869861009DE7BE /* Loader.swift */,
 				D82EA9F4284DFC2F000F7DF5 /* DashBoard */,
 			);
 			path = Views;
@@ -262,13 +259,25 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		E82235A02886A3F100D4D8A3 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				02DFCAA32885AA30009DE7BE /* ReportsView.swift */,
+				02DFCAA52885AA59009DE7BE /* Chart.swift */,
+				02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */,
+				02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */,
+				02DFCAAD28869861009DE7BE /* Loader.swift */,
+				02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		E8305CB3286C6B84006505CF /* Image */ = {
 			isa = PBXGroup;
 			children = (
 				E8305CC5286C6E48006505CF /* view */,
 				E8305CC3286C6E0B006505CF /* Model */,
 				E8305CBF286C6D87006505CF /* ViewModel */,
-				E8305CB8286C6C37006505CF /* UiviewRepresentable */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -287,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				E8305CBD286C6D60006505CF /* ViewModel.swift */,
-				02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

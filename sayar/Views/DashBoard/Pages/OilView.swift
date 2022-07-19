@@ -5,120 +5,93 @@
 //  Created by Razan Altamimi on 16/11/1443 AH.
 //
 
+
 import SwiftUI
 
 struct OilView: View {
-    @StateObject var vm = OilViewModel()
-    
-    
-    
+  @EnvironmentObject var vm : OilViewModel
+  @State var isPresentedNewPost = false
+  @State var km = ""
 
-    
-    //Pluse button
-    @State var isPresentedNewPost = false
-//    @State  var DATE = Date()
-//    @State var cost = ""
-    @State var km = ""
-//    @State  var ExpectedTime  = ""
-   
-    
-   //Razan Search
-  //  @State private var searchText = ""
+  var body: some View {
+    VStack{
+      List{
+        ForEach(vm.oil){ oil in
+          HStack{
+            VStack(alignment: .leading, spacing: 10){
+              Text("\(oil.cost)").fontWeight(.heavy)
+                .foregroundColor(.black)
+                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
+            Text("\(oil.km)")
+                .font(.caption)
+                .foregroundColor(.gray)
+                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
 
-    var body: some View {
-        
-        
-        VStack{
-        
-            
-            List(vm.oil){f in
-              
-                    HStack{
-                        
-                        
-                        VStack(alignment: .leading, spacing: 10){
-                            
-                            
-                            Text("\(f.cost)").fontWeight(.heavy)
-                                .foregroundColor(.black)
-                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
-                            Text("\(f.km)")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
-                                
-                        }
-                        Spacer(minLength: 5)
-                        Text("\(f.date)")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding(.horizontal)
-                            .padding(.top)
-                            .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
-                        
-                        
-                        
-                        
-                        
-                    }.padding().background(Color("Grey"))
-                    .cornerRadius(10)
-                    
-                    
-              
-             
-                    
-                    
-                    
-                    
             }
+            Spacer(minLength: 5)
+            Text("\(oil.date)")
+              .font(.caption)
+              .foregroundColor(.gray)
+              .padding(.horizontal)
+              .padding(.top)
+              .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
 
-            
-            
-                .toolbar{
-     Button {
-            isPresentedNewPost = true
-    } label: {
-        plusBottonOil
-     
+          }.padding().background(Color("Grey"))
+          .cornerRadius(10)
+
+        }
+      }
+
+
+
+        .toolbar{
+   Button {
+      isPresentedNewPost = true
+  } label: {
+    plusBottonOil
+
+  }
+        }//TOOLBAR
+    }//vastack
+    .font(.title2)//button plus
+    .accentColor(.red)//button  plus
+    .onAppear{
+      vm.fetchData()
     }
-                }//TOOLBAR
-        }//vastack
-        .font(.title2)//button  plus
-        .accentColor(.red)//button   plus
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
  //Navgation Titel
-     .navigationTitle("Oil")
-        .navigationBarTitleDisplayMode(.inline)
-        .font(.title2)
-        
-        
-        
-        
-        
-        
-    
+   .navigationTitle("Oil")
+    .navigationBarTitleDisplayMode(.inline)
+    .font(.title2)
+
+
+
+
+
+
+
 //---------Sheet
-    
-    .sheet(isPresented: $isPresentedNewPost, content: {
-        
-        AddOilView(isPresented: $isPresentedNewPost)
-        
-    })
-    
-    
-    
-        
-        
-        
- 
-    
-    }//var body 1
+
+  .sheet(isPresented: $isPresentedNewPost, content: {
+
+    AddOilView(isPresented: $isPresentedNewPost)
+
+  })
+
+
+
+
+
+
+
+
+  }//var body 1
 
 
 
@@ -126,22 +99,22 @@ struct OilView: View {
 
 //Button Pluse
 var plusBottonOil: some View {
-    
-    
-    
-    Button(action: {
-        isPresentedNewPost.toggle()
-        
-    }, label:  {
-        
-        Image(systemName: "plus")
-            .font(.title3)
-   
-    })
-    
-    
-    
-    
+
+
+
+  Button(action: {
+    isPresentedNewPost.toggle()
+
+  }, label: {
+
+    Image(systemName: "plus")
+      .font(.title3)
+
+  })
+
+
+
+
 }//VarBody2
 
 
@@ -153,17 +126,7 @@ var plusBottonOil: some View {
 }//strct
 
 struct OilView_Previews: PreviewProvider {
-    static var previews: some View {
-        OilView()
-    }
+  static var previews: some View {
+    OilView()
+  }
 }
-
-
-
-
-
-
-
-
-
-
