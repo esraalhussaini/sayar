@@ -1,5 +1,6 @@
+//sayyar App
 //
-//  sayarApp.swift
+//  sayarApp.swift #########################################################################
 //  sayar
 //
 //  Created by ESRA ALHUSSAINI on 24/05/2022.
@@ -110,11 +111,15 @@ struct sayarApp: App {
   //  init(){ FirebaseApp.configure()}
     
     
-    
     //image
+    
+    @StateObject var fuelViewModel = FuelViewModel()
     @StateObject var oilViewModel = OilViewModel()
+    @StateObject var tiresViewModel = TiresViewModel()
+    @StateObject var batteryViewModel = BatteryViewModel()
+    
    @StateObject var vImage = ViewModel()
- 
+    
     var body: some Scene {
   WindowGroup {
  
@@ -124,7 +129,10 @@ struct sayarApp: App {
       
      // imagePicker
           .environmentObject(vImage)
+          .environmentObject(fuelViewModel)
           .environmentObject(oilViewModel)
+          .environmentObject(batteryViewModel)
+          .environmentObject(tiresViewModel)
           .onAppear {
               UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
           }
@@ -132,3 +140,4 @@ struct sayarApp: App {
        }
     }
 }
+

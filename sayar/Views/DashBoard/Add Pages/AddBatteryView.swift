@@ -10,8 +10,8 @@ import SwiftUI
 struct AddBatteryView: View {
     
     @State private var isShowingDialog = false
-    @StateObject var vm = BatteryViewModel()
-    
+//    @StateObject var vm = BatteryViewModel()
+    @EnvironmentObject  var vm : BatteryViewModel
 //Pluse button
     
     
@@ -172,4 +172,3 @@ struct AddBatteryView: View {
         
         
         
-

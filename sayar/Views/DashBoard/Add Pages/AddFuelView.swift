@@ -12,7 +12,8 @@ struct AddFuelView: View {
     @StateObject private var notificationManager = NotificationManager()
     //--------
     @State private var isShowingDialog = false
-   @StateObject var vm = FuelViewModel()
+//   @StateObject var vm = FuelViewModel()
+    @EnvironmentObject  var vm : FuelViewModel
     
 //Pluse button
 
@@ -153,15 +154,3 @@ struct AddFuelView: View {
 
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-

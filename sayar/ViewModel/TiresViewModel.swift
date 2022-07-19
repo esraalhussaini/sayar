@@ -117,10 +117,11 @@ class TiresViewModel: ObservableObject{
           ]
         db.collection("Tires").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")
-            completion()
+          
             AuthViewModel.shared.updateKilometers(newKm:self.km)
 
             self.fetchData()
+            completion()
           }
       }
     func calculateExpiredDate()->(Date){
@@ -144,11 +145,14 @@ class TiresViewModel: ObservableObject{
         return formattedDate
     }
     
-    func deleteTires(tires: Tires) {
+    func deleteTires(offsets: IndexSet) {
+        guard let index = offsets.first else {return}
+        let tires = self.tires[index]
+        self.tires.remove(atOffsets: offsets)
         let tiresId = tires.id
         guard let carId = AuthViewModel.shared.car?.id else {return}
-       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
-      //  let docId = docRef.documentID
+        let docRef = db.collection("Car").document(carId).collection("CarTires").document(tiresId)
+        let docId = docRef.documentID
         db.collection("Car").document(carId).collection("CarTires").document(tiresId).delete()
         db.collection("Tires").document(tiresId).delete()  { err in
         if let err = err {
@@ -156,10 +160,13 @@ class TiresViewModel: ObservableObject{
         }
         else {
           print("Document successfully removed!")
+           // self.fetchData()
         }
       }
     
     
     }
+    
 }
+
 

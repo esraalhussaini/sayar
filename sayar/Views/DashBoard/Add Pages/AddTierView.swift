@@ -10,8 +10,8 @@ import SwiftUI
 struct AddTierView: View {
  
     @State private var isShowingDialog = false
-    @StateObject var vm = TiresViewModel()
-    
+//    @StateObject var vm = TiresViewModel()
+    @EnvironmentObject  var vm : TiresViewModel
 //Pluse button
 
     
@@ -91,8 +91,8 @@ struct AddTierView: View {
 //                        Section{
 //                            TextField("ExpectedTime", text:$ExpectedTime)
 //                                .keyboardType(.numberPad)
-//                       
-//                          
+//
+//
 //                        }
                         
                         

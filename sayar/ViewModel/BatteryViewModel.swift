@@ -1,6 +1,4 @@
 
-
-
 import Foundation
 import Firebase
 import FirebaseCore
@@ -112,11 +110,11 @@ class BatteryViewModel: ObservableObject{
           ]
         db.collection("Battery").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully")
-            completion()
+           
             AuthViewModel.shared.updateKilometers(newKm:self.km)
 
             self.fetchData()
-            
+            completion()
             
         }
 //          docRef.setData(data){ _ in
@@ -143,11 +141,15 @@ class BatteryViewModel: ObservableObject{
         let formattedDate = formatter.string(from: expDate)
         return formattedDate
     }
-    func deleteBattery(battery: Battery) {
+    
+    func deleteBattery(offsets: IndexSet) {
+        guard let index = offsets.first else {return}
+        let battery = self.battery[index]
+        self.battery.remove(atOffsets: offsets)
         let batteryId = battery.id
         guard let carId = AuthViewModel.shared.car?.id else {return}
-       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
-      //  let docId = docRef.documentID
+        let docRef = db.collection("Car").document(carId).collection("CarBattery").document(batteryId)
+        let docId = docRef.documentID
         db.collection("Car").document(carId).collection("CarBattery").document(batteryId).delete()
         db.collection("Battery").document(batteryId).delete()  { err in
         if let err = err {
@@ -155,10 +157,29 @@ class BatteryViewModel: ObservableObject{
         }
         else {
           print("Document successfully removed!")
+           // self.fetchData()
         }
       }
     
     
     }
+    
+//    func deleteBattery(battery: Battery) {
+//        let batteryId = battery.id
+//        guard let carId = AuthViewModel.shared.car?.id else {return}
+//       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
+//      //  let docId = docRef.documentID
+//        db.collection("Car").document(carId).collection("CarBattery").document(batteryId).delete()
+//        db.collection("Battery").document(batteryId).delete()  { err in
+//        if let err = err {
+//          print("Error removing document: \(err)")
+//        }
+//        else {
+//          print("Document successfully removed!")
+//        }
+//      }
+//
+//
+//    }
     
 }
