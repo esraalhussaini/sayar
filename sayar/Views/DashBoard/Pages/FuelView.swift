@@ -62,7 +62,7 @@ struct FuelView: View {
         .swipeActions(edge: .leading) {
             Button(action: {
                print("do deleting")
-                vm.deleteFuel(fuel: <#T##Fuel#>)
+              //  vm.deleteFuel(fuel: <#T##Fuel#>)
             }){
               Image(systemName: "trash")
             }

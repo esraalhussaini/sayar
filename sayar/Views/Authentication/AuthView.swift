@@ -37,10 +37,14 @@ struct AuthView: View {
             
             VStack(spacing: 20){
                 
-              //  Image("TabIconCar")
-                
-                Text("Enter Phone Number")
-                    .font(.largeTitle).fontWeight(.heavy)
+                Image("Logo")
+                                   .resizable()
+                                  .frame(width: 200, height: 50)
+                                  .padding(.vertical,-50)
+                                  .padding()
+                               Text("Enter Phone Number")
+                                   .font(.title).fontWeight(.regular)
+               
                 
                 
                 
@@ -51,10 +55,10 @@ struct AuthView: View {
                         .keyboardType(.numberPad)
                         .padding()
                         .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.black, lineWidth: 0.5)
-                            
-                        )
+                                                RoundedRectangle(cornerRadius: 5)
+                                                    .stroke(Color.black, lineWidth: 0.5)
+                    
+                                            )
                         .padding()
                     
                     
@@ -63,22 +67,7 @@ struct AuthView: View {
                     
                 }//HSTACK
                 
-                
-                
-                //
-                //                  Button(action: {
-                //                      authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
-                //                        print("DEBUG: phone \(isSuccess)")}
-                //                 self.showLoginPage.toggle()
-                //
-                //
-                //                     // phonePad
-                //                  }) {
-                //                      Text("Send").frame(width: UIScreen.main.bounds.width - 30, height: 50)
-                //                  }//label button
-                //                  .foregroundColor(.white)
-                //                  .background(Color.orange)
-                //                      .cornerRadius(10)
+       
                 
                 Button {
                     
@@ -93,20 +82,23 @@ struct AuthView: View {
                     // .keyboardType(.numberPad)
                 }
                 
-               // .padding(.horizontal ,50)
-                
+            
+                //---------------------------------------
                 Divider()
+                              .frame(height: 1)
+                              .padding(.horizontal, 30)
+                              .background(Color.white)
                 
                 TextField("Enter OPT Code", text: $smsCode)
                     .keyboardType(.numberPad)
                     .padding()
                     .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.black, lineWidth: 0.5)
-                        
-                    )
-                    .padding()
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.black, lineWidth: 0.5)
                 
+                                    )
+                
+                    .padding()
                 
                 
                 Button {
@@ -239,100 +231,3 @@ class AuthManager: ObservableObject {
 
 
 
-//
-////struct User
-//struct User: Codable {
-//    let id: String
-//    let name: String
-//    let phoneNumber: String
-//}
-//struct ScondPage: View {
-//    @State var smsCode: String = ""
-////   @State var code = ""
-//    @Binding var show : Bool
-//    @EnvironmentObject var authViewModel : AuthViewModel
-//    @StateObject var authManager = AuthManager()
-//    @Binding var phoneNumber: String
-//    @Binding var isShowingHomeView: Bool
-//    @Binding var isPresentedNewPost : Bool
-//    @Binding var showLoginPage : Bool
-//
-//        var body: some View {
-//
-//            ZStack(alignment: .topLeading){
-//
-//                GeometryReader{_ in
-//
-//                    VStack(spacing: 20){
-//                        Image("logo")
-//
-//                        Text("Verifiction code")
-//                            .font(.largeTitle).fontWeight(.heavy)
-//                        Text("Plesse Enter The Verifiction Code")
-//                            .fontWeight(.bold)
-//                            .foregroundColor(.gray).padding(.top, 12)
-//
-//                        TextField("Code", text: self.$smsCode)
-//                                .keyboardType(.numberPad)
-//
-//                                 .padding()
-//                                 .background(Color.green)
-//                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                // .padding(.top, 15)
-//                                .padding(.top, 15)
-//
-//
-//
-//                                                        Button {
-//                                                            DispatchQueue.main.async {
-//                                                                authManager.verifySMSCode(verificationCode: smsCode, phoneNumber: phoneNumber) { isSuccess in
-//                                                                    print("DEBUG: in code \(isSuccess)")}
-//                                                                  self.showLoginPage = false
-//                                                                   self.isPresentedNewPost = true
-//                                                                   isShowingHomeView.toggle()
-//                                                                    authViewModel.isAouthenticatting = true
-//
-//                                                            }
-//                                                        } label: {
-//                                                            Text("Verify Code")
-//
-//                                                                .accentColor(.red)
-//                                                        }
-////                        Button(action: {
-////
-////                        }) {
-////                            Text("Verify").frame(width: UIScreen.main.bounds.width - 30, height: 50)
-////                        }//label button
-//                        .foregroundColor(.white)
-//                        .background(Color.orange)
-//                            .cornerRadius(10)
-//                            .navigationBarTitle("")
-//                            .navigationBarHidden(true)
-//                            .navigationBarBackButtonHidden(true)
-//                    }//VSATCK
-//
-//
-//                }//GeometryReader
-//
-//                Button(action: {
-//                    self.isShowingHomeView.toggle()
-//                }) {
-//                    Image(systemName: "chevron.left").font(.title)
-//
-//
-//                }//button
-//                .foregroundColor(.orange)
-//
-//            }//ZSTACK
-//
-//
-//
-//            .padding()
-//        }
-//        }
-//
-//
-//
-//
-//
-//
