@@ -8,35 +8,30 @@
 import SwiftUI
 
 struct BatteryView: View {
-    @StateObject var vm = BatteryViewModel()
- 
- 
-    //Pluse button
+    @EnvironmentObject var vm : BatteryViewModel
     @State var isPresentedNewPost = false
-//    @State  var DATE = Date()
-//    @State var cost = ""
-//    @State var BatteryYearRelease = ""
-//    @State  var ExpectedTime  = ""
+    
     var body: some View {
         
-        
-        List(vm.battery){f in
-          
+        VStack{
+            List{
+                ForEach(vm.battery){ battery in
+                    
                 HStack{
                     
                     
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(f.cost)").fontWeight(.heavy)
+                        Text("\(battery.cost)").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(f.km)")
+                        Text("\(battery.km)")
                             .font(.caption)
                             .foregroundColor(.gray)
                             
                     }
                     Spacer(minLength: 5)
-                    Text("\(f.date)")
+                    Text("\(battery.date)")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.horizontal)
@@ -49,7 +44,8 @@ struct BatteryView: View {
                 }.padding().background(Color("Grey"))
                 .cornerRadius(10)
                 
-                
+                }
+                .onDelete(perform: vm.deleteBattery)
           
          
                 
@@ -68,10 +64,12 @@ plusBottonOil
 
 }
         }//TOOLBAR
-
+            }
 .font(.title2)//button  plus
 .accentColor(.red)//button   plus
-
+.onAppear{
+    vm.fetchData()
+}
 
 
 

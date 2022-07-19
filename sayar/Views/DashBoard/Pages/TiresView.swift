@@ -8,36 +8,31 @@
 import SwiftUI
 
 struct TiresView: View {
-    @StateObject var vm = TiresViewModel()
-
-
-    //Pluse button
+    @EnvironmentObject var vm : TiresViewModel
     @State var isPresentedNewPost = false
-//    @State  var DATE = Date()
-//    @State var cost = ""
-//    @State var TiersYearRelease = ""
-//    @State  var ExpectedTime  = ""
+//
     var body: some View {
       
             
-            
-        List(vm.tires){f in
-          
+        VStack{
+            List{
+                ForEach(vm.tires){ tires in
+                    HStack{
                 HStack{
                     
                     
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(f.cost)").fontWeight(.heavy)
+                        Text("\(tires.cost)").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(f.km)")
+                        Text("\(tires.km)")
                             .font(.caption)
                             .foregroundColor(.gray)
                             
                     }
                     Spacer(minLength: 5)
-                    Text("\(f.date)")
+                    Text("\(tires.date)")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.horizontal)
@@ -50,7 +45,9 @@ struct TiresView: View {
                 }.padding().background(Color("Grey"))
                 .cornerRadius(10)
                 
-                
+                    }
+                }
+                .onDelete(perform: vm.deleteTires)
           
          
                 
@@ -68,10 +65,12 @@ plusBottonOil
 
 }
         }//TOOLBAR
-
+        }
 .font(.title2)//button  plus
 .accentColor(.red)//button   plus
-
+.onAppear{
+    vm.fetchData()
+}
 
 
 
