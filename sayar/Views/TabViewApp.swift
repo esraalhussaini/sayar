@@ -50,7 +50,7 @@ struct TabViewApp: View {
                      }
                      .tag(0)
                    
-                 ReportsViewModel()
+                 ReportsView()
                      .tabItem {
                       Text("Reports")
                      

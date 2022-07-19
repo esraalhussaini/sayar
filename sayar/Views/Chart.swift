@@ -1,14 +1,13 @@
 //
-//  ReportsViewModel.swift
+//  Chart.swift
 //  sayar
 //
-//  Created by anwar on 02/11/1443 AH.
+//  Created by ESRA ALHUSSAINI on 17/07/2022.
 //
 
-
-import SwiftUI
-
+import Foundation
 //Protocols
+import SwiftUI
 protocol ChartDataProvidable {
     var percentage: Double {get}
     var description: String {get}
@@ -136,23 +135,3 @@ struct PieChart<T>: View where T: ChartViewModel {
 }
 
 //content view so we can see it
-
-struct ReportsViewModel: View {
-    var body: some View {
-        
-        VStack {
-            PieChart(viewModel: AssetViewModel()){ assetData in
-                print(assetData)
-            }
-                //.frame(width: 300, height: 300)
-           // PieceOfPie(startDegree: 0, endDegree: 90)
-        }.padding()
-        
-    }
-}
-
-struct ReportsViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportsViewModel()
-    }
-}

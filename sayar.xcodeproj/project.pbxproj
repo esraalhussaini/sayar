@@ -11,6 +11,12 @@
 		020A13F3283D3671007C9ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A13F2283D3671007C9ECE /* ContentView.swift */; };
 		020A13F5283D3674007C9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F4283D3674007C9ECE /* Assets.xcassets */; };
 		020A13F8283D3674007C9ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020A13F7283D3674007C9ECE /* Preview Assets.xcassets */; };
+		02DFCAA42885AA30009DE7BE /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAA32885AA30009DE7BE /* ReportsView.swift */; };
+		02DFCAA62885AA59009DE7BE /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAA52885AA59009DE7BE /* Chart.swift */; };
+		02DFCAA82885AA6D009DE7BE /* PieChartSwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */; };
+		02DFCAAA2885AA75009DE7BE /* PieSliceSwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */; };
+		02DFCAAC2885AAB6009DE7BE /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */; };
+		02DFCAAE28869861009DE7BE /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFCAAD28869861009DE7BE /* Loader.swift */; };
 		22DCABC428821D2300D26F3B /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC328821D2300D26F3B /* ScannerView.swift */; };
 		22DCABC628821D7200D26F3B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC528821D7200D26F3B /* Model.swift */; };
 		22DCABC828821DAF00D26F3B /* TextRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCABC728821DAF00D26F3B /* TextRecognition.swift */; };
@@ -65,7 +71,6 @@
 		E8BC471A286204F20001395A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E8BC4719286204F20001395A /* FirebaseMessaging */; };
 		E8BC471C286207040001395A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E8BC471B286207040001395A /* FirebaseFirestoreSwift */; };
 		E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */; };
-		E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */; };
 		E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */; };
 		F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7B0332857448200D5E018 /* MyGarageH.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +81,12 @@
 		020A13F2283D3671007C9ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		020A13F4283D3674007C9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		020A13F7283D3674007C9ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02DFCAA32885AA30009DE7BE /* ReportsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		02DFCAA52885AA59009DE7BE /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSwiftView.swift; sourceTree = "<group>"; };
+		02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieSliceSwiftView.swift; sourceTree = "<group>"; };
+		02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
+		02DFCAAD28869861009DE7BE /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Loader.swift; path = DashBoard/Loader.swift; sourceTree = "<group>"; };
 		22DCABC328821D2300D26F3B /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		22DCABC528821D7200D26F3B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		22DCABC728821DAF00D26F3B /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
@@ -125,7 +136,6 @@
 		E8A37CAF287F50CD00C11F8F /* EditCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCar.swift; sourceTree = "<group>"; };
 		E8A37CB1287F526700C11F8F /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
-		E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
 		E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		F0B7B0332857448200D5E018 /* MyGarageH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageH.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,13 +216,17 @@
 		D82EA9F7284F2F95000F7DF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02DFCAA32885AA30009DE7BE /* ReportsView.swift */,
 				22DCABCB28821E4000D26F3B /* TextPreviewView.swift */,
 				22DCABCD28821EA200D26F3B /* TextContentView.swift */,
 				E836B574285F7FD300C5700B /* Authentication */,
-				E8D1EC35284778FF0035C5B3 /* ReportsViewModel.swift */,
 				E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */,
 				6F185A2C286B194A003E2088 /* HelpView.swift */,
 				E80E90F72851534A00FE624F /* TabViewApp.swift */,
+				02DFCAA52885AA59009DE7BE /* Chart.swift */,
+				02DFCAA72885AA6D009DE7BE /* PieChartSwiftView.swift */,
+				02DFCAA92885AA75009DE7BE /* PieSliceSwiftView.swift */,
+				02DFCAAD28869861009DE7BE /* Loader.swift */,
 				D82EA9F4284DFC2F000F7DF5 /* DashBoard */,
 			);
 			path = Views;
@@ -273,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				E8305CBD286C6D60006505CF /* ViewModel.swift */,
+				02DFCAAB2885AAB6009DE7BE /* ReportsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -446,6 +461,7 @@
 				D8F6D1DF2859F4AC0007B9CB /* Fuel.swift in Sources */,
 				E874950A285A8BAF0049BB4B /* Demo.swift in Sources */,
 				E89EB1B02883889100259137 /* NotificationManager.swift in Sources */,
+				02DFCAAC2885AAB6009DE7BE /* ReportsViewModel.swift in Sources */,
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiresView.swift in Sources */,
 				E836B576285F7FEE00C5700B /* AuthView.swift in Sources */,
@@ -457,8 +473,8 @@
 				E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */,
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
 				D8F6D1E1285AFF500007B9CB /* Oil.swift in Sources */,
-				E8D1EC36284778FF0035C5B3 /* ReportsViewModel.swift in Sources */,
 				D8F6D1D52859CC440007B9CB /* FuelView.swift in Sources */,
+				02DFCAA62885AA59009DE7BE /* Chart.swift in Sources */,
 				D8F6D1E5285AFF6F0007B9CB /* Tires.swift in Sources */,
 				E8305CC1286C6DD0006505CF /* Picker.swift in Sources */,
 				D8F6D1D32859C80F0007B9CB /* AddBatteryView.swift in Sources */,
@@ -470,6 +486,7 @@
 				E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
+				02DFCAA42885AA30009DE7BE /* ReportsView.swift in Sources */,
 				22DCABC828821DAF00D26F3B /* TextRecognition.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
 				22DCABCE28821EA200D26F3B /* TextContentView.swift in Sources */,
@@ -479,15 +496,18 @@
 				E8749508285A89E10049BB4B /* AddCar.swift in Sources */,
 				22DCABCA28821DDC00D26F3B /* RecognizedContent.swift in Sources */,
 				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
+				02DFCAAA2885AA75009DE7BE /* PieSliceSwiftView.swift in Sources */,
 				D8E4154928632723006FDC58 /* OilViewModel.swift in Sources */,
 				E89EB1B428838B9200259137 /* InfoOverlayView.swift in Sources */,
 				E89EB1B228838A7600259137 /* NotificationLView.swift in Sources */,
 				D8E4154B28632737006FDC58 /* BatteryViewModel.swift in Sources */,
+				02DFCAA82885AA6D009DE7BE /* PieChartSwiftView.swift in Sources */,
 				22DCABCC28821E4000D26F3B /* TextPreviewView.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,
 				22DCABC628821D7200D26F3B /* Model.swift in Sources */,
 				D8F6D1D12859C7FE0007B9CB /* AddTierView.swift in Sources */,
 				E80E90F82851534A00FE624F /* TabViewApp.swift in Sources */,
+				02DFCAAE28869861009DE7BE /* Loader.swift in Sources */,
 				E83C77F52862ECC600B55D64 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

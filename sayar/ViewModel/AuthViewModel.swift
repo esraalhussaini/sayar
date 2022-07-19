@@ -12,14 +12,21 @@ import FirebaseAuth
 import FirebaseStorage
 
 
+
 final class AuthViewModel: ObservableObject {
+    
+    let batteryCollection = "Battery"
+    let fuelCollection = "Fuel"
+    let oilCollection = "Oil"
+    let tireCollection = "Tires"
+    
    // @Published var userSession : Firebase.User?
     @Published var isAouthenticatting = false
     @Published var car : Car?
     //@Published var :UIImage?
     @Published var image: UIImage?
     static let shared = AuthViewModel()
-    private var db = Firestore.firestore()
+    public var db = Firestore.firestore()
     init(){
         
         if let _ = Auth.auth().currentUser {
