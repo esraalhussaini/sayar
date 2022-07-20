@@ -58,34 +58,6 @@ class OilViewModel: ObservableObject{
             }
 
     }
-    //    func fetchData(){
-    //
-    //        db.collection("Oil").getDocuments {snapdhot, error in
-    //            guard error == nil else {
-    //                print("Error \(error)")
-    //                return
-    //            }
-    //
-    //            if let docs = snapdhot?.documents{
-    //                docs.forEach { doc in
-    //                      let oil = Oil(data: doc.data())
-    //                    print(oil.cost,"🤚🏻")
-    //                    self.oil.append(oil)
-    //                }
-    //
-    //            }
-    //
-    //
-    //
-    //        }
-    //
-    //    }
-    
-    
-    
-    //    ********************* NOUF oil ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
     
     func uploadOil(completion:@escaping ()->()){
         //        guard let user =  AuthViewModel.shared.user else {return}
@@ -189,24 +161,5 @@ class OilViewModel: ObservableObject{
     
     
     }
-//    func deleteOil(oil: Oil) {
-//        let oilId = oil.id
-//        guard let carId = AuthViewModel.shared.car?.id else {return}
-//        // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
-//        //  let docId = docRef.documentID
-//        db.collection("Car").document(carId).collection("CarOil").document(oilId).delete()
-//        db.collection("Oil").document(oilId).delete()  { err in
-//            if let err = err {
-//                print("Error removing document: \(err)")
-//            }
-//            else {
-//                print("Document successfully removed!")
-//            }
-//        }
-//
-//
-//    }
-    
-    //
-    //
+
 }

@@ -23,7 +23,7 @@ struct BatteryView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(battery.cost)").fontWeight(.heavy)
+                        Text("\(AuthViewModel.shared.formateNumber(double:battery.cost))").fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text("\(battery.km)")
                             .font(.caption)
@@ -31,7 +31,7 @@ struct BatteryView: View {
                             
                     }
                     Spacer(minLength: 5)
-                    Text("\(battery.date)")
+                    Text("\(AuthViewModel.shared.formatedDate(date:battery.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.horizontal)

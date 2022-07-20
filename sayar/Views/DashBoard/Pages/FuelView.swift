@@ -18,7 +18,7 @@ struct FuelView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(fuel.cost)").fontWeight(.heavy)
+                        Text("\(AuthViewModel.shared.formateNumber(double:fuel.cost))").fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text("\(fuel.km)")
                             .font(.caption)
@@ -26,7 +26,7 @@ struct FuelView: View {
                             
                     }
                     Spacer(minLength: 5)
-                    Text("\(fuel.date)")
+                    Text("\(AuthViewModel.shared.formatedDate(date: fuel.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.horizontal)

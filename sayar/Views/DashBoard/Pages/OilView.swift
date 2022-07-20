@@ -19,9 +19,10 @@ struct OilView: View {
                 ForEach(vm.oil){ oil in
                     HStack{
                         VStack(alignment: .leading, spacing: 10){
-                            Text("\(oil.cost)").fontWeight(.heavy)
+                        Text("\(AuthViewModel.shared.formateNumber(double: oil.cost))").fontWeight(.heavy)
                                 .foregroundColor(.black)
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
+//                            AuthViewModel.shared.formateNumber(double: oil.cost)
                             Text("\(oil.km)")
                                 .font(.caption)
                                 .foregroundColor(.gray)
@@ -29,7 +30,7 @@ struct OilView: View {
                                 
                         }
                         Spacer(minLength: 5)
-                        Text("\(oil.date)")
+                        Text("\(AuthViewModel.shared.formatedDate(date:oil.date))")
                             .font(.caption)
                             .foregroundColor(.gray)
                             .padding(.horizontal)

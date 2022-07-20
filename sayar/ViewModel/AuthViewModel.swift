@@ -101,10 +101,33 @@ final class AuthViewModel: ObservableObject {
     db.collection("Car").document(x).updateData(["CarKM":newKm])
   }
 
+    func formatedDate(date:Date)->String{
+        
+//        let expDate = calculateExpiredDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, d MMM y"
+        let formattedDate = formatter.string(from: date)
+        return formattedDate
+    }
 
-
-
-
+//    func formateNumber(double: Double)-> NSString {
+//        let formatter = NumberFormatter()
+//                formatter.numberStyle = .decimal
+//                formatter.maximumFractionDigits = 2
+//        return NSString(formatter)
+//    }
+//    func formateNumber(double: Double)-> Formatter{
+//        let formatter = NumberFormatter()
+//                formatter.numberStyle = .decimal
+//                formatter.maximumFractionDigits = 2
+//        return formatter
+//    }
+    func formateNumber(double: Double)-> String{
+            let formatter = NumberFormatter()
+                    formatter.numberStyle = .decimal
+                    formatter.maximumFractionDigits = 2
+        return formatter.string(from: double as NSNumber) ?? ""
+        }
 
   //singout
   @Published var user : User?
