@@ -239,7 +239,7 @@ VStack(alignment: .center){
                 .frame( width: 125,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text(authvm.thereIsACar ? vmOil.formatedDate() :"N/A")
+              Text(authvm.thereIsACar ? vmOil.formatedDate() :"Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -306,7 +306,7 @@ VStack(alignment: .center){
                 .frame( width: 125,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text(authvm.thereIsACar ? vmTires.formatedDate() :"N/A")
+              Text(authvm.thereIsACar ? vmTires.formatedDate() :"Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -376,7 +376,7 @@ VStack(alignment: .center){
                 .frame( width:125,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text( authvm.thereIsACar ? vmBattery.formatedDate() :"N/A")
+              Text( authvm.thereIsACar ? vmBattery.formatedDate() :"Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -430,7 +430,7 @@ VStack(alignment: .center){
 
     //DontRemove
 //
-        .alert("Important message", isPresented: $showAlreadyHasCarAlert) {
+        .alert("you already have a car added!", isPresented: $showAlreadyHasCarAlert) {
             Button("OK", role: .cancel) { }
         }
     .sheet(isPresented: $isPresentedNewPost, content: {
