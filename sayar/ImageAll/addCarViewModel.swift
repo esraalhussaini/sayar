@@ -76,41 +76,9 @@ class AddCarViewModel: ObservableObject{
             guard let data = snapshot?.data() else {return}
             let car = Car(dictionary: data)
         }
-     
-        
-        
-        
-        
-        
-        
-        
-//        db.collection("Car").getDocuments {snapdhot, error in
-//            guard error == nil else {
-//                print("Error \(error)")
-//                return
-//            }
-//
-//            if let docs = snapdhot?.documents{
-//                docs.forEach { doc in
-//                    let car = Car(dictionary: doc.data())
-////                    print(fuel.cost,"🤚🏻")
-//                    self.car.append(car)
-//                }
-//
-//            }
-//
-//
-//
-//        }
-        
-//
-     
+   
     }//fetchdata
 
-  
-//    ********************* NOUF fule ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
     
     func uploadCar(completion:@escaping ()->()){
         
@@ -162,14 +130,6 @@ class AddCarViewModel: ObservableObject{
         }
 
        print("✅✅✅✅✅✅✅✅")
-       
-        
-
-        
-      
-
-  
-
         
         }//uploudCar
  
@@ -179,5 +139,22 @@ class AddCarViewModel: ObservableObject{
         guard let imageUser=imageUser else {return}
         carDefaultImage = Image(uiImage: imageUser)
     }
+    
+   
+    func generateYearUntilNow ()->[Int]{
+         var formattedDate: String? = ""
+
+         let format = DateFormatter()
+         format.dateFormat = "yyyy"
+         formattedDate = format.string(from: Date())
+
+ //        var yearsTillNow: [String] {
+             var years = [Int]()
+             for i in (Int(formattedDate!)!-70..<Int(formattedDate!)!+1).reversed() {
+                 years.append(i)
+             }
+             return years
+ //        }
+     }
 }//class
 

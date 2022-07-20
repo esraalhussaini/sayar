@@ -61,33 +61,8 @@ class TiresViewModel: ObservableObject{
         }
 
     }
-//    func fetchData(){
 //
-//        db.collection("Tires").getDocuments {snapdhot, error in
-//            guard error == nil else {
-//                print("Error \(error)")
-//                return
-//            }
-//
-//            if let docs = snapdhot?.documents{
-//                docs.forEach { doc in
-//                      let  tires = Tires(data: doc.data())
-//                    print(tires.cost,"🤚🏻")
-//                    self.tires.append(tires)
-//                }
-//
-//            }
-//
-//
-//
-//        }
-//
-//    }
-
-
-    //    ********************* NOUF tires ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
+    
     
     func uploadTires(completion:@escaping ()->()){
     //        guard let user =  AuthViewModel.shared.user else {return}
@@ -166,7 +141,25 @@ class TiresViewModel: ObservableObject{
     
     
     }
-    
 }
+//    extension Date {
+//    func generateYearUntilNow ()->[Int]{
+//             var formattedDate: String? = ""
+//
+//             let format = DateFormatter()
+//             format.dateFormat = "yyyy"
+//             formattedDate = format.string(from: Date)
+//
+//     //        var yearsTillNow: [String] {
+//                 var years = [Int]()
+//                 for i in (Int(formattedDate!)!-70..<Int(formattedDate!)!+1).reversed() {
+//                     years.append(i)
+//                 }
+//                 return years
+//     //        }
+//         }
+//    }
+//
+//}
 
 

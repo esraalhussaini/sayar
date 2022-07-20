@@ -10,20 +10,12 @@ import SwiftUI
 struct AddTierView: View {
  
     @State private var isShowingDialog = false
-//    @StateObject var vm = TiresViewModel()
     @EnvironmentObject  var vm : TiresViewModel
-//Pluse button
+    
+//    var years = Date().generateYearUntilNow()
+//    @State private var selectedYear = Date().generateYearUntilNow().last ?? 2022
 
-    
-    
     @Binding var isPresented: Bool
-
-//@Binding var  DATE: Date
- // @Binding var  DATE = Date()
-//@Binding var cost : String
-//@Binding var TiersYearRelease  : String
-//@Binding var ExpectedTime : String
-
     var body: some View {
         
         
@@ -33,21 +25,13 @@ struct AddTierView: View {
                 Color.gray.opacity(0.1)
              
                 VStack(alignment: .center , spacing: 10){
-//                       Spacer()
-//                        Image("DefualtCar")
-//                //button
-//                        Text("Add Photo")
-            
-                    
-                    
                     Form{
              
                 
                     Section{
                         
                         DatePicker("Pick a date", selection: $vm.date, displayedComponents: .date)
-                       // TextField("Make", text:$titel)
-                       // TextField("Model", text: $post )
+                       
                         
                     }
                         
@@ -59,19 +43,16 @@ struct AddTierView: View {
                                     .keyboardType(.numberPad)
                             }
                         Section{
-//                            struct ContentView: View {
-//                                @State var selection = Date()
-//                                var body: some View {
-//                                    Picker("", selection: $selection) {
-//                                        ForEach(2000...2020, id: \.self) {
-//                                            Text(String($0))
-//                                        }
-//                                    }
-//                                    .pickerStyle(InlinePickerStyle())
+                         VStack {
+//    Picker("Please choose a Manufacture Year", selection: $vm.manufactureYEAR) {
+//                                ForEach(years, id: \.self) {
+//                                    Text("\($0)")
 //                                }
-//                            }
-                            DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
-                            
+//    }.pickerStyle(.wheel)
+//                            Text("You selected: \(selectedYear)")
+                        }
+                           DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
+                       
                             
                             TextField(" Tire Comapany", text:$vm.tireComp)
                                 .keyboardType(.default)
@@ -79,52 +60,17 @@ struct AddTierView: View {
                        
                             
                         }
-                
-//                        Section{
-//                            TextField("TiersYearRelease", text:$TiersYearRelease)
-//                                .keyboardType(.numberPad)
-//
-//
-//                        }
-                        
-                        
-//                        Section{
-//                            TextField("ExpectedTime", text:$ExpectedTime)
-//                                .keyboardType(.numberPad)
-//
-//
-//                        }
-                        
                         
           }//form
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                  
-                    
+    
  Spacer()
                         .padding(.bottom)
-                            
-                     
-                
+
              
                 }//VSTACK IMAGE
              
 
             }//zstack importent
-
-            
-            
-            
-            
-
 
             .navigationBarTitle("Add Tiers", displayMode: .inline)
       .navigationBarItems(leading:leading   ,trailing: trailing)
@@ -138,9 +84,6 @@ struct AddTierView: View {
         }//NavgationView
     }//varBody1
 
-    
-    
-    
    //Cancel
     var leading: some View {
 
@@ -175,6 +118,24 @@ struct AddTierView: View {
 
     }//VarBody3
 }//StructView
+
+extension Date {
+func generateYearUntilNow ()->[Int]{
+         var formattedDate: String? = ""
+
+         let format = DateFormatter()
+         format.dateFormat = "yyyy"
+         formattedDate = format.string(from: self)
+
+ //        var yearsTillNow: [String] {
+             var years = [Int]()
+             for i in (Int(formattedDate!)!-70..<Int(formattedDate!)!+1).reversed() {
+                 years.append(i)
+             }
+             return years
+ //        }
+     }
+}
 
 
     

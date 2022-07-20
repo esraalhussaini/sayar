@@ -13,20 +13,12 @@ struct AddCar: View {
 
     @StateObject var addCarViewModel = AddCarViewModel()
     @EnvironmentObject var vImage: ViewModel
-    
     @EnvironmentObject var authvm : AuthViewModel
-
-    //button Delete
     @State private var isShowingDialog = false
-
-      @Binding var isPresented: Bool
+    @Binding var isPresented: Bool
+//    let years = addCarViewModel.generateYearUntilNow()
+//    @State private var selectedYear = generateYearUntilNow().last ?? 2022
   
-//        @Binding var Make: String
-//        @Binding var Model: String
-//
-//        @Binding var kmCar: String
-        //Km Double or int?
-//@Binding var carManufactureYear : String
         
         var body: some View {
 
@@ -89,9 +81,15 @@ struct AddCar: View {
                         }
                   
                                 Section{
-                                    
-                                    TextField("Manufacture Year", text:$addCarViewModel.carManufactureYearString)
+//                                    let years = addCarViewModel.generateYearUntilNow()
+                  TextField("Manufacture Year", text:$addCarViewModel.carManufactureYearString)
                                         .keyboardType(.numberPad)
+//                                    Picker("ManufactureYear", selection: $addCarViewModel.carManufactureYearString) {
+//                                        ForEach(years, id: \.self) {
+//                                            Text("\($0)")
+//                                        }
+//
+//                                }.pickerStyle(.wheel)
                                     TextField("Km", text:$addCarViewModel.kmString)
                                         .keyboardType(.numberPad)
                                
@@ -127,17 +125,6 @@ struct AddCar: View {
 //                    .ignoresSafeArea()
 //                }
 
-                
-                
-    
-            
-            
-            
-            
-            
-            
-
-   
                 .navigationBarTitle("Add car", displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
@@ -147,10 +134,6 @@ struct AddCar: View {
                     
             }//NavgationView
         }//varBody1
-
-        
-        
-        
         
         var leading: some View {
 
