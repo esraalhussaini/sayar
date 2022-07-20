@@ -40,7 +40,7 @@ class OilViewModel: ObservableObject{
             self.db.collection("Car").document(carId).collection("CarOil").getDocuments { snapshot, error in
                 
                 
-                
+                DispatchQueue.main.async {
                 if let docs = snapshot?.documents{
                     docs.forEach { doc in
                         let docId = doc.documentID
@@ -50,7 +50,7 @@ class OilViewModel: ObservableObject{
                             print(oil.cost,"🤚🏻")
                             self.oil.append(oil)
                         }
-                        
+                    }
                     }
                     
                 }
@@ -115,7 +115,8 @@ class OilViewModel: ObservableObject{
             Oil.oilType: oilType
             
         ]
-        db.collection("Oil").document(docRef.documentID).setData(data){ _ in
+        DispatchQueue.main.async {
+            self.db.collection("Oil").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully , 📌")
             //self.oil.append(Oil(data: data))
             print(self.oil.count,"📌")
@@ -125,7 +126,7 @@ class OilViewModel: ObservableObject{
             
         }
     }
-    
+    }
     //    func calculateExpiredDate2(){
     //        guard let carId = AuthViewModel.shared.car?.id else {
     //
