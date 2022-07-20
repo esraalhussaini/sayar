@@ -21,11 +21,11 @@ struct OilView: View {
                         VStack(alignment: .leading, spacing: 10){
                             Text("\(oil.cost)").fontWeight(.heavy)
                                 .foregroundColor(.black)
-                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
+//                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
                             Text("\(oil.km)")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
+//                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
                                 
                         }
                         Spacer(minLength: 5)
@@ -34,7 +34,7 @@ struct OilView: View {
                             .foregroundColor(.gray)
                             .padding(.horizontal)
                             .padding(.top)
-                            .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
+//                            .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
     
                     }.padding().background(Color("Grey"))
                     .cornerRadius(10)
