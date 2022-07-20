@@ -14,21 +14,14 @@ struct AddOilView: View {
     @EnvironmentObject  var vm : OilViewModel
     var colors = ["Red", "Green", "Blue", "Tartan"]
        @State private var selectedColor = "Red"
+
         
     //Pluse button
 
         
         
         @Binding var isPresented: Bool
-    
-//    @Binding var  DATE: Date
-     // @Binding var  DATE = Date()
-//    @Binding var cost : String
-//    @Binding var km  : String
-//    @Binding var ExpectedTime : String
-    //@Binding var cost : String
-        //Km Double or int?
-        
+
         
         var body: some View {
 
@@ -38,19 +31,7 @@ struct AddOilView: View {
                     Color.gray.opacity(0.1)
                  
                     VStack(alignment: .center , spacing: 10){
-//                       Spacer()
-//                        Image("DefualtCar")
-//                //button
-//                        Text("Add Photo")
-                
-//                        VStack {
-//                         Picker("Please choose a color", selection: $selectedColor) {
-//                             ForEach(colors, id: \.self) {
-//                                 Text($0)
-//                             }
-//                         }
-//                         Text("You selected: \(selectedColor)")
-//                        }
+
                         
                         Form{
                  
@@ -80,7 +61,12 @@ struct AddOilView: View {
                             
                             Section{
 
-                            
+                                    Picker("Please choose a color", selection: $selectedColor) {
+                                                    ForEach(colors, id: \.self) {
+                                                        Text($0)
+                                                    }
+                               }
+
                                 TextField("oil Type", text:$vm.oilType)
                                     .keyboardType(.twitter)
                                 

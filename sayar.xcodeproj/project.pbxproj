@@ -46,12 +46,13 @@
 		E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */; };
 		E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CBB286C6D39006505CF /* ContentImage.swift */; };
 		E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CBD286C6D60006505CF /* ViewModel.swift */; };
-		E8305CC1286C6DD0006505CF /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CC0286C6DD0006505CF /* Picker.swift */; };
+		E8305CC1286C6DD0006505CF /* PickerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305CC0286C6DD0006505CF /* PickerType.swift */; };
 		E836B576285F7FEE00C5700B /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B575285F7FEE00C5700B /* AuthView.swift */; };
 		E836B578285F810E00C5700B /* SecondOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B577285F810E00C5700B /* SecondOTP.swift */; };
 		E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836B579285F837A00C5700B /* AuthViewModel.swift */; };
+		E839439E2887FFD500DBE8CF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E839439D2887FFD500DBE8CF /* Kingfisher */; };
 		E83C77F52862ECC600B55D64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F42862ECC600B55D64 /* User.swift */; };
-		E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8410C3A2864697500C3F80D /* addCarViewModel.swift */; };
+		E8410C3B2864697500C3F80D /* AddCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8410C3A2864697500C3F80D /* AddCarViewModel.swift */; };
 		E865A5062871F68A00BD17F0 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
@@ -106,12 +107,12 @@
 		E8305CB9286C6C70006505CF /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		E8305CBB286C6D39006505CF /* ContentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentImage.swift; sourceTree = "<group>"; };
 		E8305CBD286C6D60006505CF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		E8305CC0286C6DD0006505CF /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		E8305CC0286C6DD0006505CF /* PickerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerType.swift; sourceTree = "<group>"; };
 		E836B575285F7FEE00C5700B /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		E836B577285F810E00C5700B /* SecondOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOTP.swift; sourceTree = "<group>"; };
 		E836B579285F837A00C5700B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E83C77F42862ECC600B55D64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E8410C3A2864697500C3F80D /* addCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCarViewModel.swift; sourceTree = "<group>"; };
+		E8410C3A2864697500C3F80D /* AddCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewModel.swift; sourceTree = "<group>"; };
 		E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 				E817C9C32844E009000E2105 /* FirebaseDatabaseSwift in Frameworks */,
 				E817C9C52844E009000E2105 /* FirebaseStorage in Frameworks */,
 				E8BC471C286207040001395A /* FirebaseFirestoreSwift in Frameworks */,
+				E839439E2887FFD500DBE8CF /* Kingfisher in Frameworks */,
 				E817C9C12844E009000E2105 /* FirebaseDatabase in Frameworks */,
 				D8E4154728607352006FDC58 /* FirebaseFirestore in Frameworks */,
 				E817C9BF2844E009000E2105 /* FirebaseAuth in Frameworks */,
@@ -292,7 +294,7 @@
 		E8305CC3286C6E0B006505CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E8305CC0286C6DD0006505CF /* Picker.swift */,
+				E8305CC0286C6DD0006505CF /* PickerType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F9785528874D25006B113B /* imageUser.swift */,
-				E8410C3A2864697500C3F80D /* addCarViewModel.swift */,
+				E8410C3A2864697500C3F80D /* AddCarViewModel.swift */,
 				E874950B285A903A0049BB4B /* Car.swift */,
 				E8749507285A89E10049BB4B /* AddCar.swift */,
 			);
@@ -395,6 +397,7 @@
 				D8E4154628607352006FDC58 /* FirebaseFirestore */,
 				E8BC4719286204F20001395A /* FirebaseMessaging */,
 				E8BC471B286207040001395A /* FirebaseFirestoreSwift */,
+				E839439D2887FFD500DBE8CF /* Kingfisher */,
 			);
 			productName = sayar;
 			productReference = 020A13ED283D3671007C9ECE /* sayar.app */;
@@ -426,6 +429,7 @@
 			mainGroup = 020A13E4283D3671007C9ECE;
 			packageReferences = (
 				E817C9BD2844E009000E2105 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E839439C2887FFD500DBE8CF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 020A13EE283D3671007C9ECE /* Products */;
 			projectDirPath = "";
@@ -478,14 +482,14 @@
 				D8F6D1D52859CC440007B9CB /* FuelView.swift in Sources */,
 				02DFCAA62885AA59009DE7BE /* Chart.swift in Sources */,
 				D8F6D1E5285AFF6F0007B9CB /* Tires.swift in Sources */,
-				E8305CC1286C6DD0006505CF /* Picker.swift in Sources */,
+				E8305CC1286C6DD0006505CF /* PickerType.swift in Sources */,
 				D8F6D1D32859C80F0007B9CB /* AddBatteryView.swift in Sources */,
 				D8F6D1CF2855FE670007B9CB /* AddFuelView.swift in Sources */,
 				D82EA9F9284F32E9000F7DF5 /* AddOilView.swift in Sources */,
 				E836B578285F810E00C5700B /* SecondOTP.swift in Sources */,
 				D8E4154428607193006FDC58 /* FuelViewModel.swift in Sources */,
 				22DDB2AC286989D200C36FDF /* Errors.swift in Sources */,
-				E8410C3B2864697500C3F80D /* addCarViewModel.swift in Sources */,
+				E8410C3B2864697500C3F80D /* AddCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
 				02DFCAA42885AA30009DE7BE /* ReportsView.swift in Sources */,
@@ -725,6 +729,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		E839439C2887FFD500DBE8CF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -752,6 +764,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E817C9BD2844E009000E2105 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		E839439D2887FFD500DBE8CF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E839439C2887FFD500DBE8CF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		E8BC4719286204F20001395A /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

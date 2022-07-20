@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 
 struct HomeCarViewModel: View {
 
 
   //For image picker
   @EnvironmentObject var vImage: ViewModel
-
+    @StateObject var addCarViewModel = AddCarViewModel()
+@State var showAlreadyHasCarAlert = false
 
 
  // For testing
@@ -90,13 +91,22 @@ struct HomeCarViewModel: View {
 
 
       }//VSTACK
-      VStack{
-        Spacer()
-        Image("Cardefault")
-          .padding(60)
+        ZStack{
+            VStack{
+              Spacer()
+              Image("Cardefault")
+                .padding(60)
 
 
-      }//hstack
+            }//hstack
+            
+            KFImage(URL(string: authvm.car?.CarImage ?? ""))
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 300)
+            
+        }
+
 
 
 
@@ -412,17 +422,21 @@ VStack(alignment: .center){
 
 
 //---------Sheet
-        .fullScreenCover(isPresented: $vImage.showPicker) {
-          ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $vImage.image)
-            .ignoresSafeArea()
-        }
+//        .fullScreenCover(isPresented: $vImage.showPicker) {
+//            ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $addCarViewModel.imageUser)
+//            .ignoresSafeArea()
+//        }
 
 
     //DontRemove
 //
+        .alert("Important message", isPresented: $showAlreadyHasCarAlert) {
+            Button("OK", role: .cancel) { }
+        }
     .sheet(isPresented: $isPresentedNewPost, content: {
 
-      AddCar(isPresented: $isPresentedNewPost, Make: $Make, Model: $Model,kmCar: $kmCar, carManufactureYear: $carManufactureYear)
+        AddCar(isPresented: $isPresentedNewPost)
+//      AddCar(isPresented: $isPresentedNewPost, Make: $Make, Model: $Model,kmCar: $kmCar, carManufactureYear: $carManufactureYear)
 
     })
 
@@ -434,6 +448,11 @@ VStack(alignment: .center){
     .fullScreenCover(isPresented: $showLoginPage, content: {
       AuthView(showLoginPage: $showLoginPage, isPresentedNewPost: $isPresentedNewPost)
     })
+          
+
+//    .alert(item: $showAlreadyHasCarAlert) { alert in
+//        Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
+//    }
 
     .onAppear{
 
@@ -475,7 +494,13 @@ VStack(alignment: .center){
 
     Button(action: {
       if authvm.isAouthenticatting{
-        isPresentedNewPost.toggle()
+          if authvm.thereIsACar{
+              showAlreadyHasCarAlert.toggle()
+          }
+          else{
+              isPresentedNewPost.toggle()
+          }
+      
       }
       else{
         showLoginPage.toggle()

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Picker {
+enum PickerType {
     enum Source: String {
         case library, camera
     }

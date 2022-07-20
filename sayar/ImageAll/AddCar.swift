@@ -8,53 +8,25 @@
 import SwiftUI
 import UIKit
 
-//enum ActiveSheet: Identifiable {
-//    case first, second
-//
-//    var id: Int {
-//        hashValue
-//    }
-//}
-//
-//
-//@Published var makeString : String = ""
-//     @Published var modelString : String = ""
-//
-//  @Published  var carManufactureYearIntString : Int = 0
-//  @Published var carKmString : Int = 0
-//  @Published var  carImageUrlString : String = ""
-//
 
 struct AddCar: View {
-//image
- 
 
-//    @StateObject var viewModelVar = addCarViewModel()
-    
-  //for image
-    //For image picker
-  
+    @StateObject var addCarViewModel = AddCarViewModel()
     @EnvironmentObject var vImage: ViewModel
     
     @EnvironmentObject var authvm : AuthViewModel
-  // @State private var showSheet = false
-      // @State private var activeSheet: ActiveSheet? = .first
-    
+
     //button Delete
-        @State private var isShowingDialog = false
-    @StateObject var vm = addCarViewModel()
-//    @Binding var showdashboard : Bool
-        
-   // @State private var showSheet = false
-    
-@Binding var isPresented: Bool
+    @State private var isShowingDialog = false
+
+      @Binding var isPresented: Bool
   
-        @Binding var Make: String
-        @Binding var Model: String
-        
-        @Binding var kmCar: String
+//        @Binding var Make: String
+//        @Binding var Model: String
+//
+//        @Binding var kmCar: String
         //Km Double or int?
-@Binding var carManufactureYear : String
+//@Binding var carManufactureYear : String
         
         var body: some View {
 
@@ -62,25 +34,13 @@ struct AddCar: View {
                 ZStack{
                     
                     Color.gray.opacity(0.1)
-                 
-                
-//                        Image("DefualtCar")
-//                //button
-//                        Text("Add Photo")
-//
-                  
-                    
-                    
+     
                     
                 VStack(alignment: .center , spacing: 10){
-               
-                    
 
-                        //image
-                      //  Color.gray.opacity(0.1)
                     VStack{
                        
-                            if let image = vImage.image {
+                        if let image = addCarViewModel.imageUser {
                     
                                 ZoomableScrollView {
                                     Image(uiImage: image)
@@ -90,8 +50,8 @@ struct AddCar: View {
                                    
                                 }
                             } else {
-                               // Image("DefualtCar")
-                            Image(systemName: "photo.fill")
+                                Image("DefualtCar")
+                          //  Image(systemName: "photo.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(0.6)
@@ -119,24 +79,20 @@ struct AddCar: View {
              
                         
                     Form{
-                        
-                     
-                  
-                   // VStack(alignment: .leading) {
-                    
+
                         Section{
-                            TextField("Make", text:$vm.carMake)
+                            TextField("Make", text:$addCarViewModel.carMake)
                              
-                            TextField("Model", text: $vm.carModelString )
+                            TextField("Model", text: $addCarViewModel.carModelString )
                             
                             
                         }
                   
                                 Section{
                                     
-                                    TextField("Manufacture Year", text:$vm.carManufactureYearString)
+                                    TextField("Manufacture Year", text:$addCarViewModel.carManufactureYearString)
                                         .keyboardType(.numberPad)
-                                    TextField("Km", text:$vm.kmString)
+                                    TextField("Km", text:$addCarViewModel.kmString)
                                         .keyboardType(.numberPad)
                                
                                
@@ -145,35 +101,7 @@ struct AddCar: View {
     
              
                     }
-                    //form
-                        
-//                        //-------delet
-//                        Button("Delete", role: .destructive) {
-//                                  isShowingDialog = true
-//                              }
-//                      //  .font(.headline)
-//                 //   .frame(width: 280, height: 50)
-//                        //    .background(.white)
-//
-//                              //  .cornerRadius(6)
-//                      //  .buttonStyle(.bordered)
-//                              .controlSize(.large)
-//                              .confirmationDialog("Are you sure to delete the data?", isPresented: $isShowingDialog, titleVisibility: .visible) {
-//
-//                                  Button("Confirm", role: .destructive) {
-//                                      // Handle the delete action.
-//
-//                                      viewModelVar.uploadCar {
-//                                          print("Successfully uploaded")
-//                                      }
-//                                  }
-//                                  Button("Cancel", role: .cancel) {
-//
-//                                  }
-//                              }
-//
-//                        //-------delete
-//
+
                         
      Spacer()
                          //   .padding(.bottom)
@@ -186,8 +114,19 @@ struct AddCar: View {
 
                 }//zstack importent
 
-                
-                
+                .sheet(isPresented: $vImage.showPicker, onDismiss: {
+                    addCarViewModel.loadImage()
+                }, content: {
+                    ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $addCarViewModel.imageUser)
+                    .ignoresSafeArea()
+                })
+//                .sheet(isPresented: $vImage.showPicker) {
+//                    addCarViewModel.loadImage()
+//                }{
+//                    ImagePicker(sourceType: vImage.source == .library ? .photoLibrary : .camera, selectedImage: $addCarViewModel.imageUser)
+//                    .ignoresSafeArea()
+//                }
+
                 
                 
     
@@ -234,9 +173,14 @@ struct AddCar: View {
             Button(action : {
          
 //            isPresented.toggle()
-                vm.uploadCar{}
-           
-               isPresented.toggle()
+                addCarViewModel.uploadCar{
+                    authvm.fetchCar {
+                        
+                    }
+                }
+                isPresented.toggle()
+
+             
                // vm.uploadCar{}
 //             showdashboard = true
             }, label: {

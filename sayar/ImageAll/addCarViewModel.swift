@@ -5,6 +5,7 @@
 //  Created by anwar on 24/11/1443 AH.
 //
 import UIKit
+import SwiftUI
 import Foundation
 import Firebase
 import FirebaseStorage
@@ -15,14 +16,18 @@ import FirebaseFirestore
 
 //import FirebaseFirestore
 
-class addCarViewModel: ObservableObject{
+class AddCarViewModel: ObservableObject{
     
 
  
     
     
 //Image?
+    @Published var showImagePicker = false
+    @Published var showCamera = false
     @Published var imageUser: UIImage?
+    @Published var carDefaultImage = Image("Cardefault")
+
     let users = "Car"
 //    static let shared = addCarViewModel()
    //@Published var defaultImageCar = Image("Cardefault")
@@ -113,96 +118,66 @@ class addCarViewModel: ObservableObject{
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let docRef = Firestore.firestore().collection("Car").document(uid)
         //not let
+       // Car.CarImage :"HHHHH",
             var data : [String:Any] = [
                
                 Car.id : docRef.documentID,
                 Car.carMake : carMake,
                 Car.carModel : carModel,
                 Car.carManufactureYear: carManufactureYear,
-                Car.carKm : km,
-                Car.CarImage :"HHHHH",
-                
-             
-//                check the image from Anwar
+                Car.carKm : km
             ]
-        persistImageToStorage()
+        let ref = Storage.storage().reference(withPath: uid)
+        guard let imageData = imageUser?.jpegData(compressionQuality: 0.5) else { return }
+        ref.putData(imageData, metadata: nil) { metadata, err in
+            if let err = err {
+                print("Failed to push image to Storage: \(err)")
+               // self.hideLoadingView()
+                return
+            }
+
+            ref.downloadURL { url, err in
+                if let err = err {
+                    print("Failed to retrieve downloadURL: \(err)")
+                    return
+                }
+                print("Successfully stored image with url: \(url?.absoluteString ?? "")")
+
+                guard let url=url else{return}
+              
+                data[Car.CarImage]=url.absoluteString
+               // self.storeUserInformation(data:data)
+               // self.hideLoadingView()
+                docRef.setData(data){ _ in
+                    print("added in \(docRef.documentID)")
+                    print("Uploading Successfully")
+                    completion()
+                    AuthViewModel.shared.updateKilometers(newKm:self.km)
+                    
+               
+                }
+                print("User has been created successfully")
+                completion()
+            }
+        }
+
        print("✅✅✅✅✅✅✅✅")
        
         
-            docRef.setData(data){ _ in
-                print("added in \(docRef.documentID)")
-                print("Uploading Successfully")
-                completion()
-                AuthViewModel.shared.updateKilometers(newKm:self.km)
-                
-           
-            }
+
         
       
 
   
-    
-        
-        //anwar Image
-          
-          func persistImageToStorage() {
 
-              guard let uid = Auth.auth().currentUser?.uid else { return }
-
-              let ref = Storage.storage().reference(withPath: uid)
-
-              guard let imageData = imageUser?.jpegData(compressionQuality: 0.5) else { return }
-
-              ref.putData(imageData, metadata: nil) { metadata, err in
-                  if let err = err {
-                      print("Failed to push image to Storage: \(err)")
-                     // self.hideLoadingView()
-                      return
-                  }
-
-                  ref.downloadURL { url, err in
-                      if let err = err {
-                          print("Failed to retrieve downloadURL: \(err)")
-                          return
-                      }
-                      print("Successfully stored image with url: \(url?.absoluteString ?? "")")
-
-                      guard let url=url else{return}
-                    
-                      data[Car.CarImage]=url.absoluteString
-                      data[Car.id]=uid
-                     // self.storeUserInformation(data:data)
-                     // self.hideLoadingView()
-                      print("User has been created successfully")
-                  }
-              }
-          }
-     
         
         }//uploudCar
  
 
     
-    
-    func storeUserInformation(data:[String:Any]){
-
-        guard let uid = Auth.auth().currentUser?.uid else { return  }
-//car
-        Firestore.firestore().collection(users).document(uid).setData(data) { error in
-            if let error = error {
-                print(error)
-                return
-
-            }
-         // AuthViewModel.shared.fetchCar(completion)
-         AuthViewModel.shared.isAouthenticatting.toggle()
-        }
+    func loadImage(){
+        guard let imageUser=imageUser else {return}
+        carDefaultImage = Image(uiImage: imageUser)
     }
-    
-//    func loadImage(){
-//        guard let imageUser=imageUser else {return}
-//        defaultImageCar = Image(uiImage: imageUser)
-//    }
-//
 }//class
 

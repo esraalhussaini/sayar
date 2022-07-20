@@ -51,17 +51,7 @@ struct FuelView: View {
                 
                 
                 
-        }//list
-//        .swipeActions(edge: .leading) {
-//            Button(action: {
-//               print("do deleting")
-//                //vm.deleteFuel(fuel: <#T##Fuel#>)
-//            }){
-//              Image(systemName: "trash")
-//            }
-//            .tint(.red)
-//        }
-
+        }
         
         .toolbar{
 Button {

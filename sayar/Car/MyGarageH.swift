@@ -12,7 +12,7 @@ struct MyGarageH: View {
     
 //    @State var name: String = ""
     
-    @StateObject var vm = addCarViewModel()
+    @StateObject var vm = AddCarViewModel()
   
     private func CarRowView(car: Car) -> some View {
      //   NavigationLink(destination: CarDetailsView(car: <#Car#>)) {

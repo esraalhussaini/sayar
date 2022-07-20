@@ -14,6 +14,7 @@ struct ContentImage: View {
 
 
 @EnvironmentObject var vm: ViewModel
+    @StateObject var addCarViewModel = AddCarViewModel()
 var body: some View {
     NavigationView {
         VStack {
@@ -48,10 +49,10 @@ var body: some View {
             }
             Spacer()
         }
-        .sheet(isPresented: $vm.showPicker) {
-            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
-                .ignoresSafeArea()
-        }
+//        .sheet(isPresented: $vm.showPicker) { 
+//            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+//                .ignoresSafeArea()
+//        }
         .navigationTitle("My Images")
     }
 }
