@@ -12,7 +12,8 @@ struct OilView: View {
     @EnvironmentObject var vm : OilViewModel
     @State var isPresentedNewPost = false
     @State var km = ""
-
+    @State var showNoCarAlert = true
+    @EnvironmentObject var authvm : AuthViewModel
     var body: some View {
         VStack{
             List{
@@ -90,14 +91,16 @@ struct OilView: View {
     
         
         
-        
+    .alert("you did not add a car yet", isPresented: $showNoCarAlert) {
+        Button("OK", role: .cancel) { }
+    }
  
     
     }//var body 1
 
 
 
-
+       
 
 //Button Pluse
 var plusBottonOil: some View {
@@ -105,8 +108,14 @@ var plusBottonOil: some View {
     
     
     Button(action: {
-        isPresentedNewPost.toggle()
         
+            if authvm.thereIsACar{
+        isPresentedNewPost.toggle()
+            }
+            else
+            {
+                showNoCarAlert.toggle()
+            }
     }, label:  {
         
         Image(systemName: "plus")

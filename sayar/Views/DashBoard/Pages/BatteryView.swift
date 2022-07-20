@@ -10,6 +10,8 @@ import SwiftUI
 struct BatteryView: View {
     @EnvironmentObject var vm : BatteryViewModel
     @State var isPresentedNewPost = false
+    @State var showNoCarAlert = true
+    @EnvironmentObject var authvm : AuthViewModel
     
     var body: some View {
         
@@ -99,7 +101,9 @@ plusBottonOil
             
             
           
-    
+.alert("you did not add a car yet", isPresented: $showNoCarAlert) {
+    Button("OK", role: .cancel) { }
+}
     
     
     }//body1
@@ -114,7 +118,13 @@ var plusBottonOil: some View {
     
     
     Button(action: {
-        isPresentedNewPost.toggle()
+        if authvm.thereIsACar{
+    isPresentedNewPost.toggle()
+        }
+        else
+        {
+            showNoCarAlert.toggle()
+        }
     }, label:  {
         
         Image(systemName: "plus")
