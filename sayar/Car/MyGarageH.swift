@@ -35,11 +35,11 @@ struct MyGarageH: View {
         
         
         Text("BJHBJHBHJB")
-        List {
-            ForEach (vm.car) { Car in
-             //   CarRowView(car: <#T##Car#>)
-            }//for
-        }//LIST
+//        List {
+//            ForEach (vm.car) { Car in
+//             //   CarRowView(car: <#T##Car#>)
+//            }//for
+//        }//LIST
 
 
 

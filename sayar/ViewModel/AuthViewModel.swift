@@ -15,11 +15,23 @@ import FirebaseStorage
 
 
 final class AuthViewModel: ObservableObject {
-  // @Published var userSession : Firebase.User?
+    
+//image
+//    @Published var imageUser : UIImage?
+//    var addCarViewModel2 = addCarViewModel.shared
+    
+    
+        //@Published var :UIImage?
+    //  @Published var imageUser: UIImage?
+      //  @Published var defaultImageCar = Image("Cardefault")
+          @Published  var  date  = Date()
+
+    //---------
+   @Published var userSession : Firebase.User?
   @Published var isAouthenticatting = false
   @Published var car : Car?
-  //@Published var :UIImage?
-  @Published var image: UIImage?
+
+    //-----
   static let shared = AuthViewModel()
   private var db = Firestore.firestore()
   init(){
@@ -60,24 +72,55 @@ final class AuthViewModel: ObservableObject {
     }
 
 
-    //anwar Image
-    guard let uid = Auth.auth().currentUser?.uid
-    else  {return}
-    let refe = Storage.storage().reference(withPath: uid)
-    guard let imageData = self.image?.jpegData(compressionQuality: 0.5)
-    else {return}
-    refe.putData(imageData, metadata: nil) { _, error in
-      if let error = error {
-       print("error\(error)")
-        return
-      }
-      //or
-      print("Successfull Upload")
-    }
    //------end Anwar
-
+      
+  
 
   }//fetchCar
+
+    
+    
+    //image
+  
+    
+    //------
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  func updateKilometers(newKm: Double){
+    guard let uid = Auth.auth().currentUser?.uid else {return}
+    let x = db.collection("Car").document(uid).documentID
+    db.collection("Car").document(x).updateData(["CarKM":newKm])
+  }
+
+
+
+
+
+
+  //singout
+  @Published var user : User?
+
+  func handleSignout (){
+    try? Auth.auth().signOut()
+    self.isAouthenticatting.toggle()
+    self.user=nil
+  }
+
+
+}//class
+
+
+
+
 //  func uploadCar(completion:@escaping ()->()){
 ////    guard let user = AuthViewModel.shared.user else {return}
 ////      guard cost != 0.0 else {
@@ -101,25 +144,3 @@ final class AuthViewModel: ObservableObject {
 //  }
 //
 //
-  func updateKilometers(newKm: Double){
-    guard let uid = Auth.auth().currentUser?.uid else {return}
-    let x = db.collection("Car").document(uid).documentID
-    db.collection("Car").document(x).updateData(["CarKM":newKm])
-  }
-
-
-
-
-
-
-  //singout
-  @Published var user : User?
-
-  func handleSignout (){
-    try? Auth.auth().signOut()
-    self.isAouthenticatting.toggle()
-    self.user=nil
-  }
-
-
-}//class

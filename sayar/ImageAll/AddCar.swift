@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 //enum ActiveSheet: Identifiable {
 //    case first, second
@@ -25,7 +26,8 @@ import SwiftUI
 //
 
 struct AddCar: View {
-
+//image
+ 
 
 //    @StateObject var viewModelVar = addCarViewModel()
     
@@ -233,6 +235,7 @@ struct AddCar: View {
          
 //            isPresented.toggle()
                 vm.uploadCar{}
+           
                isPresented.toggle()
                // vm.uploadCar{}
 //             showdashboard = true
