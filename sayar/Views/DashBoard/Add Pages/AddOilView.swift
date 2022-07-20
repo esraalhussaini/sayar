@@ -12,9 +12,9 @@ struct AddOilView: View {
     @State private var isShowingDialog = false
     @State private var selected = 0
     @EnvironmentObject  var vm : OilViewModel
-    var colors = ["Red", "Green", "Blue", "Tartan"]
-       @State private var selectedColor = "Red"
-
+    var KiloMeters = ["5 KiloMeters", "10 KiloMeters", "15 KiloMeters", "20 KiloMeters"]
+//       @State private var selectedKiloMeters = "5 KiloMeters"
+    @FocusState private var focusConfirm: Bool
         
     //Pluse button
 
@@ -42,12 +42,14 @@ struct AddOilView: View {
                            // TextField("Make", text:$titel)
                            // TextField("Model", text: $post )
                             
-                        }
+                        }.submitLabel(.next)
+                                .onSubmit { focusConfirm = true }
                             
                                 Section{
                                     TextField("SAR", text:$vm.costString)
                                         .keyboardType(.numberPad)
-                               
+                                        .submitLabel(.next)
+                                                .onSubmit { focusConfirm = true }
                                     
                                 }
                             
@@ -55,27 +57,31 @@ struct AddOilView: View {
                             Section{
                                 TextField("km", text:$vm.kmString)
                                     .keyboardType(.numberPad)
-                           
+                                    .submitLabel(.next)
+                                            .onSubmit { focusConfirm = true }
                                 
                             }
                             
                             Section{
 
-                                    Picker("Please choose a color", selection: $selectedColor) {
-                                                    ForEach(colors, id: \.self) {
+                                Picker("the Oil Type", selection: $vm.oilType) {
+                                                    ForEach(KiloMeters, id: \.self) {
                                                         Text($0)
-                                                    }
-                               }
+                                                    }.pickerStyle(.segmented)
+                               }.submitLabel(.next)
+                                    .onSubmit { focusConfirm = true }
 
-                                TextField("oil Type", text:$vm.oilType)
-                                    .keyboardType(.twitter)
-                                
+//                                TextField("oil Type", text:$vm.oilType)
+//                                    .keyboardType(.twitter)
+                                Section{
                                 TextField("oil Company", text:$vm.oilCompany)
                                     .keyboardType(.twitter)
-                                
+                                    .submitLabel(.done)
+                                    .focused($focusConfirm)
+
                               
                                 
-                         //   }
+                            }
                             
                             
                         }
