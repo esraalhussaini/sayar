@@ -24,9 +24,9 @@ struct TiresView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(AuthViewModel.shared.formateNumber(double:tires.cost))").fontWeight(.heavy)
+                        Text("\(AuthViewModel.shared.formateNumber(double:tires.cost))SR").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(tires.km)")
+                        Text("\(tires.km)KM")
                             .font(.caption)
                             .foregroundColor(.gray)
                             
