@@ -75,7 +75,7 @@ struct AddCar: View {
                         Section{
                             TextField("Make", text:$addCarViewModel.carMake)
                              
-                            TextField("Model", text: $addCarViewModel.carModelString )
+                            TextField("Model", text: $addCarViewModel.carModelString)
                             
                             
                         }

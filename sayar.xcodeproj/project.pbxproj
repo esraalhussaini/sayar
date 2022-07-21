@@ -63,6 +63,9 @@
 		E89EB1B628838C0500259137 /* CreateNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B528838C0500259137 /* CreateNotificationView.swift */; };
 		E8A37CB0287F50CD00C11F8F /* EditCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CAF287F50CD00C11F8F /* EditCar.swift */; };
 		E8A37CB2287F526700C11F8F /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CB1287F526700C11F8F /* CarDetailsView.swift */; };
+		E8B5B1F12888DD2100D6A825 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B1F02888DD2100D6A825 /* LoadingView.swift */; };
+		E8B5B1F32888DDFF00D6A825 /* DemoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B1F22888DDFF00D6A825 /* DemoImage.swift */; };
+		E8B5B1F52888FBB900D6A825 /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B1F42888FBB900D6A825 /* AccountVM.swift */; };
 		E8BC471A286204F20001395A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E8BC4719286204F20001395A /* FirebaseMessaging */; };
 		E8BC471C286207040001395A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E8BC471B286207040001395A /* FirebaseFirestoreSwift */; };
 		E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */; };
@@ -125,6 +128,9 @@
 		E89EB1B528838C0500259137 /* CreateNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationView.swift; sourceTree = "<group>"; };
 		E8A37CAF287F50CD00C11F8F /* EditCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCar.swift; sourceTree = "<group>"; };
 		E8A37CB1287F526700C11F8F /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		E8B5B1F02888DD2100D6A825 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E8B5B1F22888DDFF00D6A825 /* DemoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoImage.swift; sourceTree = "<group>"; };
+		E8B5B1F42888FBB900D6A825 /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
 		E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		E8F9785528874D25006B113B /* imageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUser.swift; sourceTree = "<group>"; };
@@ -175,10 +181,10 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
+				E8A37CB3287F575300C11F8F /* Car */,
 				E8F9785828876B21006B113B /* ImageAll */,
 				E82235A02886A3F100D4D8A3 /* Reports */,
 				E89EB1AE2883887900259137 /* Notification */,
-				E8A37CB3287F575300C11F8F /* Car */,
 				E8305CB3286C6B84006505CF /* Image */,
 				D82EA9F7284F2F95000F7DF5 /* Views */,
 				E8F3C85B285380DA008E131E /* Model */,
@@ -319,7 +325,6 @@
 		E874950E285A90AA0049BB4B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E836B579285F837A00C5700B /* AuthViewModel.swift */,
 				D8E4154328607193006FDC58 /* FuelViewModel.swift */,
 				D8E4154828632723006FDC58 /* OilViewModel.swift */,
 				D8E4154A28632737006FDC58 /* BatteryViewModel.swift */,
@@ -342,9 +347,16 @@
 		E8A37CB3287F575300C11F8F /* Car */ = {
 			isa = PBXGroup;
 			children = (
+				E83C77F42862ECC600B55D64 /* User.swift */,
 				F0B7B0332857448200D5E018 /* MyGarageH.swift */,
+				E8B5B1F42888FBB900D6A825 /* AccountVM.swift */,
+				E8B5B1F22888DDFF00D6A825 /* DemoImage.swift */,
+				E8B5B1F02888DD2100D6A825 /* LoadingView.swift */,
 				E8A37CB1287F526700C11F8F /* CarDetailsView.swift */,
 				E8A37CAF287F50CD00C11F8F /* EditCar.swift */,
+				E836B579285F837A00C5700B /* AuthViewModel.swift */,
+				E8410C3A2864697500C3F80D /* AddCarViewModel.swift */,
+				E8749507285A89E10049BB4B /* AddCar.swift */,
 			);
 			path = Car;
 			sourceTree = "<group>";
@@ -353,7 +365,6 @@
 			isa = PBXGroup;
 			children = (
 				D8F6D1DE2859F4AC0007B9CB /* Fuel.swift */,
-				E83C77F42862ECC600B55D64 /* User.swift */,
 				D8F6D1E0285AFF500007B9CB /* Oil.swift */,
 				D8F6D1E2285AFF5E0007B9CB /* Battery.swift */,
 				D8F6D1E4285AFF6F0007B9CB /* Tires.swift */,
@@ -366,9 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F9785528874D25006B113B /* imageUser.swift */,
-				E8410C3A2864697500C3F80D /* AddCarViewModel.swift */,
 				E874950B285A903A0049BB4B /* Car.swift */,
-				E8749507285A89E10049BB4B /* AddCar.swift */,
 			);
 			path = ImageAll;
 			sourceTree = "<group>";
@@ -470,9 +479,11 @@
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiresView.swift in Sources */,
 				E836B576285F7FEE00C5700B /* AuthView.swift in Sources */,
+				E8B5B1F32888DDFF00D6A825 /* DemoImage.swift in Sources */,
 				E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */,
 				D8E4154D2863279F006FDC58 /* TiresViewModel.swift in Sources */,
 				E8A37CB0287F50CD00C11F8F /* EditCar.swift in Sources */,
+				E8B5B1F12888DD2100D6A825 /* LoadingView.swift in Sources */,
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
 				6F185A2D286B194A003E2088 /* HelpView.swift in Sources */,
 				E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */,
@@ -492,6 +503,7 @@
 				E8410C3B2864697500C3F80D /* AddCarViewModel.swift in Sources */,
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
+				E8B5B1F52888FBB900D6A825 /* AccountVM.swift in Sources */,
 				02DFCAA42885AA30009DE7BE /* ReportsView.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
 				E8305CBA286C6C70006505CF /* ZoomableScrollView.swift in Sources */,

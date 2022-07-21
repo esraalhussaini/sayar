@@ -106,7 +106,7 @@ struct HomeCarViewModel: View {
                 .frame(width: 200, height: 300)
             
         }
-
+       // .padding(60)
 
 
 

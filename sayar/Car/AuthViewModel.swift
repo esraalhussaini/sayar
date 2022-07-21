@@ -30,7 +30,7 @@ final class AuthViewModel: ObservableObject {
    @Published var userSession : Firebase.User?
   @Published var isAouthenticatting = false
   @Published var car : Car?
-
+  
     //-----
   static let shared = AuthViewModel()
   private var db = Firestore.firestore()
@@ -66,9 +66,9 @@ final class AuthViewModel: ObservableObject {
         return
       }
       self.car = Car(dictionary: data)
-      //self.isAouthenticatting = true
-      print(self.car?.carMake)
-      completion()
+      ///self.isAouthenticatting = true
+     print(self.car?.carMake)
+    completion()
     }
 
 
@@ -138,6 +138,17 @@ final class AuthViewModel: ObservableObject {
     self.user=nil
   }
 
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
 
 }//class
 

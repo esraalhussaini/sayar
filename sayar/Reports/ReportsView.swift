@@ -17,11 +17,14 @@ struct ReportsView: View {
     /// Values displayed in the time dropdown
     var dataSourceTimeRange = ["This week","This month","This year"]
     var body: some View {
-        
+        NavigationView{
+            ScrollView{
+     
         ZStack {
             VStack(alignment: .leading) {
-                Text("Report")
-                    .fontWeight(.semibold).font(.system(size: 25))
+             
+//                Text("Report")
+//                    .fontWeight(.semibold).font(.system(size: 25))
                 HStack{
                     Text("Cost Comparison Chart")
                     Spacer()
@@ -45,10 +48,12 @@ struct ReportsView: View {
                     } label: {
                         HStack() {
                             Text(dataSourceTimeRange[selectedTime]).padding([.leading,.vertical]).foregroundColor(Color.red)
+                                .font(.caption2)
                             Image(systemName: "chevron.down").foregroundColor(Color.red).padding()
                         }.overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.red, lineWidth: 2)
+                                .frame(width: 105, height: 30)
                         )
                         
                     }
@@ -82,7 +87,10 @@ struct ReportsView: View {
                 Spacer()
             }
         }
-        
+        .navigationTitle("My Garage")
+            }//sarcroll
+            
+        }//nav
     }
 }
 
