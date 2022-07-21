@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+enum FocusText {
+    case cost, Kilometer, oilcompany
+}
 struct AddOilView: View {
+    
+    @FocusState private var focusField: FocusText?
 
     @State private var isShowingDialog = false
     @State private var selected = 0
     @EnvironmentObject  var vm : OilViewModel
     var KiloMeters = ["3","5", "8", "10", "15",]
 //       @State private var selectedKiloMeters = "5 KiloMeters"
-    @FocusState private var focusConfirm: Bool
+//    @FocusState private var focusConfirm: Bool
         
     //Pluse button
 
@@ -42,23 +47,31 @@ struct AddOilView: View {
                            // TextField("Make", text:$titel)
                            // TextField("Model", text: $post )
                             
-                        }.submitLabel(.next)
-                                .onSubmit { focusConfirm = true }
+                        }
+                        
                             
                                 Section{
                                     TextField("SAR", text:$vm.costString)
+                                        .focused($focusField, equals: .cost)
+                                                            .submitLabel(.next)
+                                                            .onSubmit {
+                                                                focusField = .Kilometer
+                                                            }
                                         .keyboardType(.numberPad)
-                                        .submitLabel(.next)
-                                                .onSubmit { focusConfirm = true }
+                                        
                                     
                                 }
                             
                             
                             Section{
                                 TextField("km", text:$vm.kmString)
+                                    .focused($focusField, equals: .Kilometer)
+                                                        .submitLabel(.next)
+                                                        .onSubmit {
+                                                            focusField = .oilcompany
+                                                        }
                                     .keyboardType(.numberPad)
-                                    .submitLabel(.next)
-                                            .onSubmit { focusConfirm = true }
+                                   
                                 
                             }
                             
@@ -69,16 +82,17 @@ struct AddOilView: View {
                                                         Text($0)
                                                     }
                                }.pickerStyle(.segmented)
-                                .submitLabel(.next)
-                                    .onSubmit { focusConfirm = true }
+                                
 
 //                                TextField("oil Type", text:$vm.oilType)
 //                                    .keyboardType(.twitter)
                                 Section{
                                 TextField("Oil Company", text:$vm.oilCompany)
+                                        .focused($focusField, equals: .oilcompany)
+                                                            .submitLabel(.done)
+
                                     .keyboardType(.twitter)
-                                    .submitLabel(.done)
-                                    .focused($focusConfirm)
+                                    
 
                               
                                 
