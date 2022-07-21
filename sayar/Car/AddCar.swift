@@ -42,12 +42,13 @@ struct AddCar: View {
                                    
                                 }
                             } else {
-                                Image("DefualtCar")
+                                Image("Cardefault")
                           //  Image(systemName: "photo.fill")
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(0.6)
-                                    .frame(minWidth: 0, maxWidth: .infinity)
+                                    .frame(width: 100, height: 100)
+                                   // .frame(minWidth: 0, maxWidth: .infinity)
                                     .padding(.horizontal)
                             }
                             HStack {

@@ -49,11 +49,11 @@ struct ReportsView: View {
                         HStack() {
                             Text(dataSourceTimeRange[selectedTime]).padding([.leading,.vertical]).foregroundColor(Color.red)
                                 .font(.caption2)
-                            Image(systemName: "chevron.down").foregroundColor(Color.red).padding()
+                            Image(systemName: "chevron.down").foregroundColor(Color.red)//.padding()
                         }.overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.red, lineWidth: 2)
-                                .frame(width: 105, height: 30)
+                                .frame(width: 110, height: 30)
                         )
                         
                     }

@@ -95,6 +95,8 @@ struct HomeCarViewModel: View {
             VStack{
               Spacer()
               Image("Cardefault")
+                    .resizable()
+                    .frame(width: 150, height: 100)
                 .padding(60)
 
 
@@ -103,7 +105,8 @@ struct HomeCarViewModel: View {
             KFImage(URL(string: authvm.car?.CarImage ?? ""))
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 300)
+                .frame(width:300, height: 150)
+                .offset(y:52)
             
         }
        // .padding(60)
@@ -236,7 +239,7 @@ VStack(alignment: .center){
             ZStack{
               Rectangle()
                 .fill(Color("ColorOilOpa"))
-                .frame( width: 125,  height:25)
+                .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
               Text(authvm.thereIsACar ? vmOil.formatedDate() :"Estimated date not available")
@@ -303,7 +306,7 @@ VStack(alignment: .center){
             ZStack{
               Rectangle()
                 .fill(Color("ColorTiersOpa"))
-                .frame( width: 125,  height:25)
+                .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
               Text(authvm.thereIsACar ? vmTires.formatedDate() :"Estimated date not available")
@@ -373,7 +376,7 @@ VStack(alignment: .center){
             ZStack{
               Rectangle()
                 .fill(Color("ColorBatteryOpa"))
-                .frame( width:125,  height:25)
+                .frame( width:190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
               Text( authvm.thereIsACar ? vmBattery.formatedDate() :"Estimated date not available")

@@ -36,13 +36,13 @@ struct MyGarageH: View {
                                     .frame(width: 84, height: 84)
                                     .clipShape(Circle())
                             }
-                            .padding(.leading,12)
+                            .padding(.leading,-77)
                             .onTapGesture {
                                 self.prifileViewModel.isShowingImagePicker.toggle()
                             }
                             
-                            VStack(spacing:1){
-                                TextField("My Car", text:$addCarViewModel.carMake) .font(.system(size: 32,weight: .bold))
+                            VStack(alignment: .trailing, spacing: 20){
+                                Text("My Car") .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
                              
@@ -50,15 +50,15 @@ struct MyGarageH: View {
                             .padding(.trailing,16)
                         }
                         .padding()
-                        .background(
-                            ZStack{
-                                Rectangle()
-                                    .cornerRadius(18)
-                                    .foregroundColor(Color.gray)
-                                    .edgesIgnoringSafeArea(.bottom)
-                          
-                                    .offset(x: 172,y:-64)
-                            })
+//                        .background(
+//                            ZStack{
+////                                Rectangle()
+////                                    .cornerRadius(18)
+////                                    .foregroundColor(Color.gray)
+//                                    //.edgesIgnoringSafeArea(.bottom)
+//                          
+//                                  //  .offset(x: 172,y:-64)
+//                            })
                     }
                  
 //                    HStack(spacing:16){
@@ -165,7 +165,7 @@ struct MyGarageH: View {
       //
             
         }
-        .navigationBarTitle("Add car", displayMode: .inline)
+        .navigationBarTitle("My Garage", displayMode: .inline)
          
 //            .toolbar{
 //                ToolbarItem(placement: .navigationBarTrailing) {
