@@ -27,6 +27,7 @@ final class AuthViewModel: ObservableObject {
           @Published  var  date  = Date()
 
     //---------
+//@State var homePage = HomeCarViewModel()
    @Published var userSession : Firebase.User?
   @Published var isAouthenticatting = false
   @Published var car : Car?
@@ -135,6 +136,7 @@ final class AuthViewModel: ObservableObject {
   func handleSignout (){
     try? Auth.auth().signOut()
     self.isAouthenticatting.toggle()
+//      homePage.onAppear()
     self.user=nil
   }
 

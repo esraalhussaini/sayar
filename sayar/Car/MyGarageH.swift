@@ -14,9 +14,9 @@ import UIKit
 
 struct MyGarageH: View {
     @StateObject var addCarViewModel = AddCarViewModel()
-    @StateObject var prifileViewModel = AccountVM()
+  //  @StateObject var prifileViewModel = AccountVM()
     @EnvironmentObject var authViewModel : AuthViewModel
-    
+//    let CarMake = authViewModel.car?.carModel
     var body: some View {
         ZStack{
         
@@ -37,12 +37,13 @@ struct MyGarageH: View {
                                     .clipShape(Circle())
                             }
                             .padding(.leading,-77)
-                            .onTapGesture {
-                                self.prifileViewModel.isShowingImagePicker.toggle()
-                            }
-                            
+//                            .onTapGesture {
+//                                self.prifileViewModel.isShowingImagePicker.toggle()
+//                            }
+//
                             VStack(alignment: .trailing, spacing: 20){
-                                Text("My Car") .font(.system(size: 32))
+//                                \(authViewModel.shared.car?.carModel)"
+                                Text("car ") .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
                              
@@ -156,12 +157,12 @@ struct MyGarageH: View {
 //            }//vstack
             
             
-            
-            
-            if prifileViewModel.isLoading{
-                LoadingView()
-            }
-            
+//
+//
+//            if prifileViewModel.isLoading{
+//                LoadingView()
+//            }
+//
       //
             
         }
@@ -188,8 +189,8 @@ struct MyGarageH: View {
          
 
                 
-
-               prifileViewModel.fetchProfile()
+//
+//               prifileViewModel.fetchProfile()
             }
     }
 //
