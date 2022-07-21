@@ -24,7 +24,7 @@ struct OnboardingHome: View {
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(Color("ColorApp"))
-                    .frame(width: 80, height: 60)
+                    .frame(width: 70, height: 50)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -32,89 +32,86 @@ struct OnboardingHome: View {
             OffsetPageTabView(offset: $offset) {
                 
 
-                HStack(spacing: 0){
+            HStack(spacing: 0){
                  
-                    ForEach(intros){intro in
+            ForEach(intros){intro in
                      
-                        VStack{
+                VStack{
                             
-                            Image(intro.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: screenSize.height / 3)
+            Image(intro.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                    .frame(height: screenSize.height / 3)
                             
-                            VStack(alignment: .leading, spacing: 22) {
+            VStack(alignment: .leading, spacing: 22) {
                                 
-                                Text(intro.title)
-                                    .font(.title)
-                                    .fontWeight(.thin)
-                                    .foregroundColor(Color("ColorOil"))
+            Text(intro.title)
+            .font(.title)
+            .fontWeight(.medium)
+            .foregroundColor(Color("ColorApp"))
                                 
-                                Text(intro.description)
-                                    .font(.title)
-                                    .fontWeight(.light)
-                                    .foregroundColor(.primary)
+            Text(intro.description)
+            .font(.title)
+            .fontWeight(.light)
+            .foregroundColor(Color("ColorTiers"))
                             }
-                            .foregroundStyle(.white)
-                            .padding(.top,50)
-                            .frame(maxWidth: .infinity,alignment: .leading)
+                .foregroundStyle(.white)
+                .padding(.top,50)
+            .frame(maxWidth: .infinity,alignment: .leading)
                         }
-                        .padding()
-                        .frame(width: screenSize.width)
+            .padding()
+            .frame(width: screenSize.width)
                     }
                 }
             }
             
             // Animated Indicator....
-            HStack(alignment: .bottom) {
+        HStack(alignment: .bottom) {
                 
                 // Indicators...
-                HStack(spacing: 12){
+        HStack(spacing: 12){
                     
-                    ForEach(intros.indices,id: \.self){index in
+        ForEach(intros.indices,id: \.self){index in
                         
-                        Capsule()
-                            .fill(.white)
-                        // increasing width for only current index...
-                            .frame(width: getIndex() == index ? 20 : 7, height: 7)
+            Capsule()
+            .fill(.white)
+    // increasing width for only current index...
+        .frame(width: getIndex() == index ? 20 : 7, height: 7)
                     }
                 }
-                .overlay(
+        .overlay(
                 
-                    Capsule()
-                        .fill(.white)
-                        .frame(width: 20, height: 7)
-                        .offset(x: getIndicatorOffset())
+        Capsule()
+            .fill(.white)
+            .frame(width: 20, height: 7)
+        .offset(x: getIndicatorOffset())
                     
-                    ,alignment: .leading
-                )
-                .offset(x: 10, y: -15)
+        ,alignment: .leading)
+        .offset(x: 10, y: -15)
                 
-                Spacer()
+        Spacer()
                 
-                Button {
+            Button {
                     
-                    // updating offset...
-                    let index = min(getIndex() + 1, intros.count - 1)
+    // updating offset...
+    let index = min(getIndex() + 1, intros.count - 1)
                     
-                    offset = CGFloat(index) * screenSize.width
+    offset = CGFloat(index) * screenSize.width
                     
-                } label: {
-                    Image(systemName: "chevron.right")
-                        .font(.title2.bold())
-                        .foregroundColor(Color("ColorApp"))
-                        .padding(20)
-                        .background(
-                        
-                            intros[getIndex()].color,
-                            in: Circle()
-                        )
-                }
+        } label: {
+        Image(systemName: "chevron.right")
+        .font(.title2.bold())
+        .foregroundColor(Color("TabMyCar"))
+        .padding(20)
+        .background(
 
+        intros[getIndex()].color,
+        in: Circle()
+                )
+                }
             }
             .padding()
             .offset(y: -20)
-
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         // Animating when index Changes...

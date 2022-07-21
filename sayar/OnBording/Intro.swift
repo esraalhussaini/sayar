@@ -18,7 +18,7 @@ struct Intro: Identifiable{
 
 var intros : [Intro] = [
 
-    Intro(image: "1", title: "XYXY", description: "Bblblblblblblblblblblblblblbl.",color: Color("ColorTiersOpa")),
-    Intro(image: "2", title: "XYXLorem and lorem more lorem?Y", description: "blblblblblblblblblblblblblblblblblblbl.",color: Color("ColorTiersOpa")),
-    Intro(image: "3", title: "XYXY", description: "blblblblblblblblblblblblbl.",color: Color("ColorTiersOpa")),
+    Intro(image: "1", title: "Markabah", description: "Welcome to Markabah.",color: Color("ColorApp")),
+    Intro(image: "2", title: "Track your car expenses", description: "",color: Color("ColorApp")),
+    Intro(image: "3", title: "Be aware of your vehicle required maintenance", description: "START.",color: Color("ColorApp")),
 ]
