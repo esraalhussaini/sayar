@@ -54,6 +54,10 @@
 		E83C77F52862ECC600B55D64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83C77F42862ECC600B55D64 /* User.swift */; };
 		E8410C3B2864697500C3F80D /* AddCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8410C3A2864697500C3F80D /* AddCarViewModel.swift */; };
 		E865A5062871F68A00BD17F0 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */; };
+		E865C4492889A055000AC3EA /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865C4482889A055000AC3EA /* Intro.swift */; };
+		E865C44B2889A090000AC3EA /* OnboardingV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865C44A2889A090000AC3EA /* OnboardingV.swift */; };
+		E865C44D2889A0F6000AC3EA /* OnboardingHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865C44C2889A0F6000AC3EA /* OnboardingHome.swift */; };
+		E865C44F2889A19D000AC3EA /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E865C44E2889A19D000AC3EA /* OffsetPageTabView.swift */; };
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
@@ -117,6 +121,10 @@
 		E83C77F42862ECC600B55D64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8410C3A2864697500C3F80D /* AddCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewModel.swift; sourceTree = "<group>"; };
 		E865A5052871F68A00BD17F0 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		E865C4482889A055000AC3EA /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		E865C44A2889A090000AC3EA /* OnboardingV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingV.swift; sourceTree = "<group>"; };
+		E865C44C2889A0F6000AC3EA /* OnboardingHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHome.swift; sourceTree = "<group>"; };
+		E865C44E2889A19D000AC3EA /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -181,6 +189,8 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
+				E865C44728899FB8000AC3EA /* RemoveBackGround */,
+				E865C44528899F95000AC3EA /* OnBording */,
 				E8A37CB3287F575300C11F8F /* Car */,
 				E8F9785828876B21006B113B /* ImageAll */,
 				E82235A02886A3F100D4D8A3 /* Reports */,
@@ -320,6 +330,24 @@
 				E836B577285F810E00C5700B /* SecondOTP.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E865C44528899F95000AC3EA /* OnBording */ = {
+			isa = PBXGroup;
+			children = (
+				E865C4482889A055000AC3EA /* Intro.swift */,
+				E865C44A2889A090000AC3EA /* OnboardingV.swift */,
+				E865C44E2889A19D000AC3EA /* OffsetPageTabView.swift */,
+				E865C44C2889A0F6000AC3EA /* OnboardingHome.swift */,
+			);
+			path = OnBording;
+			sourceTree = "<group>";
+		};
+		E865C44728899FB8000AC3EA /* RemoveBackGround */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemoveBackGround;
 			sourceTree = "<group>";
 		};
 		E874950E285A90AA0049BB4B /* ViewModel */ = {
@@ -487,7 +515,10 @@
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
 				6F185A2D286B194A003E2088 /* HelpView.swift in Sources */,
 				E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */,
+				E865C4492889A055000AC3EA /* Intro.swift in Sources */,
+				E865C44B2889A090000AC3EA /* OnboardingV.swift in Sources */,
 				E8F9785628874D25006B113B /* imageUser.swift in Sources */,
+				E865C44D2889A0F6000AC3EA /* OnboardingHome.swift in Sources */,
 				020A13F3283D3671007C9ECE /* ContentView.swift in Sources */,
 				D8F6D1E1285AFF500007B9CB /* Oil.swift in Sources */,
 				D8F6D1D52859CC440007B9CB /* FuelView.swift in Sources */,
@@ -518,6 +549,7 @@
 				02DFCAA82885AA6D009DE7BE /* PieChartSwiftView.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,
 				D8F6D1D12859C7FE0007B9CB /* AddTierView.swift in Sources */,
+				E865C44F2889A19D000AC3EA /* OffsetPageTabView.swift in Sources */,
 				E80E90F82851534A00FE624F /* TabViewApp.swift in Sources */,
 				02DFCAAE28869861009DE7BE /* Loader.swift in Sources */,
 				E83C77F52862ECC600B55D64 /* User.swift in Sources */,

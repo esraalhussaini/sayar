@@ -123,6 +123,7 @@ struct sayarApp: App {
     var body: some Scene {
   WindowGroup {
     //AccountViewModel()
+
 TabViewApp()
           .environmentObject(AuthViewModel.shared)
           .preferredColorScheme(.light)
