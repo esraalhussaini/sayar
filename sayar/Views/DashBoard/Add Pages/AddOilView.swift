@@ -17,7 +17,7 @@ struct AddOilView: View {
     @State private var isShowingDialog = false
     @State private var selected = 0
     @EnvironmentObject  var vm : OilViewModel
-    var KiloMeters = ["3","5", "8", "10", "15",]
+    var oilType = ["3","5", "8", "10", "15",]
 //       @State private var selectedKiloMeters = "5 KiloMeters"
 //    @FocusState private var focusConfirm: Bool
         
@@ -78,7 +78,7 @@ struct AddOilView: View {
                             Section{
 //Text("The Oil Type")
                                 Picker("the Oil Type", selection: $vm.oilType) {
-                                                    ForEach(KiloMeters, id: \.self) {
+                                                    ForEach(oilType, id: \.self) {
                                                         Text($0)
                                                     }
                                }.pickerStyle(.segmented)

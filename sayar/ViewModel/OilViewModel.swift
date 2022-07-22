@@ -68,7 +68,7 @@ class OilViewModel: ObservableObject{
             self.appError = .emptyCost
             return
         }
-        let expDate = calculateExpiredDate()
+        let expDate = calculateExpiredDate(date: date, oilType: oilType)
         guard let carId = AuthViewModel.shared.car?.id else {
             print("no car")
             completion()
@@ -90,10 +90,10 @@ class OilViewModel: ObservableObject{
         DispatchQueue.main.async {
             self.db.collection("Oil").document(docRef.documentID).setData(data){ _ in
             print("Uploading Successfully , 📌")
-            //self.oil.append(Oil(data: data))
+            self.oil.append(Oil(data: data))
             print(self.oil.count,"📌")
             AuthViewModel.shared.updateKilometers(newKm:self.km)
-            self.fetchData()
+//            self.fetchData()
             completion()
             
         }
@@ -104,38 +104,41 @@ class OilViewModel: ObservableObject{
     //
     //            return}
     //    }
-    func calculateExpiredDate()->Date{
+    func calculateExpiredDate(date : Date, oilType : String )->Date{
         
         
-        let today = date
-        print(today)
+//        let today = date
+       
         var value = 0
         //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 0, to: today)!
-        if km == 3 || km == 5 || km == 8 {
+        if oilType == "3" || oilType == "5" || oilType == "8" {
             value = 183
             // for the oil of 3,5,8 months, it is six months approximately to the next chanage
         }
-        else if km == 10 || km == 15 {
+        else if oilType == "10" || oilType == "15" {
             value = 240
             // for the oil of 10,15 months, it is eight months approximately to the next chanage
         }
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: today)!
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: value, to: date)!
         //        let formatter = DateFormatter()
         //        formatter.dateFormat = "E, d MMM y"
         //        let formattedDate = formatter.string(from: modifiedDate)
-        print(modifiedDate)
+        print("Thanh \(modifiedDate)")
         return modifiedDate
         
     }
-    func formatedDate()->String{
-        //        let s = "N/A"
-        //        guard let carId = AuthViewModel.shared.car?.id else {return }
-        
-        //        here I have to check if there is a real changing date otherwise it should return "N/A"
-        let expDate = calculateExpiredDate()
+    func formatedExpiredDate(oil : Oil?)->String? {
+        guard let oil = oil else {
+            return nil
+        }
+
+//        guard let lastOild = oil.last else {return nil}
+//        let lastOildDate = oil.date
+//        let lastOildType = oil.oilType
+//        let expDate = calculateExpiredDate(date: lastOildDate,oilType:lastOildType)
         let formatter = DateFormatter()
         formatter.dateFormat = "E, d MMM y"
-        let formattedDate = formatter.string(from: expDate)
+        let formattedDate = formatter.string(from: oil.expiredDate)
         return formattedDate
     }
     func deleteOil(offsets: IndexSet) {

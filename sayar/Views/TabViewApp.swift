@@ -69,7 +69,9 @@ struct TabViewApp: View {
                  
                  
             
-    AccountViewModel()
+                 AccountViewModel(onSignout:{
+                    selection = 0
+                 })
                      .tabItem {
                       Text("Account")
                    

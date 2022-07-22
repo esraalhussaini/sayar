@@ -67,15 +67,15 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct AccountViewModel: View {
-    
     @EnvironmentObject var authViewModel : AuthViewModel
-    
-    
-   
-        init() {
+    let onSignout: () -> ()
+
+
+    init(onSignout: @escaping () -> ()) {
             UITableView.appearance().backgroundColor = .clear
-            
+            self.onSignout = onSignout
         }
+   
         
         var body: some View {
 
@@ -96,7 +96,7 @@ struct AccountViewModel: View {
                                         .frame(width: 35, height: 35);                                    VStack(alignment: .leading){
                                         Text("Personal information")
                                                 .padding(.horizontal,10)
-                                        Text("+966000000000")
+                                            Text(authViewModel.authUser?.phoneNumber ?? "+966000000000")
                                             .foregroundColor(.gray)
                                             .padding(.horizontal,10)
                                     }
@@ -171,7 +171,7 @@ struct AccountViewModel: View {
                             //                    .offset(x: 10, y: 0)
                             //
                             Button{
-                                authViewModel.handleSignout()
+                                authViewModel.handleSignout(completion: onSignout)
                               //  try! Auth.auth().signOut()
                                 print("Sign Out")
                             } label: {
@@ -213,6 +213,6 @@ struct AccountViewModel: View {
 
 struct AccountViewModel_Previews: PreviewProvider {
     static var previews: some View {
-        AccountViewModel()
+        AccountViewModel(onSignout: {})
     }
 }

@@ -52,9 +52,9 @@ class AddCarViewModel: ObservableObject{
         Double(carManufactureYearString) ?? 0.0
     }
     
-    var carModel : Double{
-        Double(carModelString) ?? 0.0
-    }
+//    var carModel : Double{
+//        Double(carModelString) ?? 0.0
+//    }
     init(){
         fetchData()
     }
@@ -91,7 +91,7 @@ class AddCarViewModel: ObservableObject{
                
                 Car.id : docRef.documentID,
                 Car.carMake : carMake,
-                Car.carModel : carModel,
+                Car.carModel : carModelString,
                 Car.carManufactureYear: carManufactureYear,
                 Car.carKm : km
             ]

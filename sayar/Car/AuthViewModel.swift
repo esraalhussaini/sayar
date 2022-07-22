@@ -47,7 +47,16 @@ final class AuthViewModel: ObservableObject {
     // fetchCar()
   }//intit
 
-
+    var authUser: Firebase.User? {
+        Auth.auth().currentUser
+        
+    }
+    func fetchCarModel()->String?{
+    //        if self.thereIsACar {
+        
+        guard let car = car else {return nil}
+        return (car.carModel)
+    }
   var thereIsACar : Bool{
     guard let id = car?.id else {
       return false
@@ -131,14 +140,17 @@ final class AuthViewModel: ObservableObject {
         }
 
   //singout
-  @Published var user : User?
+    @Published var user : User?
 
-  func handleSignout (){
-    try? Auth.auth().signOut()
-    self.isAouthenticatting.toggle()
-//      homePage.onAppear()
-    self.user=nil
-  }
+    func handleSignout (completion:@escaping()->()){
+      try? Auth.auth().signOut()
+        self.car = nil
+        
+      self.isAouthenticatting.toggle()
+
+      self.user=nil
+        completion()
+    }
 
     
     

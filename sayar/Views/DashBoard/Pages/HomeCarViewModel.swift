@@ -28,9 +28,9 @@ struct HomeCarViewModel: View {
 
   @State var showLoginPage = false
 
-  @StateObject var vmOil = OilViewModel()
-  @StateObject var vmBattery = BatteryViewModel()
-  @StateObject var vmTires = TiresViewModel()
+    @EnvironmentObject var vmOil : OilViewModel
+    @EnvironmentObject var vmBattery : BatteryViewModel
+    @EnvironmentObject var vmTires : TiresViewModel
 
   @State var isPresentedNewPost = false
   @State var Make = ""
@@ -122,7 +122,7 @@ struct HomeCarViewModel: View {
 
       HStack{
 
-        Text("My car")
+          Text(authvm.fetchCarModel() ?? "Car")
 
           .font(.title2)
           .fontWeight(.semibold)
@@ -242,7 +242,7 @@ VStack(alignment: .center){
                 .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text(authvm.thereIsACar ? vmOil.formatedDate() :"Estimated date not available")
+                Text(vmOil.formatedExpiredDate(oil:vmOil.oil.first) ?? "Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -458,17 +458,22 @@ VStack(alignment: .center){
 //    }
 
     .onAppear{
-
+        
       authvm.fetchCar{
-
+          vmOil.fetchData()
       }
+
+        
+        vmTires.fetchData()
+        vmBattery.fetchData()
+    }
 
 //      calculateExpiredDate()
 //      (completion:@escaping ()->()){
 //      vm.uploadTires {
 //        print(“Successfully!“)
 //      }
-    }
+    
 
 
 
