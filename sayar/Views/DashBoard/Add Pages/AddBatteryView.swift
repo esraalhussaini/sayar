@@ -90,21 +90,7 @@ struct AddBatteryView: View {
                             
                             
               }//form
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                      
-                        
-     Spacer()
-                            .padding(.bottom)
-                                
+    
                          
                     
                  

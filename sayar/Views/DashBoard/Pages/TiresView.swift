@@ -33,12 +33,11 @@ struct TiresView: View {
                             .foregroundColor(.gray)
                             
                     }
-                    Spacer(minLength: 5)
+                    Spacer()
                     Text("\(AuthViewModel.shared.formatedDate(date:tires.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding(.horizontal)
-                        .padding(.top)
+                        .offset(y: -30)
                     
                     
                     

@@ -43,7 +43,8 @@ struct AuthView: View {
                                   .padding(.vertical,-50)
                                   .padding()
                                Text("Enter Phone Number")
-                                   .font(.title).fontWeight(.regular)
+                    .font(.title2)
+                                   .fontWeight(.regular)
                
                 
                 

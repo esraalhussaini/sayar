@@ -43,14 +43,14 @@ struct AddTierView: View {
                                     .keyboardType(.numberPad)
                             }
                         Section{
-                         VStack {
+                       //  VStack {
 //    Picker("Please choose a Manufacture Year", selection: $vm.manufactureYEAR) {
 //                                ForEach(years, id: \.self) {
 //                                    Text("\($0)")
 //                                }
 //    }.pickerStyle(.wheel)
 //                            Text("You selected: \(selectedYear)")
-                        }
+                     //   }
                            DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
                        
                             
@@ -62,9 +62,7 @@ struct AddTierView: View {
                         }
                         
           }//form
-    
- Spacer()
-                        .padding(.bottom)
+
 
              
                 }//VSTACK IMAGE

@@ -34,22 +34,20 @@ struct AddCar: View {
                        
                         if let image = addCarViewModel.imageUser {
                     
-                                ZoomableScrollView {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFit()
-                                    .frame(minWidth: 0, maxWidth: .infinity)
-                                   
-                                }
+                                                         Image(uiImage: image)
+                                                             .resizable()
+                                    
+                                                             .frame(height: 140)
+                                                      //  .frame(minWidth:50, maxWidth: .infinity)
+                                                             .frame(minWidth:50)
+                            
                             } else {
                                 Image("Cardefault")
-                          //  Image(systemName: "photo.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .opacity(0.6)
-                                    .frame(width: 100, height: 100)
-                                   // .frame(minWidth: 0, maxWidth: .infinity)
-                                    .padding(.horizontal)
+               
+                                   .resizable()
+                           
+                                    .frame(width: 180, height: 100)
+                            
                             }
                             HStack {
                                 Button {
@@ -67,9 +65,9 @@ struct AddCar: View {
                                     Text("Photos")
                                 }
                             }
-                            Spacer()
+                       
                     }//vstack image
-             
+                    .padding()
                         
                     Form{
 
@@ -102,7 +100,7 @@ struct AddCar: View {
                     }
 
                         
-     Spacer()
+//     Spacer()
                          //   .padding(.bottom)
                                 
                          

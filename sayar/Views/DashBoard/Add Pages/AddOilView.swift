@@ -95,6 +95,7 @@ struct AddOilView: View {
                                     
 
                               
+                                        
                                 
                             }
                             
@@ -113,21 +114,7 @@ struct AddOilView: View {
                             
               }//form
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                     
-                    
-                        
-     Spacer()
-                            .padding(.bottom)
-                                
+ 
                          
                     
                  

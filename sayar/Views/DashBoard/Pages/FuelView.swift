@@ -27,12 +27,12 @@ struct FuelView: View {
                             .foregroundColor(.gray)
                             
                     }
-                    Spacer(minLength: 5)
+                    Spacer()
                     Text("\(AuthViewModel.shared.formatedDate(date: fuel.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding(.horizontal)
-                        .padding(.top)
+                        .offset(y: -30)
+                    
                     
                     
                     

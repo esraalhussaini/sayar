@@ -96,7 +96,7 @@ struct HomeCarViewModel: View {
               Spacer()
               Image("Cardefault")
                     .resizable()
-                    .frame(width: 150, height: 100)
+                    .frame(width: 200, height: 100)
                 .padding(60)
 
 
@@ -104,9 +104,9 @@ struct HomeCarViewModel: View {
             
             KFImage(URL(string: authvm.car?.CarImage ?? ""))
                 .resizable()
-                .scaledToFit()
-                .frame(width:300, height: 150)
-                .offset(y:52)
+              // .scaledToFill()
+                .frame(width:350, height: 150)
+                .offset(y:70)
             
         }
        // .padding(60)

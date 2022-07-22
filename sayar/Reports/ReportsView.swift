@@ -83,11 +83,13 @@ struct ReportsView: View {
                 }
                 else if viewModel.noDataFound{
             Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
+                        .offset(y: 150)
+                        .foregroundColor(.gray)
                 }
                 Spacer()
             }
         }
-        .navigationTitle(LocalizedStringKey("MyGarage"))
+        .navigationTitle(LocalizedStringKey("Reports"))
             }//sarcroll
             
         }//nav

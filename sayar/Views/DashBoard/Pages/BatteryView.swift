@@ -32,12 +32,11 @@ struct BatteryView: View {
                             .foregroundColor(.gray)
                             
                     }
-                    Spacer(minLength: 5)
+                    Spacer()
                     Text("\(AuthViewModel.shared.formatedDate(date:battery.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .padding(.horizontal)
-                        .padding(.top)
+                        .offset(y: -30)
                     
                     
                     

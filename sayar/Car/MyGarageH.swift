@@ -36,20 +36,21 @@ struct MyGarageH: View {
                                     .frame(width: 84, height: 84)
                                     .clipShape(Circle())
                             }
-                            .padding(.leading,-77)
+                            .padding(.leading,-120)
 //                            .onTapGesture {
 //                                self.prifileViewModel.isShowingImagePicker.toggle()
 //                            }
 //
-                            VStack(alignment: .trailing, spacing: 20){
+                            VStack{
 //                                \(authViewModel.shared.car?.carModel)"
                                 Text( authViewModel.fetchCarModel() ?? "Car")
                                     .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
+                                    .offset(x: -30)
                              
                             }
-                            .padding(.trailing,16)
+                            //.padding(.trailing,16)
                         }
                         .padding()
 //                        .background(

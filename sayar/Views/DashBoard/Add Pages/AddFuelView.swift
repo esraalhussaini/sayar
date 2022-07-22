@@ -76,19 +76,7 @@ struct AddFuelView: View {
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                 
-                
-                    
- Spacer()
-                        .padding(.bottom)
-                            
-                     
-                
+   
              
                 }//VSTACK IMAGE
              

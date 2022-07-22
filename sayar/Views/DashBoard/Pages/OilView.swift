@@ -30,12 +30,15 @@ struct OilView: View {
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
                                 
                         }
-                        Spacer(minLength: 5)
+                       // Spacer(minLength: 5)
+                        Spacer()
                         Text("\(AuthViewModel.shared.formatedDate(date:oil.date))")
                             .font(.caption)
                             .foregroundColor(.gray)
-                            .padding(.horizontal)
-                            .padding(.top)
+                            .offset(y: -30)
+                        
+                      
+                            
 //                            .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
     
                     }.padding().background(Color("Grey"))
