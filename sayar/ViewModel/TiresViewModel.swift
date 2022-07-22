@@ -43,7 +43,7 @@ class TiresViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarTires").getDocuments { snapshot, error in
         
-            
+                    DispatchQueue.main.async {
             if let docs = snapshot?.documents{
                 docs.forEach { doc in
                     let docId = doc.documentID
@@ -53,7 +53,7 @@ class TiresViewModel: ObservableObject{
 //                    print(tires.cost,"🤚🏻")
                     self.tires.append(tires)
                 }
-                
+                }
             }
             
             }
@@ -65,21 +65,17 @@ class TiresViewModel: ObservableObject{
     
     
     func uploadTires(completion:@escaping ()->()){
-    //        guard let user =  AuthViewModel.shared.user else {return}
-//          guard caption != "" else {
-//              print("Please, type something")
-//              return}
+  
         guard !costString.isEmpty else {
             self.appError = .emptyCost
             return
         }
-          let expDate = calculateExpiredDate()
+          let expDate = calculateExpiredDate(date: date)
         guard let carId = AuthViewModel.shared.car?.id else {
             completion()
             return}
         let docRef = db.collection("Car").document(carId).collection("CarTires").document()
         docRef.setData(["id": docRef.documentID])
-//          let docRef = db.collection("Tires").document()
           let data : [String:Any] = [
             Tires.cost : cost ,
             Tires.id:docRef.documentID,
@@ -90,33 +86,33 @@ class TiresViewModel: ObservableObject{
             Tires.manufactureYear:manufactureYEAR,
             Tires.tireCompany: tireComp
           ]
-        db.collection("Tires").document(docRef.documentID).setData(data){ _ in
-            print("Uploading Successfully")
+        DispatchQueue.main.async {
+            self.db.collection("Tires").document(docRef.documentID).setData(data){ _ in
+            self.tires.append(Tires(data: data))
           
             AuthViewModel.shared.updateKilometers(newKm:self.km)
 
-            self.fetchData()
+//            self.fetchData()
             completion()
           }
       }
-    func calculateExpiredDate()->(Date){
-        let today = date
-        print(today)
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 548, to: today)!
+    }
+    func calculateExpiredDate(date : Date)->(Date){
+   
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 548, to: date)!
 //        for the tires, it is year and a half approximately to the next chanage
         print(modifiedDate)
          return modifiedDate
     }
     
-    func formatedDate()->String{
-//        let s = "N/A"
-//        guard let carId = AuthViewModel.shared.car?.id else {return }
-        
-//        here I have to check if there is a real changing date otherwise it should return "N/A"
-        let expDate = calculateExpiredDate()
+    func formatedExpiredDate(tires : Tires?)->String?{
+        guard let tires = tires else {
+          return nil
+        }
+//        let expDate = calculateExpiredDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "E, d MMM y"
-        let formattedDate = formatter.string(from: expDate)
+        let formattedDate = formatter.string(from: tires.expiredDate)
         return formattedDate
     }
     

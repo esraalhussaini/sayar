@@ -309,7 +309,7 @@ VStack(alignment: .center){
                 .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text(authvm.thereIsACar ? vmTires.formatedDate() :"Estimated date not available")
+                Text(vmTires.formatedExpiredDate(tires :vmTires.tires.first) ?? "Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -379,7 +379,7 @@ VStack(alignment: .center){
                 .frame( width:190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-              Text( authvm.thereIsACar ? vmBattery.formatedDate() :"Estimated date not available")
+                Text(vmBattery.formatedExpiredDate(battery: vmBattery.battery.first) ?? "Estimated date not available")
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -461,11 +461,9 @@ VStack(alignment: .center){
         
       authvm.fetchCar{
           vmOil.fetchData()
-      }
-
-        
-        vmTires.fetchData()
-        vmBattery.fetchData()
+          vmTires.fetchData()
+          vmBattery.fetchData()
+      }   
     }
 
 //      calculateExpiredDate()
@@ -540,13 +538,13 @@ VStack(alignment: .center){
 
 
 
-func calculateExpiredDate()->(Date){
-  let today = Date()
-  print(today,"📍")
-  let modifiedDate = Calendar.current.date(byAdding: .day, value: 60, to: today)!
-  print(modifiedDate,"📍")
-   return modifiedDate
-}
+//func calculateExpiredDate()->(Date){
+//  let today = Date()
+//  print(today,"📍")
+//  let modifiedDate = Calendar.current.date(byAdding: .day, value: 60, to: today)!
+//  print(modifiedDate,"📍")
+//   return modifiedDate
+//}
 
 
 

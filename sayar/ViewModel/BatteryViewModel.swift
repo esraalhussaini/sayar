@@ -34,7 +34,7 @@ class BatteryViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarBattery").getDocuments { snapshot, error in
         
-            
+                    DispatchQueue.main.async {
             if let docs = snapshot?.documents{
                 docs.forEach { doc in
                     let docId = doc.documentID
@@ -48,57 +48,25 @@ class BatteryViewModel: ObservableObject{
 //                    print(battery.cost,"🤚🏻")
 //                    self.battery.append(battery)
                 }
-                
+            }
             }
             
         }
 
     }
-//    func fetchData(){
-//
-//        db.collection("Battery").getDocuments {snapdhot, error in
-//            guard error == nil else {
-//                print("Error \(error)")
-//                return
-//            }
-//
-//            if let docs = snapdhot?.documents{
-//                docs.forEach { doc in
-//                      let battery = Battery(data: doc.data())
-//                    print(battery.cost,"🤚🏻")
-//                    self.battery.append(battery)
-//                }
-//
-//            }
-//
-//
-//
-//        }
-//
-//    }
-
-
-    //    ********************* NOUF battery ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
     
     func uploadBattery(completion:@escaping ()->()){
   
-    //        guard let user =  AuthViewModel.shared.user else {return}
-//          guard caption != "" else {
-//              print("Please, type something")
-//              return}
         guard !costString.isEmpty else {
             self.appError = .emptyCost
             return
         }
-          let expDate = calculateExpiredDate()
+          let expDate = calculateExpiredDate(date: date)
         guard let carId = AuthViewModel.shared.car?.id else {
             completion()
             return}
         let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
         docRef.setData(["id": docRef.documentID])
-//          let docRef = db.collection("Battery").document()
           let data : [String:Any] = [
                 Battery.cost : cost ,
                 Battery.id:docRef.documentID,
@@ -108,37 +76,31 @@ class BatteryViewModel: ObservableObject{
                 Battery.expiredDate:expDate,
                 Battery.batteryCompany: batteryComp
           ]
-        db.collection("Battery").document(docRef.documentID).setData(data){ _ in
-            print("Uploading Successfully")
+        DispatchQueue.main.async {
+            self.db.collection("Battery").document(docRef.documentID).setData(data){ _ in
+            self.battery.append(Battery(data: data))
            
             AuthViewModel.shared.updateKilometers(newKm:self.km)
 
-            self.fetchData()
+//            self.fetchData()
             completion()
-            
         }
-//          docRef.setData(data){ _ in
-//              print("Uploading Successfully")
-//              completion()
-//          }
+        }
       }
-    func calculateExpiredDate()->(Date){
-        let today = date
-        print(today)
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 365, to: today)!
+    func calculateExpiredDate(date : Date)->(Date){
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 365, to: date)!
         //        for the battery, it is year approximately to the next chanage
         print(modifiedDate)
          return modifiedDate
     }
-    func formatedDate()->String{
-//        let s = "N/A"
-//        guard let carId = AuthViewModel.shared.car?.id else {return }
-        
-//        here I have to check if there is a real changing date otherwise it should return "N/A"
-        let expDate = calculateExpiredDate()
+    func formatedExpiredDate(battery : Battery?)->String?{
+        guard let battery = battery else {
+            return nil
+        }
+//        let expDate = calculateExpiredDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "E, d MMM y"
-        let formattedDate = formatter.string(from: expDate)
+        let formattedDate = formatter.string(from: battery.expiredDate)
         return formattedDate
     }
     
@@ -164,22 +126,5 @@ class BatteryViewModel: ObservableObject{
     
     }
     
-//    func deleteBattery(battery: Battery) {
-//        let batteryId = battery.id
-//        guard let carId = AuthViewModel.shared.car?.id else {return}
-//       // let docRef = db.collection("Car").document(carId).collection("CarFuel").document(fuelId)
-//      //  let docId = docRef.documentID
-//        db.collection("Car").document(carId).collection("CarBattery").document(batteryId).delete()
-//        db.collection("Battery").document(batteryId).delete()  { err in
-//        if let err = err {
-//          print("Error removing document: \(err)")
-//        }
-//        else {
-//          print("Document successfully removed!")
-//        }
-//      }
-//
-//
-//    }
     
 }

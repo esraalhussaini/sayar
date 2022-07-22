@@ -45,17 +45,17 @@ class FuelViewModel: ObservableObject{
     
     func fetchData(){
         self.fuel = []
-        print("Fetching")
+    
         guard let carId = AuthViewModel.shared.car?.id else {return}
                 db.collection("Car").document(carId).collection("CarFuel").getDocuments { snapshot, error in
-                    
+                    DispatchQueue.main.async {
                     if let docs = snapshot?.documents{
                         docs.forEach { doc in
                             let docId = doc.documentID
                             self.db.collection("Fuel").document(docId).getDocument { snapshot, error in
                                 guard let docData = snapshot?.data() else {return}
                                 let fuel = Fuel(data: docData)
-                              print(fuel.cost,"🤚🏻")
+                             
                               self.fuel.append(fuel)
                                 
                             }
@@ -64,88 +64,13 @@ class FuelViewModel: ObservableObject{
                         
                     }
                     
-                    
+                    }
                     
                 }
     }
-//        db.collection("Fuel").getDocuments {snapdhot, error in
-//            guard error == nil else {
-//                print("Error \(error)")
-//                return
-//            }
-//
-//            if let docs = snapdhot?.documents{
-//                docs.forEach { doc in
-//                      let fuel = Fuel(data: doc.data())
-//                    print(fuel.cost,"🤚🏻")
-//                    self.fuel.append(fuel)
-//                }
-//
-//            }
-//
-//
-//
-//        }
-        
-//        db.collection("Fuel").addSnapshotListener { querySnapshot, error in
-//
-//            guard let documents = querySnapshot?.documents else {
-//
-//
-//                print("no documents")
-//                return
-//            }
-//
-//            self.fuel = documents.map(){ (queryDocumentSnapshot) -> Fuel in
-//                let data = queryDocumentSnapshot.data()
-//
-//              //  let id = data["id"] as! String
-//                let carID = data["carID"] as? String ?? "N/A"
-//                let cost = data["cost"] as? Double ?? 0.0
-//                let km = data["km"] as? Int ?? 0
-//                let date = data["date"] as! Double
-//
-//
-//                //let fuel = Fuel(carID: carID,cost: cost, date: date , id: id , km: km )
-//                return Fuel(id: .init(), carID: carID,cost: cost, km: km, date: date )
-//
-//
-//
-//            }
-//        }
-        
-//
-//        // read the documents at a specific path
-//        db.collection("Fuel").getDocuments { snapshot , error in
-//             //check for error
-//            if error == nil{
-//                //no errors
-//            }
-//
-//            if let snapshot = snapshot {
-//
-//                //get all the document and create instance of fuel
-//                snapshot.documents.map { d in
-//                  return Fuel(data: <#T##[String : Any]#>)                }
-//
-//
-//
-//            }else{}
-//        }
-//
-//
-//    }
 
-//    ********************* NOUF fule ***********************
-    //    var fueldata : [String:String] = [:]
-    //    fueldata[Fuel.carID] = self.
     
         func uploadFuel(completion:@escaping ()->()){
-            
-    //        guard let user =  AuthViewModel.shared.user else {return}
-//            guard cost != 0.0 else {
-//                print("Please, type something")
-//                return}
     
             guard !costString.isEmpty else {
                 self.appError = .emptyCost
@@ -163,19 +88,19 @@ class FuelViewModel: ObservableObject{
                 Fuel.carID: carId,
                 Fuel.id:docRef.documentID
             ]
-            db.collection("Fuel").document(docRef.documentID).setData(data){ _ in
-                print("Uploading Successfully")
-                
+            DispatchQueue.main.async {
+                self.db.collection("Fuel").document(docRef.documentID).setData(data){ _ in
+                self.fuel.append(Fuel(data: data))
                 AuthViewModel.shared.updateKilometers(newKm:self.km)
 
-                self.fetchData()
+//                self.fetchData()
                 completion()
             }
         }
-    
-//    func deleteFuel(fuel: Fuel) {
+        }
+
     func deleteFuel(offsets: IndexSet) {
-//        let fuelId = fuel.id
+
         
         guard let index = offsets.first else {return}
         let fuel = self.fuel[index]

@@ -32,6 +32,7 @@ class OilViewModel: ObservableObject{
     }
     
     private var db = Firestore.firestore()
+    
     func fetchData(){
         self.oil = []
             guard let carId = AuthViewModel.shared.car?.id else {
@@ -60,17 +61,13 @@ class OilViewModel: ObservableObject{
     }
     
     func uploadOil(completion:@escaping ()->()){
-        //        guard let user =  AuthViewModel.shared.user else {return}
-        //          guard caption != "" else {
-        //              print("Please, type something")
-        //              return}
+       
         guard !costString.isEmpty else {
             self.appError = .emptyCost
             return
         }
         let expDate = calculateExpiredDate(date: date, oilType: oilType)
         guard let carId = AuthViewModel.shared.car?.id else {
-            print("no car")
             completion()
             return}
         let docRef = db.collection("Car").document(carId).collection("CarOil").document()
@@ -89,9 +86,7 @@ class OilViewModel: ObservableObject{
         ]
         DispatchQueue.main.async {
             self.db.collection("Oil").document(docRef.documentID).setData(data){ _ in
-            print("Uploading Successfully , 📌")
             self.oil.append(Oil(data: data))
-            print(self.oil.count,"📌")
             AuthViewModel.shared.updateKilometers(newKm:self.km)
 //            self.fetchData()
             completion()
@@ -123,7 +118,7 @@ class OilViewModel: ObservableObject{
         //        let formatter = DateFormatter()
         //        formatter.dateFormat = "E, d MMM y"
         //        let formattedDate = formatter.string(from: modifiedDate)
-        print("Thanh \(modifiedDate)")
+//        print("Thanh \(modifiedDate)")
         return modifiedDate
         
     }

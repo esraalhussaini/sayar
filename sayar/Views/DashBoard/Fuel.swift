@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 import SwiftUI
-
+import FirebaseFirestore
 
 struct Fuel : Identifiable{
     
@@ -26,7 +26,8 @@ struct Fuel : Identifiable{
         self.carID = data[Fuel.carID] as? String ?? "N/A"
         self.cost = data[Fuel.cost] as? Double ?? 0.0
         self.km = data[Fuel.km] as? Int ?? 0
-        self.date = data[Fuel.date] as? Date ?? Date()
+//        self.date = data[Fuel.date] as? Date ?? Date()
+        if let date = data[Fuel.date] as? Date { self.date = date } else if let date = (data[Fuel.date] as? Timestamp)?.dateValue() { self.date = date } else { self.date  = Date() }
     }
     
     static let id = "id"
