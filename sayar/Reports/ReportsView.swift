@@ -26,7 +26,7 @@ struct ReportsView: View {
 //                Text("Report")
 //                    .fontWeight(.semibold).font(.system(size: 25))
                 HStack{
-                    Text("Cost Comparison Chart")
+                    Text(LocalizedStringKey("CostComparisonChart"))
                     Spacer()
                     Menu {
                         /// Buttons to update the state variable the selected value from the menu 0 week, 1 month, 2 year
@@ -82,12 +82,12 @@ struct ReportsView: View {
                     ActivityIndicator(isAnimating: .constant(true), style: UIActivityIndicatorView.Style.large)
                 }
                 else if viewModel.noDataFound{
-                    Text("No Data Found").font(.system(size: 25)).bold()
+                    Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
                 }
                 Spacer()
             }
         }
-        .navigationTitle("My Garage")
+        .navigationTitle(LocalizedStringKey("MyGarage"))
             }//sarcroll
             
         }//nav

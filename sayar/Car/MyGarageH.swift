@@ -43,7 +43,7 @@ struct MyGarageH: View {
 //
                             VStack(alignment: .trailing, spacing: 20){
 //                                \(authViewModel.shared.car?.carModel)"
-                                Text("car ") .font(.system(size: 32))
+                                Text(LocalizedStringKey("car")) .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
                              
@@ -91,18 +91,8 @@ struct MyGarageH: View {
 ////
 //
 //                            }//zStack
-//
-//
-//
-//
-//
-//
-//
-//
+
 //                    .padding(.leading,12)
-//
-//
-//
 //
 //                        .onTapGesture {
 //                            self.prifileViewModel.isShowingImagePicker.toggle()
@@ -118,13 +108,7 @@ struct MyGarageH: View {
 //                        .padding(.trailing,16)
 //                        }
 //                        .padding()
-//
-//
-//
-//
-//
-//
-//
+
 //
 //                    }//hstack
                     
@@ -166,7 +150,7 @@ struct MyGarageH: View {
       //
             
         }
-        .navigationBarTitle("My Garage", displayMode: .inline)
+        .navigationBarTitle(LocalizedStringKey("My Garage"), displayMode: .inline)
          
 //            .toolbar{
 //                ToolbarItem(placement: .navigationBarTrailing) {

@@ -16,7 +16,7 @@ class ViewModel: ObservableObject {
     func showPhotoPicker() {
         if source == .camera {
             if !PickerType.checkPermissions() {
-                print("There is no camera on this device")
+                print(LocalizedStringKey("Thereisnocameraonthisdevice"))
                 return
             }
         }

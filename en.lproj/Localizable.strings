@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  sayar
+
+  Created by Hadeel Altamimi on 22/07/2022.
+  
+*/
+"car" = "car";
+"MyGarage" = "My Garage";
+"Camera" = "Camera";
+"Photos" = "Photos";
+"carManufactureYear" = "carManufactureYear";
+"km" = "km";
+"Addcar" = "Add car";
+"Cancel" = "Cancel";
+"Done" = "Done";
+"CostComparisonChart" = "Cost Comparison Chart";
+"NoDataFound" = "No Data Found";
+"Fuel" = "Fuel";
+"Oil" = "Oil";
+"Tiers" = "Tires";
+"battery" = "Battery";
+"UploadingSuccessfully" = "Uploading Successfully";
+"Userhasbeencreatedsuccessfully" = "User has been created successfully";
+"Addcar" = "Add car";
+"Notifications" = "Notifications";
+"Create" = "Create";
+"MyImages" = "My Images";
+"Thereisnocameraonthisdevice" = "There is no camera on this device";
+"ManufactureYear" = "Manufacture Year";

@@ -38,13 +38,13 @@ var body: some View {
                     vm.source = .camera
                     vm.showPhotoPicker()
                 } label: {
-                    Text("Camera")
+                    Text(LocalizedStringKey("Camera"))
                 }
                 Button {
                     vm.source = .library
                     vm.showPhotoPicker()
                 } label: {
-                    Text("Photos")
+                    Text(LocalizedStringKey("Photos"))
                 }
             }
             Spacer()
@@ -53,7 +53,7 @@ var body: some View {
 //            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
 //                .ignoresSafeArea()
 //        }
-        .navigationTitle("My Images")
+        .navigationTitle(LocalizedStringKey("My Images"))
     }
 }
 }

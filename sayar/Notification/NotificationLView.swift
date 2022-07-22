@@ -67,7 +67,7 @@ struct NotificationLView: View {
            }
            .listStyle(InsetGroupedListStyle())
            .overlay(infoOverlayView)
-           .navigationTitle("Notifications")
+           .navigationTitle(LocalizedStringKey("Notifications"))
            .onAppear(perform: notificationManager.reloadAuthorizationStatus)
            .onChange(of: notificationManager.authorizationStatus) { authorizationStatus in
                switch authorizationStatus {

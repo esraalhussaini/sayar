@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  sayar
+
+  Created by Hadeel Altamimi on 22/07/2022.
+  
+*/
+"car" = "سيارة";
+"MyGarage" = "قراجي";
+"Camera" = "الكاميرا";
+"Photos" = "الصور";
+"carManufactureYear" = "سنة تصنيع السيارة";
+"km" = "كيلو متر";
+"Addcar" = "إضافة سيارة";
+"Cancel" = "إلغاء";
+"Done" = "تم";
+"CostComparisonChart" = "مخطط مقارنة التكلفة";
+"NoDataFound" = "لا توجد بيانات";
+"Fuel" = "الوقود";
+"Oil" = "الزيت";
+"Tiers" = "عجلات السيارة";
+"battery" = "البطارية";
+"UploadingSuccessfully" = "تم الرفع بنجاح";
+"Userhasbeencreatedsuccessfully" = "تم إنشاء المستخدم بنجاح";
+"Addcar" = "إضافة سيارة";
+"Notifications" = "الإشعارات";
+"Create" = "إنشاء";
+"MyImages" = "صوري";
+"Thereisnocameraonthisdevice" = "لا يوجد أي كاميرا على هذا الجهاز";
+"ManufactureYear" = "سنة الصنع";

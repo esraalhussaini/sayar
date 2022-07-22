@@ -118,13 +118,13 @@ class AddCarViewModel: ObservableObject{
                // self.hideLoadingView()
                 docRef.setData(data){ _ in
                     print("added in \(docRef.documentID)")
-                    print("Uploading Successfully")
+                    print(LocalizedStringKey("UploadingSuccessfully"))
                     completion()
                     AuthViewModel.shared.updateKilometers(newKm:self.km)
                     
                
                 }
-                print("User has been created successfully")
+            print(LocalizedStringKey("Userhasbeencreatedsuccessfully"))
                 completion()
             }
         }

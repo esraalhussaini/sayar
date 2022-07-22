@@ -83,7 +83,7 @@ struct AddCar: View {
                   
                                 Section{
 //                                    let years = addCarViewModel.generateYearUntilNow()
-                  TextField("Manufacture Year", text:$addCarViewModel.carManufactureYearString)
+                  TextField(LocalizedStringKey("ManufactureYear"), text:$addCarViewModel.carManufactureYearString)
                                         .keyboardType(.numberPad)
 //                                    Picker("ManufactureYear", selection: $addCarViewModel.carManufactureYearString) {
 //                                        ForEach(years, id: \.self) {
@@ -91,7 +91,7 @@ struct AddCar: View {
 //                                        }
 //
 //                                }.pickerStyle(.wheel)
-                                    TextField("Km", text:$addCarViewModel.kmString)
+                                    TextField(LocalizedStringKey("Km"), text:$addCarViewModel.kmString)
                                         .keyboardType(.numberPad)
                                
                                
@@ -126,7 +126,7 @@ struct AddCar: View {
 //                    .ignoresSafeArea()
 //                }
 
-                .navigationBarTitle("Add car", displayMode: .inline)
+                .navigationBarTitle(LocalizedStringKey("Addcar"), displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
@@ -142,7 +142,7 @@ struct AddCar: View {
    
                 isPresented.toggle()
             }, label: {
-                Text("Cancel")
+                Text(LocalizedStringKey("Cancel"))
                     .accentColor(.red)
             })
 
@@ -168,7 +168,7 @@ struct AddCar: View {
                // vm.uploadCar{}
 //             showdashboard = true
             }, label: {
-                Text("Done")
+                Text(LocalizedStringKey("Done"))
                     .accentColor(.red)
              
             })

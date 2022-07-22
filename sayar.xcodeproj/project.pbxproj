@@ -75,6 +75,7 @@
 		E8D1EC3428476FFD0035C5B3 /* HomeCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */; };
 		E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */; };
 		E8F9785628874D25006B113B /* imageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9785528874D25006B113B /* imageUser.swift */; };
+		F03FD7F3288AB0EF002B3DEE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F03FD7F5288AB0EF002B3DEE /* Localizable.strings */; };
 		F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7B0332857448200D5E018 /* MyGarageH.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,8 @@
 		E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarViewModel.swift; sourceTree = "<group>"; };
 		E8D1EC372847792D0035C5B3 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		E8F9785528874D25006B113B /* imageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUser.swift; sourceTree = "<group>"; };
+		F03FD7F4288AB0EF002B3DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F03FD7F6288AB0F1002B3DEE /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0B7B0332857448200D5E018 /* MyGarageH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageH.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +170,7 @@
 		020A13E4283D3671007C9ECE = {
 			isa = PBXGroup;
 			children = (
+				F03FD7F5288AB0EF002B3DEE /* Localizable.strings */,
 				020A13EF283D3671007C9ECE /* sayar */,
 				020A13EE283D3671007C9ECE /* Products */,
 				D8E4154528607328006FDC58 /* Frameworks */,
@@ -462,6 +466,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 020A13E4283D3671007C9ECE;
 			packageReferences = (
@@ -483,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020A13F8283D3674007C9ECE /* Preview Assets.xcassets in Resources */,
+				F03FD7F3288AB0EF002B3DEE /* Localizable.strings in Resources */,
 				020A13F5283D3674007C9ECE /* Assets.xcassets in Resources */,
 				E817C9BC2844DDC4000E2105 /* GoogleService-Info.plist in Resources */,
 			);
@@ -557,6 +563,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F03FD7F5288AB0EF002B3DEE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F03FD7F4288AB0EF002B3DEE /* en */,
+				F03FD7F6288AB0F1002B3DEE /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		020A13F9283D3674007C9ECE /* Debug */ = {

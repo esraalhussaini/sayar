@@ -37,7 +37,7 @@ struct CreateNotificationView: View {
                                }
                            }
                        } label: {
-                           Text("Create")
+                           Text(LocalizedStringKey("Create"))
                                .fontWeight(.semibold)
                                .frame(maxWidth: .infinity)
                                .contentShape(Rectangle())
@@ -54,7 +54,7 @@ struct CreateNotificationView: View {
            .onDisappear {
                notificationManager.reloadLocalNotifications()
            }
-           .navigationTitle("Create")
+           .navigationTitle(LocalizedStringKey("Create"))
            .navigationBarItems(trailing: Button {
                isPresented = false
            } label: {

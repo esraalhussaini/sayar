@@ -65,7 +65,7 @@ struct CarDetailsView: View {
                             vImage.source = .camera
                             vImage.showPhotoPicker()
                         } label: {
-                            Text("Camera")
+                            Text(LocalizedStringKey("Camera"))
                         }
                         Button {
                             
@@ -74,7 +74,7 @@ struct CarDetailsView: View {
                             vImage.source = .library
                             vImage.showPhotoPicker()
                         } label: {
-                            Text("Photos")
+                            Text(LocalizedStringKey("Photos"))
                         }
                     }
                     Spacer()
@@ -108,11 +108,11 @@ struct CarDetailsView: View {
                     
                 }
           
-                        Section{
-                            Text("\(car.carManufactureYear)carManufactureYear")
+                    Section{
+            Text(LocalizedStringKey("\(car.carManufactureYear)carManufactureYear"))
                       
-                                .keyboardType(.numberPad)
-                            Text("\(car.carKm)km")
+                        .keyboardType(.numberPad)
+            Text(LocalizedStringKey("\(car.carKm)km"))
                       
                                 .keyboardType(.numberPad)
                        
