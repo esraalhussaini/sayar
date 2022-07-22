@@ -53,11 +53,12 @@ var body: some View {
 //            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
 //                .ignoresSafeArea()
 //        }
+       
+        
         .navigationTitle(LocalizedStringKey("My Images"))
     }
 }
 }
-
 struct ContentImage_Previews: PreviewProvider {
 static var previews: some View {
     ContentImage()

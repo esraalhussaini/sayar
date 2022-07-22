@@ -82,7 +82,7 @@ struct ReportsView: View {
                     ActivityIndicator(isAnimating: .constant(true), style: UIActivityIndicatorView.Style.large)
                 }
                 else if viewModel.noDataFound{
-                    Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
+            Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
                 }
                 Spacer()
             }

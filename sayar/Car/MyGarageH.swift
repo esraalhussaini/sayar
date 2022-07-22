@@ -150,7 +150,7 @@ struct MyGarageH: View {
       //
             
         }
-        .navigationBarTitle(LocalizedStringKey("My Garage"), displayMode: .inline)
+        .navigationBarTitle(LocalizedStringKey("MyGarage"), displayMode: .inline)
          
 //            .toolbar{
 //                ToolbarItem(placement: .navigationBarTrailing) {

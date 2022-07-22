@@ -17,6 +17,7 @@ class ViewModel: ObservableObject {
         if source == .camera {
             if !PickerType.checkPermissions() {
                 print(LocalizedStringKey("Thereisnocameraonthisdevice"))
+                
                 return
             }
         }

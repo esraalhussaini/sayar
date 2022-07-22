@@ -29,7 +29,6 @@ struct defaultImageCar: View {
         }
     }
 }
-
 struct defaultImageCar_Previews: PreviewProvider {
     static var previews: some View {
         defaultImageCar(size: 35, image:Image("Cardefault"))

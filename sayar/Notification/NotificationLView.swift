@@ -55,6 +55,7 @@ struct NotificationLView: View {
        var body: some View {
            List {
                ForEach(notificationManager.notifications, id: \.identifier) { notification in
+        
                    HStack {
                        Text(notification.content.title)
                            .fontWeight(.semibold)
@@ -117,3 +118,4 @@ extension NotificationLView {
         notificationManager.reloadLocalNotifications()
     }
 }
+

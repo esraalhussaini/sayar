@@ -14,6 +14,7 @@ struct CreateNotificationView: View {
        @Binding var isPresented: Bool
        var body: some View {
            List {
+              
                Section {
                    VStack(spacing: 16) {
                        HStack {
@@ -63,7 +64,6 @@ struct CreateNotificationView: View {
            })
        }
    }
-
    struct CreateNotificationView_Previews: PreviewProvider {
        static var previews: some View {
            CreateNotificationView(

@@ -15,6 +15,7 @@ struct PieSliceSwiftView: View {
         return Double.pi / 2.0 - (pieSliceData.startAngle + pieSliceData.endAngle).radians / 2.0
     }
     
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -36,7 +37,7 @@ struct PieSliceSwiftView: View {
                     Text(pieSliceData.text).font(.system(size: 13))
                         .position(
                             x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(self.midRadians)),
-                            y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(self.midRadians))
+                y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(self.midRadians))
                         )
                         .foregroundColor(Color.white)
                 }

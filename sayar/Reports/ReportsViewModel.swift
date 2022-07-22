@@ -12,6 +12,7 @@ import FirebaseCore
 import FirebaseFirestore
 //nouf
 
+
 class ReportViewModel: ObservableObject {
     var tireTotal  = 0.0
     var oilTotal  = 0.0

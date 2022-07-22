@@ -55,5 +55,4 @@ struct Car : Identifiable{
   static let carKm = "CarKM"
   static let CarImage = "CarImage"
    // carImageUrl
-
 }

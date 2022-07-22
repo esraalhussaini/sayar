@@ -29,6 +29,7 @@ final class NotificationManager: ObservableObject {
         }
     }
     
+
     func reloadLocalNotifications() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
             DispatchQueue.main.async {
@@ -53,6 +54,7 @@ final class NotificationManager: ObservableObject {
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: completion)
     }
+    
     
     func deleteLocalNotifications(identifiers: [String]) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
