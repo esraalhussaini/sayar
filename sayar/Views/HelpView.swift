@@ -33,7 +33,7 @@ struct HelpView: View {
                     VStack(alignment: .leading){
                     Text(LocalizedStringKey("Markabah"))
                     Text(LocalizedStringKey("Riyadh"))
-                    Text("Support@Markabah.com")
+                    Text("MarkabahApp@gmail.com")
                     } //.font(.callout)
                 }.listRowBackground(Color.gray
                     .opacity(/*@START_MENU_TOKEN@*/0.1/*@END_MENU_TOKEN@*/))

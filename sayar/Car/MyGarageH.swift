@@ -45,7 +45,7 @@ struct MyGarageH: View {
 //
                             VStack{
 //                                \(authViewModel.shared.car?.carModel)"
-                                Text(LocalizedStringKey( authViewModel.fetchCarModel() ?? "Car"))
+                                Text(authViewModel.fetchCarModel() ?? "")
                                     .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
