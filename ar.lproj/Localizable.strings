@@ -7,7 +7,8 @@
 */
 "car" = "سيارة";
 "Car" = "سيارة";
-"MyGarage" = "قراجي";
+"MyGarage" = "قراجي"
+"Model" = "الموديل";
 "Camera" = "الكاميرا";
 "Photos" = "الصور";
 "carManufactureYear" = "سنة تصنيع السيارة";

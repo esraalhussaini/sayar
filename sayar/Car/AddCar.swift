@@ -55,14 +55,14 @@ struct AddCar: View {
                                     vImage.source = .camera
                                     vImage.showPhotoPicker()
                                 } label: {
-                                    Text("Camera")
+                                    Text(LocalizedStringKey("Camera"))
                                 }
                                 Button {
                                   
                                     vImage.source = .library
                                     vImage.showPhotoPicker()
                                 } label: {
-                                    Text("Photos")
+                                    Text(LocalizedStringKey("Photos"))
                                 }
                             }
                        
@@ -74,7 +74,7 @@ struct AddCar: View {
                         Section{
                             TextField("Make", text:$addCarViewModel.carMake)
                              
-                            TextField("Model", text: $addCarViewModel.carModelString)
+                            TextField(LocalizedStringKey("Model"), text: $addCarViewModel.carModelString)
                             
                             
                         }
