@@ -94,7 +94,7 @@ struct AccountViewModel: View {
                                     Image("person.crop.circle")
                                         .resizable()
                                         .frame(width: 35, height: 35);                                    VStack(alignment: .leading){
-                                        Text("Personal information")
+                                        Text(LocalizedStringKey("Personalinformation"))
                                                 .padding(.horizontal,10)
                                             Text(authViewModel.authUser?.phoneNumber ?? "+966000000000")
                                             .foregroundColor(.gray)
@@ -178,7 +178,7 @@ struct AccountViewModel: View {
                                 HStack{
                                     
                                     Image("Group 1724")
-                                Text(LocalizedStringKey("Sign Out"))
+                                Text(LocalizedStringKey("SignOut"))
                                     //
                                         .foregroundColor(.red)
                                 }
