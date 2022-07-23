@@ -21,7 +21,16 @@ import FirebaseFirestoreSwift
 //}
 
 
+
+
 struct AuthView: View {
+    
+   // @Published var isLoading : Bool = false
+
+ 
+    
+    
+    
     
     @EnvironmentObject var authViewModel : AuthViewModel
     @State var isShowingHomeView: Bool = false
@@ -74,18 +83,25 @@ struct AuthView: View {
                     
                     authManager.createUserWithPhoneNumber(phoneNumber: phoneNumber) { isSuccess in
                         print("DEBUG: phone \(isSuccess)")
-                        
+                      //  self.showLoadingView()
                     }
                     
                 } label: {
                     Text("Create Account")
                         .accentColor(.red)
                     // .keyboardType(.numberPad)
+                 
                 }
                 
             
                 //---------------------------------------
+           // if authManager.isLoading{LoadingView()}
+                
+              //
+                
+        //    self.showLoadingView()
                 Divider()
+              
                               .frame(height: 1)
                               .padding(.horizontal, 30)
                               .background(Color.white)
@@ -153,7 +169,17 @@ struct AuthView: View {
             
             //
         }//NAV
+        
     }
+    
+    
+    
+    
+ 
+    
+    
+    
+    
 }
 
 
@@ -175,6 +201,7 @@ struct AuthView: View {
 //class
 
 class AuthManager: ObservableObject {
+//    @Published var isLoading : Bool = false
     @Published var verificationId: String?
     private let auth = Auth.auth()
     
@@ -225,6 +252,16 @@ class AuthManager: ObservableObject {
             completion(true)
         }
     }
+    
+    
+    
+    
+ 
+//
+//    private func showLoadingView(){isLoading = true}
+//    private func hideLoadingView(){isLoading = false}
+    
+
 }
 
 

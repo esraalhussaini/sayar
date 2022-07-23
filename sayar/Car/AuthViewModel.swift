@@ -15,7 +15,8 @@ import FirebaseStorage
 
 
 final class AuthViewModel: ObservableObject {
-    
+
+//    @Published var isLoading : Bool = false
 //image
 //    @Published var imageUser : UIImage?
 //    var addCarViewModel2 = addCarViewModel.shared
@@ -153,10 +154,6 @@ final class AuthViewModel: ObservableObject {
     }
 
     
-    
-    
-    
-  
     
     
     

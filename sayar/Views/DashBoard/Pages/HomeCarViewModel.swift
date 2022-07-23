@@ -9,7 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct HomeCarViewModel: View {
-
+    //OnBording
+@AppStorage("_showOnbording") var showOnbording : Bool = true
+    //---------
+ 
+  
+    
+    
+    
 
   //For image picker
   @EnvironmentObject var vImage: ViewModel
@@ -417,9 +424,12 @@ VStack(alignment: .center){
 //-----------------------
 
 
-
-
-
+        //OnBording
+        .fullScreenCover(isPresented: $showOnbording , content: {
+              BordingView(showOnbording: $showOnbording)
+         // showOnbording: $showOnbording
+          })
+//------
 
 
 
@@ -487,7 +497,13 @@ VStack(alignment: .center){
     }//nav
 
 
-
+      
+      
+      
+      
+      
+      
+      
   }//Var Body 1
 
 
@@ -525,8 +541,13 @@ VStack(alignment: .center){
   }//VarBody2
 
 
-
-
+    
+    
+    
+    
+    
+ 
+//
 
 
 }//strct
@@ -555,6 +576,6 @@ VStack(alignment: .center){
 
 struct HomeCarViewModel_Previews: PreviewProvider {
   static var previews: some View {
-    HomeCarViewModel()
+      HomeCarViewModel()
   }
 }
