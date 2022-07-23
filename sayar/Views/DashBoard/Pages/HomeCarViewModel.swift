@@ -62,7 +62,7 @@ struct HomeCarViewModel: View {
           .frame( width: 400,  height:341)
           .shadow(radius: 8)
           .cornerRadius(16)
-          .navigationTitle("My Garage")
+          .navigationTitle(LocalizedStringKey("MyGarage"))
 
 
 
@@ -188,7 +188,7 @@ VStack(alignment: .center){
               .font(.body)
           }
           VStack(alignment: .leading, spacing: 10){
-          Text("Fuel")
+          Text(LocalizedStringKey("Fuel"))
             .font(.title3)
             .fontWeight(.medium)
 
@@ -239,7 +239,7 @@ VStack(alignment: .center){
               .font(.body)
           }
           VStack(alignment: .leading, spacing: 10){
-          Text("Oil")
+          Text(LocalizedStringKey("Oil"))
             .font(.title3)
             .fontWeight(.medium)
 
@@ -249,7 +249,7 @@ VStack(alignment: .center){
                 .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-                Text(vmOil.formatedExpiredDate(oil:vmOil.oil.first) ?? "Estimated date not available")
+                Text(LocalizedStringKey( vmOil.formatedExpiredDate(oil:vmOil.oil.first) ?? "infodataOF"))
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -306,7 +306,7 @@ VStack(alignment: .center){
               .font(.body)
           }
           VStack(alignment: .leading, spacing: 10){
-          Text("Tiers")
+          Text(LocalizedStringKey("Tires"))
             .font(.title3)
             .fontWeight(.medium)
 
@@ -316,7 +316,7 @@ VStack(alignment: .center){
                 .frame( width: 190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-                Text(vmTires.formatedExpiredDate(tires :vmTires.tires.first) ?? "Estimated date not available")
+                Text(LocalizedStringKey( vmTires.formatedExpiredDate(tires :vmTires.tires.first) ?? "infodataOF"))
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -376,7 +376,7 @@ VStack(alignment: .center){
               .font(.body)
           }
           VStack(alignment: .leading, spacing: 10){
-          Text("Bettery")
+          Text(LocalizedStringKey("Battery"))
             .font(.title3)
             .fontWeight(.medium)
 
@@ -386,7 +386,7 @@ VStack(alignment: .center){
                 .frame( width:190,  height:25)
                 .shadow(radius: 10)
                 .cornerRadius(8)
-                Text(vmBattery.formatedExpiredDate(battery: vmBattery.battery.first) ?? "Estimated date not available")
+                Text(LocalizedStringKey ( vmBattery.formatedExpiredDate(battery: vmBattery.battery.first) ?? "infodataOF"))
 
                 .font(.caption)
                 .fontWeight(.bold)
@@ -443,8 +443,8 @@ VStack(alignment: .center){
 
     //DontRemove
 //
-        .alert("you already have a car added!", isPresented: $showAlreadyHasCarAlert) {
-            Button("OK", role: .cancel) { }
+        .alert(LocalizedStringKey("youalreadyhaveacaradded"), isPresented: $showAlreadyHasCarAlert) {
+            Button(LocalizedStringKey("OK"), role: .cancel) { }
         }
     .sheet(isPresented: $isPresentedNewPost, content: {
 

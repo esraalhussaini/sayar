@@ -24,7 +24,7 @@ struct OilView: View {
                                 .foregroundColor(.black)
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
 //                            AuthViewModel.shared.formateNumber(double: oil.cost)
-                            Text("\(oil.km)KM")
+                            Text(LocalizedStringKey("\(oil.km)KM"))
                                 .font(.caption)
                                 .foregroundColor(.gray)
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
@@ -72,7 +72,7 @@ struct OilView: View {
         
         
  //Navgation Titel
-     .navigationTitle("Oil")
+     .navigationTitle(LocalizedStringKey("Oil"))
         .navigationBarTitleDisplayMode(.inline)
         .font(.title2)
         
@@ -94,8 +94,8 @@ struct OilView: View {
     
         
         
-    .alert("you did not add a car yet", isPresented: $showNoCarAlert) {
-        Button("OK", role: .cancel) { }
+    .alert(LocalizedStringKey("youdidnotaddacaryet"), isPresented: $showNoCarAlert) {
+        Button(LocalizedStringKey("OK"), role: .cancel) { }
     }
  
     

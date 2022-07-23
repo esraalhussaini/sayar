@@ -39,7 +39,7 @@ struct AddTierView: View {
                                 TextField("SAR", text:$vm.costString)
                                     .keyboardType(.numberPad)
                            
-                                TextField("Km", text:$vm.kmString)
+                                TextField(LocalizedStringKey("Km"), text:$vm.kmString)
                                     .keyboardType(.numberPad)
                             }
                         Section{
@@ -54,7 +54,7 @@ struct AddTierView: View {
                            DatePicker("Manufacturing year", selection:$vm.manufactureYEAR, displayedComponents: .date)
                        
                             
-                            TextField(" Tire Comapany", text:$vm.tireComp)
+                            TextField(LocalizedStringKey("TireComapany"), text:$vm.tireComp)
                                 .keyboardType(.default)
                             
                        
@@ -70,7 +70,7 @@ struct AddTierView: View {
 
             }//zstack importent
 
-            .navigationBarTitle("Add Tiers", displayMode: .inline)
+            .navigationBarTitle(LocalizedStringKey("AddTires"), displayMode: .inline)
       .navigationBarItems(leading:leading   ,trailing: trailing)
            
                 
@@ -89,7 +89,7 @@ struct AddTierView: View {
             
             isPresented.toggle()
         }, label: {
-            Text("Cancel")
+            Text(LocalizedStringKey("Cancel"))
                 .accentColor(.red)
         })
 
@@ -107,7 +107,7 @@ struct AddTierView: View {
             
            isPresented.toggle()
         }, label: {
-            Text("Done")
+            Text(LocalizedStringKey("Done"))
                 .accentColor(.red)
          
         })

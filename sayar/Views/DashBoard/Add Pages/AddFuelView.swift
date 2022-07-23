@@ -58,7 +58,7 @@ struct AddFuelView: View {
                                 TextField("SAR", text:$vm.costString)
                                     .keyboardType(.numberPad)
                                 
-                                TextField("km ", text:$vm.kmString)
+                                TextField(LocalizedStringKey("km"), text:$vm.kmString)
                                         .keyboardType(.numberPad)
                                 
                                 
@@ -89,7 +89,7 @@ struct AddFuelView: View {
             
 
 
-            .navigationBarTitle("Add Fuel", displayMode: .inline)
+            .navigationBarTitle(LocalizedStringKey("AddFuel"), displayMode: .inline)
       .navigationBarItems(leading:leading   ,trailing: trailing)
            
                 
@@ -111,7 +111,7 @@ struct AddFuelView: View {
         Button(action : {
             isPresented.toggle()
         }, label: {
-            Text("Cancel")
+            Text(LocalizedStringKey("Cancel"))
                 .accentColor(.red)
         })
 
@@ -130,7 +130,7 @@ struct AddFuelView: View {
             }
         
         }, label: {
-            Text("Done")
+            Text(LocalizedStringKey("Done"))
                 .accentColor(.red)
          
         })

@@ -28,7 +28,7 @@ struct TiresView: View {
                         
                         Text("\(AuthViewModel.shared.formateNumber(double:tires.cost))SR").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(tires.km)KM")
+                        Text(LocalizedStringKey("\(tires.km)KM"))
                             .font(.caption)
                             .foregroundColor(.gray)
                             
@@ -79,7 +79,7 @@ plusBottonOil
 
 
 //Navgation Titel
-.navigationTitle("Tires")
+.navigationTitle(LocalizedStringKey("Tires"))
 .navigationBarTitleDisplayMode(.inline)
 .font(.title2)
 
@@ -102,8 +102,8 @@ AddTierView(isPresented: $isPresentedNewPost)
             
           
     
-.alert("you did not add a car yet", isPresented: $showNoCarAlert) {
-    Button("OK", role: .cancel) { }
+.alert(LocalizedStringKey("youdidnotaddacaryet"), isPresented: $showNoCarAlert) {
+    Button(LocalizedStringKey("OK"), role: .cancel) { }
 }
     
     }//body1

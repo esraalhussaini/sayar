@@ -18,7 +18,7 @@ struct CreateNotificationView: View {
                Section {
                    VStack(spacing: 16) {
                        HStack {
-                           TextField("Notification Title", text: $title)
+                           TextField(LocalizedStringKey("NotificationTitle"), text: $title)
                            Spacer()
                            DatePicker("", selection: $date, displayedComponents: [.hourAndMinute])
                        }

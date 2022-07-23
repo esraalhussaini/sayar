@@ -27,7 +27,7 @@ struct BatteryView: View {
                         
                         Text("\(AuthViewModel.shared.formateNumber(double:battery.cost))SR").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(battery.km)KM")
+                        Text(LocalizedStringKey("\(battery.km)KM"))
                             .font(.caption)
                             .foregroundColor(.gray)
                             
@@ -78,7 +78,7 @@ plusBottonOil
 
 
 //Navgation Titel
-.navigationTitle("Battery")
+.navigationTitle(LocalizedStringKey("Battery"))
 .navigationBarTitleDisplayMode(.inline)
 .font(.title2)
 
@@ -100,8 +100,8 @@ plusBottonOil
             
             
           
-.alert("you did not add a car yet", isPresented: $showNoCarAlert) {
-    Button("OK", role: .cancel) { }
+.alert(LocalizedStringKey("youdidnotaddacaryet"), isPresented: $showNoCarAlert) {
+    Button(LocalizedStringKey("OK"), role: .cancel) { }
 }
     
     

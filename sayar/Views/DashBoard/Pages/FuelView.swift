@@ -22,7 +22,7 @@ struct FuelView: View {
                         
                         Text("\(AuthViewModel.shared.formateNumber(double:fuel.cost)) SR").fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("\(fuel.km) KM")
+                        Text(LocalizedStringKey("\(fuel.km) KM"))
                             .font(.caption)
                             .foregroundColor(.gray)
                             
@@ -76,7 +76,7 @@ plusBottonOil
 
 
 //Navgation Titel
-.navigationTitle("Fuel")
+.navigationTitle(LocalizedStringKey("Fuel"))
 .navigationBarTitleDisplayMode(.inline)
 .font(.title2)
 
@@ -101,8 +101,8 @@ plusBottonOil
             
           
     
-.alert("you did not add a car yet", isPresented: $showNoCarAlert) {
-    Button("OK", role: .cancel) { }
+.alert(LocalizedStringKey("youdidnotaddacaryet"), isPresented: $showNoCarAlert) {
+    Button(LocalizedStringKey("OK"), role: .cancel) { }
 }
     
     }//body1

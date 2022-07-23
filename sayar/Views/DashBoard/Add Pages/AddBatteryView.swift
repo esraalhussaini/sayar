@@ -57,12 +57,12 @@ struct AddBatteryView: View {
                                     TextField("SAR", text:$vm.costString)
                                         .keyboardType(.numberPad)
                                     
-                                    TextField("Km", text:$vm.kmString)
+                                    TextField(LocalizedStringKey("Km"), text:$vm.kmString)
                                         .keyboardType(.numberPad)
                                     
                                 }
                             Section{
-                                TextField("Battery Comapany", text:$vm.batteryComp)
+                                TextField(LocalizedStringKey("BatteryComapany"), text:$vm.batteryComp)
                                     .keyboardType(.default)
                                 
                           
@@ -105,7 +105,7 @@ struct AddBatteryView: View {
                 
 
 
-                .navigationBarTitle("Add Battery", displayMode: .inline)
+                .navigationBarTitle(LocalizedStringKey("AddBattery"), displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
@@ -126,7 +126,7 @@ struct AddBatteryView: View {
             Button(action : {
                 isPresented.toggle()
             }, label: {
-                Text("Cancel")
+                Text(LocalizedStringKey("Cancel"))
                     .accentColor(.red)
             })
 
@@ -143,7 +143,7 @@ struct AddBatteryView: View {
                 }
                isPresented.toggle()
             }, label: {
-                Text("Done")
+                Text(LocalizedStringKey("Done"))
                     .accentColor(.red)
              
             })

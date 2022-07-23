@@ -125,7 +125,7 @@ struct AccountViewModel: View {
                                     Image("sports-car 1")
                                         .padding(.horizontal,-10)
                                     
-                                    Text("My Garage")
+                                    Text(LocalizedStringKey("MyGarage"))
                                  .padding(.horizontal,25)
                                       
 //                                    Spacer()
@@ -144,16 +144,16 @@ struct AccountViewModel: View {
                         
              .listRowBackground(Color.gray
                              .opacity(0.1))
-                        Section(header: Text("Support")){
+                        Section(header: Text(LocalizedStringKey("Support"))){
                          
-                            NavigationLink(destination: HelpView().navigationTitle("Help")){
+                            NavigationLink(destination: HelpView().navigationTitle(LocalizedStringKey("Help"))){
                             Button{
-                                print("Help")
+                                print(LocalizedStringKey("Help"))
                             } label:{
                                 HStack{
                                     Image("help 2")
                                         .padding(.horizontal,-7)
-                                    Text("Help")
+                                    Text(LocalizedStringKey("Help"))
                                         .padding(.horizontal,22)
 //                                    Spacer()
 //                                    Image("chevron.down")
@@ -173,12 +173,12 @@ struct AccountViewModel: View {
                             Button{
                                 authViewModel.handleSignout(completion: onSignout)
                               //  try! Auth.auth().signOut()
-                                print("Sign Out")
+                                print(LocalizedStringKey("SignOut"))
                             } label: {
                                 HStack{
                                     
                                     Image("Group 1724")
-                                Text("Sign Out")
+                                Text(LocalizedStringKey("Sign Out"))
                                     //
                                         .foregroundColor(.red)
                                 }
@@ -195,7 +195,7 @@ struct AccountViewModel: View {
                     //.background(Color.green)
                     //   .listRowBackground(Color.blue)
                     
-                    .navigationTitle("Account")
+                    .navigationTitle(LocalizedStringKey("Account"))
                     .navigationBarBackButtonHidden(true)
                     
                 }

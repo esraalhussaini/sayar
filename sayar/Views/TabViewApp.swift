@@ -43,7 +43,7 @@ struct TabViewApp: View {
              TabView(selection: $selection) {
             HomeCarViewModel()
                      .tabItem {
-                       Text("Car")
+                       Text(LocalizedStringKey("Car"))
                         Image("TabIconCar")
                              .renderingMode(.template)
                              .resizable()
@@ -55,7 +55,7 @@ struct TabViewApp: View {
                    
                  ReportsView()
                      .tabItem {
-                      Text("Reports")
+                      Text(LocalizedStringKey("Reports"))
                      
                           Image("Pie")
                              .renderingMode(.template)
@@ -73,7 +73,7 @@ struct TabViewApp: View {
                     selection = 0
                  })
                      .tabItem {
-                      Text("Account")
+                      Text(LocalizedStringKey("Account"))
                    
                           Image("TabIconAccount")
                              .renderingMode(.template)

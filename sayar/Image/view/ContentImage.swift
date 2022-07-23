@@ -55,7 +55,7 @@ var body: some View {
 //        }
        
         
-        .navigationTitle(LocalizedStringKey("My Images"))
+        .navigationTitle(LocalizedStringKey("MyImages"))
     }
 }
 }

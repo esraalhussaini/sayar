@@ -51,7 +51,7 @@ struct AuthView: View {
                                   .frame(width: 200, height: 50)
                                   .padding(.vertical,-50)
                                   .padding()
-                               Text("Enter Phone Number")
+                               Text(LocalizedStringKey("EnterPhoneNumber"))
                     .font(.title2)
                                    .fontWeight(.regular)
                
@@ -61,7 +61,7 @@ struct AuthView: View {
                 HStack{
                     
                   
-                    TextField("Enter Phone Number", text: $phoneNumber)
+                    TextField(LocalizedStringKey("EnterPhoneNumber"), text: $phoneNumber)
                         .keyboardType(.numberPad)
                         .padding()
                         .overlay(
@@ -87,7 +87,7 @@ struct AuthView: View {
                     }
                     
                 } label: {
-                    Text("Create Account")
+                    Text(LocalizedStringKey("CreateAccount"))
                         .accentColor(.red)
                     // .keyboardType(.numberPad)
                  
@@ -106,7 +106,7 @@ struct AuthView: View {
                               .padding(.horizontal, 30)
                               .background(Color.white)
                 
-                TextField("Enter OPT Code", text: $smsCode)
+                TextField(LocalizedStringKey("EnterOPTCode"), text: $smsCode)
                     .keyboardType(.numberPad)
                     .padding()
                     .overlay(
@@ -129,7 +129,7 @@ struct AuthView: View {
                         }
                     }
                 } label: {
-                    Text("Verify Code")
+                    Text(LocalizedStringKey("VerifyCode"))
                     
                         .accentColor(.red)
                 }
@@ -145,7 +145,7 @@ struct AuthView: View {
                         Button(action : {
                             showLoginPage.toggle()
                         }, label: {
-                            Text("Cancel")
+                            Text(LocalizedStringKey("Cancel"))
                                 .accentColor(.red)
                         })
                         

@@ -15,24 +15,22 @@ import SwiftUI
         @Binding var showOnbording: Bool
         var body: some View {
             TabView{
-                BView(title:"push" ,subtitle:"enable" ,imageName: "bell",
+                BView(title:"push" ,subtitle:"enable" ,imageName: "1",
                       showsDismissButton: false,
                       showOnbording: $showOnbording
                 )
 
-                BView(title:"push" ,subtitle:"enable" ,imageName: "bell",
+                BView(title:"push" ,subtitle:"enable" ,imageName: "2",
                       showsDismissButton: false,
                       showOnbording: $showOnbording
                 )
 
 
-                BView(title:"push" ,subtitle:"enable" ,imageName: "bell",
+                BView(title:"push" ,subtitle:"enable" ,imageName: "3",
                       showsDismissButton: true,
                       showOnbording: $showOnbording
                 )
            
-
-
             }
             .tabViewStyle(PageTabViewStyle())
 

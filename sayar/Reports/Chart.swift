@@ -20,7 +20,7 @@ protocol ChartViewModel: ObservableObject {
 
 //Models
 enum Asset {
-    case fuel , oil, tiers , battery
+    case fuel , oil, tires , battery
 }
 
 
@@ -47,7 +47,7 @@ final class AssetViewModel: ChartViewModel{
     @Published var data:[ChartDataProvidable] = [
         AssetAllocation(asset: .fuel , percentage: 0.1, description: "Fuel", color: Color("cFuel")),
         AssetAllocation(asset: .oil , percentage: 0.4, description: "Oil", color: Color("cOil")),
-        AssetAllocation(asset: .tiers , percentage: 0.3, description: "Tiers", color: Color("cTiers")),
+        AssetAllocation(asset: .tires , percentage: 0.3, description: "Tires", color: Color("cTiers")),
         AssetAllocation(asset: .battery , percentage: 0.2, description: "Battery", color: Color("cBattery")),
     ]
 }

@@ -64,7 +64,7 @@ struct AddOilView: View {
                             
                             
                             Section{
-                                TextField("km", text:$vm.kmString)
+                                TextField(LocalizedStringKey("km"), text:$vm.kmString)
                                     .focused($focusField, equals: .Kilometer)
                                                         .submitLabel(.next)
                                                         .onSubmit {
@@ -87,7 +87,7 @@ struct AddOilView: View {
 //                                TextField("oil Type", text:$vm.oilType)
 //                                    .keyboardType(.twitter)
                                 Section{
-                                TextField("Oil Company", text:$vm.oilCompany)
+                                TextField(LocalizedStringKey("OilCompany"), text:$vm.oilCompany)
                                         .focused($focusField, equals: .oilcompany)
                                                             .submitLabel(.done)
 
