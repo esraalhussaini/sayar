@@ -6,6 +6,7 @@
   
 */
 "car" = "سيارة";
+"Car" = "سيارة";
 "MyGarage" = "قراجي";
 "Camera" = "الكاميرا";
 "Photos" = "الصور";
@@ -21,6 +22,7 @@
 "Oil" = "الزيت";
 "Tires" = "عجلات السيارة";
 "battery" = "البطارية";
+"Battery" = "البطارية";
 "UploadingSuccessfully" = "تم الرفع بنجاح";
 "Userhasbeencreatedsuccessfully" = "تم إنشاء المستخدم بنجاح";
 "Addcar" = "إضافة سيارة";

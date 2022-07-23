@@ -5,7 +5,8 @@
   Created by Hadeel Altamimi on 22/07/2022.
   
 */
-"car" = "car";
+"car" = "Car";
+"Car" = "Car";
 "MyGarage" = "My Garage";
 "Camera" = "Camera";
 "Photos" = "Photos";
@@ -21,6 +22,7 @@
 "Oil" = "Oil";
 "Tires" = "Tires";
 "battery" = "Battery";
+"Battery" = "Battery";
 "UploadingSuccessfully" = "Uploading Successfully";
 "Userhasbeencreatedsuccessfully" = "User has been created successfully";
 "Addcar" = "Add car";
