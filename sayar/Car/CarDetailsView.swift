@@ -102,7 +102,7 @@ struct CarDetailsView: View {
             
                 Section{
             
-                   Text("\(car.carMake)Make")
+                   Text(LocalizedStringKey("\(car.carMake)Make"))
                   
                     Text(LocalizedStringKey("\(car.carModel)Model"))
                     

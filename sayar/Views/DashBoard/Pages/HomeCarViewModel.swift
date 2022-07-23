@@ -129,7 +129,7 @@ struct HomeCarViewModel: View {
 
       HStack{
 
-          Text(authvm.fetchCarModel() ?? "Car")
+          Text(LocalizedStringKey( authvm.fetchCarModel() ?? "Car"))
 
           .font(.title2)
           .fontWeight(.semibold)
