@@ -36,7 +36,7 @@ struct AddTierView: View {
                     }
                         
                             Section{
-                                TextField("SAR", text:$vm.costString)
+                                TextField(LocalizedStringKey("SAR"), text:$vm.costString)
                                     .keyboardType(.numberPad)
                            
                                 TextField(LocalizedStringKey("Km"), text:$vm.kmString)

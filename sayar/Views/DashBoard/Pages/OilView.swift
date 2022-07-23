@@ -20,7 +20,7 @@ struct OilView: View {
                 ForEach(vm.oil){ oil in
                     HStack{
                         VStack(alignment: .leading, spacing: 10){
-                        Text("\(AuthViewModel.shared.formateNumber(double: oil.cost))Sr").fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double: oil.cost))SAR")).fontWeight(.heavy)
                                 .foregroundColor(.black)
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
 //                            AuthViewModel.shared.formateNumber(double: oil.cost)

@@ -25,7 +25,7 @@ struct BatteryView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text("\(AuthViewModel.shared.formateNumber(double:battery.cost))SR").fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:battery.cost))SAR")).fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text(LocalizedStringKey("\(battery.km)KM"))
                             .font(.caption)

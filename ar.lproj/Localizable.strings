@@ -14,6 +14,8 @@
 "carManufactureYear" = "سنة تصنيع السيارة";
 "km" = "كيلو متر";
 "Km" = "كيلو متر";
+"SAR" = "ريال سعودي";
+"Total" = "الإجمالي";
 "Personalinformation" = "المعلومات الشخصية";
 "Addcar" = "إضافة سيارة";
 "Cancel" = "إلغاء";

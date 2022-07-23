@@ -51,7 +51,7 @@ struct AddOilView: View {
                         
                             
                                 Section{
-                                    TextField("SAR", text:$vm.costString)
+                                    TextField(LocalizedStringKey("SAR"), text:$vm.costString)
                                         .focused($focusField, equals: .cost)
                                                             .submitLabel(.next)
                                                             .onSubmit {

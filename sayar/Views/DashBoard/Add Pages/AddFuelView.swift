@@ -55,7 +55,7 @@ struct AddFuelView: View {
                     }
                         
                             Section{
-                                TextField("SAR", text:$vm.costString)
+                                TextField(LocalizedStringKey("SAR"), text:$vm.costString)
                                     .keyboardType(.numberPad)
                                 
                                 TextField(LocalizedStringKey("km"), text:$vm.kmString)
