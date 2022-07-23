@@ -197,8 +197,8 @@ VStack(alignment: .center){
 
 
          Spacer()
-
-          Image("chevron")
+//Image(systemName: "chevron.right")
+         Image("chevron")
 
         }
         .padding(.horizontal,40)

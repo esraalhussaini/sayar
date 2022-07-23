@@ -14,7 +14,7 @@ struct LoadingView: View {
                 .opacity(0.9)
                 .ignoresSafeArea()
             ProgressView()
-              //  .progressViewStyle(CircularProgressViewStyle(tint: .brandGreen2))
+                .progressViewStyle(CircularProgressViewStyle(tint: .red))
                 .scaleEffect(2)
                 .offset(y:-40)
         }

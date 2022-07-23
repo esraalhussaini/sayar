@@ -32,11 +32,13 @@ struct MyGarageH: View {
 //                                AvatarImage(size: 84,image: prifileViewModel.avatarImage)
                                 KFImage(URL(string: authViewModel.car?.CarImage ?? ""))
                                     .resizable()
-                                    .scaledToFill()
+                                   // .scaledToFill()
+                                   // .scaledToFill()
+                                    .scaledToFit()
                                     .frame(width: 84, height: 84)
                                     .clipShape(Circle())
                             }
-                            .padding(.leading,-120)
+                            .padding(.leading,-136)
 //                            .onTapGesture {
 //                                self.prifileViewModel.isShowingImagePicker.toggle()
 //                            }
@@ -47,7 +49,7 @@ struct MyGarageH: View {
                                     .font(.system(size: 32))
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.75)
-                                    .offset(x: -30)
+                                    .offset(x: -50)
                              
                             }
                             //.padding(.trailing,16)

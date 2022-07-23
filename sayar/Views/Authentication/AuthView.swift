@@ -100,6 +100,14 @@ struct AuthView: View {
               //
                 
         //    self.showLoadingView()
+                
+                
+                
+                
+                if authManager.isLoading{
+                    LoadingView()
+                }
+
                 Divider()
               
                               .frame(height: 1)
@@ -201,12 +209,22 @@ struct AuthView: View {
 //class
 
 class AuthManager: ObservableObject {
+    
+    
+    
+    
+    private func showLoadingView(){isLoading = true}
+    private func hideLoadingView(){isLoading = false}
+    @Published var isLoading : Bool = false
+    
+    
 //    @Published var isLoading : Bool = false
     @Published var verificationId: String?
     private let auth = Auth.auth()
     
     //تستقبل رقم الجوال
     func createUserWithPhoneNumber(phoneNumber: String, completion: @escaping ( (Bool) -> Void )) {
+        self.showLoadingView()
         print("DEBUG: 1 - preparing to request SMS Code")
         PhoneAuthProvider.provider().verifyPhoneNumber("+966" + phoneNumber, uiDelegate: nil) { [weak self] verificationId, error in
             print("DEBUG: 2 - Sending Request")
@@ -215,9 +233,11 @@ class AuthManager: ObservableObject {
             }
             guard let verificationId = verificationId else {
                 completion(false)
+             
                 return
             }
             print("DEBUG: 3 - Successfully requested SMS Code")
+            self?.hideLoadingView()
             self?.verificationId = verificationId
             completion(true)
         }

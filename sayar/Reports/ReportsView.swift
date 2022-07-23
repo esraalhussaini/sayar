@@ -78,14 +78,27 @@ struct ReportsView: View {
             })
             VStack(alignment: .center){
                 Spacer()
+                //----report
                 if viewModel.isLoading,!viewModel.noDataFound{
-                    ActivityIndicator(isAnimating: .constant(true), style: UIActivityIndicatorView.Style.large)
+             
+                    Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
+                                .offset(y: 150)
+                                .foregroundColor(.gray)
                 }
                 else if viewModel.noDataFound{
-            Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
+                Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
                         .offset(y: 150)
                         .foregroundColor(.gray)
                 }
+
+//                if viewModel.isLoading,!viewModel.noDataFound{
+//                    ActivityIndicator(isAnimating: .constant(true), style: UIActivityIndicatorView.Style.large)
+//                }
+//                else if viewModel.noDataFound{
+//            Text(LocalizedStringKey("NoDataFound")).font(.system(size: 25)).bold()
+//                        .offset(y: 150)
+//                        .foregroundColor(.gray)
+//                }
                 Spacer()
             }
         }
