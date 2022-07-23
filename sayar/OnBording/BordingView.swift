@@ -14,19 +14,37 @@ import SwiftUI
     struct BordingView: View {
         @Binding var showOnbording: Bool
         var body: some View {
+            
+//            VStack{
+//
+//                     Button {
+//
+//                     } label: {
+//                         Image("0")
+//                             .resizable()
+//                             .renderingMode(.template)
+//                             .foregroundColor(Color("ColorApp"))
+//                             .frame(width: 70, height: 50)
+//                     }
+//                     .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .topLeading)
+//                     .padding()
+//            }
+//            كود اللوقو من فوق
+            
+            
             TabView{
-                BView(title:"push" ,subtitle:"enable" ,imageName: "1",
+                BView(title:"Markabah" ,subtitle:"Welcome to Markabah." ,imageName: "1",
                       showsDismissButton: false,
                       showOnbording: $showOnbording
                 )
 
-                BView(title:"push" ,subtitle:"enable" ,imageName: "2",
+                BView(title:"Track your car expenses" ,subtitle:"" ,imageName: "2",
                       showsDismissButton: false,
                       showOnbording: $showOnbording
                 )
 
 
-                BView(title:"push" ,subtitle:"enable" ,imageName: "3",
+                BView(title:"Be aware of your vehicle required maintenance" ,subtitle:"START." ,imageName: "3",
                       showsDismissButton: true,
                       showOnbording: $showOnbording
                 )
