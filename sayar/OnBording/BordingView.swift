@@ -13,22 +13,23 @@ import SwiftUI
 
     struct BordingView: View {
         @Binding var showOnbording: Bool
+//        var screenSize: CGSize
         var body: some View {
             
-//            VStack{
-//
-//                     Button {
-//
-//                     } label: {
-//                         Image("0")
-//                             .resizable()
-//                             .renderingMode(.template)
-//                             .foregroundColor(Color("ColorApp"))
-//                             .frame(width: 70, height: 50)
-//                     }
-//                     .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .topLeading)
-//                     .padding()
-//            }
+            VStack{
+
+                     Button {
+
+                     } label: {
+                         Image("0")
+                             .resizable()
+                             .renderingMode(.template)
+                             .foregroundColor(Color("ColorApp"))
+                             .frame(width: 60, height: 40)
+                     }
+                     .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .topLeading)
+                     .padding()
+            }
 //            كود اللوقو من فوق
             
             
@@ -44,7 +45,7 @@ import SwiftUI
                 )
 
 
-                BView(title:"Be aware of your vehicle required maintenance" ,subtitle:"START." ,imageName: "3",
+                BView(title:"Be aware of your vehicle required maintenance" ,subtitle:"" ,imageName: "3",
                       showsDismissButton: true,
                       showOnbording: $showOnbording
                 )
@@ -62,11 +63,13 @@ import SwiftUI
         @Binding var showOnbording: Bool
         var body: some View {
             VStack{
-              Image(systemName: imageName)
+              Image(imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
-                    .padding()
+//                    .frame(width: 200, height: 200)
+//                    .frame(height: screenSize.height / 3)
+
+//                    .padding()
                 Text(title)
                     .font(.system(size: 32))
                     .padding()
@@ -82,7 +85,7 @@ import SwiftUI
                         showOnbording.toggle()
 
                     } , label:{
-                      Text("GET")
+                      Text("START")
                             .bold()
                             .foregroundColor(Color.white)
                             .frame(width: 200, height: 50 )

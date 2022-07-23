@@ -43,7 +43,7 @@
 //            Image(intro.image)
 //                .resizable()
 //                .aspectRatio(contentMode: .fit)
-//                    .frame(height: screenSize.height / 3)
+//                .frame(height: screenSize.height / 3)
 //                            
 //            VStack(alignment: .leading, spacing: 22) {
 //                                
