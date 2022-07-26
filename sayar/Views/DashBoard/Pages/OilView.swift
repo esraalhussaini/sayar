@@ -65,7 +65,7 @@ struct OilView: View {
             vm.fetchData()
         }
         
-        
+        .listStyle(.plain)
         
         
         

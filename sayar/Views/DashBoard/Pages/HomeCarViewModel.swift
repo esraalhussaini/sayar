@@ -59,7 +59,7 @@ struct HomeCarViewModel: View {
        VStack {
         Rectangle()
           .fill(Color("TabMyCar"))
-          .frame( width: 400,  height:341)
+          .frame( width: .infinity,  height:341)
           .shadow(radius: 8)
           .cornerRadius(16)
           .navigationTitle(LocalizedStringKey("MyGarage"))
@@ -174,8 +174,10 @@ VStack(alignment: .center){
         ZStack{
         Rectangle()
           .fill(Color("TabMyCar"))
+          .fixedSize(horizontal: false, vertical: false)
+           .frame(width: 353, height: 69)
 
-          .frame( width: 345,  height:69)
+//          .frame( width: 345,  height:69)
           .shadow(radius: 8)
           .cornerRadius(16)
 
@@ -223,12 +225,15 @@ VStack(alignment: .center){
 
 
         ZStack{
-        Rectangle()
-          .fill(Color("TabMyCar"))
+            Rectangle()
+              .fill(Color("TabMyCar"))
+              .fixedSize(horizontal: false, vertical: false)
+               .frame(width: 353, height: 69)
 
-          .frame( width: 345,  height:69)
-          .shadow(radius: 8)
-          .cornerRadius(16)
+    //          .frame( width: 345,  height:69)
+              .shadow(radius: 8)
+              .cornerRadius(16)
+
 
 
         HStack{
@@ -291,11 +296,14 @@ VStack(alignment: .center){
 
         ZStack{
         Rectangle()
-          .fill(Color("TabMyCar"))
+      
+              .fill(Color("TabMyCar"))
+              .fixedSize(horizontal: false, vertical: false)
+               .frame(width: 353, height: 69)
 
-          .frame( width: 345,  height:69)
-          .shadow(radius: 8)
-          .cornerRadius(16)
+    //          .frame( width: 345,  height:69)
+              .shadow(radius: 8)
+              .cornerRadius(16)
 
 
         HStack{
@@ -360,12 +368,15 @@ VStack(alignment: .center){
 
 
         ZStack{
-        Rectangle()
-          .fill(Color("TabMyCar"))
+            Rectangle()
+              .fill(Color("TabMyCar"))
+              .fixedSize(horizontal: false, vertical: false)
+               .frame(width: 353, height: 69)
 
-          .frame( width: 345,  height:69)
-          .shadow(radius: 8)
-          .cornerRadius(16)
+    //          .frame( width: 345,  height:69)
+              .shadow(radius: 8)
+              .cornerRadius(16)
+
 
 
         HStack{
