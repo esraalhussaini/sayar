@@ -33,7 +33,7 @@ class OilViewModel: ObservableObject{
     
     private var db = Firestore.firestore()
     
-    func fetchData(){
+    func fetchData2(){
         self.oil = []
             guard let carId = AuthViewModel.shared.car?.id else {
                 print("No car 📌")
@@ -58,6 +58,31 @@ class OilViewModel: ObservableObject{
                 
             }
 
+    }
+    
+    func fetchData(){
+        self.oil = []
+        guard let carId = AuthViewModel.shared.car?.id else {
+            print("No car 📌")
+            return}
+        self.db.collection("Oil").whereField("carID", isEqualTo: carId).getDocuments { snapshot, error in
+            
+            
+            if let docs = snapshot?.documents{
+                var tmpOil: [Oil] = []
+                
+                docs.forEach { doc in
+                    let docData = doc.data()
+                    let oil = Oil(data: docData)
+                    print(oil.cost,"🤚🏻")
+                    tmpOil.append(oil)
+                }
+                
+                self.oil = tmpOil
+                
+            }
+            
+        }
     }
     
     func uploadOil(completion:@escaping ()->()){

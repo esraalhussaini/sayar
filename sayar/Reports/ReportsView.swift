@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+struct Names {
+   static let fuel = NSLocalizedString("Fuel", comment: "")
+}
 
 /// This view is responsible to draw reporting screen
 struct ReportsView: View {
@@ -65,7 +68,7 @@ struct ReportsView: View {
                     /// Display the chart if data is available and screen is not loading
                     PieChartSwiftView(
                         values: viewModel.arrayOfValues,
-                        names: ["Fuel", "Battery", "Oil","Tires"],
+                        names: [Names.fuel, "Battery", "Oil","Tires"],
                         formatter: {value in String(format: "%.1f SR", value)},colors: [Color.red.opacity(0.8),Color.green.opacity(0.8),Color.orange.opacity(0.8),Color.blue.opacity(0.8)],backgroundColor: .white).foregroundColor(.black)
                 }
                 else{
