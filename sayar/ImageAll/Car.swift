@@ -23,7 +23,8 @@ struct Car : Identifiable{
   let carModel : String
   let carManufactureYear : Int
   let carKm : Int
-  let CarImage : String
+    let CarImage : String
+    let userId : String
 
 
 
@@ -41,7 +42,8 @@ struct Car : Identifiable{
     self.carModel = dictionary[Car.carModel] as? String ?? ""
     self.carManufactureYear = dictionary[Car.carManufactureYear] as? Int ?? 0
     self.carKm = dictionary[Car.carKm] as? Int ?? 0
-   self.CarImage = dictionary[Car.CarImage] as? String ?? "N/A"
+      self.CarImage = dictionary[Car.CarImage] as? String ?? "N/A"
+      self.userId = dictionary[Car.userId] as? String ?? ""
   }
     // self.carImageUrl = dictionary[Car.carImageUrl] as? String ?? “N/A”
 
@@ -54,5 +56,7 @@ struct Car : Identifiable{
   static let carManufactureYear = "CarManufactureYear"
   static let carKm = "CarKM"
   static let CarImage = "CarImage"
+    static let userId = "UserId"
+
    // carImageUrl
 }

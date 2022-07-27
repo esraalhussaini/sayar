@@ -56,7 +56,7 @@ class AddCarViewModel: ObservableObject{
 //        Double(carModelString) ?? 0.0
 //    }
     init(){
-        fetchData()
+        //fetchData()
     }
    
 //
@@ -67,24 +67,24 @@ class AddCarViewModel: ObservableObject{
 //        //get a refrence to the database
         private var db = Firestore.firestore()
     
-    func fetchData(){
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-//        let docRef = Firestore.firestore().collection("Car").document(uid)
-//        db.collection("Car").document(uid).getDocuments
-        db.collection("Car").document(uid).getDocument { snapshot, error in
-            
-            guard let data = snapshot?.data() else {return}
-            let car = Car(dictionary: data)
-        }
-   
-    }//fetchdata
+//    func fetchData(){
+//        guard let uid = Auth.auth().currentUser?.uid else {return}
+////        let docRef = Firestore.firestore().collection("Car").document(uid)
+////        db.collection("Car").document(uid).getDocuments
+//        db.collection("Car").document(uid).getDocument { snapshot, error in
+//            
+//            guard let data = snapshot?.data() else {return}
+//            let car = Car(dictionary: data)
+//        }
+//   
+//    }//fetchdata
 
     
     func uploadCar(completion:@escaping ()->()){
         
       
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        let docRef = Firestore.firestore().collection("Car").document(uid)
+        let docRef = Firestore.firestore().collection("Car").document()
         //not let
        // Car.CarImage :"HHHHH",
             var data : [String:Any] = [
@@ -93,7 +93,8 @@ class AddCarViewModel: ObservableObject{
                 Car.carMake : carMake,
                 Car.carModel : carModelString,
                 Car.carManufactureYear: carManufactureYear,
-                Car.carKm : km
+                Car.carKm : km,
+                Car.userId: uid
             ]
         let ref = Storage.storage().reference(withPath: uid)
         guard let imageData = imageUser?.jpegData(compressionQuality: 0.5) else { return }

@@ -535,9 +535,9 @@ VStack(alignment: .center){
           }
       
       }
-      else{
-        showLoginPage.toggle()
-      }
+//      else{
+//        showLoginPage.toggle()
+//      }
 
     }, label: {
 

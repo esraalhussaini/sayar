@@ -70,6 +70,9 @@ struct AccountViewModel: View {
     @EnvironmentObject var authViewModel : AuthViewModel
     let onSignout: () -> ()
 
+    @State var showLoginPage: Bool = false
+    @State var isPresentedNewPost: Bool = false
+    
 
     init(onSignout: @escaping () -> ()) {
             UITableView.appearance().backgroundColor = .clear
@@ -170,17 +173,31 @@ struct AccountViewModel: View {
                             //                        .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.852))
                             //                    .offset(x: 10, y: 0)
                             //
+                            let currentUser = Auth.auth().currentUser
+
                             Button{
-                                authViewModel.handleSignout(completion: onSignout)
-                              //  try! Auth.auth().signOut()
+                                
+                                if currentUser == nil || currentUser?.isAnonymous == true {
+                                    showLoginPage.toggle()
+                                }else{
+                                    authViewModel.handleSignout(completion: onSignout)
+                                }
+                                //  try! Auth.auth().signOut()
                                 print(LocalizedStringKey("SignOut"))
                             } label: {
                                 HStack{
                                     
+                                    if currentUser == nil || currentUser?.isAnonymous == true {
+//                                        Image("Group 1724")
+                                        Text(LocalizedStringKey("Login"))
+                                            .foregroundColor(.red)
+                                    }else{
                                     Image("Group 1724")
-                                Text(LocalizedStringKey("SignOut"))
-                                    //
+                                    Text(LocalizedStringKey("SignOut"))
                                         .foregroundColor(.red)
+                                    }
+                                    
+                                    
                                 }
                             }
                         }
@@ -199,6 +216,9 @@ struct AccountViewModel: View {
                     .navigationBarBackButtonHidden(true)
                     
                 }
+                .fullScreenCover(isPresented: $showLoginPage, content: {
+                  AuthView(showLoginPage: $showLoginPage, isPresentedNewPost: $isPresentedNewPost)
+                })
             }
             
             

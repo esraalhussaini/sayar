@@ -19,6 +19,21 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         FirebaseApp.configure()
         Messaging.messaging().isAutoInitEnabled = true
 
+        //check if user is loged in
+        //if no
+        //login as ananymous
+        //save user firestore
+        //get ananymous id
+        
+        
+        //login view
+        //show login if user is not logged in or the user is anaynous
+        
+        
+        
+        
+//        call signinAnonamously here , first check if it is signed or not !!!! 
+        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self

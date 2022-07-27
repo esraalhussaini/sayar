@@ -256,6 +256,9 @@ class AuthManager: ObservableObject {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId,
                                                                  verificationCode: verificationCode)
         print("DEBUG: 5 - Create Credential")
+        
+        let oldUserId = Auth.auth().currentUser?.uid ?? ""
+        
         auth.signIn(with: credential) { authResult, error in
             if let error = error {
                 print("DEBUG: error while verifying smsCode \(error)")
@@ -269,8 +272,36 @@ class AuthManager: ObservableObject {
             ]
             
             Firestore.firestore().collection("users").document(userId).setData(userData)
+            
+            //update all cars with oldUserId with new User Id
+            self.updateOldUserId(oldUserId: oldUserId, newUserId: userId)
+            //delete oldUserId
             completion(true)
         }
+    }
+    
+    func updateOldUserId(oldUserId: String, newUserId: String){
+        Firestore.firestore().collection("Car").whereField(Car.userId, isEqualTo: oldUserId).getDocuments { snapshot, error in
+        
+            guard error == nil else {
+                print("\(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            guard let cars = snapshot?.documents else{
+                print("No data")
+                return
+            }
+            cars.forEach { carData in
+                
+                Firestore.firestore().collection("Car").document(carData.documentID).updateData([
+                    Car.userId: newUserId
+                ])
+                
+            }
+            
+        }
+        
     }
     
     
