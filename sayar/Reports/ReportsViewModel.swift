@@ -123,7 +123,7 @@ class ReportViewModel: ObservableObject {
         //nouf
         guard let carId = AuthViewModel.shared.car?.id else {return}
 //      db.collection("Car").document(carId).collection("CarBattery")
-        db.collection("Tires").whereField("date", isGreaterThanOrEqualTo: fromDate).whereField("date",  isLessThanOrEqualTo: myCurrentDate).whereField("carID", isEqualTo:  carId).getDocuments {
+        db.collection("Tires").whereField("date", isGreaterThanOrEqualTo: fromDate).whereField("date",  isLessThanOrEqualTo: myCurrentDate).whereField("carID", isEqualTo: carId).getDocuments {
     //nouf
             snapshots, error in
             var sum = 0.0
@@ -150,7 +150,7 @@ class ReportViewModel: ObservableObject {
 //nouf
         guard let carId = AuthViewModel.shared.car?.id else {return}
 //      db.collection("Car").document(carId).collection("CarBattery")
-        db.collection("Oil").whereField("date", isGreaterThanOrEqualTo: fromDate).whereField("date",  isLessThanOrEqualTo: myCurrentDate).whereField("carID", isEqualTo:  carId).getDocuments {
+        db.collection("Fuel").whereField("date", isGreaterThanOrEqualTo: fromDate).whereField("date",  isLessThanOrEqualTo: myCurrentDate).whereField("carID", isEqualTo:  carId).getDocuments {
 //nouf
             snapshots, error in
             var sum = 0.0

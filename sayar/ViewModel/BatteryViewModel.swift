@@ -32,29 +32,24 @@ class BatteryViewModel: ObservableObject{
     func fetchData(){
         self.battery = []
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Car").document(carId).collection("CarBattery").getDocuments { snapshot, error in
-        
-                    DispatchQueue.main.async {
-            if let docs = snapshot?.documents{
-                docs.forEach { doc in
-                    let docId = doc.documentID
-                    self.db.collection("Battery").document(docId).getDocument { snapshot, error in
-                        guard let docData = snapshot?.data() else {return}
-                        let battery = Battery(data: docData)
-                        self.battery.append(battery)
-                        
-                    }
-//                      let battery = Battery(data: doc.data())
-//                    print(battery.cost,"🤚🏻")
-//                    self.battery.append(battery)
-                }
-            }
-            }
+        self.db.collection("Battery").whereField("carID", isEqualTo: carId).getDocuments { snapshot, error in
             
-        }
-
-    }
+            
+            if let docs = snapshot?.documents{
+                var tmpBattery: [Battery] = []
+                
+                docs.forEach { doc in
+                    let docData = doc.data()
+                    let battery = Battery(data: docData)
+                   
+                    tmpBattery.append(battery)
+                }
+                
+                self.battery = tmpBattery
+                
+            }}}
     
+               
     func uploadBattery(completion:@escaping ()->()){
   
         guard !costString.isEmpty else {

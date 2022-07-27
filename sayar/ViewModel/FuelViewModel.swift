@@ -47,24 +47,22 @@ class FuelViewModel: ObservableObject{
         self.fuel = []
     
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Car").document(carId).collection("CarFuel").getDocuments { snapshot, error in
-                    DispatchQueue.main.async {
-                    if let docs = snapshot?.documents{
-                        docs.forEach { doc in
-                            let docId = doc.documentID
-                            self.db.collection("Fuel").document(docId).getDocument { snapshot, error in
-                                guard let docData = snapshot?.data() else {return}
-                                let fuel = Fuel(data: docData)
-                             
-                              self.fuel.append(fuel)
-                                
-                            }
-                              
-                        }
-                        
-                    }
-                    
-                    }
+        
+        self.db.collection("Fuel").whereField("carID", isEqualTo: carId).getDocuments { snapshot, error in
+            
+            
+            if let docs = snapshot?.documents{
+                var tmpFuel: [Fuel] = []
+                
+                docs.forEach { doc in
+                    let docData = doc.data()
+                    let fuel = Fuel(data: docData)
+                    tmpFuel.append(fuel)
+                }
+                
+                self.fuel = tmpFuel
+                
+            }
                     
                 }
     }

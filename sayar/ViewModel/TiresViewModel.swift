@@ -41,29 +41,27 @@ class TiresViewModel: ObservableObject{
     func fetchData(){
         self.tires = []
         guard let carId = AuthViewModel.shared.car?.id else {return}
-                db.collection("Car").document(carId).collection("CarTires").getDocuments { snapshot, error in
-        
-                    DispatchQueue.main.async {
+        self.db.collection("Tires").whereField("carID", isEqualTo: carId).getDocuments { snapshot, error in
+            
+            
             if let docs = snapshot?.documents{
+                var tmpTires: [Tires] = []
+                
                 docs.forEach { doc in
-                    let docId = doc.documentID
-                    self.db.collection("Tires").document(docId).getDocument { snapshot, error in
-                        guard let docData = snapshot?.data() else {return}
-                      let  tires = Tires(data: docData)
-//                    print(tires.cost,"🤚🏻")
-                    self.tires.append(tires)
+                    let docData = doc.data()
+                    let tires = Tires(data: docData)
+                  
+                    tmpTires.append(tires)
+                }
+                
+                self.tires = tmpTires
+                
+               
                 }
                 }
             }
             
-            }
-            
-        }
 
-    }
-//
-    
-    
     func uploadTires(completion:@escaping ()->()){
   
         guard !costString.isEmpty else {
