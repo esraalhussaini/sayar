@@ -1,54 +1,3 @@
-//Account
-
-
-////
-////  AccountViewModel.swift
-////  sayar
-////
-////  Created by anwar on 02/11/1443 AH.
-////
-//
-//import SwiftUI
-//
-//struct AccountViewModel: View {
-//
-//    var body: some View {
-//        NavigationView {
-//                       NavigationLink(destination: MyGarageH()) {
-//
-//                           Text("Choose Heads")
-//                       }
-//                       .navigationBarTitle("")
-//               }//nav
-//    }
-//}
-//
-//
-////struct ResultView: View {
-////   // var choice: String
-////
-////    var body: some View {
-////        Text("HGHGHG")
-////
-////
-////    }
-////}
-////
-//
-//struct AccountViewModel_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AccountViewModel()
-//    }
-//}
-
-//
-//  AccountViewModel.swift
-//  sayar
-//
-//  Created by anwar on 02/11/1443 AH.
-//
-
-
 //
 //
 //
@@ -190,7 +139,7 @@ struct AccountViewModel: View {
                                     if currentUser == nil || currentUser?.isAnonymous == true {
 //                                        Image("Group 1724")
                                         Text(LocalizedStringKey("Login"))
-                                            .foregroundColor(.red)
+                                            .foregroundColor(.blue)
                                     }else{
                                     Image("Group 1724")
                                     Text(LocalizedStringKey("SignOut"))
@@ -202,16 +151,7 @@ struct AccountViewModel: View {
                             }
                         }
                     }
-                    
-                    
-                    //            .padding()
-                    //            .offset(x: 5, y: -180)
-                    //                }
-                    //                }
-                    //                .listRowInsets(EdgeInsets())
-                    //.background(Color.green)
-                    //   .listRowBackground(Color.blue)
-                    
+                   
                     .navigationTitle(LocalizedStringKey("Account"))
                     .navigationBarBackButtonHidden(true)
                     
@@ -224,9 +164,7 @@ struct AccountViewModel: View {
             
             .accentColor(.black)
             }
-           
-          //  .ignoresSafeArea(.all)
-            //.background(.blue)
+      
             
         }
 
