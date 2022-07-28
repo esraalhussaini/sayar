@@ -8,8 +8,14 @@
 
 import SwiftUI
 
+
+
+
 struct Names {
    static let fuel = NSLocalizedString("Fuel", comment: "")
+    static let battery = NSLocalizedString("Battery", comment: "")
+    static let oil = NSLocalizedString("Oil", comment: "")
+    static let tires = NSLocalizedString("Tires", comment: "")
 }
 
 /// This view is responsible to draw reporting screen
@@ -18,7 +24,13 @@ struct ReportsView: View {
     @ObservedObject var viewModel = ReportViewModel()
     
     /// Values displayed in the time dropdown
-    var dataSourceTimeRange = ["This week","This month","This year"]
+   var dataSourceTimeRange = ["This week","This month","This year"]
+    
+    
+ //   let dataSourceTimeRange = NSLocalizedString("home.list", comment: "").components(separatedBy: ",")
+
+   
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -68,7 +80,7 @@ struct ReportsView: View {
                     /// Display the chart if data is available and screen is not loading
                     PieChartSwiftView(
                         values: viewModel.arrayOfValues,
-                        names: [Names.fuel, "Battery", "Oil","Tires"],
+                        names:[Names.fuel, Names.battery, Names.oil,Names.tires],
                         formatter: {value in String(format: "%.1f SR", value)},colors: [Color.red.opacity(0.8),Color.green.opacity(0.8),Color.orange.opacity(0.8),Color.blue.opacity(0.8)],backgroundColor: .white).foregroundColor(.black)
                 }
                 else{
