@@ -158,7 +158,7 @@ struct AddBatteryView: View {
                isPresented.toggle()
             }, label: {
                 Text(LocalizedStringKey("Add"))
-                    .accentColor(.red)
+                    .accentColor(.blue)
              
             })
             .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.batteryComp.isEmpty )

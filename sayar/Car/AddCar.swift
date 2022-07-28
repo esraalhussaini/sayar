@@ -119,6 +119,8 @@ struct AddCar: View {
                         nextView()
 //                            .background(Color.red)
                             .frame( height: 50 )
+                            .background(Color(red: 0.822, green: 0.832, blue: 0.853))
+                            .opacity(0.8)
 //                            .ignoresSafeArea( .keyboard, edges: .bottom )
                     }
 
@@ -168,6 +170,7 @@ struct AddCar: View {
                     }, label:{
                         Text(focusField == .Kilometer ? "Done" : "Next")
                     })
+                    .padding()
                            }}}
         
         var leading: some View {
@@ -203,7 +206,7 @@ struct AddCar: View {
 //             showdashboard = true
             }, label: {
                 Text(LocalizedStringKey("Add"))
-                    .accentColor(.red)
+                    .accentColor(.blue)
              
             })
 

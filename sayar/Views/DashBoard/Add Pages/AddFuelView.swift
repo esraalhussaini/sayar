@@ -159,7 +159,7 @@ struct AddFuelView: View {
         
         }, label: {
             Text(LocalizedStringKey("Add"))
-                .accentColor(.red)
+                .accentColor(.blue)
          
         })
 

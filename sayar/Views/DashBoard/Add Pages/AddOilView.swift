@@ -174,7 +174,7 @@ struct AddOilView: View {
                isPresented.toggle()
             }, label: {
                 Text("Add")
-                    .accentColor(.red)
+                    .accentColor(.blue)
              
             })
             .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.oilType.isEmpty )

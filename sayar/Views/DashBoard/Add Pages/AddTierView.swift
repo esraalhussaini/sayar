@@ -140,7 +140,7 @@ struct AddTierView: View {
            isPresented.toggle()
         }, label: {
             Text(LocalizedStringKey("Add"))
-                .accentColor(.red)
+                .accentColor(.blue)
          
         })
         .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.tireComp.isEmpty )
