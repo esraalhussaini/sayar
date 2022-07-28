@@ -63,33 +63,33 @@ struct AccountViewModel: View {
                         
                             
                         
-            NavigationLink(destination: MyGarageH()) {
+//            NavigationLink(destination: MyGarageH()) {
                        //
                  
                                
                             
                             
                 
-                            Button{
-                                print("Go to Garage")
-                            } label: {
-                                HStack{
-                                    Image("sports-car 1")
-                                        .padding(.horizontal,-10)
-                                    
-                                    Text(LocalizedStringKey("MyGarage"))
-                                 .padding(.horizontal,25)
-                                      
-//                                    Spacer()
-//                                    Image("chevron.down")
-//                                       .padding(.horizontal,-1)
-                                }
-                                
-                                .padding()
-                                .padding(.horizontal,2)
-                            }
+//                            Button{
+//                                print("Go to Garage")
+//                            } label: {
+//                                HStack{
+//                                    Image("sports-car 1")
+//                                        .padding(.horizontal,-10)
+//
+//                                    Text(LocalizedStringKey("MyGarage"))
+//                                 .padding(.horizontal,25)
+//
+////                                    Spacer()
+////                                    Image("chevron.down")
+////                                       .padding(.horizontal,-1)
+//                                }
+//
+//                                .padding()
+//                                .padding(.horizontal,2)
+//                            }
            
-            }//nav
+//            }//nav
               
                             
                         }//section one
