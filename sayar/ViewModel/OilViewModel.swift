@@ -95,9 +95,10 @@ class OilViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {
             completion()
             return}
-        let docRef = db.collection("Car").document(carId).collection("CarOil").document()
-        //          let docRef = db.collection("Oil").document()
-        docRef.setData(["id": docRef.documentID])
+        let docRef = db.collection("Oil").document()
+//        let docRef = db.collection("Oil").whereField("carID", isEqualTo: carId)
+//        let docRef = db.collection("Car").document(carId).collection("CarOil").document()
+//        docRef.setData(["id": docRef.documentID])
         let data : [String:Any] = [
             Oil.cost : cost ,
             Oil.id:docRef.documentID,
@@ -109,25 +110,19 @@ class OilViewModel: ObservableObject{
             Oil.oilType: oilType
             
         ]
-        DispatchQueue.main.async {
+     
             self.db.collection("Oil").document(docRef.documentID).setData(data){ _ in
             self.oil.append(Oil(data: data))
-            AuthViewModel.shared.updateKilometers(newKm:self.km)
+//            AuthViewModel.shared.updateKilometers(newKm:self.km)
 //            self.fetchData()
             completion()
             
-        }
+       
     }
     }
-    //    func calculateExpiredDate2(){
-    //        guard let carId = AuthViewModel.shared.car?.id else {
-    //
-    //            return}
-    //    }
+    
     func calculateExpiredDate(date : Date, oilType : String )->Date{
-        
-        
-//        let today = date
+
        
         var value = 0
         //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 0, to: today)!

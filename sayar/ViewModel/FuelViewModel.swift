@@ -77,7 +77,8 @@ class FuelViewModel: ObservableObject{
             guard let carId = AuthViewModel.shared.car?.id else {
                 completion()
                 return}
-            let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
+//            let docRef = db.collection("Car").document(carId).collection("CarFuel").document()
+            let docRef = db.collection("Fuel").document()
             docRef.setData(["id": docRef.documentID])
             let data : [String:Any] = [
                 Fuel.cost : cost,
@@ -86,16 +87,16 @@ class FuelViewModel: ObservableObject{
                 Fuel.carID: carId,
                 Fuel.id:docRef.documentID
             ]
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self.db.collection("Fuel").document(docRef.documentID).setData(data){ _ in
                 self.fuel.append(Fuel(data: data))
-                AuthViewModel.shared.updateKilometers(newKm:self.km)
+//                AuthViewModel.shared.updateKilometers(newKm:self.km)
 
 //                self.fetchData()
                 completion()
             }
         }
-        }
+        
     func clearState(){
         costString = ""
         kmString = ""

@@ -72,7 +72,8 @@ class TiresViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {
             completion()
             return}
-        let docRef = db.collection("Car").document(carId).collection("CarTires").document()
+//        let docRef = db.collection("Car").document(carId).collection("CarTires").document()
+        let docRef = db.collection("Tires").document()
         docRef.setData(["id": docRef.documentID])
           let data : [String:Any] = [
             Tires.cost : cost ,
@@ -84,17 +85,17 @@ class TiresViewModel: ObservableObject{
             Tires.manufactureYear:manufactureYEAR,
             Tires.tireCompany: tireComp
           ]
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.db.collection("Tires").document(docRef.documentID).setData(data){ _ in
             self.tires.append(Tires(data: data))
           
-            AuthViewModel.shared.updateKilometers(newKm:self.km)
+//            AuthViewModel.shared.updateKilometers(newKm:self.km)
 
 //            self.fetchData()
             completion()
           }
       }
-    }
+  
     func calculateExpiredDate(date : Date)->(Date){
    
         let modifiedDate = Calendar.current.date(byAdding: .day, value: 548, to: date)!

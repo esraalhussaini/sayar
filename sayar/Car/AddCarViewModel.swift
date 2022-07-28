@@ -121,7 +121,7 @@ class AddCarViewModel: ObservableObject{
                     print("added in \(docRef.documentID)")
                     print(LocalizedStringKey("UploadingSuccessfully"))
                     completion()
-                    AuthViewModel.shared.updateKilometers(newKm:self.km)
+//                    AuthViewModel.shared.updateKilometers(newKm:self.km)
                     
                
                 }

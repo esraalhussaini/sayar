@@ -60,7 +60,8 @@ class BatteryViewModel: ObservableObject{
         guard let carId = AuthViewModel.shared.car?.id else {
             completion()
             return}
-        let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
+//        let docRef = db.collection("Car").document(carId).collection("CarBattery").document()
+        let docRef = db.collection("Battery").document()
         docRef.setData(["id": docRef.documentID])
           let data : [String:Any] = [
                 Battery.cost : cost ,
@@ -71,17 +72,17 @@ class BatteryViewModel: ObservableObject{
                 Battery.expiredDate:expDate,
                 Battery.batteryCompany: batteryComp
           ]
-        DispatchQueue.main.async {
+      
             self.db.collection("Battery").document(docRef.documentID).setData(data){ _ in
             self.battery.append(Battery(data: data))
            
-            AuthViewModel.shared.updateKilometers(newKm:self.km)
+//            AuthViewModel.shared.updateKilometers(newKm:self.km)
 
 //            self.fetchData()
             completion()
         }
         }
-      }
+      
     func calculateExpiredDate(date : Date)->(Date){
         let modifiedDate = Calendar.current.date(byAdding: .day, value: 365, to: date)!
         //        for the battery, it is year approximately to the next chanage
