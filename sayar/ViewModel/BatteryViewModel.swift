@@ -98,7 +98,12 @@ class BatteryViewModel: ObservableObject{
         let formattedDate = formatter.string(from: battery.expiredDate)
         return formattedDate
     }
-    
+    func clearState(){
+        costString = ""
+        kmString = ""
+        batteryComp = ""
+        
+    }
     func deleteBattery(offsets: IndexSet) {
         guard let index = offsets.first else {return}
         let battery = self.battery[index]

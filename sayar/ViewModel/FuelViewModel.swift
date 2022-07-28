@@ -96,7 +96,11 @@ class FuelViewModel: ObservableObject{
             }
         }
         }
-
+    func clearState(){
+        costString = ""
+        kmString = ""
+       
+    }
     func deleteFuel(offsets: IndexSet) {
 
         

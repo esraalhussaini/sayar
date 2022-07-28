@@ -8,7 +8,9 @@
 import SwiftUI
 import UIKit
 
-
+enum FocusTextCar {
+    case Make, Model, Kilometer, ManufactureYear
+}
 struct AddCar: View {
 
     @StateObject var addCarViewModel = AddCarViewModel()
@@ -16,6 +18,7 @@ struct AddCar: View {
     @EnvironmentObject var authvm : AuthViewModel
     @State private var isShowingDialog = false
     @Binding var isPresented: Bool
+    @FocusState private var focusField: FocusTextCar?
 //    let years = addCarViewModel.generateYearUntilNow()
 //    @State private var selectedYear = generateYearUntilNow().last ?? 2022
   
@@ -73,8 +76,10 @@ struct AddCar: View {
 
                         Section{
                             TextField("Make", text:$addCarViewModel.carMake)
+                                .focused($focusField, equals: .Make)
                              
                             TextField(LocalizedStringKey("Model"), text: $addCarViewModel.carModelString)
+                                .focused($focusField, equals: .Model)
                             
                             
                         }
@@ -82,6 +87,7 @@ struct AddCar: View {
                                 Section{
 //                                    let years = addCarViewModel.generateYearUntilNow()
                   TextField(LocalizedStringKey("ManufactureYear"), text:$addCarViewModel.carManufactureYearString)
+                                        .focused($focusField, equals: .ManufactureYear)
                                         .keyboardType(.numberPad)
 //                                    Picker("ManufactureYear", selection: $addCarViewModel.carManufactureYearString) {
 //                                        ForEach(years, id: \.self) {
@@ -90,6 +96,7 @@ struct AddCar: View {
 //
 //                                }.pickerStyle(.wheel)
                                     TextField(LocalizedStringKey("Km"), text:$addCarViewModel.kmString)
+                                        .focused($focusField, equals: .Kilometer)
                                         .keyboardType(.numberPad)
                                
                                
@@ -107,7 +114,13 @@ struct AddCar: View {
                     
                  
                    }//VSTACK
-                 
+                    VStack{
+                        Spacer()
+                        nextView()
+//                            .background(Color.red)
+                            .frame( height: 50 )
+//                            .ignoresSafeArea( .keyboard, edges: .bottom )
+                    }
 
                 }//zstack importent
 
@@ -128,11 +141,34 @@ struct AddCar: View {
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
-          .ignoresSafeArea(.all, edges: .bottom)
+//          .ignoresSafeArea(.all, edges: .bottom)
                     
                     
             }//NavgationView
+            .onDisappear(){
+//                addCarViewModel.clearState()
+            }
         }//varBody1
+    @ViewBuilder
+        func nextView()-> some View {
+            if let focusField = focusField{
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        switch focusField {
+                        case .Make:
+                            self.focusField = .Model
+                        case .Model:
+                            self.focusField = .ManufactureYear
+                        case .ManufactureYear:
+                            self.focusField = .Kilometer
+                        case .Kilometer:
+                            self.focusField = nil
+                        }
+                    }, label:{
+                        Text(focusField == .Kilometer ? "Done" : "Next")
+                    })
+                           }}}
         
         var leading: some View {
 
@@ -166,12 +202,12 @@ struct AddCar: View {
                // vm.uploadCar{}
 //             showdashboard = true
             }, label: {
-                Text(LocalizedStringKey("Done"))
+                Text(LocalizedStringKey("Add"))
                     .accentColor(.red)
              
             })
 
-
+            .disabled(addCarViewModel.carMake.isEmpty || addCarViewModel.carManufactureYearString.isEmpty || addCarViewModel.carModelString.isEmpty )
         }//VarBody3
 
 

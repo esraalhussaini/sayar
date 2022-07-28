@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-
+enum FocusTextFuel {
+    case cost, Kilometer
+}
 struct AddFuelView: View {
     //Notification
     @StateObject private var notificationManager = NotificationManager()
@@ -14,7 +16,7 @@ struct AddFuelView: View {
     @State private var isShowingDialog = false
 //   @StateObject var vm = FuelViewModel()
     @EnvironmentObject  var vm : FuelViewModel
-    
+    @FocusState private var focusField: FocusTextFuel?
 //Pluse button
 
     
@@ -56,9 +58,11 @@ struct AddFuelView: View {
                         
                             Section{
                                 TextField(LocalizedStringKey("SAR"), text:$vm.costString)
+                                    .focused($focusField, equals: .cost)
                                     .keyboardType(.numberPad)
                                 
                                 TextField(LocalizedStringKey("km"), text:$vm.kmString)
+                                    .focused($focusField, equals: .Kilometer)
                                         .keyboardType(.numberPad)
                                 
                                 
@@ -79,7 +83,13 @@ struct AddFuelView: View {
    
              
                 }//VSTACK IMAGE
-             
+                VStack{
+                    Spacer()
+                    nextView()
+//                            .background(Color.red)
+                        .frame( height: 50 )
+//                            .ignoresSafeArea( .keyboard, edges: .bottom )
+                }
 
             }//zstack importent
 
@@ -93,16 +103,34 @@ struct AddFuelView: View {
       .navigationBarItems(leading:leading   ,trailing: trailing)
            
                 
-      .ignoresSafeArea(.all, edges: .bottom)
+//      .ignoresSafeArea(.all, edges: .bottom)
       .alert(item: $vm.appError) { alert in
           Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
       }
                 
                 
         }//NavgationView
+        .onDisappear(){
+            vm.clearState()
+        }
     }//varBody1
 
-    
+    @ViewBuilder
+        func nextView()-> some View {
+            if let focusField = focusField{
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        switch focusField {
+                        case .cost:
+                            self.focusField = .Kilometer
+                        case .Kilometer:
+                            self.focusField = nil
+                        }
+                    }, label:{
+                        Text(focusField == .Kilometer ? "Done" : "Next")
+                    })
+                           }}}
     
     
    //Cancel
@@ -130,12 +158,12 @@ struct AddFuelView: View {
             }
         
         }, label: {
-            Text(LocalizedStringKey("Done"))
+            Text(LocalizedStringKey("Add"))
                 .accentColor(.red)
          
         })
 
-
+        .disabled(vm.costString.isEmpty )
 
     }//VarBody3
 }//StructView

@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-enum FocusText {
+enum FocusTextOil {
     case cost, Kilometer, oilcompany
 }
 struct AddOilView: View {
     
-    @FocusState private var focusField: FocusText?
+    @FocusState private var focusField: FocusTextOil?
 
     @State private var isShowingDialog = false
     @State private var selected = 0
     @EnvironmentObject  var vm : OilViewModel
     var oilType = ["3","5", "8", "10", "15",]
-//       @State private var selectedKiloMeters = "5 KiloMeters"
-//    @FocusState private var focusConfirm: Bool
-        
-    //Pluse button
+
 
         
         
@@ -53,10 +50,6 @@ struct AddOilView: View {
                                 Section{
                                     TextField(LocalizedStringKey("SAR"), text:$vm.costString)
                                         .focused($focusField, equals: .cost)
-                                                            .submitLabel(.next)
-                                                            .onSubmit {
-                                                                focusField = .Kilometer
-                                                            }
                                         .keyboardType(.numberPad)
                                         
                                     
@@ -66,10 +59,6 @@ struct AddOilView: View {
                             Section{
                                 TextField(LocalizedStringKey("km"), text:$vm.kmString)
                                     .focused($focusField, equals: .Kilometer)
-                                                        .submitLabel(.next)
-                                                        .onSubmit {
-                                                            focusField = .oilcompany
-                                                        }
                                     .keyboardType(.numberPad)
                                    
                                 
@@ -89,9 +78,7 @@ struct AddOilView: View {
                                 Section{
                                 TextField(LocalizedStringKey("OilCompany"), text:$vm.oilCompany)
                                         .focused($focusField, equals: .oilcompany)
-                                                            .submitLabel(.done)
-
-                                    .keyboardType(.twitter)
+                                                          .keyboardType(.twitter)
                                     
 
                               
@@ -102,16 +89,7 @@ struct AddOilView: View {
                             
                         }
                             
-//                            Section{
-//                                TextField("ExpectedTime", text:$ExpectedTime)
-//                                    .keyboardType(.numberPad)
 //
-//
-//
-//                            }
-                            
-                          
-                            
               }//form
                         
  
@@ -120,7 +98,13 @@ struct AddOilView: View {
                  
                     }//VSTACK IMAGE
                  
-
+                    VStack{
+                        Spacer()
+                        nextView()
+//                            .background(Color.red)
+                            .frame( height: 50 )
+//                            .ignoresSafeArea( .keyboard, edges: .bottom )
+                    }
                 }//zstack importent
 
                 
@@ -133,15 +117,38 @@ struct AddOilView: View {
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
-          .ignoresSafeArea(.all, edges: .bottom)
+//          .ignoresSafeArea(.all, edges: .bottom)
           .alert(item: $vm.appError) { alert in
               Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
           }
                     
             }//NavgationView
+            .onDisappear(){
+                vm.clearState()
+            }
         }//varBody1
-
-        
+    
+    
+@ViewBuilder
+    func nextView()-> some View {
+        if let focusField = focusField{
+            HStack{
+                Spacer()
+                Button(action: {
+                    switch focusField {
+                    case .cost:
+                        self.focusField = .Kilometer
+                    case .Kilometer:
+                        self.focusField = .oilcompany
+                    case .oilcompany:
+                        self.focusField = nil
+                    }
+                }, label:{
+                    Text(focusField == .oilcompany ? "Done" : "Next")
+                })
+                       }}}
+    
+    
         
         
        //Cancel
@@ -166,11 +173,11 @@ struct AddOilView: View {
                 vm.uploadOil{}
                isPresented.toggle()
             }, label: {
-                Text("Done")
+                Text("Add")
                     .accentColor(.red)
              
             })
-
+            .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.oilType.isEmpty )
 
 
         }//VarBody3

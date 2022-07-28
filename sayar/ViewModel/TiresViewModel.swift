@@ -113,7 +113,12 @@ class TiresViewModel: ObservableObject{
         let formattedDate = formatter.string(from: tires.expiredDate)
         return formattedDate
     }
-    
+    func clearState(){
+        costString = ""
+        kmString = ""
+        tireReleaseString = ""
+        tireComp = ""
+    }
     func deleteTires(offsets: IndexSet) {
         guard let index = offsets.first else {return}
         let tires = self.tires[index]

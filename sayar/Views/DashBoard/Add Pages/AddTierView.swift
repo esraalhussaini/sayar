@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
-
+enum FocusTextTires {
+    case cost, Kilometer, tireCompany
+}
 struct AddTierView: View {
- 
+    @FocusState private var focusField: FocusTextTires?
     @State private var isShowingDialog = false
     @EnvironmentObject  var vm : TiresViewModel
     
@@ -37,10 +39,12 @@ struct AddTierView: View {
                         
                             Section{
                                 TextField(LocalizedStringKey("SAR"), text:$vm.costString)
+                                    .focused($focusField, equals: .cost)
                                     .keyboardType(.numberPad)
                            
                                 TextField(LocalizedStringKey("Km"), text:$vm.kmString)
                                     .keyboardType(.numberPad)
+                                    .focused($focusField, equals: .Kilometer)
                             }
                         Section{
                        //  VStack {
@@ -55,6 +59,7 @@ struct AddTierView: View {
                        
                             
                             TextField(LocalizedStringKey("TireComapany"), text:$vm.tireComp)
+                                .focused($focusField, equals: .tireCompany)
                                 .keyboardType(.default)
                             
                        
@@ -66,6 +71,13 @@ struct AddTierView: View {
 
              
                 }//VSTACK IMAGE
+                VStack{
+                    Spacer()
+                    nextView()
+//                            .background(Color.red)
+                        .frame( height: 50 )
+//                            .ignoresSafeArea( .keyboard, edges: .bottom )
+                }
              
 
             }//zstack importent
@@ -74,14 +86,34 @@ struct AddTierView: View {
       .navigationBarItems(leading:leading   ,trailing: trailing)
            
                 
-      .ignoresSafeArea(.all, edges: .bottom)
+//      .ignoresSafeArea(.all, edges: .bottom)
       .alert(item: $vm.appError) { alert in
           Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
       }
                 
         }//NavgationView
+        .onDisappear(){
+            vm.clearState()
+        }
     }//varBody1
-
+    @ViewBuilder
+        func nextView()-> some View {
+            if let focusField = focusField{
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        switch focusField {
+                        case .cost:
+                            self.focusField = .Kilometer
+                        case .Kilometer:
+                            self.focusField = .tireCompany
+                        case .tireCompany:
+                            self.focusField = nil
+                        }
+                    }, label:{
+                        Text(focusField == .tireCompany ? "Done" : "Next")
+                    })
+                           }}}
    //Cancel
     var leading: some View {
 
@@ -107,11 +139,11 @@ struct AddTierView: View {
             
            isPresented.toggle()
         }, label: {
-            Text(LocalizedStringKey("Done"))
+            Text(LocalizedStringKey("Add"))
                 .accentColor(.red)
          
         })
-
+        .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.tireComp.isEmpty )
 
 
     }//VarBody3

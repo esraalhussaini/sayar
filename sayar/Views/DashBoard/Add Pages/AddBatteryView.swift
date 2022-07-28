@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
-
+enum FocusTextBattery {
+    case cost, Kilometer, batteryCompany
+}
 struct AddBatteryView: View {
     
     @State private var isShowingDialog = false
+    @FocusState private var focusField: FocusTextBattery?
 //    @StateObject var vm = BatteryViewModel()
     @EnvironmentObject  var vm : BatteryViewModel
 //Pluse button
@@ -55,39 +58,23 @@ struct AddBatteryView: View {
                             
                                 Section{
                                     TextField(LocalizedStringKey("SAR"), text:$vm.costString)
+                                        .focused($focusField, equals: .cost)
                                         .keyboardType(.numberPad)
                                     
                                     TextField(LocalizedStringKey("Km"), text:$vm.kmString)
+                                        .focused($focusField, equals: .Kilometer)
                                         .keyboardType(.numberPad)
                                     
                                 }
                             Section{
                                 TextField(LocalizedStringKey("BatteryComapany"), text:$vm.batteryComp)
+                                    .focused($focusField, equals: .batteryCompany)
                                     .keyboardType(.default)
                                 
                           
                                 
                             }
-                
-                    
-                            
-//                                    Section{
-//                                        TextField("BatteryYearRelease", text:$BatteryYearRelease )
-//                                            .keyboardType(.numberPad)
-//
-//
-//                                    }
-                                    
-                                    
-//                                    Section{
-//                                        TextField("ExpectedTime", text:$ExpectedTime)
-//                                            .keyboardType(.numberPad)
-//
-//
-//                                    }
-                            
-                           
-                            
+               
                             
               }//form
     
@@ -95,6 +82,13 @@ struct AddBatteryView: View {
                     
                  
                     }//VSTACK IMAGE
+                    VStack{
+                        Spacer()
+                        nextView()
+//                            .background(Color.red)
+                            .frame( height: 50 )
+//                            .ignoresSafeArea( .keyboard, edges: .bottom )
+                    }
                  
 
                 }//zstack importent
@@ -109,15 +103,35 @@ struct AddBatteryView: View {
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
-          .ignoresSafeArea(.all, edges: .bottom)
+//          .ignoresSafeArea(.all, edges: .bottom)
           .alert(item: $vm.appError) { alert in
               Alert(title: Text(""), message: Text("\(alert.localizedDescription)"))
           }
                     
             }//NavgationView
+            .onDisappear(){
+                vm.clearState()
+            }
         }//varBody1
 
-        
+    @ViewBuilder
+        func nextView()-> some View {
+            if let focusField = focusField{
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        switch focusField {
+                        case .cost:
+                            self.focusField = .Kilometer
+                        case .Kilometer:
+                            self.focusField = .batteryCompany
+                        case .batteryCompany:
+                            self.focusField = nil
+                        }
+                    }, label:{
+                        Text(focusField == .batteryCompany ? "Done" : "Next")
+                    })
+                           }}}
         
         
        //Cancel
@@ -143,11 +157,11 @@ struct AddBatteryView: View {
                 }
                isPresented.toggle()
             }, label: {
-                Text(LocalizedStringKey("Done"))
+                Text(LocalizedStringKey("Add"))
                     .accentColor(.red)
              
             })
-
+            .disabled(vm.costString.isEmpty || vm.kmString.isEmpty || vm.batteryComp.isEmpty )
 
 
         }//VarBody3

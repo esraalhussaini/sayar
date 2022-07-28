@@ -161,6 +161,13 @@ class OilViewModel: ObservableObject{
         let formattedDate = formatter.string(from: oil.expiredDate)
         return formattedDate
     }
+    
+    func clearState(){
+        costString = ""
+        kmString = ""
+        oilType = ""
+        oilCompany = ""
+    }
     func deleteOil(offsets: IndexSet) {
 //        let fuelId = fuel.id
         
