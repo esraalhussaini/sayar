@@ -61,10 +61,8 @@
 		E8749508285A89E10049BB4B /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749507285A89E10049BB4B /* AddCar.swift */; };
 		E874950A285A8BAF0049BB4B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8749509285A8BAE0049BB4B /* Demo.swift */; };
 		E874950C285A903A0049BB4B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874950B285A903A0049BB4B /* Car.swift */; };
-		E89EB1B02883889100259137 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1AF2883889100259137 /* NotificationManager.swift */; };
-		E89EB1B228838A7600259137 /* NotificationLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B128838A7600259137 /* NotificationLView.swift */; };
-		E89EB1B428838B9200259137 /* InfoOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B328838B9200259137 /* InfoOverlayView.swift */; };
-		E89EB1B628838C0500259137 /* CreateNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89EB1B528838C0500259137 /* CreateNotificationView.swift */; };
+		E88C6752289593D30041C9F1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88C6751289593D30041C9F1 /* Notifications.swift */; };
+		E88C67542895940A0041C9F1 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88C67532895940A0041C9F1 /* NotificationsView.swift */; };
 		E8A37CB0287F50CD00C11F8F /* EditCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CAF287F50CD00C11F8F /* EditCar.swift */; };
 		E8A37CB2287F526700C11F8F /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A37CB1287F526700C11F8F /* CarDetailsView.swift */; };
 		E8B5B1F12888DD2100D6A825 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B1F02888DD2100D6A825 /* LoadingView.swift */; };
@@ -131,12 +129,10 @@
 		E8749507285A89E10049BB4B /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
 		E8749509285A8BAE0049BB4B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		E874950B285A903A0049BB4B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		E88C6751289593D30041C9F1 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		E88C67532895940A0041C9F1 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		E89E4EE2285FD45900FD61C0 /* sayar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sayar.entitlements; sourceTree = "<group>"; };
 		E89E4EE3285FD46700FD61C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E89EB1AF2883889100259137 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		E89EB1B128838A7600259137 /* NotificationLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLView.swift; sourceTree = "<group>"; };
-		E89EB1B328838B9200259137 /* InfoOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoOverlayView.swift; sourceTree = "<group>"; };
-		E89EB1B528838C0500259137 /* CreateNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationView.swift; sourceTree = "<group>"; };
 		E8A37CAF287F50CD00C11F8F /* EditCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCar.swift; sourceTree = "<group>"; };
 		E8A37CB1287F526700C11F8F /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		E8B5B1F02888DD2100D6A825 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -198,7 +194,6 @@
 				020A13F0283D3671007C9ECE /* sayarApp.swift */,
 				020A13F2283D3671007C9ECE /* ContentView.swift */,
 				E8749509285A8BAE0049BB4B /* Demo.swift */,
-				E865C44728899FB8000AC3EA /* RemoveBackGround */,
 				E865C44528899F95000AC3EA /* OnBording */,
 				E8A37CB3287F575300C11F8F /* Car */,
 				E8F9785828876B21006B113B /* ImageAll */,
@@ -254,7 +249,6 @@
 		D8F6D1DC2859CDEC0007B9CB /* Add Pages */ = {
 			isa = PBXGroup;
 			children = (
-				D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */,
 				D8F6D1D02859C7FE0007B9CB /* AddTierView.swift */,
 				D8F6D1D22859C80F0007B9CB /* AddBatteryView.swift */,
 				D8F6D1CE2855FE670007B9CB /* AddFuelView.swift */,
@@ -265,10 +259,9 @@
 		D8F6D1DD2859DCA00007B9CB /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */,
-				D8F6D1DA2859CC6F0007B9CB /* OilView.swift */,
 				D8F6D1D62859CC530007B9CB /* TiresView.swift */,
 				D8F6D1D82859CC5E0007B9CB /* BatteryView.swift */,
+				D8F6D1DA2859CC6F0007B9CB /* OilView.swift */,
 				D8F6D1D42859CC440007B9CB /* FuelView.swift */,
 			);
 			path = Pages;
@@ -353,18 +346,10 @@
 			path = OnBording;
 			sourceTree = "<group>";
 		};
-		E865C44728899FB8000AC3EA /* RemoveBackGround */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RemoveBackGround;
-			sourceTree = "<group>";
-		};
 		E874950E285A90AA0049BB4B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D8E4154328607193006FDC58 /* FuelViewModel.swift */,
-				D8E4154828632723006FDC58 /* OilViewModel.swift */,
 				D8E4154A28632737006FDC58 /* BatteryViewModel.swift */,
 				D8E4154C2863279F006FDC58 /* TiresViewModel.swift */,
 			);
@@ -374,10 +359,11 @@
 		E89EB1AE2883887900259137 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				E89EB1AF2883889100259137 /* NotificationManager.swift */,
-				E89EB1B128838A7600259137 /* NotificationLView.swift */,
-				E89EB1B328838B9200259137 /* InfoOverlayView.swift */,
-				E89EB1B528838C0500259137 /* CreateNotificationView.swift */,
+				E88C6751289593D30041C9F1 /* Notifications.swift */,
+				E8D1EC3328476FFD0035C5B3 /* HomeCarViewModel.swift */,
+				D8E4154828632723006FDC58 /* OilViewModel.swift */,
+				E88C67532895940A0041C9F1 /* NotificationsView.swift */,
+				D82EA9F8284F32E9000F7DF5 /* AddOilView.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -511,10 +497,8 @@
 				E8305CB5286C6BA6006505CF /* ImagePicker.swift in Sources */,
 				D8F6D1E3285AFF5E0007B9CB /* Battery.swift in Sources */,
 				D8F6D1D92859CC5E0007B9CB /* BatteryView.swift in Sources */,
-				E89EB1B628838C0500259137 /* CreateNotificationView.swift in Sources */,
 				D8F6D1DF2859F4AC0007B9CB /* Fuel.swift in Sources */,
 				E874950A285A8BAF0049BB4B /* Demo.swift in Sources */,
-				E89EB1B02883889100259137 /* NotificationManager.swift in Sources */,
 				02DFCAAC2885AAB6009DE7BE /* ReportsViewModel.swift in Sources */,
 				D8F6D1DB2859CC6F0007B9CB /* OilView.swift in Sources */,
 				D8F6D1D72859CC530007B9CB /* TiresView.swift in Sources */,
@@ -526,6 +510,7 @@
 				E8A37CB0287F50CD00C11F8F /* EditCar.swift in Sources */,
 				E8B5B1F12888DD2100D6A825 /* LoadingView.swift in Sources */,
 				F0B7B0342857448200D5E018 /* MyGarageH.swift in Sources */,
+				E88C67542895940A0041C9F1 /* NotificationsView.swift in Sources */,
 				6F185A2D286B194A003E2088 /* HelpView.swift in Sources */,
 				E8305CBC286C6D39006505CF /* ContentImage.swift in Sources */,
 				E865C4492889A055000AC3EA /* Intro.swift in Sources */,
@@ -548,6 +533,7 @@
 				E8D1EC382847792D0035C5B3 /* AccountViewModel.swift in Sources */,
 				020A13F1283D3671007C9ECE /* sayarApp.swift in Sources */,
 				E8B5B1F52888FBB900D6A825 /* AccountVM.swift in Sources */,
+				E88C6752289593D30041C9F1 /* Notifications.swift in Sources */,
 				02DFCAA42885AA30009DE7BE /* ReportsView.swift in Sources */,
 				E836B57A285F837A00C5700B /* AuthViewModel.swift in Sources */,
 				E8C89AF8288BB57700539375 /* BordingView.swift in Sources */,
@@ -557,8 +543,6 @@
 				E8305CBE286C6D60006505CF /* ViewModel.swift in Sources */,
 				02DFCAAA2885AA75009DE7BE /* PieSliceSwiftView.swift in Sources */,
 				D8E4154928632723006FDC58 /* OilViewModel.swift in Sources */,
-				E89EB1B428838B9200259137 /* InfoOverlayView.swift in Sources */,
-				E89EB1B228838A7600259137 /* NotificationLView.swift in Sources */,
 				D8E4154B28632737006FDC58 /* BatteryViewModel.swift in Sources */,
 				02DFCAA82885AA6D009DE7BE /* PieChartSwiftView.swift in Sources */,
 				E874950C285A903A0049BB4B /* Car.swift in Sources */,

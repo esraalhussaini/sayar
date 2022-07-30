@@ -172,6 +172,18 @@ struct AddOilView: View {
             Button(action : {
                 vm.uploadOil{}
                isPresented.toggle()
+                
+                
+//                
+//
+//                notify.sendNotification(
+//                    date:selectedDate,
+//                    type: "date",
+//                    title: "Date based notification",
+//                    body: "This notification is a reminder that you added a date. Tap on the notification to see more.")
+                
+                
+                
             }, label: {
                 Text("Add")
                     .accentColor(.blue)

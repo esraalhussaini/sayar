@@ -11,7 +11,7 @@ enum FocusTextFuel {
 }
 struct AddFuelView: View {
     //Notification
-    @StateObject private var notificationManager = NotificationManager()
+
     //--------
     @State private var isShowingDialog = false
 //   @StateObject var vm = FuelViewModel()
