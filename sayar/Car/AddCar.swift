@@ -58,8 +58,13 @@ struct AddCar: View {
                                     vImage.source = .camera
                                     vImage.showPhotoPicker()
                                 } label: {
+                                    HStack{
+                                        Image(systemName: "camera")
                                     Text(LocalizedStringKey("Camera"))
+                                    }
                                 }
+                                Spacer()
+                                
                                 Button {
                                   
                                     vImage.source = .library
@@ -139,7 +144,7 @@ struct AddCar: View {
 //                    .ignoresSafeArea()
 //                }
 
-                .navigationBarTitle(LocalizedStringKey("Addcar"), displayMode: .inline)
+                .navigationBarTitle(LocalizedStringKey("Add Car"), displayMode: .inline)
           .navigationBarItems(leading:leading   ,trailing: trailing)
                
                     
@@ -227,7 +232,13 @@ struct AddCar: View {
 
    
 
-
+//struct AddCar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddCar()
+//            .environmentObject(ViewModel())
+//
+//    }
+//}
 
 
 

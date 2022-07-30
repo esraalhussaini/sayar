@@ -588,5 +588,7 @@ VStack(alignment: .center){
 struct HomeCarViewModel_Previews: PreviewProvider {
   static var previews: some View {
       HomeCarViewModel()
+//          .environmentObject(AddCarViewModel())
+
   }
 }

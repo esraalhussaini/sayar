@@ -140,6 +140,8 @@ Spacer()
                             Text(LocalizedStringKey("text34"))
                                 .bold()
                             Text(LocalizedStringKey("text35"))
+                            Text(LocalizedStringKey("text36"))
+                                .bold()
                         }
                             }
                     

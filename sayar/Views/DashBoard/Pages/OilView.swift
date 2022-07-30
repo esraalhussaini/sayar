@@ -20,7 +20,7 @@ struct OilView: View {
                 ForEach(vm.oil){ oil in
                     HStack{
                         VStack(alignment: .leading, spacing: 10){
-                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double: oil.cost))SAR")).fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double: oil.cost))  SAR")).fontWeight(.heavy)
                                 .foregroundColor(.black)
 //                                .swipeActions{Button("Delete"){ print("Deleted")} .tint(.red) }
 //                            AuthViewModel.shared.formateNumber(double: oil.cost)
@@ -35,7 +35,7 @@ struct OilView: View {
                         Text("\(AuthViewModel.shared.formatedDate(date:oil.date))")
                             .font(.caption)
                             .foregroundColor(.gray)
-                            .offset(y: -30)
+                            .offset(y: 18)
                         
                       
                             
@@ -142,6 +142,8 @@ var plusBottonOil: some View {
 struct OilView_Previews: PreviewProvider {
     static var previews: some View {
         OilView()
+            .environmentObject(OilViewModel())
+
     }
 }
 

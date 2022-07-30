@@ -20,7 +20,7 @@ struct FuelView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:fuel.cost)) SAR")).fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:fuel.cost))    SAR")).fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text(LocalizedStringKey("\(fuel.km) KM"))
                             .font(.caption)
@@ -31,7 +31,7 @@ struct FuelView: View {
                     Text("\(AuthViewModel.shared.formatedDate(date: fuel.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .offset(y: -30)
+                        .offset(y: 18)
                     
                     
                     
@@ -71,6 +71,7 @@ plusBottonOil
 }
 
 
+.listStyle(.plain)
 
 
 
@@ -177,8 +178,8 @@ var plusBottonOil: some View {
 struct FuelView_Previews: PreviewProvider {
     static var previews: some View {
         FuelView()
-        
-        
+            .environmentObject(FuelViewModel())
+
     }
 }
 

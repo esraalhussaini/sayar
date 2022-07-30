@@ -25,7 +25,7 @@ struct BatteryView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:battery.cost))SAR")).fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:battery.cost)) SAR")).fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text(LocalizedStringKey("\(battery.km)KM"))
                             .font(.caption)
@@ -36,7 +36,7 @@ struct BatteryView: View {
                     Text("\(AuthViewModel.shared.formatedDate(date:battery.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .offset(y: -30)
+                        .offset(y: 18)
                     
                     
                     
@@ -73,6 +73,7 @@ plusBottonOil
 }
 
 
+.listStyle(.plain)
 
 
 
@@ -176,5 +177,7 @@ var plusBottonOil: some View {
 struct BatteryView_Previews: PreviewProvider {
     static var previews: some View {
         BatteryView()
+            .environmentObject(BatteryViewModel())
+
     }
 }

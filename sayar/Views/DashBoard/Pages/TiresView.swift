@@ -26,7 +26,7 @@ struct TiresView: View {
                     VStack(alignment: .leading, spacing: 10){
                         
                         
-                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:tires.cost))SAR")).fontWeight(.heavy)
+                        Text(LocalizedStringKey("\(AuthViewModel.shared.formateNumber(double:tires.cost))  SAR")).fontWeight(.heavy)
                             .foregroundColor(.black)
                         Text(LocalizedStringKey("\(tires.km)KM"))
                             .font(.caption)
@@ -37,7 +37,7 @@ struct TiresView: View {
                     Text("\(AuthViewModel.shared.formatedDate(date:tires.date))")
                         .font(.caption)
                         .foregroundColor(.gray)
-                        .offset(y: -30)
+                        .offset(y: 18)
                     
                     
                     
@@ -74,6 +74,7 @@ plusBottonOil
 }
 
 
+.listStyle(.plain)
 
 
 
@@ -145,5 +146,7 @@ var plusBottonOil: some View {
 struct TiersView_Previews: PreviewProvider {
     static var previews: some View {
         TiresView()
+            .environmentObject(TiresViewModel())
+
     }
 }

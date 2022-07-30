@@ -139,7 +139,8 @@ struct AccountViewModel: View {
                                     if currentUser == nil || currentUser?.isAnonymous == true {
 //                                        Image("Group 1724")
                                         Text(LocalizedStringKey("Login"))
-                                            .foregroundColor(.blue)
+                                            .accentColor(.blue)
+//                                            .foregroundColor(.blue)
                                     }else{
                                     Image("Group 1724")
                                     Text(LocalizedStringKey("SignOut"))
@@ -172,5 +173,7 @@ struct AccountViewModel: View {
 struct AccountViewModel_Previews: PreviewProvider {
     static var previews: some View {
         AccountViewModel(onSignout: {})
+            .environmentObject(AuthViewModel())
+
     }
 }

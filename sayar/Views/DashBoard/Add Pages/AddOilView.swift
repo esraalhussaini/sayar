@@ -183,4 +183,10 @@ struct AddOilView: View {
         }//VarBody3
 }//StructView
 
- 
+//struct AddOilView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddOilView()
+////
+//
+//    }
+//}
